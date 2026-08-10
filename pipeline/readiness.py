@@ -14,6 +14,8 @@ from __future__ import annotations
 import argparse
 import json
 import os
+
+from dotenv import load_dotenv
 import sys
 from pathlib import Path
 
@@ -132,6 +134,9 @@ def check(slots: int, sources: Sources | None = None) -> tuple[list[str], list[s
             f"{len(stale)} hechos sin `review_by`: nada avisa cuándo caducan")
 
     return blockers, warnings, {"have": have, "need": need}
+
+
+load_dotenv()
 
 
 def main() -> None:
