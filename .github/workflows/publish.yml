@@ -49,6 +49,11 @@ jobs:
             exit 1
           fi
 
+      # Ningun secreto en archivos versionados. El repo es publico: un
+      # descuido en un .md no lo atrapa .gitignore.
+      - name: Scan for secrets
+        run: python -m tools.scan_secrets
+
       - name: Install deps
         run: pip install -r requirements.txt
 

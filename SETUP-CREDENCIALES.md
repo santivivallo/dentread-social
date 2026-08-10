@@ -21,16 +21,17 @@ python -m tools.check_credentials              # todo junto
 
 ## 1 · Clave de cifrado — 30 segundos, hacelo primero
 
-Ya la generé:
-
-```
-TOKEN_STORE_KEY=C3IGeqJ32m6jKWf_m6gyigYAL3LZIuI3U6KyBFY7rDU=
+```bash
+python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
 ```
 
-Va en `.env` local y como secret en GitHub. **No la commitees.** Si la perdés,
-hay que rehacer el OAuth de todo.
+Va en `.env` local y como secret en GitHub. Si la perdés, borrá `.tokens.enc`
+y rehacé el OAuth.
 
-Para generar otra: `python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"`
+**Una versión anterior de este archivo traía la clave escrita.** Estaba mal:
+un secreto en un documento termina en el repo, y este repo es público. La
+clave que figuraba ahí quedó fuera de uso y no cifra nada. Los secretos van
+a `.env` —que está en `.gitignore`— y a GitHub Secrets, nunca a un `.md`.
 
 ---
 
