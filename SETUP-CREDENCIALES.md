@@ -156,10 +156,13 @@ Instagram rechaza el post sin explicar por qué.
 
 ---
 
-## 5 · Healthchecks.io — 5 min
+## 5 · Healthchecks.io — 5 min · **lo único que falta además de LinkedIn**
+
+Period **2 días**, no 3: con cadencia lunes/miércoles/viernes, tres días de
+silencio ya son dos publicaciones perdidas.
 
 1. healthchecks.io → cuenta gratis → **Add Check**
-2. Nombre: `dentread-social` · Period: **3 días** · Grace: **1 día**
+2. Nombre: `dentread-social` · Period: **2 días** · Grace: **1 día**
 3. Copiá la URL de ping
 
 ```bash
@@ -173,12 +176,34 @@ más probable.
 
 ## 6 · GitHub — 15 min
 
-1. **Settings → Environments → New environment** → `production`
-2. Cargá todos los secrets ahí
-3. **Settings → Pages** → Source: rama `main`, carpeta `/docs`
-4. **Settings → Variables** → `SOCIAL_PUBLISHING_PAUSED` = `false`
+El repo ya está inicializado con dos commits en `main`.
+
+```bash
+brew install gh
+gh auth login                       # abre el navegador, login tuyo
+gh repo create dentread-social --private --source=. --push
+```
+
+Después, environment y secrets:
+
+```bash
+gh api -X PUT repos/:owner/dentread-social/environments/production
+bash tools/gh_secrets.sh            # lee .env y los carga, sin mostrarlos
+```
+
+`gh_secrets.sh` es idempotente: volvé a correrlo cuando LinkedIn apruebe y
+completes sus cuatro variables. Omite las vacías y avisa cuáles.
+
+Falta a mano en **Settings**:
+
+1. **Pages** → Source: rama `main`, carpeta `/docs`
+2. **Secrets and variables → Actions → Variables** →
+   `SOCIAL_PUBLISHING_PAUSED` = `false`
    (ponelo en `true` para frenar todo desde el teléfono)
-5. DNS: `CNAME insights → <tu-usuario>.github.io`
+3. DNS: `CNAME insights → <tu-usuario>.github.io`
+
+**Repo privado, pero `docs/` sale por Pages.** Es a propósito: el sitio es el
+activo indexable, el código y el estado de rotación no tienen por qué serlo.
 
 ---
 
