@@ -1,0 +1,130 @@
+name: publish
+
+permissions:
+  contents: write        # necesario solo para publicar docs/ en Pages
+  pages: write
+  id-token: write
+
+concurrency:
+  group: social-publish
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+    inputs:
+      folder:
+        description: "Carpeta existente (vacío = generar una nueva)"
+        required: false
+      dry_run:
+        type: boolean
+        default: true
+  schedule:
+    # Lun, Mie y Vie 09:00 ET (13:00 UTC en horario de verano).
+    # Tres por semana es la cadencia objetivo; el techo
+    # estructural es 3,33/sem, asi que va justo pero entra.
+    - cron: "0 13 * * 1,3,5"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+
+    steps:
+      # Pinear por SHA antes de usar en serio: gh api repos/actions/checkout/commits/v4 --jq .sha
+      - uses: actions/checkout@v4          # TODO: pinear por SHA
+        with:
+          persist-credentials: true
+
+      - uses: actions/setup-python@v5      # TODO: pinear por SHA
+        with:
+          python-version: "3.12"
+
+      - name: Kill switch
+        env:
+          PAUSED: ${{ vars.SOCIAL_PUBLISHING_PAUSED }}
+        run: |
+          if [ "$PAUSED" = "true" ]; then
+            echo "::warning::Pausado por SOCIAL_PUBLISHING_PAUSED"
+            exit 1
+          fi
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      # El renderer es HTML -> Playwright (brand/SKILL.md: "no reconstruyas
+      # el motor"). Chromium pesa ~150 MB; --with-deps trae las librerias de
+      # sistema que faltan en el runner.
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+
+      - name: Generate
+        if: ${{ !inputs.folder }}
+        run: python -m pipeline.run --slots 1
+
+      # Verificable · breve · con inventario · con activo indexable.
+      # Si algo falla, no se publica.
+      - name: Verify
+        run: python -m pipeline.verify --strict
+
+      - name: Resolve folder
+        id: pick
+        run: |
+          if [ -n "${{ inputs.folder }}" ]; then
+            echo "dir=${{ inputs.folder }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "dir=$(ls -d out/*/ | tail -1)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/cache@v4             # TODO: pinear por SHA
+        with:
+          path: .tokens.enc
+          key: social-tokens-${{ github.run_id }}
+          restore-keys: social-tokens-
+
+      - name: Publish
+        env:
+          TOKEN_STORE_KEY: ${{ secrets.TOKEN_STORE_KEY }}
+          HEALTHCHECK_URL: ${{ secrets.HEALTHCHECK_URL }}
+          META_APP_ID: ${{ secrets.META_APP_ID }}
+          META_APP_SECRET: ${{ secrets.META_APP_SECRET }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
+          LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_REFRESH_TOKEN: ${{ secrets.LINKEDIN_REFRESH_TOKEN }}
+          LINKEDIN_ORG_URN: ${{ secrets.LINKEDIN_ORG_URN }}
+          S3_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
+          S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          S3_PUBLIC_BASE: ${{ secrets.S3_PUBLIC_BASE }}
+        run: |
+          python publish.py "${{ steps.pick.outputs.dir }}" \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      # El commit cumple dos funciones: persiste la rotación y las páginas,
+      # y mantiene el repo activo. GitHub desactiva los cron programados tras
+      # 60 días sin actividad — un modo de falla silencioso y real.
+      - name: Commit state and pages
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name "dentread-bot"
+          git config user.email "bot@dentread.app"
+          # -f porque out/ esta en .gitignore: el registro de publicacion
+          # SI tiene que persistir, o un re-run despues de una falla
+          # parcial volveria a postear en la plataforma que ya salio.
+          git add data/rotation.json docs || true
+          git add -f out/*/published.json || true
+          git diff --staged --quiet || git commit -m "content: $(date +%F)"
+          git push
+
+      - uses: actions/upload-artifact@v4   # TODO: pinear por SHA
+        if: always()
+        with:
+          name: run-log-${{ github.run_id }}
+          path: |
+            out/**/published.json
+            data/rotation.json
+          retention-days: 90

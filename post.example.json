@@ -1,0 +1,15 @@
+{
+  "slug": "seguimiento-post-diagnostico",
+
+  "_declaraciones": "Cada campo en true satisface una regla REVIEW del guard. Poner true sin la evidencia detrás vacía el propósito del filtro.",
+  "has_source": true,
+  "model_metrics_documented": false,
+  "imagery_cleared": false,
+  "pilots_verified": false,
+
+  "caption_es": "Casi la mitad de los planes de tratamiento aceptados nunca se completan.\n\nNo es un problema de lectura. Es lo que pasa entre el sillón y el mesón de recepción.\n\nEn el carrusel: dónde se abre esa brecha y qué la cierra, según 57 profesionales dentales que entrevistamos.\n\n¿Cómo lo manejan en tu clínica? Te leo abajo.\n\nFuente: Dental Intelligence Practice Benchmarks.\n\n#odontologia #DSO #gestiondental #tecnologiadental",
+
+  "commentary_en": "Nearly half of accepted treatment plans are never completed.\n\nThat is not a reading problem. It opens between the chair and the front desk — and most practices have no system that owns it.\n\nWe interviewed 57 dental professionals about where the gap opens and what closes it. The five slides below are what we heard.\n\nCurious how emerging DSOs are handling this today. Comments open.\n\nSource: Dental Intelligence Practice Benchmarks.",
+
+  "title_en": "The follow-up gap in dental treatment acceptance"
+}

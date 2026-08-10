@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://insights.dentread.app/sitemap.xml

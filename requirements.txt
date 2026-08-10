@@ -1,0 +1,6 @@
+requests>=2.32
+boto3>=1.34
+Pillow>=10.3
+python-dotenv>=1.0
+cryptography>=42.0
+playwright>=1.44

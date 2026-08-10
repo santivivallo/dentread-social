@@ -1,0 +1,118 @@
+{
+  "_README": "Fuentes autorizadas, por nivel de evidencia. La autorización depende de la calidad de la fuente y del tipo de afirmación, no de una lista fija. Para agregar una: definir su tier y qué tipo de claim puede sostener. Un tier no habilita cualquier claim — ver claims_policy.md.",
+
+  "tiers": {
+    "regulatory": {
+      "descripcion": "Organismos con autoridad regulatoria o normativa. Lo que dicen ES el estado del arte legal.",
+      "puede_sostener": ["regulatory", "capability", "context"],
+      "peso": 1.0
+    },
+    "primary_research": {
+      "descripcion": "Investigación original revisada por pares y revisiones sistemáticas.",
+      "puede_sostener": ["performance", "outcome", "context", "capability"],
+      "peso": 1.0
+    },
+    "institutional_data": {
+      "descripcion": "Datos poblacionales y de política de organismos e institutos.",
+      "puede_sostener": ["context", "outcome"],
+      "peso": 1.0
+    },
+    "professional_body": {
+      "descripcion": "Asociaciones profesionales y cuerpos de estándares. Postura de la profesión.",
+      "puede_sostener": ["context", "capability", "regulatory"],
+      "peso": 0.9
+    },
+    "academic": {
+      "descripcion": "Universidades y centros de investigación.",
+      "puede_sostener": ["context", "performance", "capability"],
+      "peso": 0.9
+    },
+    "consultancy": {
+      "descripcion": "Consultoras y market research. Metodología no pública, varía entre firmas.",
+      "puede_sostener": ["context"],
+      "peso": 0.7,
+      "cautela": "Orden de magnitud, nunca cifra exacta."
+    },
+    "trade_press": {
+      "descripcion": "Prensa especializada del sector.",
+      "puede_sostener": ["context"],
+      "peso": 0.6,
+      "cautela": "Verificar contra la fuente primaria que cita."
+    },
+    "vendor": {
+      "descripcion": "Material de quien vende una solución, incluidos competidores.",
+      "puede_sostener": ["context"],
+      "peso": 0.4,
+      "cautela": "Señal de mercado, nunca evidencia. Citar con el nombre del proveedor a la vista."
+    },
+    "dentread_internal": {
+      "descripcion": "Datos propios de DentRead, aprobados internamente.",
+      "puede_sostener": ["performance", "outcome", "capability"],
+      "peso": 1.0,
+      "cautela": "Declarar explícitamente que es dato propio y mostrar el método."
+    }
+  },
+
+  "sources": [
+    {"id": "fda", "name": "U.S. Food and Drug Administration", "tier": "regulatory", "region": "US"},
+    {"id": "cms", "name": "Centers for Medicare & Medicaid Services", "tier": "regulatory", "region": "US"},
+    {"id": "ema", "name": "European Medicines Agency", "tier": "regulatory", "region": "EU"},
+    {"id": "mdr-eu", "name": "EU Medical Device Regulation", "tier": "regulatory", "region": "EU"},
+    {"id": "isp-chile", "name": "Instituto de Salud Pública de Chile", "tier": "regulatory", "region": "CL"},
+    {"id": "anmat", "name": "ANMAT", "tier": "regulatory", "region": "AR"},
+    {"id": "cofepris", "name": "COFEPRIS", "tier": "regulatory", "region": "MX"},
+
+    {"id": "pubmed", "name": "PubMed / MEDLINE", "tier": "primary_research", "api": "eutils"},
+    {"id": "cochrane", "name": "Cochrane Library", "tier": "primary_research"},
+    {"id": "jada", "name": "Journal of the American Dental Association", "tier": "primary_research"},
+    {"id": "jdr", "name": "Journal of Dental Research", "tier": "primary_research"},
+    {"id": "jdent", "name": "Journal of Dentistry", "tier": "primary_research"},
+    {"id": "int-dent-j", "name": "International Dental Journal", "tier": "primary_research"},
+    {"id": "cdoe", "name": "Community Dentistry and Oral Epidemiology", "tier": "primary_research"},
+    {"id": "bmc-oral", "name": "BMC Oral Health", "tier": "primary_research"},
+    {"id": "clin-oral-investig", "name": "Clinical Oral Investigations", "tier": "primary_research"},
+    {"id": "jdr-ctr", "name": "JDR Clinical & Translational Research", "tier": "primary_research"},
+    {"id": "dentomaxillofac-radiol", "name": "Dentomaxillofacial Radiology", "tier": "primary_research"},
+    {"id": "j-public-health-dent", "name": "Journal of Public Health Dentistry", "tier": "primary_research"},
+    {"id": "health-affairs", "name": "Health Affairs", "tier": "primary_research"},
+
+    {"id": "who", "name": "World Health Organization", "tier": "institutional_data", "region": "global"},
+    {"id": "cdc", "name": "Centers for Disease Control and Prevention", "tier": "institutional_data", "region": "US"},
+    {"id": "nih", "name": "National Institutes of Health", "tier": "institutional_data", "region": "US"},
+    {"id": "nidcr", "name": "National Institute of Dental and Craniofacial Research", "tier": "institutional_data", "region": "US"},
+    {"id": "ada-hpi", "name": "ADA Health Policy Institute", "tier": "institutional_data", "region": "US"},
+    {"id": "carequest", "name": "CareQuest Institute for Oral Health", "tier": "institutional_data", "region": "US"},
+    {"id": "macpac", "name": "MACPAC", "tier": "institutional_data", "region": "US"},
+    {"id": "meps", "name": "Medical Expenditure Panel Survey", "tier": "institutional_data", "region": "US"},
+    {"id": "nhis", "name": "National Health Interview Survey", "tier": "institutional_data", "region": "US"},
+    {"id": "minsal-cl", "name": "Ministerio de Salud de Chile", "tier": "institutional_data", "region": "CL"},
+    {"id": "ops", "name": "Organización Panamericana de la Salud", "tier": "institutional_data", "region": "LATAM"},
+
+    {"id": "ada", "name": "American Dental Association", "tier": "professional_body", "region": "US"},
+    {"id": "ada-scdi", "name": "ADA Standards Committee on Dental Informatics", "tier": "professional_body"},
+    {"id": "fdi", "name": "FDI World Dental Federation", "tier": "professional_body", "region": "global"},
+    {"id": "iadr", "name": "International Association for Dental Research", "tier": "professional_body"},
+    {"id": "aadocr", "name": "American Association for Dental, Oral, and Craniofacial Research", "tier": "professional_body"},
+    {"id": "aaphd", "name": "American Association of Public Health Dentistry", "tier": "professional_body"},
+    {"id": "astdd", "name": "Association of State and Territorial Dental Directors", "tier": "professional_body"},
+    {"id": "nnoha", "name": "National Network for Oral Health Access", "tier": "professional_body"},
+    {"id": "aaomr", "name": "American Academy of Oral and Maxillofacial Radiology", "tier": "professional_body"},
+    {"id": "colegio-dentistas-cl", "name": "Colegio de Cirujano Dentistas de Chile", "tier": "professional_body", "region": "CL"},
+
+    {"id": "universities", "name": "Publicaciones universitarias e informes de facultades", "tier": "academic"},
+    {"id": "udd", "name": "Universidad del Desarrollo", "tier": "academic", "region": "CL"},
+
+    {"id": "lek", "name": "L.E.K. Consulting", "tier": "consultancy"},
+    {"id": "mckinsey", "name": "McKinsey & Company", "tier": "consultancy"},
+    {"id": "grand-view", "name": "Grand View Research", "tier": "consultancy"},
+
+    {"id": "beckers-dental", "name": "Becker's Dental + DSO Review", "tier": "trade_press"},
+    {"id": "ada-news", "name": "ADA News", "tier": "trade_press", "nota": "Prensa de la ADA; para datos, ir al informe primario que cita"},
+
+    {"id": "planet-dds", "name": "Planet DDS", "tier": "vendor"},
+    {"id": "pearl", "name": "Pearl AI", "tier": "vendor", "nota": "competidor directo"},
+    {"id": "overjet", "name": "Overjet", "tier": "vendor", "nota": "competidor directo"},
+
+    {"id": "dentread", "name": "DentRead (datos propios)", "tier": "dentread_internal", "nota": "Requiere aprobación interna y declaración de método"}
+  ]
+}
