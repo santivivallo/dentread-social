@@ -149,11 +149,6 @@ Sube un archivo, **comprueba que la URL pública responda** y lo borra. Ese
 segundo paso es el que importa: si el objeto existe pero la URL no funciona,
 Instagram rechaza el post sin explicar por qué.
 
-**Verificá:** `python -m tools.check_credentials --only bucket`
-Sube un archivo, **comprueba que la URL pública responda** y lo borra. Ese
-segundo paso es el que importa: si el objeto existe pero la URL no funciona,
-Instagram rechaza el post sin explicar por qué.
-
 ---
 
 ## 5 · Healthchecks.io — 5 min · **lo único que falta además de LinkedIn**
