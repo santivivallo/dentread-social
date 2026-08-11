@@ -112,7 +112,17 @@ jobs:
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
           S3_PUBLIC_BASE: ${{ secrets.S3_PUBLIC_BASE }}
         run: |
-          python publish.py "${{ steps.pick.outputs.dir }}" \
+          # LinkedIn queda fuera mientras no este aprobado el Dev Tier de
+          # Community Management. Sin esto el publicador postea en Instagram
+          # y despues falla en LinkedIn: la corrida figura en rojo, el paso
+          # de commit no corre y el estado de rotacion no se guarda, asi que
+          # la corrida siguiente republica lo mismo.
+          ONLY=""
+          if [ -z "${LINKEDIN_ACCESS_TOKEN}" ]; then
+            ONLY="--only instagram"
+            echo "::notice::LinkedIn sin credenciales; se publica solo en Instagram"
+          fi
+          python publish.py "${{ steps.pick.outputs.dir }}" $ONLY \
             ${{ inputs.dry_run && '--dry-run' || '' }}
 
       # El commit cumple dos funciones: persiste la rotación y las páginas,
