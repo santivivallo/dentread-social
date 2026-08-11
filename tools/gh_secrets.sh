@@ -31,7 +31,10 @@ for key in "${KEYS[@]}"; do
     skipped=$((skipped + 1))
     continue
   fi
-  printf '%s' "$value" | gh secret set "$key" --env "$ENV_NAME" --body -
+  # Sin --body: gh lee el valor de stdin. `--body -` NO significa "leé de
+  # stdin", significa que el valor es el carácter "-", y así quedaron los 12
+  # secrets en la primera carga. El síntoma fue un `org_urn inválido` en CI.
+  printf '%s' "$value" | gh secret set "$key" --env "$ENV_NAME"
   printf '  ✓  %-24s cargado\n' "$key"
   loaded=$((loaded + 1))
 done
@@ -39,4 +42,14 @@ done
 echo
 echo "$loaded cargados, $skipped omitidos, en el environment '$ENV_NAME'."
 [ "$skipped" -gt 0 ] && echo "Volvé a correr esto cuando completes los que faltan."
+
+# Verificación: los secrets no se pueden leer de vuelta (para eso son
+# secrets), pero sí se puede confirmar que existan y cuándo se actualizaron.
+# Que el nombre exista no prueba que el valor sea el correcto; para eso está
+# el dry-run del workflow, que es donde se detectó el `-`.
+echo
+echo "Cargados en GitHub ahora mismo:"
+gh secret list --env "$ENV_NAME" 2>/dev/null || true
+echo
+echo "Comprobalo de punta a punta:  gh workflow run publish.yml -f dry_run=true"
 exit 0
