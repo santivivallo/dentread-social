@@ -216,9 +216,10 @@ def _generate_evergreen(post: Post) -> PostSpec:
         + (f"\n\nContext: {sources}." if sources else "")
     )
 
+    assert len(slides) == N_SLIDES, f"evergreen armó {len(slides)} frames"
     return PostSpec(
         slug=slugify(post.id),
-        slides=slides[:MAX_SLIDES],
+        slides=slides,
         caption_es=caption_es.strip(),
         commentary_en=commentary_en.strip(),
         title_en=post.title,

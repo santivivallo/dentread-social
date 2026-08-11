@@ -63,6 +63,12 @@ jobs:
       - name: Install Chromium
         run: python -m playwright install --with-deps chromium
 
+      # Genera los 27 posts posibles en memoria y valida forma y caption.
+      # Barato (<1 s) y atrapa justo lo que rompio la primera corrida real:
+      # un camino que nadie probo a mano.
+      - name: Test generation
+        run: python -m tests.test_generate
+
       - name: Generate
         if: ${{ !inputs.folder }}
         run: python -m pipeline.run --slots 1
