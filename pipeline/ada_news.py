@@ -207,7 +207,10 @@ def score(article: Article) -> Article:
 # única forma de darse cuenta de que el scorer está mal calibrado.
 
 ARCHIVE = Path("data/ada_archive.json")
-BASE_PAGES = 2
+# Arranca hondo a propósito: 2026 completo cabe en unas 3 páginas y no tiene
+# sentido descubrirlo de a una página por corrida cuando el stock del año es
+# justamente lo que sostiene la cadencia. Sigue creciendo hasta MAX_PAGES.
+BASE_PAGES = 4
 MAX_PAGES = 12
 PAGES_GROWTH_PER_RUN = 1
 

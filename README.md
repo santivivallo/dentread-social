@@ -60,8 +60,8 @@ Ojo: `carousel-design-system.md` de `carousel-kit Maker/` **no es de DentRead** 
 |---|---|---|
 | **Datos** | Hechos curados · 50+ fuentes autorizadas en `data/sources.json` | 0,75/semana |
 | **DentRead** | 15 bloques de mensajes en `data/evergreen.json` | 0,75/semana |
-| **ADA News** | Flujo semanal + stock de 2026 · solo 2026 | ~1/semana |
-| **Journals** | PubMed y BMC Oral Health en modo señalizador | ~0,5/semana |
+| **ADA News** | Flujo reciente **y** stock de 2026 (~75 publicables) | 1/semana |
+| **Journals** | PubMed y BMC Oral Health, 6 temas rotativos · solo 2026 | 0,5/semana |
 
 **Las cuatro fuentes van intercaladas, no en tandas.** `plan.CICLO` fija el orden
 `data · news · evergreen · paper · data · news`: seis ranuras, dos semanas a tres
@@ -161,13 +161,22 @@ Corren en CI antes de publicar. Si alguno falla, no se publica.
 
 ## Cadencia: 3 por semana, con margen
 
+En medio año a tres por semana (78 posts) el ciclo reparte así:
+
 ```
-techo garantizado (22 temas + 15 evergreen)   3,33 / semana
-flujo de ADA News en su p25                   1,00 / semana
-                                              ────────────
-                                              4,33 / semana
-más ~75 artículos de 2026 en stock ≈ 75 semanas de colchón
+data       26     22 temas ÷ 60 d de enfriamiento    tope 2,57/sem
+news       26     ~75 en stock 2026 + ~1,5/sem nuevo
+evergreen  13     15 bloques ÷ 120 d                 tope 0,88/sem
+paper      13     6 presets rotativos, solo 2026
 ```
+
+Las noticias y los papers **no consumen inventario editorial**, así que la
+restricción real es sólo la de datos y evergreen — y con el ciclo actual esas
+dos aportan 39 de los 78, muy por debajo de su techo.
+
+`ada_news.BASE_PAGES = 4` arranca hondo a propósito: 2026 completo cabe en unas
+tres páginas del listado, y descubrirlo de a una página por corrida
+desperdiciaba el stock que justamente sostiene la cadencia.
 
 `python -m pipeline.readiness --slots 3` da verde en inventario:
 21/19 hechos · 12/6 temas · 15/13 evergreen.

@@ -39,6 +39,14 @@ EVERGREEN_EVERY = 4
 # Con seis ranuras y tres posts por semana, el ciclo dura dos semanas.
 CICLO = ("data", "news", "evergreen", "paper", "data", "news")
 
+# Ventana editorial: noticias y literatura, solo de 2026. Un artículo de 2025
+# se lee como archivo y contradice que la cobertura crezca semana a semana.
+ANIO_MINIMO = 2026
+
+# Los papers rotan de tema entre corridas. Con un solo preset el sistema
+# volvía siempre sobre IA y dejaba fuera el resto de la tesis de mercado.
+PRESETS_PAPER = ("ia", "aceptacion", "acceso", "economia", "medicaid", "workforce")
+
 
 @dataclass
 class Post:
@@ -217,10 +225,16 @@ def _un_post(kind: str, state: dict, usados: set[str],
         return None
 
     if kind == "news":
+        # Dos pasadas. Primero lo reciente, que es lo que da actualidad; si no
+        # hay, el stock de 2026, que son ~75 artículos publicables. Tratar a
+        # ADA News como un goteo semanal desperdiciaba el año entero: la
+        # ventana de 21 días descartaba enero a julio.
         try:
             from pipeline import ada_news
             from pipeline.sources import post_from_article
-            for art in ada_news.latest_relevant(limit=3):
+            for art in ada_news.latest_relevant(limit=5):
+                return post_from_article(art)
+            for art in ada_news.backlog(year=2026, limit=40):
                 return post_from_article(art)
         except Exception as exc:                 # red, parseo, API
             print(f"   [info] ADA News no disponible ahora: "
@@ -228,11 +242,20 @@ def _un_post(kind: str, state: dict, usados: set[str],
         return None
 
     if kind == "paper":
+        # Se rota el preset por posición en el ciclo: buscar siempre "ia"
+        # devolvía los mismos estudios y dejaba fuera acceso, economía,
+        # aceptación de tratamiento y Medicaid, que son el resto de la tesis.
         try:
             from pipeline import journals
             from pipeline.sources import post_from_signpost
-            for sp in journals.find(preset="ia", years=1, n=6):
-                return post_from_signpost(sp)
+            n_prev = len(state.get("externos", {}))
+            orden = PRESETS_PAPER[n_prev % len(PRESETS_PAPER):] + \
+                    PRESETS_PAPER[:n_prev % len(PRESETS_PAPER)]
+            for preset in orden:
+                for sp in journals.find(preset=preset, years=1, n=10):
+                    if sp.year and int(sp.year) < ANIO_MINIMO:
+                        continue          # solo 2026, como el resto del flujo
+                    return post_from_signpost(sp)
         except Exception as exc:
             print(f"   [info] PubMed no disponible ahora: "
                   f"{exc.__class__.__name__}")
