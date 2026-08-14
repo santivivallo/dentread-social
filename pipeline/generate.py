@@ -45,6 +45,23 @@ CTAS_EN = [
 EMOJI = "🦷"
 HASHTAGS = "#odontologia #saluddental #gestiondental #DSO #IAdental"
 
+# Puentes para la segunda línea del caption. La regla del brand guide es que
+# el caption EXTIENDE el gancho, no lo resume: el lector ya leyó el frame 1,
+# repetírselo lo hace irse. Estos conectores obligan a que la línea siguiente
+# aporte algo, en vez de reformular. Rotan por hash del id.
+PUENTES_ES = (
+    "Lo que no se ve en la cifra:",
+    "El detalle que cambia la lectura:",
+    "Lo incómodo del dato:",
+    "Lo que suele pasarse por alto:",
+)
+PUENTES_EN = (
+    "What the number leaves out:",
+    "The detail that changes the reading:",
+    "The uncomfortable part:",
+    "What usually gets missed:",
+)
+
 
 def slugify(text: str) -> str:
     text = unicodedata.normalize("NFKD", text.lower())
@@ -143,22 +160,23 @@ def generate(post: Post) -> PostSpec:
               body="La IA apoya, el odontólogo decide."),
     ]
 
+    # El caption NO repite el gancho ni la cifra: los dos ya están en los
+    # frames 1 y 2. Arranca por la implicación —el cierre del post, que es
+    # lo único que el lector no vio todavía si no deslizó— y sigue con la
+    # lectura del dato. Antes reproducía el slide 1 palabra por palabra.
     caption_es = (
-        f"{hook}. {EMOJI}\n\n"
-        f"{f1['number']}: {_clip(f1['statement'], 150)}\n\n"
-        f"{_clip(rest, 190)}\n\n"
+        f"{post.close} {post.close_accent} {EMOJI}\n\n"
+        f"{PUENTES_ES[idx]} {_clip(rest, 200)}\n\n"
         f"{CTAS_ES[idx]}\n\n"
-        f"Cifras y fuentes en el carrusel. {sources}.\n\n"
+        f"Las dos cifras y sus fuentes, en el carrusel. {sources}.\n\n"
         f"{HASHTAGS}"
     )
 
     commentary_en = (
         f"{hook_en}.\n\n"
-        f"{f1.get('number_en', f1['number'])}: "
-        f"{_clip(f1.get('statement_en') or f1['statement'], 150)}\n\n"
-        f"{_clip(rest_en, 190)}\n\n"
+        f"{PUENTES_EN[idx]} {_clip(rest_en, 200)}\n\n"
         f"{CTAS_EN[idx]}\n\n"
-        f"Figures and sources in the carousel. {sources}."
+        f"Both figures and their sources are in the carousel. {sources}."
     )
 
     return PostSpec(
@@ -219,10 +237,11 @@ def _generate_evergreen(post: Post) -> PostSpec:
               body=_clip(post.body, 220)),
     ]
 
+    # Abre por el cierre, que es la idea que el lector no vio si no deslizó,
+    # y sigue con el mensaje matizado. El gancho ya está en el frame 1.
     caption_es = (
-        f"{hook}. {EMOJI}\n\n"
-        f"{_clip(extra, 190)}\n\n"
-        f"{_clip(post.body, 170)}\n\n"
+        f"{post.close} {post.close_accent} {EMOJI}\n\n"
+        f"{_clip(post.body or extra, 200)}\n\n"
         f"{CTAS_ES[idx]}{tail}\n\n"
         f"{HASHTAGS}"
     )
@@ -285,10 +304,10 @@ def _generate_externo(post: Post) -> PostSpec:
               body="La IA apoya, el odontólogo decide."),
     ]
 
+    # El titular ya es el frame 1: acá va la lectura, no el titular otra vez.
     caption_es = (
-        f"{_clip(post.angle, 150)} {EMOJI}\n\n"
+        f"{post.close} {post.close_accent} {EMOJI}\n\n"
         f"{post.body}\n\n"
-        f"{post.close} {post.close_accent}\n\n"
         f"{CTAS_ES[idx]}\n\n"
         f"Fuente: {etiqueta}. Enlace en el perfil.\n\n"
         f"{HASHTAGS}"
