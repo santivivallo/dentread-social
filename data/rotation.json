@@ -1,17 +1,20 @@
 {
  "themes": {
   "consolidacion-dso": "2026-08-10",
-  "costo-barrera": "2026-08-10"
+  "costo-barrera": "2026-08-10",
+  "utilizacion": "2026-08-14"
  },
  "facts": {
   "medicaid-dso-caida": "2026-08-10",
   "propietarios-caida": "2026-08-10",
   "sin-seguro-72m": "2026-08-10",
-  "dental-vs-medico": "2026-08-10"
+  "dental-vs-medico": "2026-08-10",
+  "intencion-vs-visita": "2026-08-14",
+  "utilizacion-seguro": "2026-08-14"
  },
  "evergreen": {
   "que-es-dentread": "2026-08-10",
   "ia-radiografias-dentales": "2026-08-12"
  },
- "count": 5
+ "count": 6
 }
