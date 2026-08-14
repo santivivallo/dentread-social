@@ -18,6 +18,7 @@ import sys
 
 from pipeline import plan
 from pipeline.generate import N_SLIDES, generate
+from pipeline.render_html import frames_for
 
 # Roles esperados por posición. El brand guide fija el orden: gancho, datos,
 # cierre. Si alguien reordena, esto falla antes que el renderer.
@@ -43,6 +44,20 @@ def _check(spec, kind: str) -> list[str]:
         errs.append(f"{kind}: falta el emoji dental en el caption")
     if "—" in spec.caption_es:
         errs.append(f"{kind}: em dash en el caption")
+
+    # Alternancia y densidad, sobre los frames ya compuestos.
+    #
+    # Los dos fallos que esto atrapa aparecieron publicados: los tres frames
+    # de un evergreen salieron oscuros porque el del medio caía en el rol
+    # `close` al no haber cifras, y ese mismo frame quedó con un título y
+    # nada más. Ninguna de las dos cosas rompe nada, por eso hay que medirlas.
+    frames = frames_for(spec)
+    patron = [f.dark for f in frames]
+    if patron != [True, False, True]:
+        errs.append(f"{kind}: alternancia {patron}, se esperaba oscuro/claro/oscuro")
+    medio = frames[1].body_html
+    if 'class="stats"' not in medio and 'class="points"' not in medio:
+        errs.append(f"{kind}: el frame 2 no tiene ni cifras ni puntos")
     return errs
 
 

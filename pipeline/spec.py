@@ -32,6 +32,10 @@ class Slide:
     kicker: str = ""
     stat: str = ""                   # cifra grande del hook
     stats: list[Stat] = field(default_factory=list)   # tarjetas del slide de datos
+    # Alternativa a `stats` cuando el post no tiene cifras: líneas de texto
+    # aprobado. Nueve de los quince bloques evergreen no traen datos, y sin
+    # esto su segundo frame salía con un título y nada más.
+    bullets: list[str] = field(default_factory=list)
     chain: str = ""                  # el ciclo DentRead, solo en el cierre
 
 

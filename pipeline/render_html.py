@@ -123,6 +123,13 @@ h1 .accent{{color:{accent};}}
  white-space:nowrap;}}
 .snum.cyan{{color:{accent};}}
 .slabel{{font-size:{S_LABEL}px;color:{muted};line-height:1.35;margin-top:20px;}}
+.points{{list-style:none;margin-top:56px;}}
+.points li{{font-size:{S_SUB}px;line-height:1.45;color:{fg};
+ padding:26px 0 26px 42px;border-bottom:1px solid {TINT if not dark else
+ 'rgba(154,167,180,.18)'};position:relative;}}
+.points li:last-child{{border-bottom:none;}}
+.points li::before{{content:"";position:absolute;left:0;top:38px;
+ width:22px;height:3px;border-radius:2px;background:{accent};}}
 .chain{{font-family:'Space Mono',monospace;font-size:{S_SRC}px;letter-spacing:2px;
  color:{accent};margin-top:40px;}}
 .src{{font-family:'Space Mono',monospace;font-size:{S_SRC}px;
@@ -219,11 +226,18 @@ def frames_for(spec) -> list[Frame]:
                 cards += (f'<div class="{cls}"><div class="{num}">'
                           f'{_esc(st.number)}</div>'
                           f'<div class="slabel">{_esc(st.label)}</div></div>')
+            middle = f'<div class="stats">{cards}</div>' if cards else ""
+
+            # Sin cifras, el frame se llena con las frases aprobadas del
+            # bloque. Antes quedaba un título solo en medio del lienzo.
+            if not middle and s.bullets:
+                items = "".join(f'<li>{_esc(b)}</li>' for b in s.bullets)
+                middle = f'<ul class="points">{items}</ul>'
+
             body = f'<p class="sub">{_esc(s.body)}</p>' if s.body else ""
             src = f'<div class="src">{_esc(s.source)}</div>' if s.source else ""
             out.append(Frame(s.kicker, False,
-                             f'<h1>{_br(s.headline)}</h1>'
-                             f'<div class="stats">{cards}</div>{body}{src}'))
+                             f'<h1>{_br(s.headline)}</h1>{middle}{body}{src}'))
 
         else:                                   # close
             head = _br(s.headline)

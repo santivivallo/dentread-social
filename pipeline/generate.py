@@ -189,12 +189,18 @@ def _generate_evergreen(post: Post) -> PostSpec:
     stats = [Stat(f["number"], _clip(f["statement"], 120), short_cite(f["cite"]))
              for f in post.facts[:2]]
 
+    # El frame del medio es SIEMPRE de rol `data`, tenga cifras o no. El rol
+    # decide el fondo, y antes un bloque sin cifras caía en `close`: los tres
+    # frames salían oscuros y se perdía la alternancia que pide el brand guide.
+    # Nueve de los quince bloques no traen cifras, así que era el caso normal,
+    # no el borde.
+    puntos = [m for m in post.messages if m][:3]
     slides = [
         Slide("hook", hook, kicker=post.family.replace("_", " "),
               body=_clip(extra, 150)),
-        Slide("data" if stats else "close", "Lo que hacemos",
-              kicker="DentRead", stats=stats,
-              body=_clip(post.messages[1] if len(post.messages) > 1 else extra, 240),
+        Slide("data", "Lo que hacemos", kicker="DentRead",
+              stats=stats, bullets=[] if stats else puntos,
+              body=_clip(post.body, 200) if stats else "",
               source=f"Fuentes: {sources}" if sources else ""),
         Slide("close", "La IA apoya.", accent="El odontólogo decide.",
               kicker="Cómo trabajamos", chain=CHAIN,
