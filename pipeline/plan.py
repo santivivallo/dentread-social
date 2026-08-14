@@ -33,6 +33,12 @@ COOLDOWN_EVERGREEN = 120
 # semanas a dos posts semanales. Más que eso y el canal se vuelve publicidad.
 EVERGREEN_EVERY = 4
 
+# Orden en que se intercalan las fuentes. No es "usar una hasta agotarla":
+# esperar a que un pozo se seque para abrir otro deja huecos justo cuando el
+# inventario está bajo, y hace que el feed se lea por tandas del mismo tipo.
+# Con seis ranuras y tres posts por semana, el ciclo dura dos semanas.
+CICLO = ("data", "news", "evergreen", "paper", "data", "news")
+
 
 @dataclass
 class Post:
@@ -50,8 +56,10 @@ class Post:
     # construirse sin depender de cifras.
     messages: list[str] = field(default_factory=list)
     messages_en: list[str] = field(default_factory=list)
-    close: str = ""                  # cierre propio del tema
+    close: str = ""                  # cierre propio del post
     close_accent: str = ""
+    source_url: str = ""             # noticia o paper: de dónde salió
+    source_label: str = ""
 
     def fact_ids(self) -> list[str]:
         return [f["id"] for f in self.facts]
@@ -181,35 +189,85 @@ def available_evergreen(state: dict | None = None) -> list[dict]:
     return out
 
 
+def _un_post(kind: str, state: dict, usados: set[str],
+             familias: set[str]) -> Post | None:
+    """
+    Devuelve un post de ese tipo, o None si esa fuente no tiene nada hoy.
+
+    Las fuentes externas se importan acá adentro a propósito: ADA News y
+    PubMed salen a la red, y no queremos que `import plan` la toque. Si una
+    falla —la red, un cambio de HTML, la API caída— devuelve None y el ciclo
+    sigue con la fuente siguiente. Una fuente caída no puede frenar la tanda.
+    """
+    if kind == "evergreen":
+        for bloque in available_evergreen(state):
+            if "dentread" not in familias:
+                return post_from_block(bloque, state.get("count", 0))
+        return None
+
+    if kind == "data":
+        for theme, _ in available_themes(state):
+            if theme.family in familias:
+                continue
+            fs = [f for f in facts_for(theme.id, state, limit=4)
+                  if f["id"] not in usados][:2]
+            if len(fs) >= 2:
+                usados |= {f["id"] for f in fs}
+                return post_from_theme(theme, fs)
+        return None
+
+    if kind == "news":
+        try:
+            from pipeline import ada_news
+            from pipeline.sources import post_from_article
+            for art in ada_news.latest_relevant(limit=3):
+                return post_from_article(art)
+        except Exception as exc:                 # red, parseo, API
+            print(f"   [info] ADA News no disponible ahora: "
+                  f"{exc.__class__.__name__}")
+        return None
+
+    if kind == "paper":
+        try:
+            from pipeline import journals
+            from pipeline.sources import post_from_signpost
+            for sp in journals.find(preset="ia", years=1, n=6):
+                return post_from_signpost(sp)
+        except Exception as exc:
+            print(f"   [info] PubMed no disponible ahora: "
+                  f"{exc.__class__.__name__}")
+        return None
+
+    return None
+
+
 def next_posts(n: int = 2) -> list[Post]:
     """
-    Arma la tanda. Reserva un slot para DentRead cada EVERGREEN_EVERY posts.
-    Nunca repite familia dentro de la misma tanda.
+    Arma la tanda intercalando fuentes según CICLO.
+
+    La posición en el ciclo la marca `count`, así que el orden se sostiene
+    entre corridas: si el lunes salió una noticia, el miércoles no sale otra.
+    Cuando la fuente que toca no tiene material, se prueba la siguiente del
+    ciclo en vez de abortar — pero se conserva el turno, para que una semana
+    sin noticias no desplace la rotación para siempre.
     """
     state = _state()
     posts: list[Post] = []
-    families: set[str] = set()
-    used_facts: set[str] = set()
+    familias: set[str] = set()
+    usados: set[str] = set()
+    inicio = state.get("count", 0)
 
-    want_evergreen = state["count"] % EVERGREEN_EVERY == 0
-    if want_evergreen:
-        ev = available_evergreen(state)
-        if ev:
-            posts.append(post_from_block(ev[0], state.get("count", 0)))
-            families.add("dentread")
-
-    for theme, _ in available_themes(state):
-        if len(posts) >= n:
-            break
-        if theme.family in families:
-            continue
-        fs = [f for f in facts_for(theme.id, state, limit=4)
-              if f["id"] not in used_facts][:2]
-        if len(fs) < 2:
-            continue
-        posts.append(post_from_theme(theme, fs))
-        families.add(theme.family)
-        used_facts |= {f["id"] for f in fs}
+    for i in range(n):
+        turno = (inicio + i) % len(CICLO)
+        # se prueba el tipo que toca y, si no hay, los siguientes del ciclo
+        for salto in range(len(CICLO)):
+            kind = CICLO[(turno + salto) % len(CICLO)]
+            post = _un_post(kind, state, usados, familias)
+            if post:
+                posts.append(post)
+                familias.add("dentread" if post.kind == "evergreen"
+                             else post.family)
+                break
 
     return posts[:n]
 
@@ -222,6 +280,18 @@ def mark_used(post: Post) -> None:
         # contexto de un post sobre DentRead, no el contenido. Si gastaran
         # hechos, hablar de la empresa reduciría el inventario editorial.
         s["evergreen"][post.id] = today
+    elif post.kind in ("news", "paper"):
+        # Tampoco consumen inventario editorial: su material es externo y no
+        # se repite por definición. Lo único que hay que registrar es que ese
+        # artículo o ese estudio ya salió, y de eso se encargan el archivo de
+        # ADA News y el pmid.
+        if post.kind == "news" and post.source_url:
+            try:
+                from pipeline import ada_news
+                ada_news.mark_published(post.source_url)
+            except Exception:
+                pass
+        s.setdefault("externos", {})[post.id] = today
     else:
         s["themes"][post.id] = today
         for fid in post.fact_ids():

@@ -60,8 +60,18 @@ Ojo: `carousel-design-system.md` de `carousel-kit Maker/` **no es de DentRead** 
 |---|---|---|
 | **Datos** | Hechos curados · 50+ fuentes autorizadas en `data/sources.json` | 0,75/semana |
 | **DentRead** | 15 bloques de mensajes en `data/evergreen.json` | 0,75/semana |
-| **ADA News** | Flujo semanal + stock de ~75 artículos de 2026 | ~1/semana |
-| **Journals** | PubMed en modo señalizador — qué se preguntó, no qué se encontró | ~0,5/semana |
+| **ADA News** | Flujo semanal + stock de 2026 · solo 2026 | ~1/semana |
+| **Journals** | PubMed y BMC Oral Health en modo señalizador | ~0,5/semana |
+
+**Las cuatro fuentes van intercaladas, no en tandas.** `plan.CICLO` fija el orden
+`data · news · evergreen · paper · data · news`: seis ranuras, dos semanas a tres
+posts semanales. Si la fuente que toca no tiene material —ADA no publicó nada
+relevante, PubMed está caído— se prueba la siguiente del ciclo y el turno se
+conserva, así una semana floja no desplaza la rotación para siempre.
+
+De una noticia sale el tema; de un paper, qué se preguntó y con qué diseño.
+**Nunca qué se encontró:** un hallazgo suelto en un carrusel es un claim
+clínico con la cita de otro.
 
 Los evergreen **no consumen hechos**: la cifra ahí es contexto, no contenido. Hablar de la empresa no debe reducir el inventario editorial.
 
@@ -97,7 +107,8 @@ pipeline/verify.py       los 4 controles
 publisher/               guard, specs, Instagram, LinkedIn, tokens cifrados
 docs/                    sitio estático (GitHub Pages)
 tools/                   curación offline: pubmed, kb, suggest_facts
-deferred/                ADA News y newsguard — fuera del MVP a propósito
+pipeline/sources.py      ADA News y papers → Post
+deferred/                lo que quedó fuera del MVP a propósito
 ```
 
 **2.235 líneas activas**, contra 3.357 antes de la auditoría. Otras 1.276 quedaron en `tools/` y `deferred/`, fuera del camino de publicación.

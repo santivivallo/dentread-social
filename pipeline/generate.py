@@ -98,6 +98,8 @@ def generate(post: Post) -> PostSpec:
 
     if post.kind == "evergreen":
         return _generate_evergreen(post)
+    if post.kind in ("news", "paper"):
+        return _generate_externo(post)
 
     if len(post.facts) < 2:
         raise ValueError(
@@ -248,5 +250,71 @@ def _generate_evergreen(post: Post) -> PostSpec:
             "traction_verified": False,
             "head_to_head_study": False,
             "no_patient_imagery": True,
+        },
+    )
+
+
+def _generate_externo(post: Post) -> PostSpec:
+    """
+    Noticia de ADA News o estudio científico → PostSpec.
+
+    Estos posts no llevan cifras propias: llevan un titular o una pregunta de
+    investigación, el encuadre, y la fuente. La regla que los separa del resto
+    es que **no publican conclusiones**. De una noticia sale el tema; de un
+    paper, qué se preguntó y con qué diseño. Nunca qué se encontró.
+
+    El motivo no es prudencia genérica: un hallazgo citado suelto en un
+    carrusel es un claim clínico con la cita de otro, y DentRead no tiene
+    respaldo regulatorio para sostenerlo.
+    """
+    idx = sum(ord(c) for c in post.id) % len(CTAS_ES)
+    etiqueta = post.source_label or "Fuente"
+    resumen = post.messages[0] if post.messages else ""
+
+    slides = [
+        Slide("hook", _clip(post.angle, 110),
+              kicker="ADA News" if post.kind == "news" else "Evidencia",
+              source=etiqueta),
+        Slide("data",
+              "De qué se trata" if post.kind == "news" else "Qué se preguntó",
+              kicker=etiqueta,
+              bullets=[b for b in (_clip(resumen, 180), post.body) if b],
+              source=f"Fuente: {etiqueta}"),
+        Slide("close", post.close, accent=post.close_accent,
+              kicker="Cómo lo leemos", chain=CHAIN,
+              body="La IA apoya, el odontólogo decide."),
+    ]
+
+    caption_es = (
+        f"{_clip(post.angle, 150)} {EMOJI}\n\n"
+        f"{post.body}\n\n"
+        f"{post.close} {post.close_accent}\n\n"
+        f"{CTAS_ES[idx]}\n\n"
+        f"Fuente: {etiqueta}. Enlace en el perfil.\n\n"
+        f"{HASHTAGS}"
+    )
+    commentary_en = (
+        f"{_clip(post.angle_en, 150)}\n\n"
+        f"{post.body}\n\n{CTAS_EN[idx]}\n\nSource: {etiqueta}."
+    )
+
+    return PostSpec(
+        slug=slugify(post.id),
+        slides=slides,
+        caption_es=caption_es.strip(),
+        commentary_en=commentary_en.strip(),
+        title_en=post.title,
+        citations=[f"{etiqueta} — {post.source_url}" if post.source_url else etiqueta],
+        mode=post.kind,
+        declarations={
+            "has_source": True,
+            "model_metrics_documented": False,
+            "regulatory_status_verified": False,
+            "traction_verified": False,
+            "head_to_head_study": False,
+            "no_patient_imagery": True,
+            # Se señaliza, no se concluye: ningún resultado del estudio ni
+            # del artículo entra en el texto publicado.
+            "findings_withheld": True,
         },
     )
