@@ -51,7 +51,7 @@ def run_guard(spec) -> tuple[bool, list[str]]:
     return (not problems), problems
 
 
-def build_one(post: Post, today: str) -> Path | None:
+def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
     print(f"\n[{post.kind}] {post.title}")
     print(f"   hechos: {', '.join(post.fact_ids())}")
 
@@ -78,6 +78,16 @@ def build_one(post: Post, today: str) -> Path | None:
         "article_url": f"{site.BASE_URL}/{spec.slug}/",
     }, indent=2, ensure_ascii=False))
 
+    # En preview no se escribe la pagina ni se marca el tema como usado.
+    #
+    # Correr el pipeline localmente para mirar como quedan los slides dejaba
+    # el arbol sucio: paginas nuevas en docs/ y rotation.json modificado. Eso
+    # choca con los commits que hace el bot en cada corrida del cron y traba
+    # el proximo rebase. Un preview solo deberia producir imagenes.
+    if preview:
+        print(f"   OK · {len(spec.slides)} slides → {folder}  (preview)")
+        return folder
+
     page = site.write_article(spec, today)
     plan.mark_used(post)
 
@@ -91,6 +101,9 @@ def main() -> None:
     ap.add_argument("--slots", type=int, default=2)
     ap.add_argument("--theme")
     ap.add_argument("--inventory", action="store_true")
+    ap.add_argument("--preview", action="store_true",
+                    help="solo genera los PNG: no escribe docs/ ni consume "
+                         "el tema. Para mirar como queda sin ensuciar el repo")
     args = ap.parse_args()
 
     if args.inventory:
@@ -120,9 +133,11 @@ def main() -> None:
         sys.exit("[error] no hay nada publicable. Correr --inventory")
 
     today = date.today().isoformat()
-    made = [f for f in (build_one(p, today) for p in posts) if f]
+    made = [f for f in (build_one(p, today, preview=args.preview)
+                        for p in posts) if f]
 
-    site.rebuild_indexes()
+    if not args.preview:
+        site.rebuild_indexes()
 
     print(f"\n[resumen] {len(made)}/{len(posts)} listos")
     for f in made:
