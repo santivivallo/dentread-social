@@ -71,6 +71,10 @@ def main() -> int:
     state = {"themes": {}, "facts": {}, "evergreen": {}, "count": 0}
     errors: list[str] = []
     tested = 0
+    # El cierre es lo único que hace distinto a un post del siguiente cuando
+    # el lector ya deslizó dos frames. Si se repite, el carrusel se vuelve
+    # plantilla. Se verifica que sean únicos, no sólo que existan.
+    cierres: dict[str, list[str]] = {}
 
     # Todos los temas con hechos suficientes, no solo el primero.
     for theme, facts in plan.available_themes(state):
@@ -78,21 +82,32 @@ def main() -> int:
         if len(facts) < 2:
             continue
         post = plan.post_from_theme(theme, facts)
-        errors += _check(generate(post), f"data/{theme.id}")
+        spec = generate(post)
+        errors += _check(spec, f"data/{theme.id}")
+        c = spec.slides[-1]
+        cierres.setdefault(f"{c.headline} / {c.accent}", []).append(theme.id)
         tested += 1
 
     # Y todos los bloques evergreen: el camino que se rompió.
     for block in plan.available_evergreen(state):
         post = plan.post_from_block(block, seed=0)
-        errors += _check(generate(post), f"evergreen/{block['id']}")
+        spec = generate(post)
+        errors += _check(spec, f"evergreen/{block['id']}")
+        c = spec.slides[-1]
+        cierres.setdefault(f"{c.headline} / {c.accent}", []).append(block["id"])
         tested += 1
+
+    for texto, quienes in cierres.items():
+        if len(quienes) > 1:
+            errors.append(f"cierre repetido en {len(quienes)} posts "
+                          f"({', '.join(quienes[:3])}…): \"{texto}\"")
 
     if errors:
         print(f"✗ {len(errors)} problema(s) en {tested} posts:\n")
         print("\n".join(f"  {e}" for e in errors))
         return 1
     print(f"✓ {tested} posts generados, {N_SLIDES} frames cada uno, "
-          f"captions dentro del brand guide")
+          f"{len(cierres)} cierres únicos, captions dentro del brand guide")
     return 0
 
 

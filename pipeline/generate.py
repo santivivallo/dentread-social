@@ -85,6 +85,17 @@ def generate(post: Post) -> PostSpec:
     la empresa era lo que obligaba a llenar el banco evergreen de estadísticas
     prestadas.
     """
+    # El cierre es del POST, no de su origen. Hoy lo llenan el catálogo de
+    # temas y los bloques evergreen; mañana lo tendrá que llenar el artículo de
+    # ADA News o el paper. Se exige acá para que ninguna fuente nueva pueda
+    # publicar sin uno y caer otra vez en una frase genérica compartida.
+    if not post.close:
+        raise ValueError(
+            f"'{post.id}' no trae cierre. Cada post lo define según su fuente: "
+            f"el tema en pipeline/themes.py, el bloque en data/evergreen.json, "
+            f"y una noticia o paper, a partir de su propio contenido."
+        )
+
     if post.kind == "evergreen":
         return _generate_evergreen(post)
 
@@ -201,7 +212,7 @@ def _generate_evergreen(post: Post) -> PostSpec:
               stats=stats, bullets=[] if stats else puntos,
               body=_clip(post.body, 200) if stats else "",
               source=f"Fuentes: {sources}" if sources else ""),
-        Slide("close", "La IA apoya.", accent="El odontólogo decide.",
+        Slide("close", post.close, accent=post.close_accent,
               kicker="Cómo trabajamos", chain=CHAIN,
               body=_clip(post.body, 220)),
     ]

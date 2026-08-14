@@ -1,484 +1,612 @@
 {
-  "_README": "Banco de mensajes reutilizables sobre DentRead. NO son posts cerrados: cada bloque ofrece varios mensajes aprobados y matizados, y el generador arma el post combinándolos. Así el posicionamiento evoluciona editando mensajes, sin reescribir el sistema.",
-
-  "_estructura": {
-    "approved_messages": "Descripción de capacidad y propósito. Se pueden afirmar directamente.",
-    "qualified_messages": "Beneficios y efectos esperados. Van con lenguaje matizado ('busca', 'puede', 'está orientado a') porque describen intención de diseño, no resultados medidos.",
-    "restricted_messages": "Lo que este bloque NO puede afirmar. Es documentación para quien edite, y el claims guard lo verifica aparte.",
-    "allowed_audiences": "A quién puede hablarle este bloque. La segmentación comercial fina vive en la estrategia, no acá.",
-    "context_facts": "Anclaje opcional en un dato del sector. Un bloque de posicionamiento no lo necesita."
+ "_README": "Banco de mensajes reutilizables sobre DentRead. NO son posts cerrados: cada bloque ofrece varios mensajes aprobados y matizados, y el generador arma el post combinándolos. Así el posicionamiento evoluciona editando mensajes, sin reescribir el sistema.",
+ "_estructura": {
+  "approved_messages": "Descripción de capacidad y propósito. Se pueden afirmar directamente.",
+  "qualified_messages": "Beneficios y efectos esperados. Van con lenguaje matizado ('busca', 'puede', 'está orientado a') porque describen intención de diseño, no resultados medidos.",
+  "restricted_messages": "Lo que este bloque NO puede afirmar. Es documentación para quien edite, y el claims guard lo verifica aparte.",
+  "allowed_audiences": "A quién puede hablarle este bloque. La segmentación comercial fina vive en la estrategia, no acá.",
+  "context_facts": "Anclaje opcional en un dato del sector. Un bloque de posicionamiento no lo necesita."
+ },
+ "_regla": "El nivel de matiz depende del tipo de claim, no del tema. Describir qué hace el producto es afirmable; prometer un resultado clínico o comercial no lo es sin evidencia. Ver claims_policy.md.",
+ "posts": [
+  {
+   "id": "que-es-dentread",
+   "category": "company_positioning",
+   "title": "Qué es DentRead",
+   "title_en": "What DentRead is",
+   "approved_messages": [
+    "DentRead desarrolla herramientas de inteligencia artificial para radiografías dentales y flujos clínicos.",
+    "La plataforma combina inteligencia artificial, imágenes dentales y herramientas de apoyo al trabajo clínico.",
+    "El producto evoluciona hacia un ecosistema de herramientas para profesionales, clínicas, organizaciones y pacientes."
+   ],
+   "approved_messages_en": [
+    "DentRead builds artificial intelligence tools for dental radiographs and clinical workflows.",
+    "The platform combines artificial intelligence, dental imaging and tools that support clinical work.",
+    "The product is evolving into an ecosystem of tools for professionals, clinics, organizations and patients."
+   ],
+   "qualified_messages": [
+    "El objetivo es apoyar al profesional en el análisis radiográfico y en los momentos donde ese análisis se convierte en una decisión y en una conversación con el paciente.",
+    "Las capacidades se amplían por producto y por mercado, según la necesidad clínica y operativa de cada organización."
+   ],
+   "qualified_messages_en": [
+    "The goal is to support the professional in radiographic analysis and at the points where that analysis becomes a decision and a conversation with the patient.",
+    "Capabilities expand by product and by market, according to the clinical and operational needs of each organization."
+   ],
+   "restricted_messages": [
+    "Cifras de precisión sin fuente aprobada",
+    "Estado regulatorio no confirmado",
+    "Clientes o resultados no documentados"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "universities",
+    "radiology_centers",
+    "health_organizations"
+   ],
+   "review_cycle_days": 90,
+   "close": "Leer la radiografía es el principio.",
+   "close_accent": "Lo que sigue casi nunca se mide."
   },
-
-  "_regla": "El nivel de matiz depende del tipo de claim, no del tema. Describir qué hace el producto es afirmable; prometer un resultado clínico o comercial no lo es sin evidencia. Ver claims_policy.md.",
-
-  "posts": [
-    {
-      "id": "que-es-dentread",
-      "category": "company_positioning",
-      "title": "Qué es DentRead",
-      "title_en": "What DentRead is",
-      "approved_messages": [
-        "DentRead desarrolla herramientas de inteligencia artificial para radiografías dentales y flujos clínicos.",
-        "La plataforma combina inteligencia artificial, imágenes dentales y herramientas de apoyo al trabajo clínico.",
-        "El producto evoluciona hacia un ecosistema de herramientas para profesionales, clínicas, organizaciones y pacientes."
-      ],
-      "approved_messages_en": [
-        "DentRead builds artificial intelligence tools for dental radiographs and clinical workflows.",
-        "The platform combines artificial intelligence, dental imaging and tools that support clinical work.",
-        "The product is evolving into an ecosystem of tools for professionals, clinics, organizations and patients."
-      ],
-      "qualified_messages": [
-        "El objetivo es apoyar al profesional en el análisis radiográfico y en los momentos donde ese análisis se convierte en una decisión y en una conversación con el paciente.",
-        "Las capacidades se amplían por producto y por mercado, según la necesidad clínica y operativa de cada organización."
-      ],
-      "qualified_messages_en": [
-        "The goal is to support the professional in radiographic analysis and at the points where that analysis becomes a decision and a conversation with the patient.",
-        "Capabilities expand by product and by market, according to the clinical and operational needs of each organization."
-      ],
-      "restricted_messages": [
-        "Cifras de precisión sin fuente aprobada",
-        "Estado regulatorio no confirmado",
-        "Clientes o resultados no documentados"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "DSOs", "universities", "radiology_centers", "health_organizations"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "ia-radiografias-dentales",
-      "category": "product_capability",
-      "title": "IA aplicada a radiografías dentales",
-      "title_en": "AI applied to dental radiographs",
-      "approved_messages": [
-        "DentRead aplica inteligencia artificial al análisis de imágenes radiográficas dentales.",
-        "El sistema procesa radiografías y organiza la información para que el profesional trabaje sobre ella.",
-        "La radiografía concentra información que muchas veces no se aprovecha del todo en la consulta."
-      ],
-      "approved_messages_en": [
-        "DentRead applies artificial intelligence to the analysis of dental radiographic images.",
-        "The system processes radiographs and organizes the information for the professional to work with.",
-        "A radiograph holds information that often goes underused during the appointment."
-      ],
-      "qualified_messages": [
-        "El apoyo computacional puede aportar una segunda mirada sistemática sobre la imagen.",
-        "La intención es reducir el esfuerzo que hoy se destina a revisar y describir hallazgos, no reemplazar el criterio profesional."
-      ],
-      "qualified_messages_en": [
-        "Computational support can add a systematic second look at the image.",
-        "The intent is to reduce the effort spent reviewing and describing findings, not to replace professional judgment."
-      ],
-      "restricted_messages": [
-        "Métricas de sensibilidad o especificidad sin estudio publicado",
-        "Comparaciones de desempeño con otros productos sin estudio head-to-head",
-        "Afirmar detección de patologías específicas como capacidad probada"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "DSOs", "universities", "radiology_centers"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "apoyo-analisis-radiografico",
-      "category": "product_capability",
-      "title": "Apoyo al análisis radiográfico",
-      "title_en": "Support for radiographic analysis",
-      "approved_messages": [
-        "El análisis radiográfico es una tarea de alta carga cognitiva que se repite decenas de veces por jornada.",
-        "DentRead está diseñado para acompañar ese análisis, no para hacerlo en lugar del profesional.",
-        "La revisión de imágenes convive con la agenda, el paciente en el sillón y el tiempo disponible."
-      ],
-      "approved_messages_en": [
-        "Radiographic analysis is a cognitively demanding task repeated dozens of times a day.",
-        "DentRead is designed to accompany that analysis, not to perform it in the professional's place.",
-        "Image review competes with the schedule, the patient in the chair and the time available."
-      ],
-      "qualified_messages": [
-        "Un apoyo sistemático puede ayudar a que la atención se concentre donde más aporta.",
-        "El propósito es que el profesional llegue antes a lo relevante, con la decisión siempre de su lado."
-      ],
-      "qualified_messages_en": [
-        "Systematic support can help attention concentrate where it contributes most.",
-        "The purpose is for the professional to reach what matters sooner, with the decision always theirs."
-      ],
-      "restricted_messages": [
-        "Afirmar reducción de errores sin estudio",
-        "Prometer ahorro de tiempo cuantificado sin medición propia"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "universities", "radiology_centers"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "consistencia-evaluacion",
-      "category": "clinical_context",
-      "title": "Consistencia en la evaluación clínica",
-      "title_en": "Consistency in clinical assessment",
-      "approved_messages": [
-        "La variabilidad entre observadores en la interpretación radiográfica está documentada en la literatura odontológica.",
-        "Dos profesionales competentes pueden describir la misma imagen de forma distinta.",
-        "La consistencia importa especialmente cuando varias personas atienden al mismo paciente a lo largo del tiempo."
-      ],
-      "approved_messages_en": [
-        "Inter-observer variability in radiographic interpretation is documented in the dental literature.",
-        "Two competent professionals can describe the same image differently.",
-        "Consistency matters most when several people treat the same patient over time."
-      ],
-      "qualified_messages": [
-        "Un marco común de revisión puede contribuir a que los criterios se apliquen de forma más pareja.",
-        "La estandarización busca apoyar al equipo, no uniformar el criterio clínico."
-      ],
-      "qualified_messages_en": [
-        "A shared review framework can help criteria be applied more evenly.",
-        "Standardization aims to support the team, not to flatten clinical judgment."
-      ],
-      "restricted_messages": [
-        "Afirmar que DentRead elimina la variabilidad",
-        "Cifras de concordancia sin estudio citado"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "DSOs", "universities", "radiology_centers", "health_organizations"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "comunicacion-visual-paciente",
-      "category": "product_capability",
-      "title": "Comunicación visual con el paciente",
-      "title_en": "Visual communication with the patient",
-      "approved_messages": [
-        "Una radiografía es evidencia para el profesional y una imagen ilegible para la mayoría de los pacientes.",
-        "DentRead incluye herramientas para explicar visualmente los hallazgos durante la conversación clínica.",
-        "Explicar un tratamiento es parte del acto clínico, no un trámite posterior."
-      ],
-      "approved_messages_en": [
-        "A radiograph is evidence for the professional and an unreadable image for most patients.",
-        "DentRead includes tools to visually explain findings during the clinical conversation.",
-        "Explaining a treatment is part of clinical care, not an afterthought."
-      ],
-      "qualified_messages": [
-        "Una explicación visual clara puede facilitar que el paciente entienda qué se le propone y por qué.",
-        "Cuando el paciente ve lo que el profesional ve, la conversación cambia de tono."
-      ],
-      "qualified_messages_en": [
-        "A clear visual explanation can make it easier for the patient to understand what is being proposed and why.",
-        "When the patient sees what the professional sees, the conversation changes."
-      ],
-      "restricted_messages": [
-        "Prometer aumento de aceptación en porcentajes sin evidencia propia",
-        "Afirmar efectos sobre la decisión del paciente como resultado garantizado"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "DSOs", "patients", "health_organizations"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "comprension-y-confianza",
-      "category": "patient_outcome",
-      "title": "Comprensión y confianza del paciente",
-      "title_en": "Patient understanding and trust",
-      "approved_messages": [
-        "La confianza en odontología se construye sobre entender qué se está proponiendo y por qué.",
-        "Buena parte de las dudas del paciente no son sobre el precio: son sobre la necesidad.",
-        "El paciente que no entiende no discute, simplemente no vuelve."
-      ],
-      "approved_messages_en": [
-        "Trust in dentistry is built on understanding what is being proposed and why.",
-        "Many patient doubts are not about price: they are about necessity.",
-        "A patient who does not understand rarely argues — they simply do not come back."
-      ],
-      "qualified_messages": [
-        "Una mejor comunicación puede contribuir a una mayor comprensión y confianza del paciente.",
-        "Las herramientas visuales buscan apoyar esa conversación, que sigue siendo del profesional."
-      ],
-      "qualified_messages_en": [
-        "Better communication can contribute to greater patient understanding and trust.",
-        "Visual tools aim to support that conversation, which remains the professional's."
-      ],
-      "restricted_messages": [
-        "Cuantificar mejoras en confianza sin instrumento validado",
-        "Atribuir a DentRead cambios de conducta del paciente"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "patients", "health_organizations"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "aceptacion-tratamientos",
-      "category": "clinical_context",
-      "title": "Aceptación de tratamientos",
-      "title_en": "Treatment acceptance",
-      "approved_messages": [
-        "Un plan de tratamiento aceptado y un tratamiento completado no son lo mismo.",
-        "La aceptación es una conversación, no un formulario.",
-        "Entre el diagnóstico del profesional y la decisión del paciente hay un espacio que casi nadie instrumenta."
-      ],
-      "approved_messages_en": [
-        "An accepted treatment plan and a completed treatment are not the same thing.",
-        "Acceptance is a conversation, not a form.",
-        "Between the professional's assessment and the patient's decision there is a space almost nobody instruments."
-      ],
-      "qualified_messages": [
-        "Herramientas de explicación y seguimiento pueden apoyar ese proceso de decisión.",
-        "El objetivo es que la decisión del paciente sea informada, no empujarla en una dirección."
-      ],
-      "qualified_messages_en": [
-        "Explanation and follow-up tools can support that decision process.",
-        "The goal is for the patient's decision to be informed, not to push it in one direction."
-      ],
-      "context_facts": ["intencion-vs-visita"],
-      "restricted_messages": [
-        "Porcentajes de aumento de aceptación atribuidos a DentRead",
-        "Presentar la aceptación como resultado asegurado"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "DSOs", "health_organizations"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "seguimiento-continuidad",
-      "category": "product_capability",
-      "title": "Seguimiento y continuidad de la atención",
-      "title_en": "Follow-up and continuity of care",
-      "approved_messages": [
-        "La continuidad de la atención depende de que alguien sepa qué quedó pendiente y con quién.",
-        "DentRead incorpora herramientas de seguimiento y documentación del proceso clínico.",
-        "En estructuras con varias sedes o varios profesionales, el hilo del paciente se corta con facilidad."
-      ],
-      "approved_messages_en": [
-        "Continuity of care depends on someone knowing what is pending and for whom.",
-        "DentRead includes tools for follow-up and documentation of the clinical process.",
-        "In multi-site or multi-professional settings, the thread of a patient's care breaks easily."
-      ],
-      "qualified_messages": [
-        "Un registro ordenado de lo pendiente puede ayudar a que menos pacientes queden a mitad de camino.",
-        "El seguimiento sistemático busca liberar tiempo administrativo, no agregar otra tarea."
-      ],
-      "qualified_messages_en": [
-        "An organized record of what is pending can help fewer patients fall through the cracks.",
-        "Systematic follow-up aims to free administrative time, not add another task."
-      ],
-      "context_facts": ["intencion-vs-visita", "medicaid-ninos-visita"],
-      "restricted_messages": [
-        "Cifras de recuperación de pacientes sin medición propia documentada"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "DSOs", "health_organizations"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "eficiencia-flujo-clinico",
-      "category": "operational_context",
-      "title": "Eficiencia del flujo clínico",
-      "title_en": "Clinical workflow efficiency",
-      "approved_messages": [
-        "Buena parte del tiempo de una clínica se va en tareas que no son clínicas.",
-        "La tecnología entra a la consulta por la puerta de la operación antes que por la de la clínica.",
-        "Un flujo que funciona no se nota; uno que no funciona se paga todos los días."
-      ],
-      "approved_messages_en": [
-        "A large share of a practice's time goes to tasks that are not clinical.",
-        "Technology enters the practice through operations before it enters through the clinic.",
-        "A workflow that works goes unnoticed; one that does not is paid for every day."
-      ],
-      "qualified_messages": [
-        "Ordenar el flujo entre la imagen, la decisión y el registro puede recuperar tiempo del equipo.",
-        "El foco está en los traspasos, que es donde suele perderse la información."
-      ],
-      "qualified_messages_en": [
-        "Organizing the flow between image, decision and record can recover team time.",
-        "The focus is on handoffs, which is where information usually gets lost."
-      ],
-      "context_facts": ["higienistas-reclutamiento", "economia-practica"],
-      "restricted_messages": [
-        "Horas ahorradas o ROI sin medición documentada"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "DSOs", "health_organizations"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "innovacion-radiologia-oral",
-      "category": "industry_context",
-      "title": "Innovación en radiología oral",
-      "title_en": "Innovation in oral radiology",
-      "approved_messages": [
-        "La imagenología dental generó más datos por paciente en la última década que en las cuatro anteriores.",
-        "Más información por paciente no equivale automáticamente a más claridad para el paciente.",
-        "El 2D y el 3D conviven en la consulta y responden preguntas distintas."
-      ],
-      "approved_messages_en": [
-        "Dental imaging has produced more data per patient in the last decade than in the previous four.",
-        "More information per patient does not automatically mean more clarity for the patient.",
-        "2D and 3D coexist in the practice and answer different questions."
-      ],
-      "qualified_messages": [
-        "El desafío ya no es capturar la imagen sino convertirla en algo accionable.",
-        "El valor está menos en el sensor y más en lo que ocurre después de la captura."
-      ],
-      "qualified_messages_en": [
-        "The challenge is no longer capturing the image but turning it into something actionable.",
-        "The value lies less in the sensor and more in what happens after capture."
-      ],
-      "context_facts": ["cbct-3d"],
-      "restricted_messages": [
-        "Comparaciones de equipamiento o proveedores sin evidencia"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "universities", "radiology_centers", "dental_groups"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "tecnologia-organizaciones",
-      "category": "operational_context",
-      "title": "Tecnología para clínicas y organizaciones",
-      "title_en": "Technology for practices and organizations",
-      "approved_messages": [
-        "Una clínica individual y un grupo con varias sedes compran tecnología por razones distintas.",
-        "La decisión de adoptar una herramienta rara vez es solo clínica: es también operativa y económica.",
-        "Integrar es más difícil que instalar."
-      ],
-      "approved_messages_en": [
-        "A single practice and a multi-site group buy technology for different reasons.",
-        "The decision to adopt a tool is rarely only clinical: it is also operational and economic.",
-        "Integrating is harder than installing."
-      ],
-      "qualified_messages": [
-        "DentRead trabaja con distintos tipos de profesionales y organizaciones dentales, según sus necesidades operativas y clínicas.",
-        "El alcance del producto se adapta al tamaño y a la estructura de cada organización."
-      ],
-      "qualified_messages_en": [
-        "DentRead works with different kinds of dental professionals and organizations, according to their operational and clinical needs.",
-        "The scope of the product adapts to the size and structure of each organization."
-      ],
-      "context_facts": ["practica-grupal", "propietarios-caida"],
-      "restricted_messages": [
-        "Nombrar clientes u organizaciones sin autorización",
-        "Afirmar integraciones que no están disponibles"
-      ],
-      "allowed_audiences": ["clinics", "dental_groups", "DSOs", "health_organizations", "radiology_centers"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "educacion-dental",
-      "category": "education",
-      "title": "Educación dental",
-      "title_en": "Dental education",
-      "approved_messages": [
-        "La interpretación radiográfica se aprende viendo muchos casos y recibiendo retroalimentación.",
-        "Las facultades enfrentan el problema de dar retroalimentación individual a escala.",
-        "La brecha entre lo que se enseña y lo que se encuentra en la práctica se cierra con volumen de casos."
-      ],
-      "approved_messages_en": [
-        "Radiographic interpretation is learned by seeing many cases and receiving feedback.",
-        "Dental schools face the problem of giving individual feedback at scale.",
-        "The gap between what is taught and what is found in practice closes with case volume."
-      ],
-      "qualified_messages": [
-        "Las herramientas de apoyo pueden tener un rol en la formación y en la práctica temprana.",
-        "DentRead explora usos educativos junto a universidades e instituciones formadoras."
-      ],
-      "qualified_messages_en": [
-        "Support tools can play a role in training and in early practice.",
-        "DentRead is exploring educational uses together with universities and training institutions."
-      ],
-      "restricted_messages": [
-        "Afirmar convenios o programas académicos no formalizados",
-        "Presentar el producto como material docente validado"
-      ],
-      "allowed_audiences": ["universities", "dentists", "health_organizations"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "salud-publica-oral",
-      "category": "public_health",
-      "title": "Salud pública oral",
-      "title_en": "Oral public health",
-      "approved_messages": [
-        "La salud oral sigue siendo el área de salud con mayor brecha de acceso en varios países.",
-        "Buena parte de la carga de enfermedad oral es prevenible y llega tarde al sistema.",
-        "El acceso no se resuelve con mejor tecnología clínica, pero la tecnología puede aliviar el cuello de botella operativo."
-      ],
-      "approved_messages_en": [
-        "Oral health remains the area of care with the widest access gap in several countries.",
-        "Much of the oral disease burden is preventable and reaches the system late.",
-        "Access is not solved by better clinical technology, but technology can ease the operational bottleneck."
-      ],
-      "qualified_messages": [
-        "Herramientas que reducen carga administrativa pueden liberar capacidad de atención.",
-        "El impacto en acceso depende de la política pública mucho más que del software."
-      ],
-      "qualified_messages_en": [
-        "Tools that reduce administrative burden can free up care capacity.",
-        "Impact on access depends far more on public policy than on software."
-      ],
-      "context_facts": ["sin-seguro-72m", "utilizacion-ingreso"],
-      "restricted_messages": [
-        "Atribuir mejoras de acceso poblacional a DentRead"
-      ],
-      "allowed_audiences": ["health_organizations", "universities", "dental_groups", "DSOs", "dentists"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "evolucion-ecosistema",
-      "category": "company_positioning",
-      "title": "Nuevas herramientas y evolución del ecosistema",
-      "title_en": "New tools and how the ecosystem evolves",
-      "approved_messages": [
-        "DentRead incorpora progresivamente nuevas herramientas para profesionales, clínicas, pacientes y organizaciones.",
-        "El punto de partida es la radiografía, pero el recorrido del paciente no termina ahí.",
-        "Cada herramienta nueva responde a un momento concreto del proceso clínico o administrativo."
-      ],
-      "approved_messages_en": [
-        "DentRead is progressively adding tools for professionals, practices, patients and organizations.",
-        "The starting point is the radiograph, but the patient's journey does not end there.",
-        "Each new tool addresses a specific moment in the clinical or administrative process."
-      ],
-      "qualified_messages": [
-        "La estrategia de producto, comercialización y regulación puede variar según el mercado y el uso previsto.",
-        "El roadmap se ajusta a lo que las organizaciones dentales realmente necesitan resolver."
-      ],
-      "qualified_messages_en": [
-        "Product, commercial and regulatory strategy may vary by market and intended use.",
-        "The roadmap adjusts to what dental organizations actually need to solve."
-      ],
-      "restricted_messages": [
-        "Anunciar funcionalidades sin fecha ni disponibilidad real",
-        "Comprometer capacidades futuras como si estuvieran disponibles"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "DSOs", "universities", "radiology_centers", "health_organizations", "patients"],
-      "review_cycle_days": 90
-    },
-
-    {
-      "id": "uso-responsable-ia",
-      "category": "regulatory_and_ethics",
-      "title": "Uso responsable de IA en odontología",
-      "title_en": "Responsible use of AI in dentistry",
-      "approved_messages": [
-        "La postura de las sociedades profesionales sobre IA en odontología es más prudente que la del mercado.",
-        "Evaluar un sistema de IA exige saber con qué datos se entrenó y en qué población se validó.",
-        "El sesgo de automatización es un riesgo documentado: confiar de más en la sugerencia de un sistema."
-      ],
-      "approved_messages_en": [
-        "Professional societies take a more cautious stance on AI in dentistry than the market does.",
-        "Evaluating an AI system requires knowing what data trained it and in what population it was validated.",
-        "Automation bias is a documented risk: over-trusting a system's suggestion."
-      ],
-      "qualified_messages": [
-        "Un uso responsable supone que el profesional evalúa críticamente el resultado y conserva la decisión.",
-        "El alcance regulatorio de cada herramienta depende de su uso previsto y del mercado donde se ofrece."
-      ],
-      "qualified_messages_en": [
-        "Responsible use assumes the professional critically evaluates the output and retains the decision.",
-        "The regulatory scope of each tool depends on its intended use and the market where it is offered."
-      ],
-      "restricted_messages": [
-        "Declarar certificaciones o autorizaciones no emitidas",
-        "Presentar el cumplimiento regulatorio como diferenciador sin documentación"
-      ],
-      "allowed_audiences": ["dentists", "clinics", "dental_groups", "DSOs", "universities", "health_organizations", "radiology_centers"],
-      "review_cycle_days": 60
-    }
-  ]
+  {
+   "id": "ia-radiografias-dentales",
+   "category": "product_capability",
+   "title": "IA aplicada a radiografías dentales",
+   "title_en": "AI applied to dental radiographs",
+   "approved_messages": [
+    "DentRead aplica inteligencia artificial al análisis de imágenes radiográficas dentales.",
+    "El sistema procesa radiografías y organiza la información para que el profesional trabaje sobre ella.",
+    "La radiografía concentra información que muchas veces no se aprovecha del todo en la consulta."
+   ],
+   "approved_messages_en": [
+    "DentRead applies artificial intelligence to the analysis of dental radiographic images.",
+    "The system processes radiographs and organizes the information for the professional to work with.",
+    "A radiograph holds information that often goes underused during the appointment."
+   ],
+   "qualified_messages": [
+    "El apoyo computacional puede aportar una segunda mirada sistemática sobre la imagen.",
+    "La intención es reducir el esfuerzo que hoy se destina a revisar y describir hallazgos, no reemplazar el criterio profesional."
+   ],
+   "qualified_messages_en": [
+    "Computational support can add a systematic second look at the image.",
+    "The intent is to reduce the effort spent reviewing and describing findings, not to replace professional judgment."
+   ],
+   "restricted_messages": [
+    "Métricas de sensibilidad o especificidad sin estudio publicado",
+    "Comparaciones de desempeño con otros productos sin estudio head-to-head",
+    "Afirmar detección de patologías específicas como capacidad probada"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "universities",
+    "radiology_centers"
+   ],
+   "review_cycle_days": 90,
+   "close": "La imagen ya tiene la información.",
+   "close_accent": "Falta que llegue a tiempo."
+  },
+  {
+   "id": "apoyo-analisis-radiografico",
+   "category": "product_capability",
+   "title": "Apoyo al análisis radiográfico",
+   "title_en": "Support for radiographic analysis",
+   "approved_messages": [
+    "El análisis radiográfico es una tarea de alta carga cognitiva que se repite decenas de veces por jornada.",
+    "DentRead está diseñado para acompañar ese análisis, no para hacerlo en lugar del profesional.",
+    "La revisión de imágenes convive con la agenda, el paciente en el sillón y el tiempo disponible."
+   ],
+   "approved_messages_en": [
+    "Radiographic analysis is a cognitively demanding task repeated dozens of times a day.",
+    "DentRead is designed to accompany that analysis, not to perform it in the professional's place.",
+    "Image review competes with the schedule, the patient in the chair and the time available."
+   ],
+   "qualified_messages": [
+    "Un apoyo sistemático puede ayudar a que la atención se concentre donde más aporta.",
+    "El propósito es que el profesional llegue antes a lo relevante, con la decisión siempre de su lado."
+   ],
+   "qualified_messages_en": [
+    "Systematic support can help attention concentrate where it contributes most.",
+    "The purpose is for the professional to reach what matters sooner, with the decision always theirs."
+   ],
+   "restricted_messages": [
+    "Afirmar reducción de errores sin estudio",
+    "Prometer ahorro de tiempo cuantificado sin medición propia"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "universities",
+    "radiology_centers"
+   ],
+   "review_cycle_days": 90,
+   "close": "Una segunda mirada no reemplaza a nadie.",
+   "close_accent": "Ordena la primera."
+  },
+  {
+   "id": "consistencia-evaluacion",
+   "category": "clinical_context",
+   "title": "Consistencia en la evaluación clínica",
+   "title_en": "Consistency in clinical assessment",
+   "approved_messages": [
+    "La variabilidad entre observadores en la interpretación radiográfica está documentada en la literatura odontológica.",
+    "Dos profesionales competentes pueden describir la misma imagen de forma distinta.",
+    "La consistencia importa especialmente cuando varias personas atienden al mismo paciente a lo largo del tiempo."
+   ],
+   "approved_messages_en": [
+    "Inter-observer variability in radiographic interpretation is documented in the dental literature.",
+    "Two competent professionals can describe the same image differently.",
+    "Consistency matters most when several people treat the same patient over time."
+   ],
+   "qualified_messages": [
+    "Un marco común de revisión puede contribuir a que los criterios se apliquen de forma más pareja.",
+    "La estandarización busca apoyar al equipo, no uniformar el criterio clínico."
+   ],
+   "qualified_messages_en": [
+    "A shared review framework can help criteria be applied more evenly.",
+    "Standardization aims to support the team, not to flatten clinical judgment."
+   ],
+   "restricted_messages": [
+    "Afirmar que DentRead elimina la variabilidad",
+    "Cifras de concordancia sin estudio citado"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "universities",
+    "radiology_centers",
+    "health_organizations"
+   ],
+   "review_cycle_days": 90,
+   "close": "Dos lecturas del mismo caso rara vez coinciden.",
+   "close_accent": "La consistencia se construye."
+  },
+  {
+   "id": "comunicacion-visual-paciente",
+   "category": "product_capability",
+   "title": "Comunicación visual con el paciente",
+   "title_en": "Visual communication with the patient",
+   "approved_messages": [
+    "Una radiografía es evidencia para el profesional y una imagen ilegible para la mayoría de los pacientes.",
+    "DentRead incluye herramientas para explicar visualmente los hallazgos durante la conversación clínica.",
+    "Explicar un tratamiento es parte del acto clínico, no un trámite posterior."
+   ],
+   "approved_messages_en": [
+    "A radiograph is evidence for the professional and an unreadable image for most patients.",
+    "DentRead includes tools to visually explain findings during the clinical conversation.",
+    "Explaining a treatment is part of clinical care, not an afterthought."
+   ],
+   "qualified_messages": [
+    "Una explicación visual clara puede facilitar que el paciente entienda qué se le propone y por qué.",
+    "Cuando el paciente ve lo que el profesional ve, la conversación cambia de tono."
+   ],
+   "qualified_messages_en": [
+    "A clear visual explanation can make it easier for the patient to understand what is being proposed and why.",
+    "When the patient sees what the professional sees, the conversation changes."
+   ],
+   "restricted_messages": [
+    "Prometer aumento de aceptación en porcentajes sin evidencia propia",
+    "Afirmar efectos sobre la decisión del paciente como resultado garantizado"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "patients",
+    "health_organizations"
+   ],
+   "review_cycle_days": 90,
+   "close": "El paciente no ve lo que vos ves.",
+   "close_accent": "Mostrarlo cambia la conversación."
+  },
+  {
+   "id": "comprension-y-confianza",
+   "category": "patient_outcome",
+   "title": "Comprensión y confianza del paciente",
+   "title_en": "Patient understanding and trust",
+   "approved_messages": [
+    "La confianza en odontología se construye sobre entender qué se está proponiendo y por qué.",
+    "Buena parte de las dudas del paciente no son sobre el precio: son sobre la necesidad.",
+    "El paciente que no entiende no discute, simplemente no vuelve."
+   ],
+   "approved_messages_en": [
+    "Trust in dentistry is built on understanding what is being proposed and why.",
+    "Many patient doubts are not about price: they are about necessity.",
+    "A patient who does not understand rarely argues — they simply do not come back."
+   ],
+   "qualified_messages": [
+    "Una mejor comunicación puede contribuir a una mayor comprensión y confianza del paciente.",
+    "Las herramientas visuales buscan apoyar esa conversación, que sigue siendo del profesional."
+   ],
+   "qualified_messages_en": [
+    "Better communication can contribute to greater patient understanding and trust.",
+    "Visual tools aim to support that conversation, which remains the professional's."
+   ],
+   "restricted_messages": [
+    "Cuantificar mejoras en confianza sin instrumento validado",
+    "Atribuir a DentRead cambios de conducta del paciente"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "patients",
+    "health_organizations"
+   ],
+   "review_cycle_days": 90,
+   "close": "Nadie acepta lo que no entiende.",
+   "close_accent": "La confianza empieza por la explicación."
+  },
+  {
+   "id": "aceptacion-tratamientos",
+   "category": "clinical_context",
+   "title": "Aceptación de tratamientos",
+   "title_en": "Treatment acceptance",
+   "approved_messages": [
+    "Un plan de tratamiento aceptado y un tratamiento completado no son lo mismo.",
+    "La aceptación es una conversación, no un formulario.",
+    "Entre el diagnóstico del profesional y la decisión del paciente hay un espacio que casi nadie instrumenta."
+   ],
+   "approved_messages_en": [
+    "An accepted treatment plan and a completed treatment are not the same thing.",
+    "Acceptance is a conversation, not a form.",
+    "Between the professional's assessment and the patient's decision there is a space almost nobody instruments."
+   ],
+   "qualified_messages": [
+    "Herramientas de explicación y seguimiento pueden apoyar ese proceso de decisión.",
+    "El objetivo es que la decisión del paciente sea informada, no empujarla en una dirección."
+   ],
+   "qualified_messages_en": [
+    "Explanation and follow-up tools can support that decision process.",
+    "The goal is for the patient's decision to be informed, not to push it in one direction."
+   ],
+   "context_facts": [
+    "intencion-vs-visita"
+   ],
+   "restricted_messages": [
+    "Porcentajes de aumento de aceptación atribuidos a DentRead",
+    "Presentar la aceptación como resultado asegurado"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "health_organizations"
+   ],
+   "review_cycle_days": 90,
+   "close": "El plan aceptado no es el plan terminado.",
+   "close_accent": "Entre los dos se pierde el paciente."
+  },
+  {
+   "id": "seguimiento-continuidad",
+   "category": "product_capability",
+   "title": "Seguimiento y continuidad de la atención",
+   "title_en": "Follow-up and continuity of care",
+   "approved_messages": [
+    "La continuidad de la atención depende de que alguien sepa qué quedó pendiente y con quién.",
+    "DentRead incorpora herramientas de seguimiento y documentación del proceso clínico.",
+    "En estructuras con varias sedes o varios profesionales, el hilo del paciente se corta con facilidad."
+   ],
+   "approved_messages_en": [
+    "Continuity of care depends on someone knowing what is pending and for whom.",
+    "DentRead includes tools for follow-up and documentation of the clinical process.",
+    "In multi-site or multi-professional settings, the thread of a patient's care breaks easily."
+   ],
+   "qualified_messages": [
+    "Un registro ordenado de lo pendiente puede ayudar a que menos pacientes queden a mitad de camino.",
+    "El seguimiento sistemático busca liberar tiempo administrativo, no agregar otra tarea."
+   ],
+   "qualified_messages_en": [
+    "An organized record of what is pending can help fewer patients fall through the cracks.",
+    "Systematic follow-up aims to free administrative time, not add another task."
+   ],
+   "context_facts": [
+    "intencion-vs-visita",
+    "medicaid-ninos-visita"
+   ],
+   "restricted_messages": [
+    "Cifras de recuperación de pacientes sin medición propia documentada"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "health_organizations"
+   ],
+   "review_cycle_days": 90,
+   "close": "El hallazgo sin seguimiento se archiva.",
+   "close_accent": "La continuidad es trabajo, no suerte."
+  },
+  {
+   "id": "eficiencia-flujo-clinico",
+   "category": "operational_context",
+   "title": "Eficiencia del flujo clínico",
+   "title_en": "Clinical workflow efficiency",
+   "approved_messages": [
+    "Buena parte del tiempo de una clínica se va en tareas que no son clínicas.",
+    "La tecnología entra a la consulta por la puerta de la operación antes que por la de la clínica.",
+    "Un flujo que funciona no se nota; uno que no funciona se paga todos los días."
+   ],
+   "approved_messages_en": [
+    "A large share of a practice's time goes to tasks that are not clinical.",
+    "Technology enters the practice through operations before it enters through the clinic.",
+    "A workflow that works goes unnoticed; one that does not is paid for every day."
+   ],
+   "qualified_messages": [
+    "Ordenar el flujo entre la imagen, la decisión y el registro puede recuperar tiempo del equipo.",
+    "El foco está en los traspasos, que es donde suele perderse la información."
+   ],
+   "qualified_messages_en": [
+    "Organizing the flow between image, decision and record can recover team time.",
+    "The focus is on handoffs, which is where information usually gets lost."
+   ],
+   "context_facts": [
+    "higienistas-reclutamiento",
+    "economia-practica"
+   ],
+   "restricted_messages": [
+    "Horas ahorradas o ROI sin medición documentada"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "health_organizations"
+   ],
+   "review_cycle_days": 90,
+   "close": "El tiempo clínico no se estira.",
+   "close_accent": "Se recupera de lo administrativo."
+  },
+  {
+   "id": "innovacion-radiologia-oral",
+   "category": "industry_context",
+   "title": "Innovación en radiología oral",
+   "title_en": "Innovation in oral radiology",
+   "approved_messages": [
+    "La imagenología dental generó más datos por paciente en la última década que en las cuatro anteriores.",
+    "Más información por paciente no equivale automáticamente a más claridad para el paciente.",
+    "El 2D y el 3D conviven en la consulta y responden preguntas distintas."
+   ],
+   "approved_messages_en": [
+    "Dental imaging has produced more data per patient in the last decade than in the previous four.",
+    "More information per patient does not automatically mean more clarity for the patient.",
+    "2D and 3D coexist in the practice and answer different questions."
+   ],
+   "qualified_messages": [
+    "El desafío ya no es capturar la imagen sino convertirla en algo accionable.",
+    "El valor está menos en el sensor y más en lo que ocurre después de la captura."
+   ],
+   "qualified_messages_en": [
+    "The challenge is no longer capturing the image but turning it into something actionable.",
+    "The value lies less in the sensor and more in what happens after capture."
+   ],
+   "context_facts": [
+    "cbct-3d"
+   ],
+   "restricted_messages": [
+    "Comparaciones de equipamiento o proveedores sin evidencia"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "universities",
+    "radiology_centers",
+    "dental_groups"
+   ],
+   "review_cycle_days": 90,
+   "close": "La radiología dental cambió de herramientas.",
+   "close_accent": "El flujo alrededor, casi nada."
+  },
+  {
+   "id": "tecnologia-organizaciones",
+   "category": "operational_context",
+   "title": "Tecnología para clínicas y organizaciones",
+   "title_en": "Technology for practices and organizations",
+   "approved_messages": [
+    "Una clínica individual y un grupo con varias sedes compran tecnología por razones distintas.",
+    "La decisión de adoptar una herramienta rara vez es solo clínica: es también operativa y económica.",
+    "Integrar es más difícil que instalar."
+   ],
+   "approved_messages_en": [
+    "A single practice and a multi-site group buy technology for different reasons.",
+    "The decision to adopt a tool is rarely only clinical: it is also operational and economic.",
+    "Integrating is harder than installing."
+   ],
+   "qualified_messages": [
+    "DentRead trabaja con distintos tipos de profesionales y organizaciones dentales, según sus necesidades operativas y clínicas.",
+    "El alcance del producto se adapta al tamaño y a la estructura de cada organización."
+   ],
+   "qualified_messages_en": [
+    "DentRead works with different kinds of dental professionals and organizations, according to their operational and clinical needs.",
+    "The scope of the product adapts to the size and structure of each organization."
+   ],
+   "context_facts": [
+    "practica-grupal",
+    "propietarios-caida"
+   ],
+   "restricted_messages": [
+    "Nombrar clientes u organizaciones sin autorización",
+    "Afirmar integraciones que no están disponibles"
+   ],
+   "allowed_audiences": [
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "health_organizations",
+    "radiology_centers"
+   ],
+   "review_cycle_days": 90,
+   "close": "Una clínica y un grupo no compran igual.",
+   "close_accent": "Tampoco miden igual."
+  },
+  {
+   "id": "educacion-dental",
+   "category": "education",
+   "title": "Educación dental",
+   "title_en": "Dental education",
+   "approved_messages": [
+    "La interpretación radiográfica se aprende viendo muchos casos y recibiendo retroalimentación.",
+    "Las facultades enfrentan el problema de dar retroalimentación individual a escala.",
+    "La brecha entre lo que se enseña y lo que se encuentra en la práctica se cierra con volumen de casos."
+   ],
+   "approved_messages_en": [
+    "Radiographic interpretation is learned by seeing many cases and receiving feedback.",
+    "Dental schools face the problem of giving individual feedback at scale.",
+    "The gap between what is taught and what is found in practice closes with case volume."
+   ],
+   "qualified_messages": [
+    "Las herramientas de apoyo pueden tener un rol en la formación y en la práctica temprana.",
+    "DentRead explora usos educativos junto a universidades e instituciones formadoras."
+   ],
+   "qualified_messages_en": [
+    "Support tools can play a role in training and in early practice.",
+    "DentRead is exploring educational uses together with universities and training institutions."
+   ],
+   "restricted_messages": [
+    "Afirmar convenios o programas académicos no formalizados",
+    "Presentar el producto como material docente validado"
+   ],
+   "allowed_audiences": [
+    "universities",
+    "dentists",
+    "health_organizations"
+   ],
+   "review_cycle_days": 90,
+   "close": "Se enseña a leer la imagen.",
+   "close_accent": "Menos, a explicarla."
+  },
+  {
+   "id": "salud-publica-oral",
+   "category": "public_health",
+   "title": "Salud pública oral",
+   "title_en": "Oral public health",
+   "approved_messages": [
+    "La salud oral sigue siendo el área de salud con mayor brecha de acceso en varios países.",
+    "Buena parte de la carga de enfermedad oral es prevenible y llega tarde al sistema.",
+    "El acceso no se resuelve con mejor tecnología clínica, pero la tecnología puede aliviar el cuello de botella operativo."
+   ],
+   "approved_messages_en": [
+    "Oral health remains the area of care with the widest access gap in several countries.",
+    "Much of the oral disease burden is preventable and reaches the system late.",
+    "Access is not solved by better clinical technology, but technology can ease the operational bottleneck."
+   ],
+   "qualified_messages": [
+    "Herramientas que reducen carga administrativa pueden liberar capacidad de atención.",
+    "El impacto en acceso depende de la política pública mucho más que del software."
+   ],
+   "qualified_messages_en": [
+    "Tools that reduce administrative burden can free up care capacity.",
+    "Impact on access depends far more on public policy than on software."
+   ],
+   "context_facts": [
+    "sin-seguro-72m",
+    "utilizacion-ingreso"
+   ],
+   "restricted_messages": [
+    "Atribuir mejoras de acceso poblacional a DentRead"
+   ],
+   "allowed_audiences": [
+    "health_organizations",
+    "universities",
+    "dental_groups",
+    "DSOs",
+    "dentists"
+   ],
+   "review_cycle_days": 90,
+   "close": "La boca queda fuera de casi todo sistema.",
+   "close_accent": "Los datos lo muestran hace décadas."
+  },
+  {
+   "id": "evolucion-ecosistema",
+   "category": "company_positioning",
+   "title": "Nuevas herramientas y evolución del ecosistema",
+   "title_en": "New tools and how the ecosystem evolves",
+   "approved_messages": [
+    "DentRead incorpora progresivamente nuevas herramientas para profesionales, clínicas, pacientes y organizaciones.",
+    "El punto de partida es la radiografía, pero el recorrido del paciente no termina ahí.",
+    "Cada herramienta nueva responde a un momento concreto del proceso clínico o administrativo."
+   ],
+   "approved_messages_en": [
+    "DentRead is progressively adding tools for professionals, practices, patients and organizations.",
+    "The starting point is the radiograph, but the patient's journey does not end there.",
+    "Each new tool addresses a specific moment in the clinical or administrative process."
+   ],
+   "qualified_messages": [
+    "La estrategia de producto, comercialización y regulación puede variar según el mercado y el uso previsto.",
+    "El roadmap se ajusta a lo que las organizaciones dentales realmente necesitan resolver."
+   ],
+   "qualified_messages_en": [
+    "Product, commercial and regulatory strategy may vary by market and intended use.",
+    "The roadmap adjusts to what dental organizations actually need to solve."
+   ],
+   "restricted_messages": [
+    "Anunciar funcionalidades sin fecha ni disponibilidad real",
+    "Comprometer capacidades futuras como si estuvieran disponibles"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "universities",
+    "radiology_centers",
+    "health_organizations",
+    "patients"
+   ],
+   "review_cycle_days": 90,
+   "close": "Cada herramienta nueva promete lo mismo.",
+   "close_accent": "Pocas cambian el flujo real."
+  },
+  {
+   "id": "uso-responsable-ia",
+   "category": "regulatory_and_ethics",
+   "title": "Uso responsable de IA en odontología",
+   "title_en": "Responsible use of AI in dentistry",
+   "approved_messages": [
+    "La postura de las sociedades profesionales sobre IA en odontología es más prudente que la del mercado.",
+    "Evaluar un sistema de IA exige saber con qué datos se entrenó y en qué población se validó.",
+    "El sesgo de automatización es un riesgo documentado: confiar de más en la sugerencia de un sistema."
+   ],
+   "approved_messages_en": [
+    "Professional societies take a more cautious stance on AI in dentistry than the market does.",
+    "Evaluating an AI system requires knowing what data trained it and in what population it was validated.",
+    "Automation bias is a documented risk: over-trusting a system's suggestion."
+   ],
+   "qualified_messages": [
+    "Un uso responsable supone que el profesional evalúa críticamente el resultado y conserva la decisión.",
+    "El alcance regulatorio de cada herramienta depende de su uso previsto y del mercado donde se ofrece."
+   ],
+   "qualified_messages_en": [
+    "Responsible use assumes the professional critically evaluates the output and retains the decision.",
+    "The regulatory scope of each tool depends on its intended use and the market where it is offered."
+   ],
+   "restricted_messages": [
+    "Declarar certificaciones o autorizaciones no emitidas",
+    "Presentar el cumplimiento regulatorio como diferenciador sin documentación"
+   ],
+   "allowed_audiences": [
+    "dentists",
+    "clinics",
+    "dental_groups",
+    "DSOs",
+    "universities",
+    "health_organizations",
+    "radiology_centers"
+   ],
+   "review_cycle_days": 60,
+   "close": "La IA apoya.",
+   "close_accent": "El odontólogo decide."
+  }
+ ]
 }

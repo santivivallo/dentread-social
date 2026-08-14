@@ -149,6 +149,8 @@ def post_from_block(block: dict, seed: int = 0) -> Post:
                if f["id"] in block.get("context_facts", [])][:2],
         messages=rest,
         messages_en=rest_en,
+        close=block.get("close", ""),
+        close_accent=block.get("close_accent", ""),
     )
 
 
