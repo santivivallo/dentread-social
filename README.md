@@ -5,6 +5,7 @@ Publica tres veces por semana desde hechos verificados: carrusel en Instagram (e
 ```bash
 python -m pipeline.run --slots 3                    # genera la tanda
 python -m pipeline.run --slots 1 --preview          # solo PNG, no toca el repo
+python -m tools.preview                             # los abre a tamaño real de feed
 python -m pipeline.run --inventory                  # cuánto contenido queda
 python publish.py out/2026-08-09-<slug> --dry-run
 python publish.py out/2026-08-09-<slug>
