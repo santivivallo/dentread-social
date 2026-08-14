@@ -1,5 +1,5 @@
 {
- "_README": "Fuentes autorizadas, por nivel de evidencia. La autorización depende de la calidad de la fuente y del tipo de afirmación, no de una lista fija. Para agregar una: definir su tier y qué tipo de claim puede sostener. Un tier no habilita cualquier claim — ver claims_policy.md.",
+ "_README": "Fuentes autorizadas, por nivel de evidencia. La autorización depende de la calidad de la fuente y del tipo de afirmación, no de una lista fija. Para agregar una: definir su tier y qué tipo de claim puede sostener. Un tier no habilita cualquier claim — ver claims_policy.md. VENTANA: ADA News y literatura científica solo de 2026. Los hechos curados pueden ser anteriores si siguen vigentes; el flujo de noticias y papers, no.",
  "tiers": {
   "regulatory": {
    "descripcion": "Organismos con autoridad regulatoria o normativa. Lo que dicen ES el estado del arte legal.",
@@ -375,6 +375,13 @@
    "tier": "primary_research",
    "region": "US",
    "note": "Acceso abierto. Puente entre ciencia básica y clínica: biología, ingeniería y tecnología aplicadas a diagnóstico y tratamiento. Al ser abierta, es la vía preferible para citar literatura."
+  },
+  {
+   "id": "bmc-oral-health",
+   "name": "BMC Oral Health",
+   "tier": "primary_research",
+   "region": "global",
+   "note": "Acceso abierto, revisada por pares. Fuente aprobada para literatura de odontología digital, IA y tendencias. Solo 2026."
   }
  ]
 }
