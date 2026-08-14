@@ -95,8 +95,8 @@ CATALOG: list[Theme] = [
           "mitad es un problema de acceso que ninguna categoría aborda.",
           "acceso",
           "Dental software is built on the people who already come in. The other half is an access and coverage problem no category addresses.",
-          close="La mitad del país no aparece.",
-          close_accent="Nadie construye software para ellos."),
+          close="El que no vuelve ya estuvo sentado en tu sillón.",
+          close_accent="Recuperarlo cuesta menos que conseguir uno nuevo."),
 
     Theme("ninos-chip", "Cobertura dental infantil y CHIP",
           "children pediatric dental CHIP coverage utilization",
@@ -115,8 +115,8 @@ CATALOG: list[Theme] = [
           "tiene.",
           "acceso",
           "The segment with the most accumulated need has the weakest coverage.",
-          close="Más necesidad, menos cobertura.",
-          close_accent="La brecha se ensancha con la edad."),
+          close="La necesidad acumulada llega en planes largos.",
+          close_accent="Los planes largos son los que más se abandonan."),
 
     Theme("urgencias", "Urgencias hospitalarias por dolor dental",
           "emergency department visits dental conditions avoidable",
@@ -146,8 +146,8 @@ CATALOG: list[Theme] = [
           "sanitario. El crecimiento viene de eficiencia, no de volumen.",
           "mercado",
           "A large, fragmented sector holding a stable share of health spending. Growth comes from efficiency, not volume.",
-          close="Un sector grande y partido en mil.",
-          close_accent="Crece por eficiencia, no por volumen."),
+          close="El sector no crece atendiendo más rápido.",
+          close_accent="Crece terminando lo que ya diagnosticó."),
 
     Theme("consolidacion-dso", "Consolidación y DSOs",
           "DSO affiliation group practice consolidation trend",
@@ -176,8 +176,8 @@ CATALOG: list[Theme] = [
           "la cantidad total.",
           "mercado",
           "Who practices and where. Distribution explains access better than headcount does.",
-          close="No faltan dentistas en todas partes.",
-          close_accent="Faltan donde hacen falta."),
+          close="Sumar un dentista lleva meses.",
+          close_accent="Recuperar una hora de agenda, no."),
 
     # ---- Clínica, tecnología y tendencias -------------------------------
     Theme("tecnologia-clinica", "Adopción de tecnología en la clínica",
@@ -197,8 +197,8 @@ CATALOG: list[Theme] = [
           "Estandarizar la lectura es un problema de proceso.",
           "tecnologia",
           "Variability between readers is documented. Standardizing the read is a process problem.",
-          close="Dos lectores, dos lecturas.",
-          close_accent="Estandarizar es un problema de proceso."),
+          close="El desacuerdo entre lectores ya está documentado.",
+          close_accent="Lo que no se registra es qué pasó después."),
 
     Theme("cbct-3d", "CBCT y volumen 3D",
           "CBCT cone beam three dimensional imaging",
@@ -218,8 +218,8 @@ CATALOG: list[Theme] = [
           "desempeño de modelo: la IA dental es un gasto, no un ingreso.",
           "mercado",
           "CDT 2026 added 31 codes and none of the highlighted ones covers AI. That is why the whole category sells treatment acceptance instead of model performance: dental AI is an expense, not a revenue line.",
-          close="La IA dental no tiene código propio.",
-          close_accent="Por eso se vende como ingreso, no como clínica."),
+          close="Ningún código paga por usar IA.",
+          close_accent="Se paga el tratamiento que sí se termina."),
 
     Theme("codigos-documentan", "Los códigos nuevos documentan lo que ya se hacía",
           "CDT 2026 new codes point-of-care saliva cracked tooth occlusal guard documentation",
@@ -239,8 +239,8 @@ CATALOG: list[Theme] = [
           "brecha es el tema, y DentRead está del lado prudente por diseño.",
           "tecnologia",
           "The profession's stance is more cautious than the market's. That gap is the story, and DentRead sits on the prudent side by design.",
-          close="La profesión va más lenta que el mercado.",
-          close_accent="Esa distancia es el tema."),
+          close="La cautela de la profesión no es resistencia.",
+          close_accent="Es pedir evidencia antes de cambiar un flujo."),
 
     # ---- Clínica y prevención -------------------------------------------
     Theme("prevencion", "Prevención y utilización preventiva",
@@ -260,8 +260,8 @@ CATALOG: list[Theme] = [
           "paciente sin tecnicismos.",
           "clinica",
           "The mouth as part of the whole picture. Useful for talking to patients without jargon.",
-          close="La boca no está aparte del cuerpo.",
-          close_accent="Sirve para explicar sin tecnicismos."),
+          close="El paciente entiende su boca cuando la ve.",
+          close_accent="No cuando se la nombran."),
 
     Theme("periodontal", "Enfermedad periodontal",
           "periodontal disease prevalence treatment gum",

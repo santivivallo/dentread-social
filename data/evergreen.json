@@ -165,8 +165,8 @@
     "health_organizations"
    ],
    "review_cycle_days": 90,
-   "close": "Dos lecturas del mismo caso rara vez coinciden.",
-   "close_accent": "La consistencia se construye."
+   "close": "Un criterio parejo no se pide.",
+   "close_accent": "Se sostiene con un registro que alguien mire."
   },
   {
    "id": "comunicacion-visual-paciente",
@@ -405,8 +405,8 @@
     "dental_groups"
    ],
    "review_cycle_days": 90,
-   "close": "La radiología dental cambió de herramientas.",
-   "close_accent": "El flujo alrededor, casi nada."
+   "close": "El equipo se renovó. El proceso alrededor, no.",
+   "close_accent": "Ahí está el margen que nadie reclama."
   },
   {
    "id": "tecnologia-organizaciones",
@@ -483,8 +483,8 @@
     "health_organizations"
    ],
    "review_cycle_days": 90,
-   "close": "Se enseña a leer la imagen.",
-   "close_accent": "Menos, a explicarla."
+   "close": "Explicar bien es una técnica.",
+   "close_accent": "Se practica tan poco como se enseña."
   },
   {
    "id": "salud-publica-oral",
@@ -524,8 +524,8 @@
     "dentists"
    ],
    "review_cycle_days": 90,
-   "close": "La boca queda fuera de casi todo sistema.",
-   "close_accent": "Los datos lo muestran hace décadas."
+   "close": "Lo que no se mide no entra en ningún presupuesto.",
+   "close_accent": "Empezá por lo que ya pasa en tu agenda."
   },
   {
    "id": "evolucion-ecosistema",
@@ -565,8 +565,8 @@
     "patients"
    ],
    "review_cycle_days": 90,
-   "close": "Cada herramienta nueva promete lo mismo.",
-   "close_accent": "Pocas cambian el flujo real."
+   "close": "Pedile a cualquier software una cifra de la semana pasada.",
+   "close_accent": "Ahí se separa la demo del sistema."
   },
   {
    "id": "uso-responsable-ia",
