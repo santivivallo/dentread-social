@@ -123,12 +123,11 @@ def generate(post: Post) -> PostSpec:
                      Stat(f1["number"], _clip(f1["statement"], 120),
                           short_cite(f1["cite"]))],
               body=_clip(rest, 240), source=f"Fuentes: {sources}"),
-        Slide("close", "El dato describe el contexto.",
-              accent="La decisión está en el flujo.",
+        # El cierre sale del tema, no de una frase global. Antes los doce
+        # posts de datos terminaban con la misma línea genérica.
+        Slide("close", post.close, accent=post.close_accent,
               kicker="Qué implica", chain=CHAIN,
-              body="Entre el hallazgo y el tratamiento terminado hay un "
-                   "recorrido que casi nadie mide. La IA apoya, el "
-                   "odontólogo decide."),
+              body="La IA apoya, el odontólogo decide."),
     ]
 
     caption_es = (

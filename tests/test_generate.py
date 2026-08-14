@@ -34,6 +34,12 @@ def _check(spec, kind: str) -> list[str]:
             errs.append(f"{kind}: frame {i+1} tiene rol '{s.role}'")
         if not s.headline.strip():
             errs.append(f"{kind}: frame {i+1} sin titular")
+
+    # El cierre no puede ser el mismo en todos los posts: durante un tiempo
+    # los doce de datos terminaron con la misma frase genérica.
+    cierre = spec.slides[-1]
+    if len(f"{cierre.headline} {cierre.accent}".strip()) < 12:
+        errs.append(f"{kind}: cierre demasiado corto o vacío")
     if not spec.caption_es.strip():
         errs.append(f"{kind}: caption vacío")
     # Reglas del brand guide que se pueden verificar sin renderizar.
@@ -68,12 +74,10 @@ def main() -> int:
 
     # Todos los temas con hechos suficientes, no solo el primero.
     for theme, facts in plan.available_themes(state):
-        post = plan.Post(kind="data", id=theme.id, title=theme.name,
-                         audience=theme.audience, angle=theme.angle,
-                         angle_en=theme.angle_for("en"), family=theme.family,
-                         facts=plan.facts_for(theme.id, state, limit=2))
-        if len(post.facts) < 2:
+        facts = plan.facts_for(theme.id, state, limit=2)
+        if len(facts) < 2:
             continue
+        post = plan.post_from_theme(theme, facts)
         errors += _check(generate(post), f"data/{theme.id}")
         tested += 1
 

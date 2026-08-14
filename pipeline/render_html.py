@@ -15,6 +15,8 @@ si algo falta, va primero al brand guide.
 from __future__ import annotations
 
 import html
+import math
+from itertools import combinations
 import shutil
 import subprocess
 import sys
@@ -183,21 +185,42 @@ def _page(frame: Frame, n: int, total: int) -> str:
 
 # --------------------------------------------------------------------------
 
-def _br(text: str, every: int = 26) -> str:
+def _br(text: str, max_chars: int = 26) -> str:
     """
-    Corta el titular en líneas cortas. Con 88px y tracking -2.5 un renglón
-    largo se pasa del safe zone; el kit siempre trae los <br> a mano.
+    Reparte el titular en renglones parejos, sin palabras huérfanas.
+
+    El corte anterior era ciego: acumulaba hasta 26 caracteres y cortaba donde
+    cayera. Producía "El dato describe el / contexto." con la última palabra
+    sola, que a 88 px se lee como un error de maquetación.
+
+    Acá se usa la menor cantidad de renglones que respete el ancho máximo y,
+    entre todos los repartos posibles con esa cantidad, se elige el que deja
+    los renglones más parejos. Los titulares tienen pocas palabras, así que
+    probarlos todos es más barato que cualquier heurística.
     """
-    words, lines, cur = _esc(text).split(), [], ""
-    for w in words:
-        if cur and len(cur) + len(w) + 1 > every:
-            lines.append(cur)
-            cur = w
-        else:
-            cur = f"{cur} {w}".strip()
-    if cur:
-        lines.append(cur)
-    return "<br>".join(lines)
+    words = _esc(text).split()
+    if not words:
+        return ""
+    total = len(" ".join(words))
+    n = min(max(1, math.ceil(total / max_chars)), len(words))
+    if n == 1:
+        return " ".join(words)
+
+    def costo(lineas: list[str]) -> tuple[int, int]:
+        largos = [len(x) for x in lineas]
+        # Primero que ninguna se pase; después, que sean lo más parejas posible.
+        exceso = sum(max(0, x - max_chars) for x in largos)
+        media = sum(largos) / len(largos)
+        return exceso * 1000, round(sum((x - media) ** 2 for x in largos))
+
+    mejor, mejor_costo = None, None
+    for cortes in combinations(range(1, len(words)), n - 1):
+        bordes = (0,) + cortes + (len(words),)
+        lineas = [" ".join(words[a:b]) for a, b in zip(bordes, bordes[1:])]
+        c = costo(lineas)
+        if mejor_costo is None or c < mejor_costo:
+            mejor, mejor_costo = lineas, c
+    return "<br>".join(mejor)
 
 
 def frames_for(spec) -> list[Frame]:

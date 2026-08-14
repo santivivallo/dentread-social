@@ -50,6 +50,8 @@ class Post:
     # construirse sin depender de cifras.
     messages: list[str] = field(default_factory=list)
     messages_en: list[str] = field(default_factory=list)
+    close: str = ""                  # cierre propio del tema
+    close_accent: str = ""
 
     def fact_ids(self) -> list[str]:
         return [f["id"] for f in self.facts]
@@ -150,6 +152,22 @@ def post_from_block(block: dict, seed: int = 0) -> Post:
     )
 
 
+def post_from_theme(theme: Theme, facts: list[dict]) -> Post:
+    """
+    Único lugar donde un tema se convierte en Post.
+
+    Antes esto estaba escrito dos veces —acá y en los tests— y al agregarle
+    el cierre propio al tema, la segunda copia quedó sin él. Un campo nuevo
+    no debería poder olvidarse en la mitad de los casos.
+    """
+    return Post(
+        kind="data", id=theme.id, title=theme.name, audience=theme.audience,
+        angle=theme.angle, angle_en=theme.angle_for("en"),
+        family=theme.family, facts=facts,
+        close=theme.close, close_accent=theme.close_accent,
+    )
+
+
 def available_evergreen(state: dict | None = None) -> list[dict]:
     state = state or _state()
     out = []
@@ -187,11 +205,7 @@ def next_posts(n: int = 2) -> list[Post]:
               if f["id"] not in used_facts][:2]
         if len(fs) < 2:
             continue
-        posts.append(Post(
-            kind="data", id=theme.id, title=theme.name,
-            audience=theme.audience, angle=theme.angle,
-            angle_en=theme.angle_for("en"), family=theme.family, facts=fs,
-        ))
+        posts.append(post_from_theme(theme, fs))
         families.add(theme.family)
         used_facts |= {f["id"] for f in fs}
 
