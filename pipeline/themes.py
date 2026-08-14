@@ -38,6 +38,15 @@ class Theme:
     # cian. Es por tema y no una frase global. Antes los doce posts de datos
     # cerraban con "El dato describe el contexto. La decisión está en el
     # flujo.", que no dice nada de ninguno en particular y se lee como relleno.
+    #
+    # Los 22 de acá y los 15 de data/evergreen.json están APROBADOS por
+    # Santiago (2026-08-14), uno por uno. Son la voz de la empresa en el
+    # último frame: no reescribirlos sin pedido explícito.
+    #
+    # Criterio para los que se agreguen: terminar en una implicación para
+    # quien opera la clínica, nunca en una observación sobre la industria, y
+    # no competir en precisión diagnóstica — ahí juegan los que tienen FDA
+    # clearance.
     close: str = ""
     close_accent: str = ""
 

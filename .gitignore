@@ -5,3 +5,6 @@ out/
 **/.ig/
 __pycache__/
 *.pyc
+
+# hoja de trabajo de revisión, no versionable
+Cierres_DentRead_para_revisar.xlsx
