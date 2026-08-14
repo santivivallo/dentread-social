@@ -69,6 +69,12 @@ jobs:
       - name: Test generation
         run: python -m tests.test_generate
 
+      # Contraste y tamano de texto. Personas reales reportaron que
+      # costaba leer los primeros carruseles; el gris secundario daba
+      # 3,2:1 sobre fondo oscuro y el cuerpo quedaba en 8 pt en telefono.
+      - name: Test legibility
+        run: python -m tests.test_legibility
+
       - name: Generate
         if: ${{ !inputs.folder }}
         run: python -m pipeline.run --slots 1

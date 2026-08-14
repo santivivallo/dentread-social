@@ -33,7 +33,29 @@ CYAN_TEXT = "#07728C"      # acento sobre fondo claro (contraste)
 MIST = "#F4F7F9"
 PAPER = "#FFFFFF"
 TINT = "#E2F1F5"
-SLATE = "#586575"
+SLATE = "#586575"          # texto secundario sobre fondo CLARO: 5.5:1, pasa AA
+
+# Sobre fondo oscuro, Slate da 3.2:1 contra Midnight y no llega al 4.5:1 que
+# pide WCAG AA para texto normal. Se ve "apagado" y cuesta leerlo, que fue
+# exactamente lo que reportaron al mirar los primeros carruseles. Este tono
+# da 7.8:1 y mantiene la familia de grises azulados de la marca.
+SLATE_ON_DARK = "#9AA7B4"
+
+# Escala tipográfica.
+#
+# El lienzo es 1440 px de ancho y en el feed se ve a ~390 pt: todo encoge a
+# un 27%. Con los tamaños anteriores el cuerpo quedaba en 8 pt y las fuentes
+# al pie en 4,6 pt — ilegibles en un teléfono por más contraste que tengan.
+# Estos valores apuntan a 15 pt de cuerpo y 9 pt de nota al pie, que es lo
+# que se lee sin esfuerzo sostenido.
+#
+#   px en el lienzo × 0.271 = pt percibidos en el teléfono
+S_H1 = 88          # 23.8 pt
+S_SUB = 54         # 14.6 pt
+S_LABEL = 46       # 12.5 pt
+S_SRC = 34         #  9.2 pt
+S_FOOT = 30        #  8.1 pt · sólo señalética, no contenido
+S_KICKER = 26      #  7.0 pt · mayúsculas con tracking amplio, se lee bien
 
 FONTS = ("https://fonts.googleapis.com/css2?"
          "family=Schibsted+Grotesk:wght@400;700;800"
@@ -60,6 +82,7 @@ def _css(dark: bool) -> str:
     bg = MIDNIGHT if dark else MIST
     fg = MIST if dark else NAVY
     accent = CYAN_DARK if dark else CYAN_TEXT
+    muted = SLATE_ON_DARK if dark else SLATE
     orb = (f".glow-orb{{position:absolute;width:900px;height:900px;"
            f"border-radius:50%;background:radial-gradient(circle,"
            f"rgba(10,166,201,.18) 0%,transparent 65%);top:-200px;right:-250px;"
@@ -72,21 +95,21 @@ body{{width:{W}px;height:{H}px;overflow:hidden;
 {orb}
 .safe{{position:absolute;inset:110px;display:flex;flex-direction:column;}}
 .top{{display:flex;justify-content:space-between;align-items:center;}}
-.kicker{{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;
- letter-spacing:6px;text-transform:uppercase;color:{accent};}}
-.frame-num{{font-family:'Space Mono',monospace;font-size:20px;
- letter-spacing:3px;color:{SLATE};}}
+.kicker{{font-family:'Space Mono',monospace;font-size:{S_KICKER}px;
+ font-weight:700;letter-spacing:6px;text-transform:uppercase;color:{accent};}}
+.frame-num{{font-family:'Space Mono',monospace;font-size:{S_FOOT}px;
+ letter-spacing:3px;color:{muted};}}
 .content{{flex:1;display:flex;flex-direction:column;justify-content:center;}}
 .dots{{display:flex;gap:10px;margin-bottom:56px;}}
-.dot{{width:50px;height:4px;border-radius:2px;background:rgba(88,101,117,.3);}}
+.dot{{width:50px;height:4px;border-radius:2px;background:{"rgba(154,167,180,.35)" if dark else "rgba(88,101,117,.3)"};}}
 .dot.on{{background:{CYAN};}}
 h1{{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;
- font-size:88px;line-height:1.04;letter-spacing:-2.5px;color:{fg};}}
+ font-size:{S_H1}px;line-height:1.04;letter-spacing:-2.5px;color:{fg};}}
 h1 .accent{{color:{accent};}}
 .bignum{{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;
  font-size:190px;line-height:.9;letter-spacing:-6px;color:{accent};
  white-space:nowrap;margin-bottom:24px;}}
-.sub{{font-size:30px;font-weight:400;line-height:1.55;color:{SLATE};
+.sub{{font-size:{S_SUB}px;font-weight:400;line-height:1.5;color:{muted};
  margin-top:44px;max-width:940px;}}
 .sub strong{{color:{fg};font-weight:500;}}
 .stats{{display:flex;gap:28px;margin-top:56px;}}
@@ -99,16 +122,16 @@ h1 .accent{{color:{accent};}}
  font-size:80px;line-height:1;letter-spacing:-2px;color:{fg};
  white-space:nowrap;}}
 .snum.cyan{{color:{accent};}}
-.slabel{{font-size:24px;color:{SLATE};line-height:1.4;margin-top:18px;}}
-.chain{{font-family:'Space Mono',monospace;font-size:26px;letter-spacing:2px;
+.slabel{{font-size:{S_LABEL}px;color:{muted};line-height:1.35;margin-top:20px;}}
+.chain{{font-family:'Space Mono',monospace;font-size:{S_SRC}px;letter-spacing:2px;
  color:{accent};margin-top:40px;}}
-.src{{font-family:'Space Mono',monospace;font-size:17px;letter-spacing:2px;
- color:{SLATE};text-transform:uppercase;margin-top:34px;opacity:.75;}}
+.src{{font-family:'Space Mono',monospace;font-size:{S_SRC}px;
+ letter-spacing:2px;color:{muted};text-transform:uppercase;margin-top:34px;}}
 .bottom{{display:flex;justify-content:space-between;align-items:flex-end;}}
-.swipe{{font-family:'Space Mono',monospace;font-size:18px;letter-spacing:3px;
- color:{SLATE};text-transform:uppercase;}}
+.swipe{{font-family:'Space Mono',monospace;font-size:{S_FOOT}px;
+ letter-spacing:3px;color:{muted};text-transform:uppercase;}}
 .save{{display:flex;align-items:center;gap:10px;font-family:'Space Mono',
- monospace;font-size:18px;letter-spacing:3px;color:{SLATE};
+ monospace;font-size:{S_FOOT}px;letter-spacing:3px;color:{muted};
  text-transform:uppercase;}}
 """
 
@@ -121,7 +144,7 @@ def _page(frame: Frame, n: int, total: int) -> str:
     )
     last = n == total
     foot = (f'<div class="save"><svg width="16" height="20" viewBox="0 0 16 20"'
-            f' fill="none"><path d="M2 2h12v16l-6-4-6 4V2z" stroke="{SLATE}"'
+            f' fill="none"><path d="M2 2h12v16l-6-4-6 4V2z" stroke="currentColor"'
             f' stroke-width="1.5" stroke-linejoin="round"/></svg>{SAVE}</div>'
             if last else f'<span class="swipe">{SWIPE}</span>')
     orb = '<div class="glow-orb"></div>' if frame.dark else ""
