@@ -10,13 +10,15 @@
   "intencion-vs-visita": "2026-08-14",
   "utilizacion-seguro": "2026-08-14",
   "medicaid-38-estados": "2026-08-14",
-  "medicaid-reembolso": "2026-08-14"
+  "medicaid-reembolso": "2026-08-14",
+  "medicaid-privado": "2026-08-14",
+  "medicaid-ninos-visita": "2026-08-14"
  },
  "evergreen": {
   "que-es-dentread": "2026-08-10",
   "ia-radiografias-dentales": "2026-08-12"
  },
- "count": 7,
+ "count": 8,
  "externos": {
   "news-56913837": "2026-08-14"
  }

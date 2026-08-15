@@ -77,8 +77,7 @@
       "id": "utilizacion-edad",
       "themes": [
         "utilizacion",
-        "ninos-chip",
-        "adultos-mayores"
+        "ninos-chip"
       ],
       "number": "53% vs 41%",
       "number_en": "53% vs 41%",
@@ -103,8 +102,7 @@
     {
       "id": "medicaid-38-estados",
       "themes": [
-        "medicaid-adultos",
-        "ninos-chip"
+        "medicaid-adultos"
       ],
       "number": "38 estados",
       "number_en": "38 states",
@@ -268,8 +266,7 @@
     {
       "id": "medicaid-ninos-visita",
       "themes": [
-        "ninos-chip",
-        "medicaid-adultos"
+        "ninos-chip"
       ],
       "number": "27 estados",
       "number_en": "27 states",

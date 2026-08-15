@@ -48,6 +48,12 @@ def norm(s: str) -> str:
 
 # --------------------------------------------------------------------------
 
+# Marcas de población en el enunciado de un hecho. Se usan para detectar
+# hechos asignados a un tema de la población equivocada.
+_NINOS = re.compile(r"niñ|infantil|pediátric|CHIP", re.I)
+_ADULTOS = re.compile(r"\badulto", re.I)
+
+
 def check_facts() -> tuple[int, int, list[str]]:
     facts = json.loads(FACTS.read_text())["facts"]
     docs = [json.loads(l) for l in KB_PATH.open()]
@@ -92,6 +98,27 @@ def check_facts() -> tuple[int, int, list[str]]:
                 problems.append(f"{f['id']}: falta el campo '{field}'")
                 break
         else:
+            # Un hecho sobre niños no puede publicarse bajo un tema de
+            # adultos, ni al revés. Salió así: el frame 1 decía "MEDICAID
+            # ADULTO" y la tarjeta del frame 2 hablaba de niños beneficiarios.
+            # La cifra era correcta y estaba bien citada, así que ningún
+            # control la tocó; lo que fallaba era a qué tema estaba asignada.
+            #
+            # Los hechos que COMPARAN las dos poblaciones quedan fuera: "53%
+            # de los niños contra 41% de los adultos" pertenece a los dos
+            # temas con todo derecho, y marcarlo seria un falso positivo.
+            texto_hecho = f["statement"]
+            habla_ninos = bool(_NINOS.search(texto_hecho))
+            habla_adultos = bool(_ADULTOS.search(texto_hecho))
+            if habla_ninos != habla_adultos:
+                for tema in f.get("themes", []):
+                    if habla_ninos and re.search(r"adulto|mayores", tema):
+                        problems.append(f"{f['id']}: habla de niños y está en "
+                                        f"el tema '{tema}'")
+                    if habla_adultos and re.search(r"ninos|chip", tema):
+                        problems.append(f"{f['id']}: habla de adultos y está "
+                                        f"en el tema '{tema}'")
+
             # `card` es la versión corta que va en la tarjeta del frame 2.
             # Es texto escrito a mano, así que se controla lo mismo que en el
             # enunciado: que entre en la tarjeta y que no traiga ninguna cifra
@@ -162,7 +189,7 @@ def check_inventory() -> tuple[bool, list[str]]:
         f"{inv['temas_publicables']} temas publicables · "
         f"{inv['hechos_disponibles']}/{inv['hechos_totales']} hechos disponibles · "
         f"{inv['evergreen_disponibles']} evergreen",
-        f"runway: ~{inv['semanas_de_runway']} semanas a 2 posts/semana",
+        f"runway: ~{inv['semanas_de_runway']} semanas al ritmo del ciclo",
     ]
     ok = inv["semanas_de_runway"] >= 4
     if not ok:

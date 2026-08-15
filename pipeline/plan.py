@@ -346,5 +346,36 @@ def inventory() -> dict:
         "temas_publicables": len(themes),
         "evergreen_disponibles": len(available_evergreen(s)),
         "posts_publicados": s.get("count", 0),
-        "semanas_de_runway": round(len(themes) / 2, 1),
+        "semanas_de_runway": _runway(len(themes), len(available_evergreen(s))),
     }
+
+
+# Publicaciones por semana. El cron corre lunes, miércoles y viernes.
+POSTS_POR_SEMANA = 3
+
+
+def _ritmo(kind: str) -> float:
+    """Cuántos posts de este tipo salen por semana, según CICLO."""
+    veces = CICLO.count(kind)
+    return POSTS_POR_SEMANA * veces / len(CICLO)
+
+
+def _runway(temas: int, evergreen: int) -> float:
+    """
+    Semanas hasta quedarse sin contenido, por la restricción que apriete antes.
+
+    Antes era `temas / 2`, un divisor escrito cuando todos los posts salían de
+    hechos curados. Desde que CICLO intercala cuatro fuentes, los de datos son
+    2 de cada 6 ranuras: a tres por semana, uno por semana y no dos. El número
+    salía a la mitad de lo real y bloqueaba la publicación por un runway que
+    no existía.
+
+    Las noticias y los papers no entran en la cuenta a propósito: no consumen
+    inventario editorial, se reponen solos.
+    """
+    limites = []
+    for kind, disponible in (("data", temas), ("evergreen", evergreen)):
+        ritmo = _ritmo(kind)
+        if ritmo:
+            limites.append(disponible / ritmo)
+    return round(min(limites), 1) if limites else 0.0

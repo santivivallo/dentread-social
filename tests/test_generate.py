@@ -74,6 +74,20 @@ def _check(spec, kind: str) -> list[str]:
                 errs.append(f"{kind}: tarjeta '{st.number}' cortada al medio: "
                             f"...{st.label[-40:]}")
 
+    # Ninguna cifra queda huérfana: si el frame 1 muestra un número grande,
+    # ese mismo frame tiene que decir qué mide.
+    #
+    # Salió publicado un "5%" gigante bajo el titular "Cubrir no es lo mismo
+    # que pagar". El 5% mide cuántos beneficiarios de Medicaid tienen además
+    # seguro privado; el titular habla de reembolsos. El lector veía una cifra
+    # sin referente. No se arregla escribiendo mejor el titular: el titular es
+    # del tema y los hechos rotan, así que ninguna frase fija puede explicar
+    # una cifra que cambia.
+    portada = spec.slides[0]
+    if portada.stat and not (portada.body or "").strip():
+        errs.append(f"{kind}: el frame 1 muestra '{portada.stat}' y no dice "
+                    f"de qué es")
+
     # La cifra del gancho no se repite como tarjeta en el frame 2. Con dos
     # hechos por post, mostrar los dos en el frame de datos garantizaba que el
     # número gigante del 01 volviera a aparecer en el 02.

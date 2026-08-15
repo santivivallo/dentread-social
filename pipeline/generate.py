@@ -208,8 +208,20 @@ def generate(post: Post) -> PostSpec:
         # El gancho lleva la cifra y el titular, sin el enunciado del hecho:
         # ese texto vuelve en la tarjeta del slide 2 y repetirlo dos frames
         # seguidos hace que el carrusel se sienta corto.
+        # El frame 1 dice QUÉ ES su cifra, debajo del titular.
+        #
+        # Antes mostraba el número solo. Salió publicado un "5%" gigante sobre
+        # "Cubrir no es lo mismo que pagar": el 5% mide cuántos beneficiarios
+        # de Medicaid tienen además seguro privado, y el titular habla de
+        # reembolsos. El lector veía una cifra huérfana y una frase que no la
+        # explicaba. Con "38 estados" pasaba lo mismo.
+        #
+        # No se arregla escribiendo mejor el titular: el titular es del TEMA y
+        # los hechos rotan, así que ninguna frase fija puede explicar una cifra
+        # que cambia. Lo que explica la cifra es su propio enunciado.
         Slide("hook", hook, kicker=post.kicker or kicker_para("data", post.id),
-              stat=f1["number"], source=short_cite(f1["cite"])),
+              stat=f1["number"], body=card_text(f1),
+              source=short_cite(f1["cite"])),
         # El frame 2 lleva UNA sola tarjeta, y es la de la segunda cifra.
         #
         # Antes llevaba las dos, así que el número del gancho aparecía dos
@@ -224,12 +236,17 @@ def generate(post: Post) -> PostSpec:
         Slide("data", data_title,
               kicker="En EE.UU.",
               stats=[Stat(f2["number"], card_text(f2), short_cite(f2["cite"]))],
-              # El cuerpo lleva el enunciado del hecho del gancho y nada más.
-              # Antes le sumaba `rest`, la segunda mitad del ángulo del tema,
-              # que es una paráfrasis del titular de este mismo frame: el
-              # lector leía la misma idea dos veces en la misma pantalla.
-              # `rest` sigue en el caption, que es donde interpreta sin repetir.
-              body=card_text(f1),
+              # Cada frame explica su propia cifra: el enunciado del hecho del
+              # gancho ya está en el frame 1, así que acá va la lectura, que es
+              # lo que une las dos.
+              #
+              # Se omite si repite el titular de este mismo frame. Con el
+              # modelo eso no pasa —`lectura` se verifica contra el titular—,
+              # pero por el camino curado `rest` es la segunda mitad del ángulo
+              # del tema y suele ser una paráfrasis. Mejor un frame más corto
+              # que uno que dice dos veces lo mismo.
+              body="" if redaccion.solape(rest, data_title) >= redaccion.UMBRAL_SOLAPE
+                   else _clip(rest, 200),
               source=f"Fuentes: {sources}"),
         # El cierre sale del tema, no de una frase global. Antes los doce
         # posts de datos terminaban con la misma línea genérica.
