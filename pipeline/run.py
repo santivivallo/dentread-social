@@ -124,9 +124,15 @@ def main() -> None:
         fs = plan.facts_for(t.id, state)
         if len(fs) < 2:
             sys.exit(f"[error] '{t.id}' no tiene 2 hechos disponibles hoy")
-        posts = [Post(kind="data", id=t.id, title=t.name, audience=t.audience,
-                      angle=t.angle, angle_en=t.angle_for("en"),
-                      family=t.family, facts=fs)]
+        # Vía `plan.post_from_theme`, NO armando el Post a mano.
+        #
+        # Acá había una tercera copia de esa construcción y le faltaban close,
+        # close_accent, data_title, kicker y hook: todo lo que se le fue
+        # agregando al tema después de que se escribió. El síntoma fue que
+        # `--theme` abortaba con "no trae cierre" mientras la corrida normal
+        # funcionaba, o sea que el camino que se usa para revisar un post a
+        # mano era el único roto.
+        posts = [plan.post_from_theme(t, fs)]
     else:
         posts = plan.next_posts(args.slots)
 

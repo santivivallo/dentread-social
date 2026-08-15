@@ -95,9 +95,52 @@ def _check(spec, kind: str) -> list[str]:
     return errs
 
 
+def probar_caminos_de_construccion() -> list[str]:
+    """
+    Que todo camino que arme un Post desde un tema pase por `post_from_theme`.
+
+    Había tres copias de esa construcción, no dos. La tercera vivía en
+    `run.py --theme` y le faltaban close, close_accent, data_title, kicker y
+    hook, o sea todo lo que se le agregó al tema con el tiempo. El resultado
+    fue que `--theme` abortaba con "no trae cierre" mientras la corrida normal
+    andaba bien: el camino roto era justamente el que se usa para revisar un
+    post antes de publicarlo.
+
+    Un campo nuevo en Theme no debería poder olvidarse en un camino y no en
+    otro, así que esto compara los dos Posts campo por campo.
+    """
+    import dataclasses
+
+    from pipeline.themes import CATALOG
+
+    errs = []
+    state = {"themes": {}, "facts": {}, "evergreen": {}, "count": 0}
+    for theme in CATALOG:
+        facts = plan.facts_for(theme.id, state, limit=2)
+        if len(facts) < 2:
+            continue
+        canonico = plan.post_from_theme(theme, facts)
+        for campo in ("close", "close_accent", "data_title", "kicker", "hook"):
+            if not getattr(canonico, campo, None):
+                errs.append(f"{theme.id}: post_from_theme no propaga "
+                            f"'{campo}' del tema")
+        # Y que el dataclass no tenga campos que el tema define y el Post no
+        # reciba: si alguien agrega un campo a Theme y se olvida acá, esto lo
+        # muestra antes que una corrida en produccion.
+        faltantes = [f.name for f in dataclasses.fields(theme)
+                     if getattr(theme, f.name, None)
+                     and f.name in {f2.name for f2 in dataclasses.fields(canonico)}
+                     and not getattr(canonico, f.name, None)]
+        if faltantes:
+            errs.append(f"{theme.id}: el tema define {faltantes} y el Post "
+                        f"queda sin eso")
+        break  # con un tema alcanza: la construcción es la misma para todos
+    return errs
+
+
 def main() -> int:
     state = {"themes": {}, "facts": {}, "evergreen": {}, "count": 0}
-    errors: list[str] = []
+    errors: list[str] = probar_caminos_de_construccion()
     tested = 0
     # El cierre es lo único que hace distinto a un post del siguiente cuando
     # el lector ya deslizó dos frames. Si se repite, el carrusel se vuelve
