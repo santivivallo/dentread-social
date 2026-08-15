@@ -288,13 +288,35 @@ def check_local() -> bool:
     return ok
 
 
+def check_llm() -> bool:
+    """
+    ¿El modelo que redacta ganchos y resúmenes responde?
+
+    Va acá y no en un script aparte porque el modo de falla es silencioso: si
+    el proveedor cierra, los posts siguen saliendo con el texto curado y nada
+    avisa. Fue exactamente lo que pasó con GitHub Models, que se retiró el 30
+    de julio de 2026 y estuvo devolviendo 410 dos semanas sin que nadie lo
+    notara.
+    """
+    print("\n=== MODELO DE LENGUAJE ===")
+    from pipeline import llm
+    ok, detalle = llm.diagnostico()
+    if ok:
+        _print(OK, "LLM_API_KEY", detalle)
+    else:
+        _print(SKIP, "LLM_API_KEY", f"{detalle}; se publica con texto curado")
+    return True     # nunca bloquea: el sistema publica igual sin modelo
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--only", choices=["meta", "linkedin", "bucket", "local"])
+    ap.add_argument("--only",
+                    choices=["meta", "linkedin", "bucket", "local", "llm"])
     args = ap.parse_args()
 
     checks = {"local": check_local, "meta": check_meta,
-              "linkedin": check_linkedin, "bucket": check_bucket}
+              "linkedin": check_linkedin, "bucket": check_bucket,
+              "llm": check_llm}
     if args.only:
         checks = {args.only: checks[args.only]}
 

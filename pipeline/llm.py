@@ -30,6 +30,23 @@ import os
 
 import requests
 
+# El .env se lee acá, en el único módulo que mira la clave.
+#
+# Sin esto, `LLM_API_KEY` en el .env no llegaba a `os.environ` y el sistema
+# informaba "falta la clave" con la clave puesta. Ya había pasado igual en
+# `readiness.py`, que reportaba las 14 variables sin configurar por el mismo
+# motivo: un diagnóstico que miente es peor que uno que falta, porque manda a
+# buscar el problema al lado equivocado.
+#
+# `load_dotenv()` no pisa lo que ya está en el entorno, así que en GitHub
+# Actions siguen mandando los secrets del workflow.
+try:
+    from dotenv import load_dotenv
+
+    load_dotenv()
+except ImportError:      # el .env es una comodidad local, no un requisito
+    pass
+
 # Gemini expone una capa compatible con OpenAI, así que el mismo código sirve
 # para casi cualquier proveedor con solo cambiar la variable.
 ENDPOINT_POR_DEFECTO = ("https://generativelanguage.googleapis.com"
