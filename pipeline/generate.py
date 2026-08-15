@@ -277,44 +277,60 @@ def _generate_externo(post: Post) -> PostSpec:
     """
     Noticia de ADA News o estudio científico → PostSpec.
 
-    Estos posts no llevan cifras propias: llevan un titular o una pregunta de
-    investigación, el encuadre, y la fuente. La regla que los separa del resto
-    es que **no publican conclusiones**. De una noticia sale el tema; de un
-    paper, qué se preguntó y con qué diseño. Nunca qué se encontró.
+    Estos posts no llevan cifras propias: llevan el tema, el encuadre y la
+    fuente. La regla que los separa del resto es que **no publican
+    conclusiones**. De una noticia sale el tema; de un paper, qué se preguntó
+    y con qué diseño. Nunca qué se encontró: un hallazgo suelto en un carrusel
+    es un claim clínico con la cita de otro.
 
-    El motivo no es prudencia genérica: un hallazgo citado suelto en un
-    carrusel es un claim clínico con la cita de otro, y DentRead no tiene
-    respaldo regulatorio para sostenerlo.
+    **El titular original va entrecomillado, no como titular del slide.** ADA
+    News y PubMed publican en inglés, y la cuenta de Instagram es en español.
+    Poner el título en inglés a 88 px en el primer frame se ve como un error
+    de traducción, no como una cita. Acá el frame 1 abre con texto propio en
+    español y el título original aparece entre comillas en el frame 2, que es
+    donde corresponde citarlo con su fuente.
     """
     idx = sum(ord(c) for c in post.id) % len(CTAS_ES)
     etiqueta = post.source_label or "Fuente"
+    titular = post.angle.strip().rstrip(".")
+    es_noticia = post.kind == "news"
+
+    # Gancho en español, propio. Para una noticia, el encuadre; para un
+    # paper, la pregunta enmarcada.
+    gancho = post.close if es_noticia else "Qué se está estudiando"
+    acento = post.close_accent if es_noticia else ""
+
     resumen = post.messages[0] if post.messages else ""
+    puntos = [f"«{titular}»"]
+    if resumen and resumen != titular:
+        puntos.append(_clip(resumen, 170))
 
     slides = [
-        Slide("hook", _clip(post.angle, 110),
-              kicker="ADA News" if post.kind == "news" else "Evidencia",
-              source=etiqueta),
+        Slide("hook", gancho, accent=acento,
+              kicker="ADA News" if es_noticia else "Evidencia",
+              body=post.body, source=etiqueta),
         Slide("data",
-              "De qué se trata" if post.kind == "news" else "Qué se preguntó",
-              kicker=etiqueta,
-              bullets=[b for b in (_clip(resumen, 180), post.body) if b],
+              "Lo que se publicó" if es_noticia else "Qué se preguntó",
+              kicker=etiqueta, bullets=puntos,
+              body="Título original, en inglés." if es_noticia else "",
               source=f"Fuente: {etiqueta}"),
-        Slide("close", post.close, accent=post.close_accent,
+        Slide("close", post.close if not es_noticia else "La IA apoya.",
+              accent=post.close_accent if not es_noticia else "El odontólogo decide.",
               kicker="Cómo lo leemos", chain=CHAIN,
-              body="La IA apoya, el odontólogo decide."),
+              body=""),
     ]
 
-    # El titular ya es el frame 1: acá va la lectura, no el titular otra vez.
     caption_es = (
         f"{post.close} {post.close_accent} {EMOJI}\n\n"
         f"{post.body}\n\n"
+        f"Título original: «{titular}».\n\n"
         f"{CTAS_ES[idx]}\n\n"
         f"Fuente: {etiqueta}. Enlace en el perfil.\n\n"
         f"{HASHTAGS}"
     )
     commentary_en = (
-        f"{_clip(post.angle_en, 150)}\n\n"
-        f"{post.body}\n\n{CTAS_EN[idx]}\n\nSource: {etiqueta}."
+        f"{titular}.\n\n{post.body}\n\n"
+        f"{CTAS_EN[idx]}\n\nSource: {etiqueta}."
     )
 
     return PostSpec(
