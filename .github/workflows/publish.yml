@@ -81,6 +81,12 @@ jobs:
       - name: Test redaction
         run: python -m tests.test_redaccion
 
+      # Que el selector distinga calidad. El sistema pide 4 candidatos y
+      # elige; si el selector no ordena mejor que 70% sobre pares conocidos,
+      # pedir 4 en vez de 1 es gastar 4x sin ganar nada.
+      - name: Test selection
+        run: python -m tests.test_seleccion
+
       # Relevancia de ADA News y el aro del resumen: que la copia literal y
       # los claims clinicos se descarten sigue siendo cierto.
       - name: Test sources

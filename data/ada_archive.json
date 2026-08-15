@@ -3632,10 +3632,481 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/house-passes-budget-reconciliation-bill/": {
+   "title": "House passes budget reconciliation bill",
+   "published": "2025-05-23",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-urges-doj-to-enforce-health-insurance-antitrust-reform/": {
+   "title": "ADA urges DOJ to enforce health insurance antitrust reform",
+   "published": "2025-05-22",
+   "category": "Government",
+   "score": 5.5,
+   "buckets": [
+    "admin",
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/forsyth-friday-scientists-draw-insight-into-human-hypomineralization-treatment-by-examining-pig-teeth/": {
+   "title": "Forsyth Friday: Scientists draw insight into human hypomineralization treatment by examining pig teeth",
+   "published": "2025-05-22",
+   "category": "Science",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-to-end-smilecon-in-2026/": {
+   "title": "ADA to end SmileCon in 2026",
+   "published": "2025-05-22",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/dental-school-snapshots-may/": {
+   "title": "Dental School Snapshots: May",
+   "published": "2025-05-22",
+   "category": "Education",
+   "score": 2.0,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-leaders-continue-covering-preventive-services-fluoride/": {
+   "title": "ADA leaders: Continue covering preventive services, fluoride",
+   "published": "2025-05-21",
+   "category": "Access To Care",
+   "score": 9.0,
+   "buckets": [
+    "admin",
+    "clinica",
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/tobacco-control-cuts-cannot-be-reconciled/": {
+   "title": "Tobacco control ‘cuts cannot be reconciled’",
+   "published": "2025-05-21",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-children-s-airway-event-to-strengthen-dentists-communication-clinical-skills/": {
+   "title": "ADA Children’s Airway Event to strengthen dentists’ communication, clinical skills",
+   "published": "2025-05-20",
+   "category": "Around The ADA",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/law-removes-registration-requirement-for-iowa-dental-assistants/": {
+   "title": "Law removes registration requirement for Iowa dental assistants",
+   "published": "2025-05-20",
+   "category": "Practice",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-leaders-urge-insurance-groups-to-cover-preventive-services/": {
+   "title": "ADA leaders urge insurance groups to cover preventive services",
+   "published": "2025-05-19",
+   "category": "Access To Care",
+   "score": 11.5,
+   "buckets": [
+    "admin",
+    "clinica",
+    "datos",
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-urge-congress-to-protect-dentists-from-unfair-tax-hike/": {
+   "title": "ADA: Urge Congress to protect dentists from unfair tax hike",
+   "published": "2025-05-16",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/3-things-you-missed-in-government-this-week-may-16/": {
+   "title": "3 things you missed in government this week",
+   "published": "2025-05-16",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-seeks-member-input-to-strengthen-policy-on-recoupment-practices/": {
+   "title": "ADA seeks member input to strengthen policy on recoupment practices",
+   "published": "2025-05-15",
+   "category": "Practice",
+   "score": 5.5,
+   "buckets": [
+    "admin",
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/florida-second-state-to-ban-community-water-fluoridation/": {
+   "title": "Florida second state to ban community water fluoridation",
+   "published": "2025-05-15",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-living-guideline-program-announced/": {
+   "title": "ADA Living Guideline Program announced",
+   "published": "2025-05-14",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/fda-to-pull-prescription-fluoride-supplements-from-market/": {
+   "title": "FDA to pull prescription fluoride supplements from market",
+   "published": "2025-05-14",
+   "category": "Government",
+   "score": 8.12,
+   "buckets": [
+    "ai",
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/bitonte-college-of-dentistry-names-new-dean/": {
+   "title": "Bitonte College of Dentistry names new dean",
+   "published": "2025-05-13",
+   "category": "Education",
+   "score": 2.0,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-provides-recommendations-on-medicaid-provisions-in-reconciliation-legislation/": {
+   "title": "ADA provides recommendations on Medicaid provisions in reconciliation legislation",
+   "published": "2025-05-13",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/updates-on-ada-financial-stewardship-tech-upgrades/": {
+   "title": "Updates on ADA financial stewardship, tech upgrades",
+   "published": "2025-05-12",
+   "category": "Around The ADA",
+   "score": 3.75,
+   "buckets": [
+    "ai"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/reject-fiscal-year-2026-hhs-budget-proposal-ada-urges/": {
+   "title": "Reject fiscal year 2026 HHS budget proposal, ADA urges",
+   "published": "2025-05-09",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/3-things-you-missed-in-government-this-week-may-9/": {
+   "title": "3 things you missed in government this week",
+   "published": "2025-05-09",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-holds-virtual-congressional-briefing-on-public-programs/": {
+   "title": "ADA holds virtual congressional briefing on public programs",
+   "published": "2025-05-09",
+   "category": "Government",
+   "score": 6.0,
+   "buckets": [
+    "datos",
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-opposes-proposed-health-care-cuts-in-reconciliation-bill/": {
+   "title": "ADA opposes proposed health care cuts in reconciliation bill",
+   "published": "2025-05-09",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/bill-would-ensure-health-insurance-covers-needed-treatment/": {
+   "title": "Bill would ensure health insurance covers needed treatment",
+   "published": "2025-05-08",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/call-for-public-nominees-to-coda/": {
+   "title": "Call for public nominees to CODA",
+   "published": "2025-05-07",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-objects-to-texas-attorney-generals-statement-about-fluoride-toothpaste-recommendations/": {
+   "title": "ADA objects to Texas attorney general’s statement about fluoride toothpaste recommendations",
+   "published": "2025-05-07",
+   "category": "Science",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/proposed-tax-bill-raises-concern-for-ada/": {
+   "title": "Proposed tax bill raises concern for ADA",
+   "published": "2025-05-07",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/may-jada-examines-bioactivity-of-dental-restorative-materials/": {
+   "title": "May JADA examines bioactivity of dental restorative materials",
+   "published": "2025-05-05",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/department-of-education-considers-regulatory-changes-to-student-aid-programs/": {
+   "title": "Department of Education considers regulatory changes to student aid programs",
+   "published": "2025-05-05",
+   "category": "Government",
+   "score": 2.0,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/ada-calls-for-increased-funding-for-indian-health-service/": {
+   "title": "ADA calls for increased funding for Indian Health Service",
+   "published": "2025-05-02",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/3-things-you-missed-in-government-this-week/": {
+   "title": "3 things you missed in government this week",
+   "published": "2025-05-02",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/allocate-310-million-toward-tobacco-control-coalition-urges/": {
+   "title": "Allocate $310 million toward tobacco control, coalition urges",
+   "published": "2025-05-02",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/forsyth-friday-institute-launches-ambush-science-youtube-series/": {
+   "title": "Forsyth Friday: Institute launches Ambush Science YouTube series",
+   "published": "2025-05-01",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/may/what-could-saliva-testing-mean-for-dentistry/": {
+   "title": "What could saliva testing mean for dentistry?",
+   "published": "2025-05-01",
+   "category": "Science",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/coalition-urges-congress-to-reject-proposed-hhs-budget-cuts/": {
+   "title": "Coalition urges Congress to reject proposed HHS budget cuts",
+   "published": "2025-04-30",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/ada-speaker-candidates-have-until-june-27-to-file/": {
+   "title": "ADA Speaker candidates have until June 27 to file",
+   "published": "2025-04-29",
+   "category": "Around The ADA",
+   "score": 3.0,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/ada-objects-to-surgeon-general-s-water-fluoridation-comments/": {
+   "title": "ADA objects to surgeon general’s water fluoridation comments",
+   "published": "2025-04-29",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/ada-invites-dental-schools-to-become-testing-sites-for-potential-seal-products/": {
+   "title": "ADA invites dental schools to become testing sites for potential Seal products",
+   "published": "2025-04-28",
+   "category": "Science",
+   "score": 2.0,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/ada-standards-on-cartridge-syringes-athletic-mouth-protectors-available-for-review/": {
+   "title": "ADA standards on cartridge syringes, athletic mouth protectors available for review",
+   "published": "2025-04-28",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/3-things-you-missed-in-government-this-week-april-25/": {
+   "title": "3 things you missed in government this week",
+   "published": "2025-04-25",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/fdi-calls-for-integration-of-oral-measures-into-electronic-health-records/": {
+   "title": "FDI calls for integration of oral measures into electronic health records",
+   "published": "2025-04-25",
+   "category": "Practice",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/forsyth-friday-new-antibodies-may-aid-diagnosis-of-gum-linked-systemic-diseases/": {
+   "title": "Forsyth Friday: New antibodies may aid diagnosis of gum-linked systemic diseases",
+   "published": "2025-04-24",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/pandemic-infection-control-procedures-still-in-place/": {
+   "title": "Pandemic infection control procedures still in place",
+   "published": "2025-04-23",
+   "category": "Practice",
+   "score": 3.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/ada-supports-house-republicans-speaking-up-for-medicaid/": {
+   "title": "ADA supports House Republicans speaking up for Medicaid",
+   "published": "2025-04-23",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/ada-prioritize-small-business-tax-policies-medicaid-adult-dental-benefits/": {
+   "title": "ADA: Prioritize small business tax policies, Medicaid adult dental benefits",
+   "published": "2025-04-23",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/dental-loss-ratio-putting-patient-care-first/": {
+   "title": "Dental loss ratio: Putting patient care first",
+   "published": "2025-04-22",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/jada-foundational-science-suspends-author-fees-for-2025/": {
+   "title": "JADA Foundational Science suspends author fees for 2025",
+   "published": "2025-04-21",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/3-things-you-missed-in-government-this-week-april-18/": {
+   "title": "3 things you missed in government this week",
+   "published": "2025-04-18",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/nebraska-joins-licensure-portability-compact/": {
+   "title": "Nebraska joins licensure portability compact",
+   "published": "2025-04-16",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/april/ada-joins-coalition-supporting-community-water-fluoridation/": {
+   "title": "ADA joins coalition supporting community water fluoridation",
+   "published": "2025-04-15",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
   }
  },
  "weeks": {
   "2026-W33": [
+   "https://adanews.ada.org/ada-news/2025/april/3-things-you-missed-in-government-this-week-april-18/",
+   "https://adanews.ada.org/ada-news/2025/april/3-things-you-missed-in-government-this-week-april-25/",
+   "https://adanews.ada.org/ada-news/2025/april/ada-invites-dental-schools-to-become-testing-sites-for-potential-seal-products/",
+   "https://adanews.ada.org/ada-news/2025/april/ada-joins-coalition-supporting-community-water-fluoridation/",
+   "https://adanews.ada.org/ada-news/2025/april/ada-objects-to-surgeon-general-s-water-fluoridation-comments/",
+   "https://adanews.ada.org/ada-news/2025/april/ada-prioritize-small-business-tax-policies-medicaid-adult-dental-benefits/",
+   "https://adanews.ada.org/ada-news/2025/april/ada-speaker-candidates-have-until-june-27-to-file/",
+   "https://adanews.ada.org/ada-news/2025/april/ada-standards-on-cartridge-syringes-athletic-mouth-protectors-available-for-review/",
+   "https://adanews.ada.org/ada-news/2025/april/ada-supports-house-republicans-speaking-up-for-medicaid/",
+   "https://adanews.ada.org/ada-news/2025/april/coalition-urges-congress-to-reject-proposed-hhs-budget-cuts/",
+   "https://adanews.ada.org/ada-news/2025/april/dental-loss-ratio-putting-patient-care-first/",
+   "https://adanews.ada.org/ada-news/2025/april/fdi-calls-for-integration-of-oral-measures-into-electronic-health-records/",
+   "https://adanews.ada.org/ada-news/2025/april/forsyth-friday-new-antibodies-may-aid-diagnosis-of-gum-linked-systemic-diseases/",
+   "https://adanews.ada.org/ada-news/2025/april/jada-foundational-science-suspends-author-fees-for-2025/",
+   "https://adanews.ada.org/ada-news/2025/april/nebraska-joins-licensure-portability-compact/",
+   "https://adanews.ada.org/ada-news/2025/april/pandemic-infection-control-procedures-still-in-place/",
    "https://adanews.ada.org/ada-news/2025/august/3-things-you-missed-in-government-this-week-aug-1/",
    "https://adanews.ada.org/ada-news/2025/august/ada-advocates-for-removing-stigmatizing-questions-from-licensure-applications/",
    "https://adanews.ada.org/ada-news/2025/august/ada-board-implements-20-million-in-cuts-from-2025-budget/",
@@ -3745,13 +4216,47 @@
    "https://adanews.ada.org/ada-news/2025/june/smilecon-2025-to-create-future-ready-dental-teams/",
    "https://adanews.ada.org/ada-news/2025/june/society-of-american-indian-dentists-founder-dies-at-94/",
    "https://adanews.ada.org/ada-news/2025/may/3-things-you-missed-in-government-this-week-2/",
+   "https://adanews.ada.org/ada-news/2025/may/3-things-you-missed-in-government-this-week-may-16/",
    "https://adanews.ada.org/ada-news/2025/may/3-things-you-missed-in-government-this-week-may-23/",
+   "https://adanews.ada.org/ada-news/2025/may/3-things-you-missed-in-government-this-week-may-9/",
+   "https://adanews.ada.org/ada-news/2025/may/3-things-you-missed-in-government-this-week/",
    "https://adanews.ada.org/ada-news/2025/may/5-things-to-know-about-the-american-association-of-oral-and-maxillofacial-surgeons-3/",
    "https://adanews.ada.org/ada-news/2025/may/ada-calls-for-erisa-medicare-advantage-reform/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-calls-for-increased-funding-for-indian-health-service/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-children-s-airway-event-to-strengthen-dentists-communication-clinical-skills/",
    "https://adanews.ada.org/ada-news/2025/may/ada-forsyth-fridays-molecule-may-reduce-scarring-after-orofacial-cleft-surgery/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-holds-virtual-congressional-briefing-on-public-programs/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-leaders-continue-covering-preventive-services-fluoride/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-leaders-urge-insurance-groups-to-cover-preventive-services/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-living-guideline-program-announced/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-objects-to-texas-attorney-generals-statement-about-fluoride-toothpaste-recommendations/",
    "https://adanews.ada.org/ada-news/2025/may/ada-offers-supports-to-help-dentists-students-prioritize-mental-health/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-opposes-proposed-health-care-cuts-in-reconciliation-bill/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-provides-recommendations-on-medicaid-provisions-in-reconciliation-legislation/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-seeks-member-input-to-strengthen-policy-on-recoupment-practices/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-to-end-smilecon-in-2026/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-urge-congress-to-protect-dentists-from-unfair-tax-hike/",
+   "https://adanews.ada.org/ada-news/2025/may/ada-urges-doj-to-enforce-health-insurance-antitrust-reform/",
+   "https://adanews.ada.org/ada-news/2025/may/allocate-310-million-toward-tobacco-control-coalition-urges/",
+   "https://adanews.ada.org/ada-news/2025/may/bill-would-ensure-health-insurance-covers-needed-treatment/",
+   "https://adanews.ada.org/ada-news/2025/may/bitonte-college-of-dentistry-names-new-dean/",
+   "https://adanews.ada.org/ada-news/2025/may/call-for-public-nominees-to-coda/",
    "https://adanews.ada.org/ada-news/2025/may/cdc-urges-health-care-providers-to-stay-alert-for-measles-cases/",
+   "https://adanews.ada.org/ada-news/2025/may/dental-school-snapshots-may/",
+   "https://adanews.ada.org/ada-news/2025/may/department-of-education-considers-regulatory-changes-to-student-aid-programs/",
+   "https://adanews.ada.org/ada-news/2025/may/fda-to-pull-prescription-fluoride-supplements-from-market/",
+   "https://adanews.ada.org/ada-news/2025/may/florida-second-state-to-ban-community-water-fluoridation/",
+   "https://adanews.ada.org/ada-news/2025/may/forsyth-friday-institute-launches-ambush-science-youtube-series/",
+   "https://adanews.ada.org/ada-news/2025/may/forsyth-friday-scientists-draw-insight-into-human-hypomineralization-treatment-by-examining-pig-teeth/",
+   "https://adanews.ada.org/ada-news/2025/may/house-passes-budget-reconciliation-bill/",
    "https://adanews.ada.org/ada-news/2025/may/jama-releases-study-on-elimination-of-community-water-fluoridation-7/",
+   "https://adanews.ada.org/ada-news/2025/may/law-removes-registration-requirement-for-iowa-dental-assistants/",
+   "https://adanews.ada.org/ada-news/2025/may/may-jada-examines-bioactivity-of-dental-restorative-materials/",
+   "https://adanews.ada.org/ada-news/2025/may/proposed-tax-bill-raises-concern-for-ada/",
+   "https://adanews.ada.org/ada-news/2025/may/reject-fiscal-year-2026-hhs-budget-proposal-ada-urges/",
+   "https://adanews.ada.org/ada-news/2025/may/tobacco-control-cuts-cannot-be-reconciled/",
+   "https://adanews.ada.org/ada-news/2025/may/updates-on-ada-financial-stewardship-tech-upgrades/",
+   "https://adanews.ada.org/ada-news/2025/may/what-could-saliva-testing-mean-for-dentistry/",
    "https://adanews.ada.org/ada-news/2025/november/3-things-you-missed-in-government-this-week-nov-21/",
    "https://adanews.ada.org/ada-news/2025/november/3-things-you-missed-in-government-this-week/",
    "https://adanews.ada.org/ada-news/2025/november/ada-begins-discussions-with-other-groups-to-advance-dental-licensure-exams/",
@@ -4034,6 +4539,6 @@
    "https://adanews.ada.org/ada-news/2026/may/us-court-of-appeals-overturns-lower-court-judgement-in-epa-fluoride-case-citing-judicial-overreach/"
   ]
  },
- "runs": 7,
- "deepest_page": 12
+ "runs": 6,
+ "deepest_page": 9
 }

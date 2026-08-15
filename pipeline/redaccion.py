@@ -93,7 +93,13 @@ radiografías dentales. Público: dentistas y dueños de clínicas en EE.UU.
 Te doy dos cifras ya verificadas y el cierre que ya tiene escrito el post.
 Devolvés SOLO un objeto JSON con tres claves:
 
-{"gancho": "...", "titular_datos": "...", "lectura": "..."}
+{"candidatos": [{"gancho": "...", "titular_datos": "...", "lectura": "..."},
+                ... 4 en total ...]}
+
+Los cuatro candidatos son DISTINTOS entre sí, no variaciones de la misma
+frase, y van ordenados del mejor al peor según tu propio criterio.
+
+Cada candidato tiene estas tres claves:
 
 - "gancho": el titular del primer frame, debajo de una cifra grande. Máximo 52
   caracteres.
@@ -120,6 +126,8 @@ Devolvés SOLO un objeto JSON con tres claves:
   Bien: "Se cubre más, se paga igual".
 - "lectura": una sola frase que interpreta las dos cifras juntas. Máximo 190
   caracteres. Va en el texto del post, no en la imagen.
+
+Devolvés CUATRO candidatos completos, del mejor al peor.
 
 Reglas, todas obligatorias:
 - Las tres frases dicen COSAS DISTINTAS entre sí y distintas del cierre. Si el
@@ -153,7 +161,12 @@ def disponible() -> bool:
 
 
 def _pedir(contexto: str) -> dict | None:
-    texto = llm.pedir(REGLAS, contexto, json_mode=True, temperatura=0.4)
+    # Temperatura más alta que en `summarize` y más tokens: acá se buscan
+    # cuatro candidatos DISTINTOS, y con temperatura baja salen cuatro
+    # variaciones de la misma frase, que es best-of-N sin el N. La fidelidad
+    # la garantiza el verificador, no la temperatura.
+    texto = llm.pedir(REGLAS, contexto, json_mode=True, temperatura=0.8,
+                      max_tokens=2000)
     if not texto or "INSUFICIENTE" in texto.upper():
         return None
     try:
@@ -170,6 +183,76 @@ def _pedir(contexto: str) -> dict | None:
         except ValueError:
             print("   [info] el modelo no devolvió JSON; se usa el gancho curado")
             return None
+
+
+# --------------------------------------------------------------------------
+# Selección: entre las propuestas que pasan, cuál es mejor.
+#
+# `verificar` dice si algo es PUBLICABLE. No dice si es BUENO, y el sistema
+# venía tomando la primera propuesta que no fallaba. "No falla" y "buena" no
+# son lo mismo: así salió "Expansión del beneficio y aranceles", que cumple
+# todas las reglas duras y no dice nada.
+#
+# Por eso se piden varios candidatos y se elige. La asimetría de riesgo es lo
+# que hace que esto sea seguro y un filtro no lo sea: un puntaje malo elige un
+# candidato mediocre pero válido; un filtro malo descarta contenido bueno y
+# cae al de reserva. Ya pasó con el detector de titulares sin verbo, que
+# volteaba 7 de 37 titulares correctos.
+#
+# Por eso acá nada resta hasta descalificar: son preferencias, no reglas.
+
+N_CANDIDATOS = 4
+
+# Marcas de los tres registros de gancho de hook-writer.md. No detectan el
+# registro, detectan su huella: una negación contrastiva, un sujeto vago que
+# obliga a preguntar quién, una comparación abierta.
+_CONTRASTE = re.compile(r"\b(no es|no son|no basta|no alcanza|no llega|"
+                        r"pero|aunque|sin embargo|más que|menos que|igual)\b", re.I)
+_TENSION = re.compile(r"\b(nadie|nunca|todavía|ya no|casi|solo|sigue|"
+                      r"falta|cuesta)\b", re.I)
+
+
+def puntuar(prop: dict, *, cierre: str, hechos_texto: str) -> float:
+    """
+    Preferencia entre candidatos ya válidos. Más alto es mejor.
+
+    Solo ordena; no descarta. Todo lo que descalifica vive en `verificar`.
+    """
+    g = prop.get("gancho", "")
+    t = prop.get("titular_datos", "")
+    puntos = 0.0
+
+    # 1. Distinción entre frames. Es lo que se puede medir con confianza y lo
+    #    que más se rompía: un gancho que roza el cierre aburre aunque esté
+    #    por debajo del umbral de rechazo.
+    lejania = 1 - max(solape(g, t), solape(g, cierre), solape(t, cierre))
+    puntos += 3.0 * lejania
+
+    # 2. Registro de gancho: contraste o tensión, según hook-writer.md.
+    if _CONTRASTE.search(g):
+        puntos += 1.5
+    if _TENSION.search(g):
+        puntos += 1.0
+
+    # 3. Longitud útil. Muy corto no dice; muy largo no se lee de un vistazo.
+    #    El óptimo está entre 22 y 44 caracteres, medido sobre los 22 ganchos
+    #    del catálogo.
+    if 22 <= len(g) <= 44:
+        puntos += 1.0
+
+    # 4. Concreto sobre abstracto: que el gancho use alguna palabra que
+    #    también aparece en los hechos ancla el post en su propio material.
+    if palabras(g) & palabras(hechos_texto):
+        puntos += 0.5
+
+    # 5. Los verbos en infinitivo abren mejor que los sustantivos abstractos
+    #    ("Cubrir no es lo mismo que pagar" contra "Expansión del beneficio").
+    if re.search(r"\b\w+(ar|er|ir)\b", g, re.I):
+        puntos += 0.5
+    if re.search(r"\b\w+(ción|miento|idad|ancia|encia)\b", g, re.I):
+        puntos -= 0.5
+
+    return puntos
 
 
 def verificar(prop: dict, *, cifras_permitidas: set[str],
@@ -264,17 +347,52 @@ def redactar(*, tema: str, angulo: str, cierre: str,
         f"{cierre}"
     )
 
+    hechos_texto = " ".join(f["statement"] for f in hechos)
+
     for intento in range(INTENTOS):
         prop = _pedir(contexto)
         if not prop:
             return None
-        fallas = verificar(prop, cifras_permitidas=cifras, cierre=cierre)
-        if not fallas:
-            return {k: prop[k].strip()
+
+        candidatos = prop.get("candidatos")
+        if not isinstance(candidatos, list):
+            candidatos = [prop]      # proveedor que ignoró el formato
+
+        # Primero el filtro duro, después la preferencia. Todo lo que llega a
+        # la selección ya es publicable; lo que se elige es cuál es mejor.
+        validos, motivos = [], []
+        for i, c in enumerate(candidatos):
+            if not isinstance(c, dict):
+                continue
+            fallas = verificar(c, cifras_permitidas=cifras, cierre=cierre)
+            if fallas:
+                motivos += fallas[:1]
+                continue
+            # Dos señales, ninguna dominante.
+            #
+            # El orden del modelo, porque juzga la lengua mejor que una
+            # expresión regular. Y el puntaje propio, que mide lo único
+            # verificable —distinción entre frames, registro, largo— y acierta
+            # 10 de 14 pares en tests/test_seleccion. Ninguna de las dos es
+            # confiable sola: la del modelo comparte los sesgos de quien
+            # escribió, y la mía es una heurística de 71%.
+            orden = 0.75 * (len(candidatos) - i)
+            validos.append((orden + puntuar(c, cierre=cierre,
+                                            hechos_texto=hechos_texto), c))
+
+        if validos:
+            validos.sort(key=lambda x: x[0], reverse=True)
+            elegido = validos[0][1]
+            if len(validos) > 1:
+                print(f"   [info] {len(validos)}/{len(candidatos)} candidatos "
+                      f"válidos; elegido el mejor")
+            return {k: elegido[k].strip()
                     for k in ("gancho", "titular_datos", "lectura")}
-        print(f"   [info] redacción rechazada (intento {intento + 1}): "
-              f"{fallas[0]}")
-        contexto += f"\n\nIntento anterior rechazado por: {'; '.join(fallas[:3])}"
+
+        print(f"   [info] los {len(candidatos)} candidatos fallaron "
+              f"(intento {intento + 1}): {motivos[0] if motivos else '?'}")
+        contexto += (f"\n\nTodos los candidatos anteriores fueron rechazados "
+                     f"por: {'; '.join(dict.fromkeys(motivos))[:300]}")
 
     return None
 
