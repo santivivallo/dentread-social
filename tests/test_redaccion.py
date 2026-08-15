@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import sys
 
+from pipeline.plan import load_evergreen
 from pipeline.redaccion import UMBRAL_SOLAPE as UMBRAL
 from pipeline.redaccion import solape, verificar
 from pipeline.themes import CATALOG
@@ -131,14 +132,36 @@ def main() -> int:
         if len(quienes) > 1:
             errores.append(f"gancho repetido en {quienes}: \"{texto}\"")
 
+    # Los evergreen, con el mismo criterio.
+    #
+    # Tenían el problema igual —7 de 15, cuatro al 100%— y no se veía porque
+    # el post que lo destapó era de datos. La diferencia es que acá NO
+    # interviene el modelo: un evergreen dice qué es DentRead, y eso lo
+    # escribe la empresa. Lo único que hace este test es impedir que los tres
+    # frames lo digan tres veces.
+    for b in load_evergreen():
+        cierre = f"{b.get('close', '')} {b.get('close_accent', '')}"
+        titulo = b.get("data_title", "")
+        v = solape(titulo, cierre)
+        if v >= UMBRAL:
+            errores.append(
+                f"evergreen/{b['id']}: el titular del frame 2 y el cierre "
+                f"dicen lo mismo ({v:.0%})\n"
+                f"      titular: {titulo}\n"
+                f"      cierre : {cierre}")
+        if not titulo:
+            errores.append(f"evergreen/{b['id']}: sin titular de frame 2")
+        if not b.get("close"):
+            errores.append(f"evergreen/{b['id']}: sin cierre")
+
     if errores:
         print(f"✗ {len(errores)} problema(s) de redacción:\n")
         print("\n".join(f"  {e}" for e in errores))
         return 1
     print(f"✓ verificador: acepta lo correcto y rechaza {len(RECHAZOS)} formas "
           f"de fallar")
-    print(f"✓ {len(CATALOG)} temas de reserva: gancho, datos y cierre dicen "
-          f"cosas distintas (solape < {UMBRAL:.0%})")
+    print(f"✓ {len(CATALOG)} temas y {len(load_evergreen())} evergreen: los "
+          f"tres frames dicen cosas distintas (solape < {UMBRAL:.0%})")
     return 0
 
 
