@@ -23,7 +23,7 @@ from __future__ import annotations
 import re
 import unicodedata
 
-from pipeline import redaccion
+from pipeline import glosario, redaccion
 from pipeline.plan import Post
 from pipeline.spec import PostSpec, Slide, Stat
 
@@ -144,6 +144,44 @@ def card_text(f: dict) -> str:
     return _clip(f.get("card") or f["statement"], 120)
 
 
+def _glosar(slides: list[Slide]) -> list[Slide]:
+    """
+    Explica las siglas del post, una sola vez y en el frame donde aparecen.
+
+    Se hace sobre el POST armado y no frame por frame. La primera versión
+    glosaba dentro de cada frame por separado y dejaba pasar dos casos: un
+    post con dos siglas —"dentistas afiliados a un DSO participaba en
+    Medicaid/CHIP"— glosaba una sola, y los evergreen no pasaban por ahí. Un
+    control que hay que acordarse de llamar en cada camino es un control que
+    algún camino no va a llamar.
+    """
+    def visible(s: Slide) -> str:
+        return " ".join(filter(None, [
+            s.headline, s.accent, s.body, s.source,
+            *[st.label for st in (s.stats or [])], *(s.bullets or [])]))
+
+    ya = " ".join(visible(s) for s in slides)
+    ocupados: set[int] = set()
+
+    for sigla in glosario.sin_explicar(ya):
+        # Una glosa por frame como máximo: dos juntas convierten el slide en
+        # un glosario. Se prefiere el frame donde la sigla aparece, pero si ya
+        # tiene glosa se pasa al siguiente que la mencione, y si no, a
+        # cualquiera libre. El lector la ve una vez, en algún lado.
+        candidatos = [i for i, s in enumerate(slides) if sigla in visible(s)]
+        libre = next((i for i in candidatos if i not in ocupados), None)
+        if libre is None:
+            libre = next((i for i in range(len(slides)) if i not in ocupados),
+                         candidatos[0] if candidatos else 0)
+
+        g = f"{sigla} es {glosario.GLOSAS[sigla].rstrip('.')}."
+        destino = slides[libre]
+        destino.body = f"{destino.body} {g}".strip() if destino.body else g
+        ocupados.add(libre)
+        ya += " " + g
+    return slides
+
+
 def short_cite(cite: str) -> str:
     """Publisher + año. La página exacta vive en el slide y en la página web."""
     pub = cite.split(",")[0].strip()
@@ -231,7 +269,8 @@ def generate(post: Post) -> PostSpec:
         # los hechos rotan, así que ninguna frase fija puede explicar una cifra
         # que cambia. Lo que explica la cifra es su propio enunciado.
         Slide("hook", hook, kicker=post.kicker or kicker_para("data", post.id),
-              stat=f1["number"], body=card_text(f1),
+              stat=f1["number"],
+              body=card_text(f1),
               source=short_cite(f1["cite"])),
         # El frame 2 lleva UNA sola tarjeta, y es la de la segunda cifra.
         #
@@ -284,6 +323,8 @@ def generate(post: Post) -> PostSpec:
         f"{CTAS_EN[idx]}\n\n"
         f"Both figures and their sources are in the carousel. {sources}."
     )
+
+    slides = _glosar(slides)
 
     return PostSpec(
         slug=slugify(post.id),
@@ -361,6 +402,8 @@ def _generate_evergreen(post: Post) -> PostSpec:
     )
 
     assert len(slides) == N_SLIDES, f"evergreen armó {len(slides)} frames"
+    slides = _glosar(slides)
+
     return PostSpec(
         slug=slugify(post.id),
         slides=slides,
@@ -470,6 +513,8 @@ def _generate_externo(post: Post) -> PostSpec:
         f"{titular}.\n\n{post.body}\n\n"
         f"{CTAS_EN[idx]}\n\nSource: {etiqueta}."
     )
+
+    slides = _glosar(slides)
 
     return PostSpec(
         slug=slugify(post.id),

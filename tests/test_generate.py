@@ -88,6 +88,25 @@ def _check(spec, kind: str) -> list[str]:
         errs.append(f"{kind}: el frame 1 muestra '{portada.stat}' y no dice "
                     f"de qué es")
 
+    # Ninguna sigla sale sin explicar.
+    #
+    # Salió publicado un frame 1 que decía "CDT 2026 trae 60 cambios de
+    # código" sin decir en ningún lado qué es CDT. Un dentista en EE.UU. lo
+    # sabe; la cuenta la lee también gente que administra clínicas o mira
+    # desde otro país, y una sigla sin explicar es el punto donde el lector
+    # deja de entender y se va. Son 6 siglas en 23 lugares del catálogo, así
+    # que explicarlas a mano es olvidarse una.
+    from pipeline import glosario
+    partes: list[str] = []
+    for s in spec.slides:
+        partes += [s.headline, s.accent, s.body, s.source]
+        partes += [st.label for st in (s.stats or [])]
+        partes += list(s.bullets or [])
+    texto_visible = " ".join(p for p in partes if p)
+    faltan = glosario.sin_explicar(texto_visible)
+    if faltan:
+        errs.append(f"{kind}: usa {faltan} sin explicar qué significan")
+
     # La cifra del gancho no se repite como tarjeta en el frame 2. Con dos
     # hechos por post, mostrar los dos en el frame de datos garantizaba que el
     # número gigante del 01 volviera a aparecer en el 02.
