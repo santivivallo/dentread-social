@@ -289,6 +289,7 @@ def next_posts(n: int = 2) -> list[Post]:
     posts: list[Post] = []
     familias: set[str] = set()
     usados: set[str] = set()
+    emitidos: set[str] = set()
     inicio = state.get("count", 0)
 
     for i in range(n):
@@ -297,7 +298,17 @@ def next_posts(n: int = 2) -> list[Post]:
         for salto in range(len(CICLO)):
             kind = CICLO[(turno + salto) % len(CICLO)]
             post = _un_post(kind, state, usados, familias)
+            # Sin este filtro la tanda repetía el mismo post.
+            #
+            # Para noticias y papers, `_un_post` devuelve siempre el mejor
+            # candidato disponible: nada dentro de la corrida recordaba que ya
+            # lo había ofrecido. Con los reemplazos de `run.py` eso se volvió
+            # visible —el mismo artículo tres veces seguidas— y los reemplazos
+            # se gastaban en el candidato que acababa de fallar.
+            if post and post.id in emitidos:
+                post = None
             if post:
+                emitidos.add(post.id)
                 posts.append(post)
                 familias.add("dentread" if post.kind == "evergreen"
                              else post.family)

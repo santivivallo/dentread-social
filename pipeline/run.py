@@ -141,19 +141,46 @@ def main() -> None:
         # mano era el único roto.
         posts = [plan.post_from_theme(t, fs)]
     else:
-        posts = plan.next_posts(args.slots)
+        # Se piden dos de más: son los reemplazos si alguno se cae al
+        # construirse. Pedirlos no consume nada — el tema se marca como usado
+        # recién en `build_one`, cuando el post existe de verdad.
+        posts = plan.next_posts(args.slots + 2)
 
     if not posts:
         sys.exit("[error] no hay nada publicable. Correr --inventory")
 
     today = date.today().isoformat()
-    made = [f for f in (build_one(p, today, preview=args.preview)
-                        for p in posts) if f]
+
+    # Se construye hasta juntar los posts pedidos, no hasta agotar la lista.
+    #
+    # Antes se pedían exactamente `slots` posts y se intentaba construir esos.
+    # Si uno se caía —el guard lo bloqueó, la noticia no tenía resumen, el
+    # modelo no dio nada publicable— el día se perdía, aunque hubiera material
+    # de sobra en las otras fuentes. Un candidato rechazado no es una razón
+    # para no publicar: es una razón para probar el siguiente.
+    #
+    # El margen es chico a propósito. Si hacen falta más de dos reemplazos, el
+    # problema no es el candidato sino el generador, y ahí conviene que la
+    # corrida termine en rojo y se mire.
+    made: list[Path] = []
+    descartados = 0
+    for post in posts:
+        if len(made) >= args.slots:
+            break
+        carpeta = build_one(post, today, preview=args.preview)
+        if carpeta:
+            made.append(carpeta)
+        else:
+            descartados += 1
+
+    if descartados:
+        print(f"\n[reemplazos] {descartados} candidato(s) descartado(s), "
+              f"cubiertos con la fuente siguiente del ciclo")
 
     if not args.preview:
         site.rebuild_indexes()
 
-    print(f"\n[resumen] {len(made)}/{len(posts)} listos")
+    print(f"\n[resumen] {len(made)}/{args.slots} listos")
     for f in made:
         print(f"   python publish.py {f} --dry-run")
     inv = plan.inventory()
