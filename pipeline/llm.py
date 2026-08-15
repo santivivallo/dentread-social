@@ -52,9 +52,18 @@ except ImportError:      # el .env es una comodidad local, no un requisito
 ENDPOINT_POR_DEFECTO = ("https://generativelanguage.googleapis.com"
                         "/v1beta/openai/chat/completions")
 
-# Los nombres de modelo cambian seguido y no conviene fijarlos en el código:
-# este es solo el valor por defecto y se pisa con LLM_MODEL.
-MODELO_POR_DEFECTO = "gemini-2.5-flash-lite"
+# Los nombres de modelo cambian seguido, y fijar uno ya falló: el primer
+# intento apuntaba a `gemini-2.5-flash-lite`, que devolvía
+# "no longer available to new users".
+#
+# Por eso el valor por defecto es un alias. Google desaconseja los alias
+# `-latest` en producción porque cambian de versión sin aviso, y para un
+# sistema que le pide precisión a un modelo eso importaría. Acá no: la tarea
+# es escribir tres frases y TODO lo que escribe pasa por un verificador antes
+# de publicarse. Entre un alias que puede cambiar de versión y un nombre fijo
+# que caduca en silencio, el alias falla mejor. Igual se puede fijar una
+# versión exacta con LLM_MODEL.
+MODELO_POR_DEFECTO = "gemini-flash-latest"
 
 TIMEOUT = 40
 
@@ -112,6 +121,38 @@ def pedir(reglas: str, contenido: str, *, json_mode: bool = False,
         print(f"   [info] falló la llamada al modelo "
               f"({exc.__class__.__name__}); se usa el texto curado")
         return None
+
+
+def modelos_disponibles(limite: int = 12) -> list[str]:
+    """
+    Qué modelos acepta esta clave, preguntándoselo al proveedor.
+
+    Existe porque un nombre de modelo caduca sin aviso y el error que devuelve
+    la API no dice cuál usar en su lugar. Sin esto, la única salida era buscar
+    la documentación a mano y adivinar de nuevo.
+
+    Usa el `/models` de la API compatible con OpenAI, que es el mismo camino
+    en Gemini, Groq, OpenRouter y Cerebras.
+    """
+    clave = os.environ.get("LLM_API_KEY")
+    if not clave:
+        return []
+    url = endpoint().replace("/chat/completions", "/models")
+    try:
+        r = requests.get(url, headers={"Authorization": f"Bearer {clave}"},
+                         timeout=TIMEOUT)
+        if not r.ok:
+            return []
+        ids = [m.get("id", "") for m in r.json().get("data", [])]
+    except (requests.RequestException, KeyError, ValueError):
+        return []
+
+    # Los "flash" y similares primero: son los chicos y rápidos, que es lo que
+    # pide esta tarea. Se le saca el prefijo "models/" que agrega Gemini.
+    ids = [i.split("/")[-1] for i in ids if i]
+    livianos = [i for i in ids if any(p in i for p in ("flash", "lite", "mini",
+                                                       "8b", "instant"))]
+    return (livianos or ids)[:limite]
 
 
 def diagnostico() -> tuple[bool, str]:

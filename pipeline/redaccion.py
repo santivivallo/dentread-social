@@ -285,6 +285,17 @@ def main() -> int:
         print("✗ el modelo respondió pero la propuesta no pasó los controles,")
         print("  o la llamada falló. El motivo está impreso arriba.")
         print("  Los posts van a salir igual, con el gancho curado del tema.")
+
+        # Si el problema fue el nombre del modelo, mostrar cuáles acepta la
+        # clave. Los nombres caducan y el error de la API no dice el reemplazo.
+        opciones = llm.modelos_disponibles()
+        if opciones:
+            print()
+            print(f"  '{llm.modelo()}' puede estar caduco. Esta clave acepta:")
+            for m in opciones:
+                print(f"     {m}")
+            print()
+            print("  Para fijar uno:  echo 'LLM_MODEL=<el que elijas>' >> .env")
         return 1
 
     print("✓ LISTO. El modelo escribió y la propuesta pasó los controles:")
