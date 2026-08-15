@@ -68,6 +68,12 @@ MODELO_POR_DEFECTO = "gemini-flash-latest"
 TIMEOUT = 40
 
 
+# Motivo del último fallo, para que quien diagnostica no tenga que ir a
+# buscarlo entre la salida del pipeline. Se guarda acá, en el único lugar que
+# sabe qué pasó de verdad.
+ultimo_error: str = ""
+
+
 def endpoint() -> str:
     return os.environ.get("LLM_ENDPOINT") or ENDPOINT_POR_DEFECTO
 
@@ -119,8 +125,12 @@ def pedir(reglas: str, contenido: str, *, json_mode: bool = False,
     una corrida es deliberado: el contenido de reserva siempre existe, así que
     un proveedor caído tiene que degradar la calidad, no la publicación.
     """
+    global ultimo_error
+    ultimo_error = ""
+
     clave = os.environ.get("LLM_API_KEY")
     if not clave:
+        ultimo_error = "falta LLM_API_KEY"
         return None
 
     cuerpo = {
@@ -147,8 +157,9 @@ def pedir(reglas: str, contenido: str, *, json_mode: bool = False,
             # El cuerpo del error dice mucho más que el código: modelo
             # inexistente, cuota agotada, clave sin permisos. Se recorta y se
             # imprime, porque diagnosticar esto a ciegas costó una semana.
-            detalle = (r.text or "")[:200].replace("\n", " ")
-            print(f"   [info] el modelo respondió {r.status_code}: {detalle}")
+            detalle = (r.text or "")[:300].replace("\n", " ")
+            ultimo_error = f"HTTP {r.status_code}: {detalle}"
+            print(f"   [info] el modelo respondió {r.status_code}: {detalle[:160]}")
             # `reasoning_effort` es reciente; si el proveedor lo rechaza, se
             # reintenta sin él antes de darse por vencido.
             if r.status_code == 400 and "reasoning_effort" in cuerpo:
@@ -158,15 +169,20 @@ def pedir(reglas: str, contenido: str, *, json_mode: bool = False,
                                            "Content-Type": "application/json"},
                                   json=cuerpo, timeout=TIMEOUT)
                 if not r.ok:
+                    ultimo_error = (f"HTTP {r.status_code} incluso sin "
+                                    f"reasoning_effort: "
+                                    f"{(r.text or '')[:250]}")
                     return None
             else:
                 return None
 
         texto, motivo = _texto_de(r.json())
         if texto is None:
+            ultimo_error = motivo
             print(f"   [info] {motivo}; se usa el texto curado")
         return texto
     except (requests.RequestException, ValueError) as exc:
+        ultimo_error = f"{exc.__class__.__name__}: {exc}"
         print(f"   [info] falló la llamada al modelo "
               f"({exc.__class__.__name__}); se usa el texto curado")
         return None

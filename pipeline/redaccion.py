@@ -282,17 +282,28 @@ def main() -> int:
                  cierre=f"{tema.close} {tema.close_accent}")
     if not r:
         print()
-        print("✗ el modelo respondió pero la propuesta no pasó los controles,")
-        print("  o la llamada falló. El motivo está impreso arriba.")
-        print("  Los posts van a salir igual, con el gancho curado del tema.")
+        # El motivo se repite acá aunque ya se haya impreso arriba: la salida
+        # del pipeline es larga y la línea que importa quedaba fuera de
+        # pantalla, así que se diagnosticaba con la mitad de la información.
+        if llm.ultimo_error:
+            print(f"✗ NO funcionó. Motivo: {llm.ultimo_error[:400]}")
+        else:
+            print("✗ el modelo escribió, pero la propuesta no pasó los")
+            print("  controles dos veces seguidas. Los motivos están arriba,")
+            print("  en las líneas [info].")
+        print()
+        print("  Los posts salen igual, con el gancho curado del tema.")
 
-        # Si el problema fue el nombre del modelo, mostrar cuáles acepta la
-        # clave. Los nombres caducan y el error de la API no dice el reemplazo.
-        opciones = llm.modelos_disponibles()
-        if opciones:
+        # La lista de modelos solo si el que está configurado NO figura entre
+        # los que la clave acepta. Antes se imprimía ante cualquier fallo y
+        # sugería que el modelo estaba caduco cuando el problema era otro:
+        # un diagnóstico que apunta al lado equivocado cuesta más que ninguno.
+        opciones = llm.modelos_disponibles(limite=40)
+        if opciones and llm.modelo() not in opciones:
             print()
-            print(f"  '{llm.modelo()}' puede estar caduco. Esta clave acepta:")
-            for m in opciones:
+            print(f"  Ojo: '{llm.modelo()}' no figura entre los modelos que")
+            print("  esta clave acepta. Algunos válidos:")
+            for m in opciones[:8]:
                 print(f"     {m}")
             print()
             print("  Para fijar uno:  echo 'LLM_MODEL=<el que elijas>' >> .env")
