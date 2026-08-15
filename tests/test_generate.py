@@ -65,6 +65,15 @@ def _check(spec, kind: str) -> list[str]:
     # de un evergreen salieron oscuros porque el del medio caía en el rol
     # `close` al no haber cifras, y ese mismo frame quedó con un título y
     # nada más. Ninguna de las dos cosas rompe nada, por eso hay que medirlas.
+    # Una tarjeta de cifra cortada al medio ("…y del…") pasa todos los guards
+    # y se ve en el feed. Salió publicado así en medicaid-adultos: el enunciado
+    # tenía 155 chars y la tarjeta corta en 120.
+    for s in spec.slides:
+        for st in (s.stats or []):
+            if st.label.rstrip().endswith("…"):
+                errs.append(f"{kind}: tarjeta '{st.number}' cortada al medio: "
+                            f"...{st.label[-40:]}")
+
     frames = frames_for(spec)
     patron = [f.dark for f in frames]
     if patron != [True, False, True]:

@@ -92,6 +92,24 @@ def check_facts() -> tuple[int, int, list[str]]:
                 problems.append(f"{f['id']}: falta el campo '{field}'")
                 break
         else:
+            # `card` es la versión corta que va en la tarjeta del frame 2.
+            # Es texto escrito a mano, así que se controla lo mismo que en el
+            # enunciado: que entre en la tarjeta y que no traiga ninguna cifra
+            # que no esté ya verificada contra la fuente.
+            card = f.get("card")
+            if card:
+                if len(card) > 120:
+                    problems.append(f"{f['id']}: card de {len(card)} chars, "
+                                    f"el máximo de la tarjeta es 120")
+                    continue
+                del_enunciado = set(re.findall(r"\d[\d.,]*",
+                                               norm(f["statement"] + " " + f["number"])))
+                inventadas = [n for n in re.findall(r"\d[\d.,]*", norm(card))
+                              if n not in del_enunciado]
+                if inventadas:
+                    problems.append(f"{f['id']}: la card trae cifras que no "
+                                    f"están en el enunciado: {inventadas}")
+                    continue
             ok += 1
 
     return ok, len(facts), problems

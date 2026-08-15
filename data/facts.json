@@ -1,10 +1,13 @@
 {
   "_README": "Hechos verificados a mano contra el corpus el 2026-08-09. Cada uno se leyó en su fuente antes de entrar acá. El generador los prefiere por sobre cualquier cifra extraída automáticamente: un regex sobre texto de PDF no distingue una estadística de un pie de figura. Para agregar uno: leelo en la fuente, copiá la cifra y la página, y sumalo con sus themes.",
-
   "facts": [
     {
       "id": "sin-seguro-72m",
-      "themes": ["sin-seguro", "costo-barrera", "utilizacion"],
+      "themes": [
+        "sin-seguro",
+        "costo-barrera",
+        "utilizacion"
+      ],
       "number": "72 millones",
       "number_en": "72 million",
       "statement": "Cerca de 72 millones de adultos en EE.UU. no tienen cobertura dental.",
@@ -14,7 +17,10 @@
     },
     {
       "id": "dental-vs-medico",
-      "themes": ["sin-seguro", "costo-barrera"],
+      "themes": [
+        "sin-seguro",
+        "costo-barrera"
+      ],
       "number": "27% vs 9,5%",
       "number_en": "27% vs 9.5%",
       "statement": "27% de los adultos no tiene seguro dental. Sin seguro médico hay 9,5%: unos 26 millones.",
@@ -24,7 +30,12 @@
     },
     {
       "id": "intencion-vs-visita",
-      "themes": ["utilizacion", "prevencion", "salud-sistemica", "costo-barrera"],
+      "themes": [
+        "utilizacion",
+        "prevencion",
+        "salud-sistemica",
+        "costo-barrera"
+      ],
       "number": "77% vs 37%",
       "number_en": "77% vs 37%",
       "statement": "77% de los adultos dice que piensa ir al dentista en el próximo año. 37% fue efectivamente en el último año.",
@@ -35,7 +46,11 @@
     },
     {
       "id": "utilizacion-seguro",
-      "themes": ["utilizacion", "sin-seguro", "costo-barrera"],
+      "themes": [
+        "utilizacion",
+        "sin-seguro",
+        "costo-barrera"
+      ],
       "number": "58% vs 28%",
       "number_en": "58% vs 28%",
       "statement": "58% de quienes tienen seguro dental privado fue al dentista en el último año, contra 28% de quienes no tienen seguro.",
@@ -45,17 +60,26 @@
     },
     {
       "id": "utilizacion-ingreso",
-      "themes": ["costo-barrera", "utilizacion", "urgencias"],
+      "themes": [
+        "costo-barrera",
+        "utilizacion",
+        "urgencias"
+      ],
       "number": "58% vs 28%",
       "number_en": "58% vs 28%",
       "statement": "58% de la población con ingresos sobre 400% del umbral federal de pobreza fue al dentista, contra 28% de la población bajo el 100%.",
+      "card": "58% de quienes superan el 400% del umbral de pobreza fue al dentista. Bajo el 100%, solo 28%.",
       "statement_en": "58% of the population at or above 400% of the federal poverty level visited the dentist, compared to 28% of the population below 100% FPL.",
       "cite": "ADA Health Policy Institute, National Trends in Dental Care Use, Coverage and Cost Barriers (p. 4, 2026-04)",
       "tier": "primary"
     },
     {
       "id": "utilizacion-edad",
-      "themes": ["utilizacion", "ninos-chip", "adultos-mayores"],
+      "themes": [
+        "utilizacion",
+        "ninos-chip",
+        "adultos-mayores"
+      ],
       "number": "53% vs 41%",
       "number_en": "53% vs 41%",
       "statement": "53% de los niños fue al dentista en el último año, contra 41% de los adultos en edad laboral.",
@@ -65,7 +89,10 @@
     },
     {
       "id": "utilizacion-etnia",
-      "themes": ["utilizacion", "costo-barrera"],
+      "themes": [
+        "utilizacion",
+        "costo-barrera"
+      ],
       "number": "53% vs 32%",
       "number_en": "53% vs 32%",
       "statement": "53% de la población blanca fue al dentista en el último año, contra 32% de la población hispana.",
@@ -75,7 +102,10 @@
     },
     {
       "id": "medicaid-38-estados",
-      "themes": ["medicaid-adultos", "ninos-chip"],
+      "themes": [
+        "medicaid-adultos",
+        "ninos-chip"
+      ],
       "number": "38 estados",
       "number_en": "38 states",
       "statement": "En 2025, 38 estados y Washington DC ofrecen beneficios dentales ampliados para adultos en Medicaid.",
@@ -85,17 +115,25 @@
     },
     {
       "id": "medicaid-reembolso",
-      "themes": ["medicaid-participacion", "medicaid-adultos", "economia-practica"],
+      "themes": [
+        "medicaid-participacion",
+        "medicaid-adultos",
+        "economia-practica"
+      ],
       "number": "50% / 60%",
       "number_en": "50% / 60%",
       "statement": "En la mayoría de los estados, el reembolso de Medicaid queda muy por debajo del 50% de lo que cobra el dentista y del 60% de lo que paga el seguro privado.",
+      "card": "En la mayoría de los estados, Medicaid no llega al 50% del honorario del dentista ni al 60% del seguro privado.",
       "statement_en": "Medicaid reimbursement in most states falls far below 50% of dentist charges and 60% of private insurance reimbursement.",
       "cite": "ADA Health Policy Institute, Dental Care in Medicaid Programs (p. 4, 2025-12)",
       "tier": "primary"
     },
     {
       "id": "medicaid-dso-caida",
-      "themes": ["medicaid-participacion", "consolidacion-dso"],
+      "themes": [
+        "medicaid-participacion",
+        "consolidacion-dso"
+      ],
       "number": "49%, desde 67%",
       "number_en": "49%, down from 67%",
       "statement": "En 2024, 49% de los dentistas afiliados a un DSO participaba en Medicaid/CHIP, contra 67% en 2015.",
@@ -105,7 +143,10 @@
     },
     {
       "id": "medicaid-genero",
-      "themes": ["medicaid-participacion", "demografia-dentista"],
+      "themes": [
+        "medicaid-participacion",
+        "demografia-dentista"
+      ],
       "number": "45% vs 39%",
       "number_en": "45% vs 39%",
       "statement": "En 2024, 45% de las dentistas mujeres participaba en Medicaid/CHIP, contra 39% de los dentistas hombres.",
@@ -115,7 +156,11 @@
     },
     {
       "id": "propietarios-caida",
-      "themes": ["consolidacion-dso", "demografia-dentista", "economia-practica"],
+      "themes": [
+        "consolidacion-dso",
+        "demografia-dentista",
+        "economia-practica"
+      ],
       "number": "73%, desde 85%",
       "number_en": "73%, down from 85%",
       "statement": "En 2023, 73% de los dentistas era dueño de su práctica. En 2005 era 85%.",
@@ -125,17 +170,24 @@
     },
     {
       "id": "practica-grupal",
-      "themes": ["consolidacion-dso", "demografia-dentista"],
+      "themes": [
+        "consolidacion-dso",
+        "demografia-dentista"
+      ],
       "number": "2 de cada 3",
       "number_en": "about 2 in 3",
       "statement": "En 2024, cerca de 2 de cada 3 dentistas ejercía en práctica grupal: solo 34% trabajaba en una única ubicación sin otros dentistas.",
+      "card": "En 2024, 2 de cada 3 dentistas ejercía en práctica grupal. Solo 34% trabajaba sin otros dentistas.",
       "statement_en": "In 2024, about 2 in 3 dentists practiced in a group setting; only 34% practiced in a single location with no other dentists.",
       "cite": "ADA Health Policy Institute, US Dentist Workforce 2025 (p. 23, 2025-08)",
       "tier": "primary"
     },
     {
       "id": "dso-jovenes",
-      "themes": ["consolidacion-dso", "demografia-dentista"],
+      "themes": [
+        "consolidacion-dso",
+        "demografia-dentista"
+      ],
       "number": "más de 1 de cada 4",
       "number_en": "more than 1 in 4",
       "statement": "En varios estados, más de 1 de cada 4 dentistas con hasta diez años de egresado está afiliado a un DSO.",
@@ -145,7 +197,10 @@
     },
     {
       "id": "higienistas-reclutamiento",
-      "themes": ["higienistas", "economia-practica"],
+      "themes": [
+        "higienistas",
+        "economia-practica"
+      ],
       "number": "31,4%",
       "number_en": "31.4%",
       "statement": "En el cuarto trimestre de 2025, 31,4% de los dentistas reportó estar reclutando higienistas: cerca de 1 de cada 3.",
@@ -155,7 +210,10 @@
     },
     {
       "id": "medicaid-privado",
-      "themes": ["medicaid-adultos", "sin-seguro"],
+      "themes": [
+        "medicaid-adultos",
+        "sin-seguro"
+      ],
       "number": "5%",
       "number_en": "5%",
       "statement": "Solo cerca del 5% de los beneficiarios de Medicaid tiene además seguro dental privado.",
@@ -165,20 +223,29 @@
     },
     {
       "id": "cdt-2026-cambios",
-      "themes": ["cdt-sin-codigo-ia", "codigos-documentan"],
+      "themes": [
+        "cdt-sin-codigo-ia",
+        "codigos-documentan"
+      ],
       "number": "60 cambios",
       "number_en": "60 changes",
       "statement": "CDT 2026 trae 60 cambios de código vigentes desde el 1 de enero de 2026: 31 adiciones, 14 revisiones, 6 eliminaciones y 9 cambios editoriales.",
+      "card": "CDT 2026 trae 60 cambios de código vigentes desde enero, entre ellos 31 adiciones y 14 revisiones.",
       "statement_en": "CDT 2026 contains 60 code changes effective January 1, 2026: 31 additions, 14 revisions, 6 deletions and 9 editorial changes.",
       "cite": "ADA News, New CDT codes you should know for 2026 (2025-09-29)",
       "tier": "primary"
     },
     {
       "id": "cdt-sin-ia",
-      "themes": ["cdt-sin-codigo-ia", "ia-odontologia", "tecnologia-clinica"],
+      "themes": [
+        "cdt-sin-codigo-ia",
+        "ia-odontologia",
+        "tecnologia-clinica"
+      ],
       "number": "0 códigos",
       "number_en": "zero codes",
       "statement": "Ninguna de las adiciones que la ADA destacó en CDT 2026 corresponde a inteligencia artificial, y no se ha reportado un código CDT dedicado a IA.",
+      "card": "Ninguna de las adiciones que la ADA destacó en CDT 2026 corresponde a inteligencia artificial.",
       "statement_en": "None of the additions the ADA highlighted in CDT 2026 relate to artificial intelligence, and no dedicated CDT code for AI has been reported.",
       "cite": "ADA News, New CDT codes you should know for 2026 (2025-09-29)",
       "tier": "primary",
@@ -186,17 +253,24 @@
     },
     {
       "id": "codigos-documentan-existente",
-      "themes": ["codigos-documentan", "cdt-sin-codigo-ia"],
+      "themes": [
+        "codigos-documentan",
+        "cdt-sin-codigo-ia"
+      ],
       "number": "5 códigos",
       "number_en": "5 codes",
       "statement": "Las adiciones destacadas de CDT 2026 —prueba de saliva, diente fisurado, prótesis duplicada, periimplantitis y limpieza de placa oclusal— registran servicios que las clínicas ya prestaban. El código no crea la prestación: la hace cobrable.",
+      "card": "CDT 2026 registra servicios que las clínicas ya prestaban. El código no crea la prestación: la hace cobrable.",
       "statement_en": "The highlighted CDT 2026 additions — saliva testing, cracked tooth testing, duplicate dentures, peri-implantitis debridement and occlusal guard cleaning — document services practices already performed. The code does not create the procedure; it makes it billable.",
       "cite": "ADA News, New CDT codes you should know for 2026 (2025-09-29)",
       "tier": "primary"
     },
     {
       "id": "medicaid-ninos-visita",
-      "themes": ["ninos-chip", "medicaid-adultos"],
+      "themes": [
+        "ninos-chip",
+        "medicaid-adultos"
+      ],
       "number": "27 estados",
       "number_en": "27 states",
       "statement": "En 27 estados, menos de la mitad de los niños beneficiarios de Medicaid/CHIP fue al dentista en el último año.",
@@ -206,7 +280,10 @@
     },
     {
       "id": "cobertura-perdida",
-      "themes": ["adultos-mayores", "sin-seguro"],
+      "themes": [
+        "adultos-mayores",
+        "sin-seguro"
+      ],
       "number": "8,3 millones",
       "number_en": "8.3 million",
       "statement": "Cerca de 8,3 millones de adultos reportaron haber perdido su cobertura dental.",

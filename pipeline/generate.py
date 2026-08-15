@@ -99,11 +99,29 @@ def _clip(text: str, limit: int) -> str:
     if len(text) <= limit:
         return text + "."
     cut = text[:limit]
-    for sep in (". ", "; ", ", "):
+    # " y " y " ni " cierran una coordinación: cortar ahí deja una oración
+    # entera en vez de un colgajo. Sin ellas, un enunciado con dos cláusulas
+    # unidas por "y" terminaba en "…y del…", que es lo que se vio publicado.
+    for sep in (". ", "; ", ", ", " y ", " ni "):
         i = cut.rfind(sep)
         if i > limit * 0.5:
             return cut[:i] + "."
     return cut[:cut.rfind(" ")] + "…"
+
+
+def card_text(f: dict) -> str:
+    """
+    El texto que va en la tarjeta de cifra del frame 2.
+
+    La tarjeta tiene lugar para unas 120 caracteres y 6 de los 21 hechos son
+    más largos que eso. Recortarlos por código daba frases cortadas al medio
+    ("…de lo que cobra el dentista y del…") o, con el corte por cláusula, una
+    versión que perdía una de las dos cifras del titular. Por eso los hechos
+    largos traen un campo `card` curado a mano: la misma afirmación, dicha
+    corta, sin cifras que no estén en el enunciado completo. `verify` lo
+    controla.
+    """
+    return _clip(f.get("card") or f["statement"], 120)
 
 
 def short_cite(cite: str) -> str:
@@ -173,10 +191,8 @@ def generate(post: Post) -> PostSpec:
         # cifras" en los doce: una etiqueta de sección, no una afirmación.
         Slide("data", post.data_title or "Lo que dicen las cifras",
               kicker="En EE.UU.",
-              stats=[Stat(f2["number"], _clip(f2["statement"], 120),
-                          short_cite(f2["cite"])),
-                     Stat(f1["number"], _clip(f1["statement"], 120),
-                          short_cite(f1["cite"]))],
+              stats=[Stat(f2["number"], card_text(f2), short_cite(f2["cite"])),
+                     Stat(f1["number"], card_text(f1), short_cite(f1["cite"]))],
               body=_clip(rest, 240), source=f"Fuentes: {sources}"),
         # El cierre sale del tema, no de una frase global. Antes los doce
         # posts de datos terminaban con la misma línea genérica.
@@ -241,7 +257,7 @@ def _generate_evergreen(post: Post) -> PostSpec:
     tail = f"\n\nDato de contexto: {sources}." if sources else ""
 
     extra = post.messages[0] if post.messages else post.body
-    stats = [Stat(f["number"], _clip(f["statement"], 120), short_cite(f["cite"]))
+    stats = [Stat(f["number"], card_text(f), short_cite(f["cite"]))
              for f in post.facts[:2]]
 
     # El frame del medio es SIEMPRE de rol `data`, tenga cifras o no. El rol
