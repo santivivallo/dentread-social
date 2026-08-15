@@ -27,7 +27,7 @@ from datetime import date
 from pathlib import Path
 
 from pipeline import plan, site
-from pipeline.generate import generate
+from pipeline.generate import SinMaterial, generate
 from pipeline.plan import Post
 from pipeline import render_html
 from pipeline.render_html import write_html, frames_for
@@ -57,6 +57,13 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
 
     try:
         spec = generate(post)
+    except SinMaterial as exc:
+        # No es un fallo: esa fuente no tiene con qué hoy. Sale como aviso y
+        # el ciclo prueba la siguiente, igual que cuando ADA no publicó nada
+        # relevante. Antes esto no existía y una noticia sin resumen salía
+        # igual, con el titular en inglés como único contenido del frame 2.
+        print(f"   SIN MATERIAL · {exc}")
+        return None
     except ValueError as exc:
         print(f"   ABORTA · {exc}")
         return None

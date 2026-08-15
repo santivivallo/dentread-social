@@ -279,6 +279,88 @@ def redactar(*, tema: str, angulo: str, cierre: str,
     return None
 
 
+REGLAS_EXTERNO = """\
+Escribís los titulares del Instagram de DentRead, una empresa de IA aplicada a
+radiografías dentales. Público: dentistas y dueños de clínicas en EE.UU.
+
+Te doy un resumen ya verificado de una noticia o un estudio, y el cierre que
+lleva el post. Devolvés SOLO un objeto JSON con dos claves:
+
+{"gancho": "...", "titular_datos": "..."}
+
+- "gancho": el titular del primer frame. Máximo 52 caracteres. Abre una brecha
+  sobre ESTA nota en particular: contraste, escena o reencuadre. No la cierra.
+  Tiene que poder leerse sin haber visto el resumen y aun así dar ganas de
+  deslizar. Nada de frases genéricas que servirían para cualquier noticia.
+- "titular_datos": el titular del segundo frame. Máximo 40 caracteres. Dice
+  de qué se trata la nota. Nada de "Lo que se publicó", que no dice nada.
+
+Reglas, todas obligatorias:
+- En español rioplatense, aunque la fuente esté en inglés.
+- Las dos frases y el cierre dicen cosas distintas.
+- No inventes cifras, fechas ni nombres que no estén en el resumen.
+- Nada de afirmar que una IA detecta, diagnostica o mejora la precisión.
+- Sin adjetivos de opinión, sin lenguaje corporativo, sin em dashes, emojis,
+  hashtags ni exclamaciones.
+- Si el resumen no alcanza, respondé exactamente: INSUFICIENTE
+"""
+
+
+def redactar_externo(*, titulo: str, resumen: str,
+                     cierre: str) -> dict | None:
+    """
+    Gancho y titular para una noticia o un paper, a partir de su resumen.
+
+    Antes el gancho de una noticia era `post.close`, una frase sacada de una
+    lista por familia temática. Resultado: una nota sobre un portal de
+    credencialización abría con "El promedio del país no es tu promedio". La
+    frase no era mala, era de otro post: servía para cualquier noticia, o sea
+    para ninguna.
+
+    Devuelve None si no hay modelo o si la propuesta no pasa. El que llama
+    decide qué hacer con eso; para una noticia, no publicarla.
+    """
+    if not disponible() or not resumen:
+        return None
+
+    cifras = {n.rstrip(".,")
+              for n in re.findall(r"\d[\d.,]*", f"{titulo} {resumen}")}
+    contexto = (f"Titular original: {titulo}\n\n"
+                f"Resumen verificado: {resumen}\n\n"
+                f"Cierre del post (NO lo repitas): {cierre}")
+
+    for intento in range(INTENTOS):
+        texto = llm.pedir(REGLAS_EXTERNO, contexto, json_mode=True,
+                          temperatura=0.4)
+        if not texto or "INSUFICIENTE" in texto.upper():
+            return None
+        try:
+            prop = json.loads(texto)
+        except ValueError:
+            m = re.search(r"\{.*\}", texto, re.S)
+            if not m:
+                return None
+            try:
+                prop = json.loads(m.group(0))
+            except ValueError:
+                return None
+
+        # Se reusa el mismo verificador poniendo el resumen en 'lectura': ya
+        # pasó por newsguard y por el claims guard en `summarize`, así que acá
+        # solo se mide contra el gancho y el titular nuevos.
+        completo = {**prop, "lectura": resumen[:MAX_LECTURA]}
+        fallas = verificar(completo, cifras_permitidas=cifras, cierre=cierre)
+        # El resumen ya está verificado; sus fallas de largo no cuentan.
+        fallas = [f for f in fallas if "'lectura'" not in f]
+        if not fallas:
+            return {"gancho": prop["gancho"].strip(),
+                    "titular_datos": prop["titular_datos"].strip()}
+        print(f"   [info] titulares rechazados (intento {intento + 1}): "
+              f"{fallas[0]}")
+        contexto += f"\n\nIntento anterior rechazado por: {'; '.join(fallas[:3])}"
+    return None
+
+
 def main() -> int:
     """
     Autodiagnóstico: ¿esto funciona de verdad?

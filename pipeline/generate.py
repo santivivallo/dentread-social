@@ -27,6 +27,17 @@ from pipeline import redaccion
 from pipeline.plan import Post
 from pipeline.spec import PostSpec, Slide, Stat
 
+class SinMaterial(Exception):
+    """
+    Esta fuente no tiene con qué armar un post publicable hoy.
+
+    No es un error: el ciclo lo espera y pasa a la fuente siguiente. Existe
+    para que "no hay material" y "algo se rompió" no se traten igual, que es
+    como salió publicada una noticia sin resumen, con el titular en inglés
+    como único contenido.
+    """
+
+
 # Tres frames: hook · datos · cierre. Lo fija el brand guide, no el código.
 N_SLIDES = 3
 
@@ -391,34 +402,51 @@ def _generate_externo(post: Post) -> PostSpec:
     titular = post.angle.strip().rstrip(".")
     es_noticia = post.kind == "news"
 
-    # Gancho en español, propio. Para una noticia, el encuadre; para un
-    # paper, la pregunta enmarcada.
-    gancho = post.close if es_noticia else "Qué se está estudiando"
-    acento = post.close_accent if es_noticia else ""
-
     # Resumen propio, escrito por el modelo y verificado contra copyright y
-    # claims. Si no pasa —o no hay token, o la API falló— el post sale con el
-    # formato señalizador de siempre. El peor caso es un post más pobre, nunca
-    # uno con texto sin verificar.
+    # claims.
     from pipeline import summarize
     resumen = summarize.resumen_verificado(
         post.source_text, es_paper=not es_noticia, url=post.source_url,
         atribucion=etiqueta, es_reciente=post.es_reciente,
         publicado=post.publicado)
 
-    puntos = []
-    if resumen:
-        puntos += [linea.strip() for linea in resumen.split("\n") if linea.strip()]
+    # Sin resumen no hay post.
+    #
+    # Antes salía igual, en "formato señalizador": el frame 2 mostraba el
+    # titular original entrecomillado y nada más. En inglés, en una cuenta en
+    # español, sobre una nota que el lector no puede entender sin abrirla. Eso
+    # no es un post más pobre, es un post vacío, y ocupa una de las tres
+    # publicaciones de la semana.
+    #
+    # `SinMaterial` hace que el ciclo pase a la fuente siguiente, que es lo
+    # mismo que ya pasa cuando ADA no publicó nada relevante.
+    if not resumen:
+        raise SinMaterial(
+            f"'{post.id}': sin resumen verificado, no hay nada que contar "
+            f"que el lector pueda leer en español")
+
+    # Gancho y titular a partir de ESTE resumen.
+    #
+    # El gancho era `post.close`, una frase elegida por familia temática. Una
+    # nota sobre un portal de credencialización abría con "El promedio del
+    # país no es tu promedio": servía para cualquier noticia, o sea para
+    # ninguna.
+    titulares = redaccion.redactar_externo(
+        titulo=titular, resumen=resumen,
+        cierre=f"{post.close} {post.close_accent}")
+    if not titulares:
+        raise SinMaterial(f"'{post.id}': no se pudo redactar un gancho propio")
+
+    # El titular original va entrecomillado al final, como cita con su fuente,
+    # nunca como contenido principal.
+    puntos = [linea.strip() for linea in resumen.split("\n") if linea.strip()]
     puntos.append(f"«{titular}»")
-    if not resumen and post.messages and post.messages[0] != titular:
-        puntos.insert(0, _clip(post.messages[0], 170))
 
     slides = [
-        Slide("hook", gancho, accent=acento,
+        Slide("hook", titulares["gancho"],
               kicker=kicker_para("news" if es_noticia else "paper", post.id),
               body=post.body, source=etiqueta),
-        Slide("data",
-              "Lo que se publicó" if es_noticia else "Qué se preguntó",
+        Slide("data", titulares["titular_datos"],
               kicker=etiqueta, bullets=puntos,
               body="Título original, en inglés." if es_noticia else "",
               source=f"Fuente: {etiqueta}"),

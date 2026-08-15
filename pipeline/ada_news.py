@@ -341,7 +341,11 @@ def latest_relevant(
             pass
 
         art = Article(
-            url=url, title=record["title"], summary="",
+            # Se desescapa al LEER, no solo al capturar. El archivo tiene
+            # entradas guardadas antes de que existiera el unescape, y salió
+            # publicado un "dentists&#x2019; paperwork" crudo en un slide.
+            # Arreglar solo la captura dejaba el stock viejo roto.
+            url=url, title=_html.unescape(record["title"]), summary="",
             category=record.get("category", ""),
             published=record.get("published", ""), author="",
             score=record.get("score", 0.0), buckets=record.get("buckets", []),
@@ -420,7 +424,8 @@ def backlog(*, year: int | None = None, limit: int = 20,
         if not str(a.get("published", "")).startswith(str(year)):
             continue
         art = Article(
-            url=url, title=a["title"], summary="", category=a.get("category", ""),
+            url=url, title=_html.unescape(a["title"]), summary="",
+            category=a.get("category", ""),
             published=a.get("published", ""), author="",
             score=a.get("score", 0.0), buckets=a.get("buckets", []),
         )
