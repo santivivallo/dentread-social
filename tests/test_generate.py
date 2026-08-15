@@ -42,6 +42,14 @@ def _check(spec, kind: str) -> list[str]:
         errs.append(f"{kind}: cierre demasiado corto o vacío")
     if not spec.caption_es.strip():
         errs.append(f"{kind}: caption vacío")
+
+    # Los titulares del frame de datos eran etiquetas de sección repetidas en
+    # los 27 posts ("Lo que dicen las cifras", "Lo que hacemos"). El frame del
+    # medio es el que sostiene el post: si su titular no dice nada, el lector
+    # ve dos números sin marco.
+    medio_titulo = spec.slides[1].headline.strip()
+    if medio_titulo in ("Lo que dicen las cifras", "Lo que hacemos"):
+        errs.append(f"{kind}: el frame 2 usa el titular genérico de reserva")
     # Reglas del brand guide que se pueden verificar sin renderizar.
     n_tags = spec.caption_es.count("#")
     if not 4 <= n_tags <= 6:

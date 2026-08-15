@@ -66,6 +66,7 @@ class Post:
     messages_en: list[str] = field(default_factory=list)
     close: str = ""                  # cierre propio del post
     close_accent: str = ""
+    data_title: str = ""             # titular del frame de datos
     source_url: str = ""             # noticia o paper: de dónde salió
     source_label: str = ""
     # Texto fuente, solo en memoria: es lo que se resume y contra lo que
@@ -172,6 +173,7 @@ def post_from_block(block: dict, seed: int = 0) -> Post:
         messages_en=rest_en,
         close=block.get("close", ""),
         close_accent=block.get("close_accent", ""),
+        data_title=block.get("data_title", ""),
     )
 
 
@@ -188,6 +190,7 @@ def post_from_theme(theme: Theme, facts: list[dict]) -> Post:
         angle=theme.angle, angle_en=theme.angle_for("en"),
         family=theme.family, facts=facts,
         close=theme.close, close_accent=theme.close_accent,
+        data_title=theme.data_title,
     )
 
 

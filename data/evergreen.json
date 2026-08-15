@@ -48,7 +48,8 @@
    ],
    "review_cycle_days": 90,
    "close": "Leer la radiografía es el principio.",
-   "close_accent": "Lo que sigue casi nunca se mide."
+   "close_accent": "Lo que sigue casi nunca se mide.",
+   "data_title": "Dónde entra DentRead"
   },
   {
    "id": "ia-radiografias-dentales",
@@ -88,7 +89,8 @@
    ],
    "review_cycle_days": 90,
    "close": "La imagen ya tiene la información.",
-   "close_accent": "Falta que llegue a tiempo."
+   "close_accent": "Falta que llegue a tiempo.",
+   "data_title": "Qué hace el sistema con la imagen"
   },
   {
    "id": "apoyo-analisis-radiografico",
@@ -126,7 +128,8 @@
    ],
    "review_cycle_days": 90,
    "close": "Una segunda mirada no reemplaza a nadie.",
-   "close_accent": "Ordena la primera."
+   "close_accent": "Ordena la primera.",
+   "data_title": "Una segunda lectura, ordenada"
   },
   {
    "id": "consistencia-evaluacion",
@@ -166,7 +169,8 @@
    ],
    "review_cycle_days": 90,
    "close": "Un criterio parejo no se pide.",
-   "close_accent": "Se sostiene con un registro que alguien mire."
+   "close_accent": "Se sostiene con un registro que alguien mire.",
+   "data_title": "Mismo caso, mismo criterio"
   },
   {
    "id": "comunicacion-visual-paciente",
@@ -205,7 +209,8 @@
    ],
    "review_cycle_days": 90,
    "close": "El paciente no ve lo que vos ves.",
-   "close_accent": "Mostrarlo cambia la conversación."
+   "close_accent": "Mostrarlo cambia la conversación.",
+   "data_title": "Lo que el paciente ve"
   },
   {
    "id": "comprension-y-confianza",
@@ -243,7 +248,8 @@
    ],
    "review_cycle_days": 90,
    "close": "Nadie acepta lo que no entiende.",
-   "close_accent": "La confianza empieza por la explicación."
+   "close_accent": "La confianza empieza por la explicación.",
+   "data_title": "De entender a aceptar"
   },
   {
    "id": "aceptacion-tratamientos",
@@ -284,7 +290,8 @@
    ],
    "review_cycle_days": 90,
    "close": "El plan aceptado no es el plan terminado.",
-   "close_accent": "Entre los dos se pierde el paciente."
+   "close_accent": "Entre los dos se pierde el paciente.",
+   "data_title": "Del plan al tratamiento terminado"
   },
   {
    "id": "seguimiento-continuidad",
@@ -325,7 +332,8 @@
    ],
    "review_cycle_days": 90,
    "close": "El hallazgo sin seguimiento se archiva.",
-   "close_accent": "La continuidad es trabajo, no suerte."
+   "close_accent": "La continuidad es trabajo, no suerte.",
+   "data_title": "Qué pasa después del hallazgo"
   },
   {
    "id": "eficiencia-flujo-clinico",
@@ -366,7 +374,8 @@
    ],
    "review_cycle_days": 90,
    "close": "El tiempo clínico no se estira.",
-   "close_accent": "Se recupera de lo administrativo."
+   "close_accent": "Se recupera de lo administrativo.",
+   "data_title": "Dónde se va el tiempo clínico"
   },
   {
    "id": "innovacion-radiologia-oral",
@@ -406,7 +415,8 @@
    ],
    "review_cycle_days": 90,
    "close": "El equipo se renovó. El proceso alrededor, no.",
-   "close_accent": "Ahí está el margen que nadie reclama."
+   "close_accent": "Ahí está el margen que nadie reclama.",
+   "data_title": "El equipo cambió, el proceso no"
   },
   {
    "id": "tecnologia-organizaciones",
@@ -448,7 +458,8 @@
    ],
    "review_cycle_days": 90,
    "close": "Una clínica y un grupo no compran igual.",
-   "close_accent": "Tampoco miden igual."
+   "close_accent": "Tampoco miden igual.",
+   "data_title": "Una clínica y un grupo"
   },
   {
    "id": "educacion-dental",
@@ -484,7 +495,8 @@
    ],
    "review_cycle_days": 90,
    "close": "Explicar bien es una técnica.",
-   "close_accent": "Se practica tan poco como se enseña."
+   "close_accent": "Se practica tan poco como se enseña.",
+   "data_title": "Lo que se enseña y lo que no"
   },
   {
    "id": "salud-publica-oral",
@@ -525,7 +537,8 @@
    ],
    "review_cycle_days": 90,
    "close": "Lo que no se mide no entra en ningún presupuesto.",
-   "close_accent": "Empezá por lo que ya pasa en tu agenda."
+   "close_accent": "Empezá por lo que ya pasa en tu agenda.",
+   "data_title": "La boca fuera del presupuesto"
   },
   {
    "id": "evolucion-ecosistema",
@@ -566,7 +579,8 @@
    ],
    "review_cycle_days": 90,
    "close": "Pedile a cualquier software una cifra de la semana pasada.",
-   "close_accent": "Ahí se separa la demo del sistema."
+   "close_accent": "Ahí se separa la demo del sistema.",
+   "data_title": "Cómo separar demo de sistema"
   },
   {
    "id": "uso-responsable-ia",
@@ -606,7 +620,8 @@
    ],
    "review_cycle_days": 60,
    "close": "La IA apoya.",
-   "close_accent": "El odontólogo decide."
+   "close_accent": "El odontólogo decide.",
+   "data_title": "Quién decide, en concreto"
   }
  ]
 }

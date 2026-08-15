@@ -62,6 +62,28 @@ PUENTES_EN = (
     "What usually gets missed:",
 )
 
+# Kickers por tipo de post. El kicker es la etiqueta chica de arriba a la
+# izquierda: es lo primero que ubica al lector.
+#
+# `hook-writer.md` define cinco tipos de gancho y dice que el tipo tiene que
+# corresponder al contenido: contraste e insight drop para datos, pregunta y
+# confesión para lo propio. Los cuatro tipos de post usaban la misma
+# plantilla, así que el gancho de un post sobre DentRead sonaba igual que uno
+# de mercado. El kicker es donde esa diferencia se hace visible sin tocar el
+# titular, que ya viene escrito y aprobado.
+KICKERS = {
+    "data": ("El dato", "En números", "Lo medido", "El contraste"),
+    "evergreen": ("Cómo lo vemos", "Nuestra lectura", "En qué creemos"),
+    "news": ("Novedad", "Lo que se movió", "En la industria"),
+    "paper": ("Evidencia", "Qué se estudió", "Literatura"),
+}
+
+
+def kicker_para(kind: str, clave: str) -> str:
+    """Rota dentro del tipo: dos posts seguidos no abren con la misma palabra."""
+    opciones = KICKERS.get(kind) or KICKERS["data"]
+    return opciones[sum(ord(c) for c in clave) % len(opciones)]
+
 
 def slugify(text: str) -> str:
     text = unicodedata.normalize("NFKD", text.lower())
@@ -142,12 +164,15 @@ def generate(post: Post) -> PostSpec:
         # El gancho lleva la cifra y el titular, sin el enunciado del hecho:
         # ese texto vuelve en la tarjeta del slide 2 y repetirlo dos frames
         # seguidos hace que el carrusel se sienta corto.
-        Slide("hook", hook, kicker=post.family.replace("_", " "),
+        Slide("hook", hook, kicker=kicker_para("data", post.id),
               stat=f1["number"], source=short_cite(f1["cite"])),
         # La segunda cifra va primera y destacada: la primera ya fue el número
         # grande del gancho, y repetirla como tarjeta inicial hacía que el
         # slide de datos pareciera el mismo frame otra vez.
-        Slide("data", "Lo que dicen las cifras", kicker="En EE.UU.",
+        # El titular del frame de datos sale del tema. Era "Lo que dicen las
+        # cifras" en los doce: una etiqueta de sección, no una afirmación.
+        Slide("data", post.data_title or "Lo que dicen las cifras",
+              kicker="En EE.UU.",
               stats=[Stat(f2["number"], _clip(f2["statement"], 120),
                           short_cite(f2["cite"])),
                      Stat(f1["number"], _clip(f1["statement"], 120),
@@ -226,9 +251,9 @@ def _generate_evergreen(post: Post) -> PostSpec:
     # no el borde.
     puntos = [m for m in post.messages if m][:3]
     slides = [
-        Slide("hook", hook, kicker=post.family.replace("_", " "),
+        Slide("hook", hook, kicker=kicker_para("evergreen", post.id),
               body=_clip(extra, 150)),
-        Slide("data", "Lo que hacemos", kicker="DentRead",
+        Slide("data", post.data_title or "Lo que hacemos", kicker="DentRead",
               stats=stats, bullets=[] if stats else puntos,
               body=_clip(post.body, 200) if stats else "",
               source=f"Fuentes: {sources}" if sources else ""),
@@ -319,7 +344,7 @@ def _generate_externo(post: Post) -> PostSpec:
 
     slides = [
         Slide("hook", gancho, accent=acento,
-              kicker="ADA News" if es_noticia else "Evidencia",
+              kicker=kicker_para("news" if es_noticia else "paper", post.id),
               body=post.body, source=etiqueta),
         Slide("data",
               "Lo que se publicó" if es_noticia else "Qué se preguntó",
