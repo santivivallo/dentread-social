@@ -69,9 +69,15 @@ posts semanales. Si la fuente que toca no tiene material —ADA no publicó nada
 relevante, PubMed está caído— se prueba la siguiente del ciclo y el turno se
 conserva, así una semana floja no desplaza la rotación para siempre.
 
-De una noticia sale el tema; de un paper, qué se preguntó y con qué diseño.
-**Nunca qué se encontró:** un hallazgo suelto en un carrusel es un claim
-clínico con la cita de otro.
+Las dos llevan **resumen propio**, escrito por un modelo y verificado antes de
+publicarse: `newsguard` mide copia, solapamiento y atribución; el claims guard
+mide riesgo regulatorio. Si algo falla, el post sale en formato señalizador.
+
+De un paper se cuenta qué reportó, **siempre atribuido al estudio**. La única
+excepción es el **rendimiento diagnóstico de IA**: ahí solo se señaliza la
+pregunta y el diseño. Un resultado de precisión publicado en la cuenta de una
+empresa de IA para radiografías no se lee como cita ajena sino como claim
+propio, y eso exige FDA clearance.
 
 Los evergreen **no consumen hechos**: la cifra ahí es contexto, no contenido. Hablar de la empresa no debe reducir el inventario editorial.
 

@@ -10,12 +10,15 @@ agotan. Ver `CICLO` en pipeline/plan.py: un lector no debería poder anticipar
 de qué va el post por el día de la semana, y esperar a que un pozo se seque
 para abrir otro deja huecos justo cuando el inventario está bajo.
 
-Ninguna de las dos publica conclusiones:
+Las dos llevan un resumen propio, escrito y verificado en `pipeline/summarize`.
 
-- **Noticia**: titular, categoría y enlace. El texto propio es el encuadre,
-  nunca un resumen extenso del artículo — eso lo verifica `publisher/newsguard`.
-- **Paper**: qué se preguntó y con qué diseño. Nunca qué se encontró. Un
-  hallazgo citado fuera de contexto es un claim clínico con cita prestada.
+- **Noticia**: qué pasó y a quién le cambia algo, con palabras propias. El
+  límite es copyright, y lo mide `publisher/newsguard`.
+- **Paper**: qué se preguntó, con qué diseño y qué reportó, siempre atribuido
+  al estudio. Con una excepción: si el estudio mide **rendimiento diagnóstico
+  de IA**, solo se señaliza. Un resultado de precisión publicado en la cuenta
+  de una empresa de IA para radiografías no se lee como cita ajena, se lee
+  como claim propio, y DentRead no tiene FDA clearance para sostenerlo.
 """
 from __future__ import annotations
 
