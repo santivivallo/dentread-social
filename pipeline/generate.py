@@ -1,20 +1,29 @@
 """
 Generador: Post (plan) → PostSpec (slides + copy).
 
-Determinista. Sin modelo de lenguaje, sin extracción automática de cifras.
+**Las cifras son deterministas. La prosa que las enmarca, no.**
 
 La extracción de cifras desde texto de PDF se probó y se eliminó: producía
 frases sin sentido ("142 of a total of 153 periapical lesions… 92.") que
 pasaban los cuatro guards, porque los guards miden riesgo regulatorio y de
 copyright, no si algo significa algo. La única defensa es que un humano haya
-leído la cifra en su fuente. Por eso el contenido sale exclusivamente de
-data/facts.json.
+leído la cifra en su fuente. Por eso el CONTENIDO sale exclusivamente de
+data/facts.json y acá no se genera un solo número.
+
+Los titulares son otra cosa. Salían de partir el ángulo del tema en el primer
+punto, así que el gancho era la tesis, y la tesis es justo lo que el frame 2 y
+el cierre vuelven a decir con otras palabras: 14 de los 22 temas parafraseaban.
+Eso sí lo escribe un modelo, y solo se usa si cruza los controles de
+`pipeline/redaccion.py`. Si no hay token o la propuesta falla, se cae a la
+versión curada del tema. Es el mismo trato que `summarize` le da a las
+noticias y los papers.
 """
 from __future__ import annotations
 
 import re
 import unicodedata
 
+from pipeline import redaccion
 from pipeline.plan import Post
 from pipeline.spec import PostSpec, Slide, Stat
 
@@ -165,13 +174,26 @@ def generate(post: Post) -> PostSpec:
         )
 
     f1, f2 = post.facts[0], post.facts[1]
-    # El gancho es del tema si lo trae. Partir `angle` en el primer punto daba
-    # la tesis —"La cobertura define el volumen"—, que es cierta pero abstracta
-    # y, peor, la misma idea que después repetían el titular y el cuerpo del
-    # frame 2. Un gancho tiene que decir algo concreto que el lector no sepa.
+
+    # Gancho, titular de datos y lectura: los escribe el modelo a partir de las
+    # dos cifras ya verificadas, y solo se usan si cruzan los controles de
+    # `redaccion.verificar` —sin cifras inventadas, sin parafrasear el cierre,
+    # sin claims—. Si no hay token o la propuesta no pasa, se usa la versión
+    # curada del tema. Un post siempre sale.
     hook = (post.hook or post.angle.split(".")[0]).strip()
-    hook_en = post.angle_en.split(".")[0].strip()
+    data_title = post.data_title or "Lo que dicen las cifras"
     rest = post.body or _tail(post.angle)
+
+    redactado = redaccion.redactar(
+        tema=post.title, angulo=post.angle, hechos=[f1, f2],
+        cierre=f"{post.close} {post.close_accent}")
+    origen_redaccion = "curada"
+    if redactado:
+        hook = redactado["gancho"]
+        data_title = redactado["titular_datos"]
+        rest = redactado["lectura"]
+        origen_redaccion = "modelo"
+    hook_en = post.angle_en.split(".")[0].strip()
     rest_en = post.body_en or _tail(post.angle_en)
 
     # El CTA rota por hash del id: estable para el mismo post, distinto entre
@@ -199,7 +221,7 @@ def generate(post: Post) -> PostSpec:
         #
         # El titular del frame de datos sale del tema. Era "Lo que dicen las
         # cifras" en los doce: una etiqueta de sección, no una afirmación.
-        Slide("data", post.data_title or "Lo que dicen las cifras",
+        Slide("data", data_title,
               kicker="En EE.UU.",
               stats=[Stat(f2["number"], card_text(f2), short_cite(f2["cite"]))],
               # El cuerpo lleva el enunciado del hecho del gancho y nada más.
@@ -243,6 +265,7 @@ def generate(post: Post) -> PostSpec:
         title_en=post.title,
         citations=citations,
         mode=post.kind,
+        redaccion=origen_redaccion,
         declarations={
             "has_source": True,
             "model_metrics_documented": False,

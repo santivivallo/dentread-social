@@ -71,7 +71,8 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
     html_files = write_html(frames_for(spec), folder)
     render_html.render(html_files)
     (folder / "post.json").write_text(json.dumps({
-        "slug": spec.slug, "mode": spec.mode, **spec.declarations,
+        "slug": spec.slug, "mode": spec.mode, "redaccion": spec.redaccion,
+        **spec.declarations,
         "caption_es": spec.caption_es, "commentary_en": spec.commentary_en,
         "title_en": spec.title_en, "citations": spec.citations,
         "fact_ids": post.fact_ids(),

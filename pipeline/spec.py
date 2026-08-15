@@ -49,3 +49,7 @@ class PostSpec:
     citations: list[str] = field(default_factory=list)
     mode: str = "data"
     declarations: dict = field(default_factory=dict)
+    # "modelo" si los titulares los escribió el modelo y cruzaron los
+    # controles, "curada" si se cayó a la versión del catálogo. Queda en
+    # post.json para poder auditar después de qué lado salió cada publicación.
+    redaccion: str = "curada"

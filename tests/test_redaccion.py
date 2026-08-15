@@ -27,46 +27,75 @@ coherencia.
 """
 from __future__ import annotations
 
-import re
 import sys
-import unicodedata
 
+from pipeline.redaccion import UMBRAL_SOLAPE as UMBRAL
+from pipeline.redaccion import solape, verificar
 from pipeline.themes import CATALOG
-
-UMBRAL = 0.40
-
-# Palabras de función que aparecen en cualquier frase y no dicen de qué habla.
-VACIAS = {"donde", "cuando", "sobre", "entre", "para", "desde", "cada",
-          "como", "esta", "este", "esto", "pero", "mientras", "todo", "toda"}
 
 # Largo máximo del gancho. A 88px entra en dos líneas de unos 26 caracteres;
 # más que eso baja el cuerpo de fuente y deja de leerse de un vistazo.
 MAX_HOOK = 52
 MAX_KICKER = 24
 
+# --------------------------------------------------------------------------
+# El verificador
+#
+# `redaccion.redactar` le pide los titulares a un modelo, así que la garantía
+# no está en lo que el modelo escriba sino en lo que el verificador rechace.
+# Un verificador que aprueba todo es peor que no tener modelo: da la impresión
+# de control sin ejercerlo. Estos casos corren sin red y sin token.
 
-def palabras(texto: str) -> set[str]:
-    t = unicodedata.normalize("NFKD", (texto or "").lower())
-    t = "".join(c for c in t if not unicodedata.combining(c))
-    return set(re.findall(r"[a-z]{4,}", t)) - VACIAS
+HECHOS = {"38", "2025", "50", "60"}
+CIERRE = "Ampliar cobertura llena la agenda. Terminar el tratamiento es otro problema."
+
+BUENA = {
+    "gancho": "Cubrir no es lo mismo que pagar",
+    "titular_datos": "Donde hay beneficio, hay visita",
+    "lectura": "La cobertura fija el volumen de la agenda, y el reembolso "
+               "fija cuánto de ese volumen deja margen.",
+}
+
+RECHAZOS = [
+    ("cifra inventada",
+     {**BUENA, "lectura": "El 73% de las clínicas ya lo aplica."},
+     "cifra que no está"),
+    ("parafrasea el cierre",
+     {**BUENA, "gancho": "Ampliar cobertura llena la agenda"},
+     "dicen lo mismo"),
+    ("gancho igual al titular",
+     {**BUENA, "titular_datos": "Cubrir no es lo mismo que pagar"},
+     "dicen lo mismo"),
+    ("gancho que no entra",
+     {**BUENA, "gancho": "Cubrir a un paciente no es lo mismo que pagarle "
+                         "el tratamiento completo al dentista"},
+     "el máximo es"),
+    ("falta una clave",
+     {"gancho": "Cubrir no es lo mismo que pagar", "titular_datos": "", "lectura": "x"},
+     "falta"),
+    ("em dash",
+     {**BUENA, "lectura": "La cobertura fija el volumen — el reembolso, el margen."},
+     "em dash"),
+]
 
 
-def solape(a: str, b: str) -> float:
-    """
-    Proporción de la frase MÁS CORTA que reaparece en la otra.
+def probar_verificador() -> list[str]:
+    errs = []
+    fallas = verificar(BUENA, cifras_permitidas=HECHOS, cierre=CIERRE)
+    if fallas:
+        errs.append(f"el verificador rechaza una propuesta correcta: {fallas}")
 
-    Se divide por el mínimo y no por la unión a propósito: un titular de tres
-    palabras metido entero dentro de uno de doce es exactamente el caso que
-    hay que atrapar, y con Jaccard daría un número bajo y tranquilizador.
-    """
-    A, B = palabras(a), palabras(b)
-    if not A or not B:
-        return 0.0
-    return len(A & B) / min(len(A), len(B))
+    for nombre, prop, esperado in RECHAZOS:
+        fallas = verificar(prop, cifras_permitidas=HECHOS, cierre=CIERRE)
+        if not fallas:
+            errs.append(f"el verificador ACEPTA '{nombre}', que debería rechazar")
+        elif not any(esperado in f for f in fallas):
+            errs.append(f"'{nombre}' se rechaza por el motivo equivocado: {fallas}")
+    return errs
 
 
 def main() -> int:
-    errores: list[str] = []
+    errores: list[str] = probar_verificador()
     for t in CATALOG:
         cierre = f"{t.close} {t.close_accent}"
         pares = (
@@ -106,8 +135,10 @@ def main() -> int:
         print(f"✗ {len(errores)} problema(s) de redacción:\n")
         print("\n".join(f"  {e}" for e in errores))
         return 1
-    print(f"✓ {len(CATALOG)} temas: gancho, datos y cierre dicen cosas "
-          f"distintas (solape < {UMBRAL:.0%})")
+    print(f"✓ verificador: acepta lo correcto y rechaza {len(RECHAZOS)} formas "
+          f"de fallar")
+    print(f"✓ {len(CATALOG)} temas de reserva: gancho, datos y cierre dicen "
+          f"cosas distintas (solape < {UMBRAL:.0%})")
     return 0
 
 
