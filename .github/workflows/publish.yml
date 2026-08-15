@@ -87,6 +87,13 @@ jobs:
       - name: Test selection
         run: python -m tests.test_seleccion
 
+      # Que el texto no cambie QUE MIDE una cifra. El numero puede estar
+      # bien y la frase ser falsa: 'honorario' contado como 'costo
+      # operativo'. Es el modo de falla mas peligroso porque se lee mejor
+      # que el original.
+      - name: Test referents
+        run: python -m tests.test_referentes
+
       # Relevancia de ADA News y el aro del resumen: que la copia literal y
       # los claims clinicos se descarten sigue siendo cierto.
       - name: Test sources

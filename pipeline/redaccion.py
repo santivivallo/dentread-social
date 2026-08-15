@@ -38,7 +38,7 @@ import json
 import re
 import unicodedata
 
-from pipeline import llm
+from pipeline import llm, referentes
 
 INTENTOS = 2
 
@@ -255,8 +255,8 @@ def puntuar(prop: dict, *, cierre: str, hechos_texto: str) -> float:
     return puntos
 
 
-def verificar(prop: dict, *, cifras_permitidas: set[str],
-              cierre: str) -> list[str]:
+def verificar(prop: dict, *, cifras_permitidas: set[str], cierre: str,
+              fuente: str = "") -> list[str]:
     """
     Los aros que tiene que cruzar la propuesta. Devuelve los motivos de rechazo.
 
@@ -295,7 +295,23 @@ def verificar(prop: dict, *, cifras_permitidas: set[str],
         if v >= UMBRAL_SOLAPE:
             fallas.append(f"el {na} y el {nb} dicen lo mismo ({v:.0%})")
 
-    # 3. Marca y formato, según `brand/references/hook-writer.md`.
+    # 3. Que no cambie QUÉ MIDE la cifra.
+    #
+    # Solo sobre la lectura, que es donde vive la afirmación factual. Un
+    # gancho o un cierre pueden apuntar legítimamente a algo que la fuente no
+    # mide —"Terminar el tratamiento es otro problema"— y meterlos acá
+    # rechazaría contenido aprobado.
+    #
+    # Este control SÍ descarta, al revés que el puntaje de calidad: dejar
+    # pasar un desvío publica algo falso con la cita de la ADA al pie, y
+    # rechazar de más solo cuesta uno de los cuatro candidatos.
+    if fuente:
+        desviado = referentes.desvios(lec, fuente)
+        if desviado:
+            fallas.append(f"'lectura' habla de {desviado} y la fuente no mide "
+                          f"eso: el número puede estar bien y la frase no")
+
+    # 4. Marca y formato, según `brand/references/hook-writer.md`.
     for clave, v in (("gancho", g), ("titular_datos", t), ("lectura", lec)):
         if "—" in v:
             fallas.append(f"'{clave}' trae em dash")
@@ -364,7 +380,8 @@ def redactar(*, tema: str, angulo: str, cierre: str,
         for i, c in enumerate(candidatos):
             if not isinstance(c, dict):
                 continue
-            fallas = verificar(c, cifras_permitidas=cifras, cierre=cierre)
+            fallas = verificar(c, cifras_permitidas=cifras, cierre=cierre,
+                               fuente=hechos_texto)
             if fallas:
                 motivos += fallas[:1]
                 continue
@@ -492,7 +509,7 @@ def main() -> int:
     """
     import sys
 
-    from pipeline import llm, plan
+    from pipeline import llm, referentes, plan
     from pipeline.themes import CATALOG
 
     if not disponible():
