@@ -45,6 +45,17 @@ FUENTE_IMAGEN = (
     "varía entre estudios. El diagnóstico radiográfico depende del lector."
 )
 
+# Una noticia real de ADA News, para el camino de resúmenes. Este camino
+# estuvo sin control hasta que se notó que era el que más lo necesita: el
+# lector no tiene el artículo delante, así que un desvío no se contrasta con
+# nada.
+FUENTE_NOTICIA = (
+    "The ADA is calling out UnitedHealthcare over its credentialing portal, "
+    "which the association says has doubled the paperwork dentists must "
+    "submit to stay in network. The ADA asked the insurer to simplify the "
+    "process and restore the previous submission flow."
+)
+
 # (texto, fuente, motivo). Todos DEBEN ser rechazados.
 DESVIOS = [
     ("Los aranceles de Medicaid cubren solo una fracción del costo operativo real.",
@@ -62,6 +73,12 @@ DESVIOS = [
     ("Hay menos dentistas por hora de agenda disponible.",
      FUENTE_PREVENCION,
      "inventa una magnitud de capacidad que la fuente no mide"),
+    ("El nuevo portal reduce el reembolso que reciben los dentistas.",
+     FUENTE_NOTICIA,
+     "la nota habla de papeleo, no de pagos"),
+    ("El cambio mejora el diagnóstico en la red del asegurador.",
+     FUENTE_NOTICIA,
+     "la nota no mide diagnóstico"),
 ]
 
 # (texto, fuente, motivo). Todos DEBEN pasar.
@@ -84,6 +101,10 @@ LEGITIMOS = [
     ("Dos lectores pueden ver cosas distintas en la misma radiografía.",
      FUENTE_IMAGEN,
      "diagnóstico y lectura, misma familia"),
+    ("La ADA pidió simplificar un portal que duplicó el papeleo de los "
+     "dentistas para seguir en la red.",
+     FUENTE_NOTICIA,
+     "resumen fiel de la noticia, sin magnitudes nuevas"),
 ]
 
 

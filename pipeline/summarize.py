@@ -192,7 +192,25 @@ def resumen_verificado(fuente: str, *, es_paper: bool, url: str = "",
     except ImportError:
         pass
 
-    # 2. Riesgo regulatorio, con las mismas reglas que el resto del copy.
+    # 2. Que no cambie QUÉ MIDE lo que reporta.
+    #
+    # Este camino quedó afuera cuando se agregó el control a los posts de
+    # datos, y es el que MÁS lo necesita: un resumen de noticia o de paper
+    # afirma cosas sobre un texto que el lector no tiene delante, así que un
+    # desvío acá no se puede contrastar con nada. Un estudio que midió
+    # concordancia entre lectores resumido como "mejora el tratamiento" es
+    # exactamente el claim que este sistema no puede hacer.
+    try:
+        from pipeline import referentes
+        desviado = referentes.desvios(texto, fuente)
+        if desviado:
+            print(f"   [info] resumen descartado: habla de {desviado} y la "
+                  f"fuente no mide eso")
+            return None
+    except ImportError:
+        pass
+
+    # 3. Riesgo regulatorio, con las mismas reglas que el resto del copy.
     try:
         from publisher import guard
         res = guard.check(publicable, {"has_source": True})

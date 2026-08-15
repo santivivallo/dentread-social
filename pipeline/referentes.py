@@ -33,36 +33,58 @@ import unicodedata
 # Familias de magnitudes que se confunden entre sí. Si el texto generado usa
 # una palabra de una familia, la fuente tiene que usar alguna de esa misma
 # familia; si no, está hablando de otra cosa.
+#
+# **Cada familia es bilingüe, y no es un detalle.** El texto se genera en
+# español pero ADA News y PubMed publican en inglés. Con las familias solo en
+# español, una fuente inglesa no activaba ninguna y CUALQUIER resumen parecía
+# un desvío: el control habría rechazado todos los resúmenes de noticias, que
+# es justo el camino que más lo necesita.
 FAMILIAS: dict[str, set[str]] = {
     # Lo que el profesional cobra ≠ lo que le cuesta operar. Esta es la que
     # falló.
     "pago_al_profesional": {"honorario", "honorarios", "arancel", "aranceles",
                             "reembolso", "reembolsos", "tarifa", "tarifas",
-                            "pago", "pagos", "remuneracion"},
+                            "pago", "pagos", "remuneracion",
+                            "fee", "fees", "reimbursement", "reimbursements",
+                            "payment", "payments", "rate", "rates"},
     "costo_de_operar": {"costo", "costos", "coste", "gasto", "gastos",
                         "estructura", "operativo", "operativos", "overhead",
-                        "rentabilidad", "margen", "margenes"},
+                        "rentabilidad", "margen", "margenes",
+                        "cost", "costs", "expense", "expenses", "margin",
+                        "profitability"},
 
     # Estar cubierto ≠ ir al dentista. Medio catálogo trata de esta brecha,
     # así que confundirlas borra justo el punto.
     "cobertura": {"cobertura", "coberturas", "beneficio", "beneficios",
                   "asegurado", "asegurados", "elegible", "elegibles",
-                  "seguro", "seguros", "plan", "planes"},
+                  "seguro", "seguros", "plan", "planes",
+                  "coverage", "benefit", "benefits", "insured", "insurance",
+                  "eligible", "eligibility", "payer", "network"},
     "uso": {"utilizacion", "uso", "visita", "visitas", "consulta", "consultas",
-            "asistencia", "acceso", "atencion"},
+            "asistencia", "acceso", "atencion",
+            "utilization", "visit", "visits", "attendance", "access"},
 
     # Detectar ≠ tratar. Acá además hay riesgo regulatorio, no solo de
     # exactitud.
     "diagnostico": {"diagnostico", "diagnosticos", "deteccion", "hallazgo",
-                    "hallazgos", "lectura", "radiografia", "radiografias"},
+                    "hallazgos", "lectura", "radiografia", "radiografias",
+                    "diagnosis", "diagnostic", "detection", "finding",
+                    "findings", "radiograph", "radiographs", "imaging"},
     "tratamiento": {"tratamiento", "tratamientos", "procedimiento",
-                    "procedimientos", "terapia", "cirugia", "restauracion"},
+                    "procedimientos", "terapia", "cirugia", "restauracion",
+                    "treatment", "treatments", "procedure", "procedures",
+                    "therapy", "surgery", "restoration"},
 
     # Cuántos profesionales hay ≠ cuánto trabajan.
     "fuerza_laboral": {"dentista", "dentistas", "higienista", "higienistas",
-                       "profesional", "profesionales", "personal", "dotacion"},
+                       "profesional", "profesionales", "personal", "dotacion",
+                       "dentist", "dentists", "hygienist", "hygienists",
+                       "workforce", "staff", "staffing", "provider",
+                       "providers"},
     "capacidad": {"agenda", "agendas", "turno", "turnos", "hora", "horas",
-                  "capacidad", "sillon", "sillones"},
+                  "capacidad", "sillon", "sillones",
+                  "schedule", "appointment", "appointments", "chair",
+                  "chairs", "capacity", "hours"},
 }
 
 
