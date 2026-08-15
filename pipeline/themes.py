@@ -49,6 +49,18 @@ class Theme:
     # clearance.
     close: str = ""
     close_accent: str = ""
+
+    # Etiqueta de tema del frame 1. Reemplaza al kicker genérico ("En números",
+    # "El dato"), que no orientaba: el gancho abría con una cifra grande sin
+    # decir de qué era, y el lector no sabía el tema hasta el frame 2.
+    kicker: str = ""
+
+    # Titular del frame 1. Antes salía de partir `angle` en el primer punto,
+    # así que el gancho era la tesis del tema: cierta, abstracta y sin tensión.
+    # Y como el frame 2 repetía esa misma tesis con otras palabras, el carrusel
+    # decía tres veces lo mismo. El gancho se escribe aparte, y dice algo
+    # concreto que el lector todavía no sabe.
+    hook: str = ""
     # Titular del frame de datos. Antes decía "Lo que dicen las cifras" en los
     # doce, que es una etiqueta de sección, no una afirmación. El frame del
     # medio es el que sostiene el post: si su titular no dice nada, el lector
@@ -70,6 +82,8 @@ CATALOG: list[Theme] = [
           "Coverage sets volume. Where the benefit is broad, utilization rises: the bottleneck is coverage, not clinical capacity.",
           close="Ampliar cobertura llena la agenda.",
           close_accent="Terminar el tratamiento es otro problema.",
+          kicker="Medicaid adulto",
+          hook="Cubrir no es lo mismo que pagar",
           data_title="Donde hay beneficio, hay visita"),
 
     Theme("medicaid-participacion", "Participación de dentistas en Medicaid",
@@ -81,6 +95,8 @@ CATALOG: list[Theme] = [
           "A network that has not grown in a decade. Practices that serve Medicaid need administrative efficiency, not more clinical capacity.",
           close="Más clínicas no arreglan la red.",
           close_accent="El cuello está en la administración.",
+          kicker="Red Medicaid",
+          hook="Aceptar Medicaid cuesta tiempo, no sillones",
           data_title="La red no crece hace años"),
 
     Theme("sin-seguro", "Adultos sin seguro dental",
@@ -93,6 +109,8 @@ CATALOG: list[Theme] = [
           "Far more adults lack dental coverage than medical coverage. A patient paying out of pocket decides differently, and that changes how treatment has to be explained.",
           close="Sin seguro, cada plan se discute.",
           close_accent="Explicar bien vale más que descontar.",
+          kicker="Sin seguro dental",
+          hook="El que paga de su bolsillo pregunta más",
           data_title="Más gente sin dental que sin médico"),
 
     Theme("costo-barrera", "El costo como barrera de acceso",
@@ -104,6 +122,8 @@ CATALOG: list[Theme] = [
           "Cost is the number one reason people delay care. The money conversation is part of the clinical encounter, not an afterthought.",
           close="El precio no se objeta: se posterga.",
           close_accent="Lo que no se entiende, no se paga.",
+          kicker="Costo y acceso",
+          hook="La primera barrera no es clínica",
           data_title="Lo que frena no es el diagnóstico"),
 
     Theme("utilizacion", "Quién va al dentista y quién no",
@@ -115,6 +135,8 @@ CATALOG: list[Theme] = [
           "Dental software is built on the people who already come in. The other half is an access and coverage problem no category addresses.",
           close="El que no vuelve ya estuvo sentado en tu sillón.",
           close_accent="Recuperarlo cuesta menos que conseguir uno nuevo.",
+          kicker="Quién va al dentista",
+          hook="El software mide a los que ya van",
           data_title="Entre la intención y la silla"),
 
     Theme("ninos-chip", "Cobertura dental infantil y CHIP",
@@ -126,7 +148,9 @@ CATALOG: list[Theme] = [
           "Pediatric coverage is the most robust in the system and utilization still does not follow. The problem is conversion, not the benefit.",
           close="La cobertura está. La visita no.",
           close_accent="El problema es la conversión.",
-          data_title="La cobertura pediátrica es la sólida"),
+          kicker="Cobertura infantil",
+          hook="Los niños son el grupo mejor cubierto",
+          data_title="Cubiertos casi todos, atendidos menos"),
 
     Theme("adultos-mayores", "Adultos mayores y el vacío de Medicare",
           "older adults seniors Medicare dental elderly",
@@ -137,7 +161,9 @@ CATALOG: list[Theme] = [
           "The segment with the most accumulated need has the weakest coverage.",
           close="La necesidad acumulada llega en planes largos.",
           close_accent="Los planes largos son los que más se abandonan.",
-          data_title="El grupo con más necesidad"),
+          kicker="Adultos mayores",
+          hook="Medicare no cubre al dentista",
+          data_title="Dónde está el mayor rezago"),
 
     Theme("urgencias", "Urgencias hospitalarias por dolor dental",
           "emergency department visits dental conditions avoidable",
@@ -148,7 +174,9 @@ CATALOG: list[Theme] = [
           "Nearly two million emergency department visits for something a dental chair resolves. That is the cost of no follow-up.",
           close="A urgencias se llega tarde.",
           close_accent="Casi siempre por algo que ya se había visto.",
-          data_title="Lo que termina en urgencias"),
+          kicker="Dolor en urgencias",
+          hook="Al hospital por una muela",
+          data_title="Cuánto pesa el dolor no tratado"),
 
     # ---- Economía y estructura del sector -------------------------------
     Theme("economia-practica", "La economía de la clínica",
@@ -160,7 +188,9 @@ CATALOG: list[Theme] = [
           "Revenue and chair occupancy move differently. The gap between a full schedule and actual collections is where the operational problem lives.",
           close="Agenda llena no es caja llena.",
           close_accent="Entre una cosa y la otra vive el margen.",
-          data_title="Ocupación e ingresos no van juntos"),
+          kicker="Economía de la clínica",
+          hook="Producir no es cobrar",
+          data_title="Dos curvas que no coinciden"),
 
     Theme("gasto-nacional", "Cuánto gasta EE.UU. en odontología",
           "national dental expenditures spending billion health",
@@ -171,6 +201,8 @@ CATALOG: list[Theme] = [
           "A large, fragmented sector holding a stable share of health spending. Growth comes from efficiency, not volume.",
           close="El sector no crece atendiendo más rápido.",
           close_accent="Crece terminando lo que ya diagnosticó.",
+          kicker="Gasto en odontología",
+          hook="Dónde va cada dólar dental",
           data_title="Un sector grande y fragmentado"),
 
     Theme("consolidacion-dso", "Consolidación y DSOs",
@@ -182,6 +214,8 @@ CATALOG: list[Theme] = [
           "Purchasing decisions are centralizing. Selling to a practice and selling to a group are two different businesses.",
           close="Quien decide ya no está en el sillón.",
           close_accent="Vender a un grupo es otro negocio.",
+          kicker="Consolidación y DSOs",
+          hook="Cada vez menos clínicas deciden solas",
           data_title="Dónde se toma hoy la decisión"),
 
     Theme("higienistas", "Escasez de higienistas y dotación",
@@ -193,6 +227,8 @@ CATALOG: list[Theme] = [
           "You cannot hire your way out of this. What is left is taking hours out of administrative work.",
           close="No hay a quién contratar.",
           close_accent="Solo queda devolver horas.",
+          kicker="Dotación y personal",
+          hook="Cada vacante cuesta agenda",
           data_title="El personal que no aparece"),
 
     Theme("demografia-dentista", "La fuerza laboral odontológica",
@@ -204,6 +240,8 @@ CATALOG: list[Theme] = [
           "Who practices and where. Distribution explains access better than headcount does.",
           close="Sumar un dentista lleva meses.",
           close_accent="Recuperar una hora de agenda, no.",
+          kicker="Fuerza laboral",
+          hook="No faltan dentistas en todas partes",
           data_title="Cuántos hay y dónde están"),
 
     # ---- Clínica, tecnología y tendencias -------------------------------
@@ -216,7 +254,9 @@ CATALOG: list[Theme] = [
           "Technology enters through operations, not through the clinic. It is an expense justified by time recovered.",
           close="La tecnología entra por la operación.",
           close_accent="Se justifica en tiempo, no en diagnóstico.",
-          data_title="Por dónde entra la tecnología"),
+          kicker="Tecnología en clínica",
+          hook="La compra la firma la administración",
+          data_title="Lo que se adopta primero"),
 
     Theme("imagen-radiologia", "Imagenología y lectura radiográfica",
           "radiographic imaging interpretation caries detection",
@@ -227,7 +267,9 @@ CATALOG: list[Theme] = [
           "Variability between readers is documented. Standardizing the read is a process problem.",
           close="El desacuerdo entre lectores ya está documentado.",
           close_accent="Lo que no se registra es qué pasó después.",
-          data_title="Dos lectores, dos lecturas"),
+          kicker="Lectura radiográfica",
+          hook="Leer una placa no es un acto exacto",
+          data_title="Cuánto varía un diagnóstico"),
 
     Theme("cbct-3d", "CBCT y volumen 3D",
           "CBCT cone beam three dimensional imaging",
@@ -238,6 +280,8 @@ CATALOG: list[Theme] = [
           "More data per patient is not the same as more clarity for the patient.",
           close="Más datos no es más claridad.",
           close_accent="El paciente sigue viendo manchas grises.",
+          kicker="CBCT y 3D",
+          hook="Cada año se toman más volúmenes",
           data_title="Más imagen, misma explicación"),
 
     Theme("cdt-sin-codigo-ia", "La IA dental no tiene código de facturación",
@@ -250,7 +294,9 @@ CATALOG: list[Theme] = [
           "CDT 2026 added 31 codes and none of the highlighted ones covers AI. That is why the whole category sells treatment acceptance instead of model performance: dental AI is an expense, not a revenue line.",
           close="Ningún código paga por usar IA.",
           close_accent="Se paga el tratamiento que sí se termina.",
-          data_title="CDT 2026, sin código para IA"),
+          kicker="CDT 2026",
+          hook="Un gasto, no una línea de ingreso",
+          data_title="Lo que la ADA sí incorporó"),
 
     Theme("codigos-documentan", "Los códigos nuevos documentan lo que ya se hacía",
           "CDT 2026 new codes point-of-care saliva cracked tooth occlusal guard documentation",
@@ -262,6 +308,8 @@ CATALOG: list[Theme] = [
           "Five of the highlighted CDT 2026 additions record services practices already delivered. The code does not create the procedure, it makes it billable. That is the problem dental software has not solved for itself.",
           close="El código no crea la prestación.",
           close_accent="La vuelve cobrable.",
+          kicker="Códigos CDT",
+          hook="Nada nuevo en el sillón",
           data_title="Códigos que ordenan lo que ya se hacía"),
 
     Theme("ia-odontologia", "IA en odontología: qué dice la profesión",
@@ -273,6 +321,8 @@ CATALOG: list[Theme] = [
           "The profession's stance is more cautious than the market's. That gap is the story, and DentRead sits on the prudent side by design.",
           close="La cautela de la profesión no es resistencia.",
           close_accent="Es pedir evidencia antes de cambiar un flujo.",
+          kicker="IA en odontología",
+          hook="Entusiasmo afuera, cautela adentro",
           data_title="Qué dice la profesión, qué dice el mercado"),
 
     # ---- Clínica y prevención -------------------------------------------
@@ -285,7 +335,9 @@ CATALOG: list[Theme] = [
           "Preventive care is the most covered and the least completed. The problem is getting the patient back.",
           close="Lo preventivo se cubre y no se completa.",
           close_accent="El problema es que el paciente vuelva.",
-          data_title="Lo más cubierto y lo menos completado"),
+          kicker="Prevención",
+          hook="La limpieza que nunca se agenda",
+          data_title="Cobertura alta, uso bajo"),
 
     Theme("salud-sistemica", "Salud oral y salud general",
           "oral health systemic disease overall wellbeing quality life",
@@ -296,6 +348,8 @@ CATALOG: list[Theme] = [
           "The mouth as part of the whole picture. Useful for talking to patients without jargon.",
           close="El paciente entiende su boca cuando la ve.",
           close_accent="No cuando se la nombran.",
+          kicker="Salud oral y general",
+          hook="Lo que la encía dice del resto",
           data_title="La boca dentro del cuadro general"),
 
     Theme("periodontal", "Enfermedad periodontal",
@@ -307,6 +361,8 @@ CATALOG: list[Theme] = [
           "High prevalence, low treatment completion. The textbook case of an accepted plan that never finishes.",
           close="Se diagnostica mucho y se termina poco.",
           close_accent="El plan aceptado que nadie completa.",
+          kicker="Enfermedad periodontal",
+          hook="La enfermedad más común de la boca",
           data_title="Diagnóstico alto, tratamiento bajo"),
 ]
 

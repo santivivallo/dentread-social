@@ -1,19 +1,22 @@
 {
  "themes": {
   "costo-barrera": "2026-08-10",
-  "utilizacion": "2026-08-14"
+  "utilizacion": "2026-08-14",
+  "medicaid-adultos": "2026-08-14"
  },
  "facts": {
   "sin-seguro-72m": "2026-08-10",
   "dental-vs-medico": "2026-08-10",
   "intencion-vs-visita": "2026-08-14",
-  "utilizacion-seguro": "2026-08-14"
+  "utilizacion-seguro": "2026-08-14",
+  "medicaid-38-estados": "2026-08-14",
+  "medicaid-reembolso": "2026-08-14"
  },
  "evergreen": {
   "que-es-dentread": "2026-08-10",
   "ia-radiografias-dentales": "2026-08-12"
  },
- "count": 6,
+ "count": 7,
  "externos": {
   "news-56913837": "2026-08-14"
  }

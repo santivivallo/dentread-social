@@ -76,6 +76,12 @@ jobs:
       - name: Test legibility
         run: python -m tests.test_legibility
 
+      # Que los tres frames digan tres cosas distintas. 14 de los 22 temas
+      # parafraseaban el gancho en el frame 2 y otra vez en el cierre: el
+      # carrusel no avanzaba, giraba. No se ve leyendo un post suelto.
+      - name: Test redaction
+        run: python -m tests.test_redaccion
+
       # Relevancia de ADA News y el aro del resumen: que la copia literal y
       # los claims clinicos se descarten sigue siendo cierto.
       - name: Test sources

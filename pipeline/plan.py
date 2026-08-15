@@ -67,6 +67,8 @@ class Post:
     close: str = ""                  # cierre propio del post
     close_accent: str = ""
     data_title: str = ""             # titular del frame de datos
+    kicker: str = ""                 # etiqueta de tema del frame 1
+    hook: str = ""                   # titular del frame 1
     source_url: str = ""             # noticia o paper: de dónde salió
     source_label: str = ""
     # Texto fuente, solo en memoria: es lo que se resume y contra lo que
@@ -191,6 +193,7 @@ def post_from_theme(theme: Theme, facts: list[dict]) -> Post:
         family=theme.family, facts=facts,
         close=theme.close, close_accent=theme.close_accent,
         data_title=theme.data_title,
+        kicker=theme.kicker, hook=theme.hook,
     )
 
 

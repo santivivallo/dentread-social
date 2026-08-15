@@ -165,7 +165,11 @@ def generate(post: Post) -> PostSpec:
         )
 
     f1, f2 = post.facts[0], post.facts[1]
-    hook = post.angle.split(".")[0].strip()
+    # El gancho es del tema si lo trae. Partir `angle` en el primer punto daba
+    # la tesis —"La cobertura define el volumen"—, que es cierta pero abstracta
+    # y, peor, la misma idea que después repetían el titular y el cuerpo del
+    # frame 2. Un gancho tiene que decir algo concreto que el lector no sepa.
+    hook = (post.hook or post.angle.split(".")[0]).strip()
     hook_en = post.angle_en.split(".")[0].strip()
     rest = post.body or _tail(post.angle)
     rest_en = post.body_en or _tail(post.angle_en)
@@ -182,7 +186,7 @@ def generate(post: Post) -> PostSpec:
         # El gancho lleva la cifra y el titular, sin el enunciado del hecho:
         # ese texto vuelve en la tarjeta del slide 2 y repetirlo dos frames
         # seguidos hace que el carrusel se sienta corto.
-        Slide("hook", hook, kicker=kicker_para("data", post.id),
+        Slide("hook", hook, kicker=post.kicker or kicker_para("data", post.id),
               stat=f1["number"], source=short_cite(f1["cite"])),
         # El frame 2 lleva UNA sola tarjeta, y es la de la segunda cifra.
         #
@@ -198,7 +202,12 @@ def generate(post: Post) -> PostSpec:
         Slide("data", post.data_title or "Lo que dicen las cifras",
               kicker="En EE.UU.",
               stats=[Stat(f2["number"], card_text(f2), short_cite(f2["cite"]))],
-              body=f"{card_text(f1)} {_clip(rest, 200)}",
+              # El cuerpo lleva el enunciado del hecho del gancho y nada más.
+              # Antes le sumaba `rest`, la segunda mitad del ángulo del tema,
+              # que es una paráfrasis del titular de este mismo frame: el
+              # lector leía la misma idea dos veces en la misma pantalla.
+              # `rest` sigue en el caption, que es donde interpreta sin repetir.
+              body=card_text(f1),
               source=f"Fuentes: {sources}"),
         # El cierre sale del tema, no de una frase global. Antes los doce
         # posts de datos terminaban con la misma línea genérica.
