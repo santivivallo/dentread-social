@@ -41,15 +41,16 @@ TOPIC_WEIGHTS: dict[str, tuple[float, str]] = {
 
     # Workflow, pagadores, case acceptance — prioridad media
     r"\b(treatment plan|case acceptance|treatment acceptance)": (4.0, "workflow"),
-    r"\b(claim|denial|denied|downcod|reimbursement|EOB|coding|CDT)": (3.5, "workflow"),
+    r"\b(claim|denial|denied|downcod|reimbursement|EOB|coding|CDT)": (3.5, "admin"),
     # Los adjuntos de reclamo SON radiografías: ángulo directo de DentRead.
     r"\b(attachment|documentation requirement|narrative|prior auth)": (4.0, "workflow"),
-    r"\b(insurance|payer|Aetna|Delta Dental|carrier|transparen)": (3.0, "workflow"),
+    r"\b(prior authorization)": (3.0, "workflow"),
+    r"\b(insurance|payer|Aetna|Delta Dental|carrier|transparen)": (3.0, "admin"),
     r"\b(Medicaid|CMS|Medicare|CHIP|coverage|benefit)": (2.5, "workflow"),
     r"\b(DSO|group practice|practice management|workflow|productivity)": (3.5, "workflow"),
-    r"\b(credentialing|administrative burden|staffing|workforce)": (2.5, "workflow"),
+    r"\b(credentialing|administrative burden|staffing|workforce)": (2.5, "admin"),
     r"\b(patient communication|recall|follow-up|no-show|treatment plan)": (4.0, "workflow"),
-    r"\b(standard|interoperab|prior authorization|utilization review)": (3.0, "workflow"),
+    r"\b(standard|interoperab|utilization review)": (3.0, "admin"),
 
     # Odontología, mercado, tendencias y datos — el grueso del contenido.
     # El foco no es solo IA: estos temas son los que el corpus sostiene mejor.
@@ -70,6 +71,18 @@ TOPIC_WEIGHTS: dict[str, tuple[float, str]] = {
 
 # Familias que pueden abrir un post. Sin al menos una, el artículo no tiene
 # ángulo aunque acumule puntaje por términos sueltos.
+#
+# `admin` NO está en la lista, y esa es la corrección importante. Antes el
+# papeleo de seguros —EOB, coding, reimbursement, "standard"— vivía dentro de
+# `workflow` y podía calificar un artículo por su cuenta. Así entró
+# "Proposed ADA standard specifies requirements for dental EOBs": sumó 6,5
+# puntos con dos palabras administrativas y ninguna relación con odontología
+# digital, IA ni tendencias.
+#
+# Ahora esos términos suman puntaje pero no habilitan: un artículo necesita
+# además algo de IA, imagen, datos o clínica. Los adjuntos de reclamo y la
+# autorización previa siguen en `workflow` a propósito — ahí lo que se envía
+# ES una radiografía, que es el ángulo directo de DentRead.
 REQUIRED_BUCKETS = {"ai", "workflow", "datos", "clinica"}
 
 # Temas sin ángulo posible para DentRead: se descartan aunque puntúen.

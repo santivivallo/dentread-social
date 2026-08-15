@@ -96,3 +96,47 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+# --- Relevancia: qué NO debe pasar el filtro ------------------------------
+#
+# Caso real: "Proposed ADA standard specifies requirements for dental EOBs"
+# se publicó como candidato. EOB es el papel que manda la aseguradora
+# explicando qué cubrió; no tiene relación con odontología digital, IA ni
+# tendencias. Sumaba 6,5 puntos con dos palabras administrativas.
+def test_relevancia() -> int:
+    import re
+    from pipeline.ada_news import TOPIC_WEIGHTS, REQUIRED_BUCKETS, MIN_SCORE
+
+    def pasa(titulo: str) -> bool:
+        total, buckets = 0.0, set()
+        for pat, (pts, b) in TOPIC_WEIGHTS.items():
+            if re.search(pat, titulo, re.I):
+                total += pts
+                buckets.add(b)
+        return total >= MIN_SCORE and bool(buckets & REQUIRED_BUCKETS)
+
+    debe_pasar = [
+        "New AI tool flags interproximal caries on bitewings, study finds",
+        "HPI survey: dental benefit use falls among adults",
+        "Prior authorization attachment requirements tighten for radiographs",
+        "Teledentistry visits grow 18% among rural practices",
+    ]
+    debe_descartar = [
+        "Proposed ADA standard specifies requirements for dental EOBs",
+        "Aetna updates reimbursement schedule for 2027",
+        "ADA announces new credentialing portal for member dentists",
+    ]
+    errs = [f"deberia pasar y no pasa: {t}" for t in debe_pasar if not pasa(t)]
+    errs += [f"deberia descartarse y pasa: {t}" for t in debe_descartar if pasa(t)]
+    if errs:
+        print("✗ relevancia:")
+        print("\n".join(f"  {e}" for e in errs))
+        return 1
+    print(f"✓ relevancia: {len(debe_pasar)} pasan, {len(debe_descartar)} se descartan")
+    return 0
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test_relevancia())
