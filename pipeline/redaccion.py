@@ -243,3 +243,64 @@ def redactar(*, tema: str, angulo: str, cierre: str,
         contexto += f"\n\nIntento anterior rechazado por: {'; '.join(fallas[:3])}"
 
     return None
+
+
+def main() -> int:
+    """
+    Autodiagnóstico: ¿esto funciona de verdad?
+
+        python -m pipeline.redaccion
+
+    Hace una llamada real con un tema del catálogo y dice en una línea si
+    quedó listo o qué falta. Existe porque la alternativa era pedirle a
+    alguien que corriera el pipeline entero, abriera post.json y supiera
+    interpretar un campo.
+    """
+    import sys
+
+    from pipeline import plan
+    from pipeline.themes import CATALOG
+
+    if not disponible():
+        print("✗ NO hay GITHUB_TOKEN, así que el modelo no se usa y los posts")
+        print("  salen con el gancho curado del tema.")
+        print()
+        print("  Para activarlo acá:  export GITHUB_TOKEN=$(gh auth token)")
+        print("  En GitHub Actions ya está puesto y no hay que hacer nada.")
+        return 1
+
+    estado = {"themes": {}, "facts": {}, "evergreen": {}, "count": 0}
+    for tema in CATALOG:
+        hechos = plan.facts_for(tema.id, estado, limit=2)
+        if len(hechos) >= 2:
+            break
+    else:
+        print("✗ no hay ningún tema con dos hechos para probar")
+        return 1
+
+    print(f"Probando con el tema '{tema.id}' y sus dos cifras:")
+    print(f"   {hechos[0]['number']} · {hechos[1]['number']}")
+    print()
+
+    r = redactar(tema=tema.name, angulo=tema.angle, hechos=hechos,
+                 cierre=f"{tema.close} {tema.close_accent}")
+    if not r:
+        print()
+        print("✗ el modelo respondió pero la propuesta no pasó los controles,")
+        print("  o la llamada falló. El motivo está impreso arriba.")
+        print("  Los posts van a salir igual, con el gancho curado del tema.")
+        return 1
+
+    print("✓ LISTO. El modelo escribió y la propuesta pasó los controles:")
+    print()
+    print(f"   frame 1   {r['gancho']}")
+    print(f"   frame 2   {r['titular_datos']}")
+    print(f"   caption   {r['lectura']}")
+    print()
+    print("   Sin cifras inventadas, sin parafrasear el cierre, sin claims.")
+    return 0
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(main())

@@ -23,6 +23,7 @@ python -m pipeline.verify              # auditoría: 4 controles
 python -m pipeline.themes              # catálogo y disponibilidad
 python -m pipeline.site --rebuild      # regenera índices y sitemap
 python -m tools.pubmed --preset acceso # buscar literatura para curar
+python -m pipeline.redaccion          # ¿el modelo redacta y pasa los controles?
 python -m tools.exchange_meta_token    # token corto de Meta → uno de 60 días
 python -m tools.check_credentials      # ¿funcionan las credenciales?
 python -m tools.suggest_facts --pending
