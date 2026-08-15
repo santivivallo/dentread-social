@@ -77,7 +77,15 @@ class Frame:
 
 
 def _esc(s: str) -> str:
-    return html.escape(s or "", quote=False)
+    """
+    Escapa y normaliza espacios.
+
+    Los titulares de ADA News traen espacios duros (\xa0) del CMS. En HTML no
+    rompen línea, así que un titular con uno se sale del safe zone en vez de
+    partirse. Se convierten en espacios normales antes de repartir renglones.
+    """
+    limpio = (s or "").replace("\xa0", " ").replace("\u200b", "")
+    return html.escape(limpio, quote=False)
 
 
 def _css(dark: bool) -> str:

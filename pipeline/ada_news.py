@@ -12,6 +12,7 @@ Reglas duras de este módulo:
 """
 from __future__ import annotations
 
+import html as _html
 import json
 import re
 import time
@@ -132,26 +133,38 @@ def _get(url: str) -> str:
 
 
 def _meta(html: str, name: str) -> str:
+    """
+    Lee una etiqueta <meta>. El título y la bajada salen de acá, y vienen con
+    entidades HTML: `&#xA0;` (espacio duro) es habitual en el CMS de ADA News.
+    Sin decodificar, esa entidad terminaba impresa en el carrusel.
+    """
     m = re.search(
         rf'<meta[^>]+(?:name|property)=["\']{re.escape(name)}["\'][^>]+content=["\']([^"\']*)',
         html, re.I,
     )
     if m:
-        return m.group(1).strip()
+        return _html.unescape(m.group(1)).strip()
     m = re.search(
         rf'<meta[^>]+content=["\']([^"\']*)["\'][^>]+(?:name|property)=["\']{re.escape(name)}["\']',
         html, re.I,
     )
-    return m.group(1).strip() if m else ""
+    return _html.unescape(m.group(1)).strip() if m else ""
 
 
 def _strip_html(html: str) -> str:
+    """
+    Quita etiquetas y **decodifica entidades**.
+
+    Sin lo segundo los titulares llegaban con `&#xA0;` crudo en el texto —el
+    espacio duro que usa el CMS de ADA News— y eso terminaba impreso en el
+    carrusel y en el caption. Una entidad HTML en un PNG es basura visible.
+    """
     body = re.search(r"<article[^>]*>(.*?)</article>", html, re.S | re.I)
     chunk = body.group(1) if body else html
     chunk = re.sub(r"<(script|style|nav|aside|figure)[^>]*>.*?</\1>", " ", chunk, flags=re.S | re.I)
     chunk = re.sub(r"<[^>]+>", " ", chunk)
     chunk = re.sub(r"&nbsp;?", " ", chunk)
-    return re.sub(r"\s+", " ", chunk).strip()
+    return _html.unescape(re.sub(r"\s+", " ", chunk).strip())
 
 
 def discover(pages: int = 2) -> list[str]:
