@@ -20,31 +20,25 @@ resumen de tres líneas cuya calidad **sí se puede medir**:
 Nada se publica sin cruzar los dos aros. El peor caso no es un resumen malo:
 es no tener resumen.
 
-**Costo: cero.** GitHub Models está incluido con la cuenta y el `GITHUB_TOKEN`
-del runner ya trae el permiso `models:read`. Sin claves nuevas, sin tarjeta.
-El límite de la capa gratuita es ~10 peticiones por minuto; el sistema hace
-tres por semana.
+**Costo: cero.** El proveedor se configura en `pipeline/llm.py` con variables
+de entorno. El sistema hace unas tres llamadas por semana, muy por debajo de
+cualquier capa gratuita.
 
-Fuera de GitHub Actions no hay token y esto devuelve None, así que en local
-el pipeline sigue funcionando con el formato señalizador.
+Ojo con la historia: esto apuntaba a GitHub Models, que se retiró el 30 de
+julio de 2026 y empezó a devolver 410. Como el módulo está escrito para caer
+al formato señalizador cuando la llamada falla, dejó de resumir en silencio y
+nadie se enteró. Por eso el endpoint ya no vive en el código.
+
+Sin `LLM_API_KEY` esto devuelve None y el pipeline sigue con el formato
+señalizador.
 """
 from __future__ import annotations
 
-import json
-import os
 import re
 import textwrap
 
-import requests
+from pipeline import llm
 
-ENDPOINT = "https://models.github.ai/inference/chat/completions"
-
-# Modelo chico a propósito: la tarea es reescribir tres líneas a partir de un
-# texto que ya se le entrega. No hace falta capacidad de razonamiento, y los
-# modelos grandes tienen límites de tasa más estrictos en la capa gratuita.
-MODEL = "openai/gpt-4o-mini"
-
-TIMEOUT = 40
 MAX_CHARS_FUENTE = 6000        # el cuerpo se recorta: el resumen vive arriba
 
 
@@ -144,42 +138,14 @@ def es_rendimiento_de_ia(texto: str) -> bool:
 
 
 def disponible() -> bool:
-    """Hay token de GitHub, así que se puede llamar al modelo."""
-    return bool(os.environ.get("GITHUB_TOKEN"))
+    """Hay clave de modelo configurada, así que se puede resumir."""
+    return llm.disponible()
 
 
 def _pedir(reglas: str, fuente: str) -> str | None:
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
-        return None
-    try:
-        r = requests.post(
-            ENDPOINT,
-            headers={"Authorization": f"Bearer {token}",
-                     "Content-Type": "application/json"},
-            json={
-                "model": MODEL,
-                # temperatura baja: se busca fidelidad al texto dado, no
-                # creatividad. La creatividad es de donde salen las invenciones.
-                "temperature": 0.2,
-                "max_tokens": 300,
-                "messages": [
-                    {"role": "system", "content": reglas},
-                    {"role": "user", "content": fuente[:MAX_CHARS_FUENTE]},
-                ],
-            },
-            timeout=TIMEOUT,
-        )
-        if not r.ok:
-            print(f"   [info] GitHub Models respondió {r.status_code}; "
-                  f"el post sale en formato señalizador")
-            return None
-        texto = r.json()["choices"][0]["message"]["content"].strip()
-    except (requests.RequestException, KeyError, ValueError) as exc:
-        print(f"   [info] no se pudo resumir ({exc.__class__.__name__}); "
-              f"el post sale en formato señalizador")
-        return None
-
+    # Temperatura baja: se busca fidelidad al texto dado, no creatividad. La
+    # creatividad es de donde salen las invenciones.
+    texto = llm.pedir(reglas, fuente[:MAX_CHARS_FUENTE], temperatura=0.2)
     if not texto or "INSUFICIENTE" in texto.upper():
         return None
     return texto

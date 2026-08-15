@@ -4,7 +4,6 @@ permissions:
   contents: write        # necesario solo para publicar docs/ en Pages
   pages: write
   id-token: write
-  models: read           # GitHub Models: resumenes y titulares
 
 concurrency:
   group: social-publish
@@ -90,15 +89,22 @@ jobs:
       - name: Generate
         if: ${{ !inputs.folder }}
         env:
-          # GitHub Models: incluido con la cuenta, sin clave nueva. El token
-          # del runner ya trae el permiso models:read. Se usa solo para
-          # redactar dos cosas, las dos verificadas antes de publicarse:
+          # Modelo de lenguaje. Redacta dos cosas, las dos verificadas antes
+          # de publicarse:
           #   - el resumen de una noticia o un paper (pipeline/summarize)
           #   - el gancho y los titulares de un post de datos
           #     (pipeline/redaccion)
           # Si falta o falla, el post sale con el formato senalizador y el
           # gancho curado del tema. Nunca se rompe una corrida por esto.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #
+          # Antes esto era GitHub Models con el token del runner, sin clave
+          # propia. GitHub Models se retiro el 30 de julio de 2026 y empezo a
+          # devolver 410; como el codigo cae al texto curado cuando la llamada
+          # falla, dejo de resumir en silencio. Por eso el proveedor ahora es
+          # configurable: si este tambien cierra, se cambian los secretos.
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_ENDPOINT: ${{ vars.LLM_ENDPOINT }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
         run: python -m pipeline.run --slots 1
 
       # Verificable · breve · con inventario · con activo indexable.

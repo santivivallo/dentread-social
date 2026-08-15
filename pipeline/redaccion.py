@@ -21,28 +21,25 @@ da a noticias y papers desde que se conectaron.
     falla, se reintenta una vez  →  si vuelve a fallar, se usa el gancho
     curado del tema
 
-Los 22 ganderos escritos a mano no se tiran: pasan a ser la red. Un post
+Los 22 ganchos escritos a mano no se tiran: pasan a ser la red. Un post
 siempre sale, con o sin modelo.
 
-**Fuera de GitHub Actions no hay token** y esto devuelve None, así que en
-local se ve la versión curada. Para ver la generada:
+**Sin `LLM_API_KEY` esto devuelve None** y el post sale con el gancho curado.
+El proveedor se configura en `pipeline/llm.py`; para comprobar que anda:
 
-    export GITHUB_TOKEN=$(gh auth token)
+    python -m pipeline.redaccion
 
-**Costo cero.** GitHub Models, incluido con la cuenta.
+**Costo cero.** Unas tres llamadas por semana entran en cualquier capa
+gratuita.
 """
 from __future__ import annotations
 
 import json
-import os
 import re
 import unicodedata
 
-import requests
+from pipeline import llm
 
-ENDPOINT = "https://models.github.ai/inference/chat/completions"
-MODEL = "openai/gpt-4o-mini"
-TIMEOUT = 40
 INTENTOS = 2
 
 MAX_GANCHO = 52      # a 88px entra en dos líneas de ~26 caracteres
@@ -112,35 +109,27 @@ Reglas, todas obligatorias:
 
 
 def disponible() -> bool:
-    return bool(os.environ.get("GITHUB_TOKEN"))
+    return llm.disponible()
 
 
 def _pedir(contexto: str) -> dict | None:
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
+    texto = llm.pedir(REGLAS, contexto, json_mode=True, temperatura=0.4)
+    if not texto or "INSUFICIENTE" in texto.upper():
         return None
     try:
-        r = requests.post(
-            ENDPOINT,
-            headers={"Authorization": f"Bearer {token}",
-                     "Content-Type": "application/json"},
-            json={"model": MODEL, "temperature": 0.4, "max_tokens": 300,
-                  "response_format": {"type": "json_object"},
-                  "messages": [{"role": "system", "content": REGLAS},
-                               {"role": "user", "content": contexto}]},
-            timeout=TIMEOUT)
-        if not r.ok:
-            print(f"   [info] GitHub Models respondió {r.status_code}; "
-                  f"se usa el gancho curado del tema")
-            return None
-        texto = r.json()["choices"][0]["message"]["content"].strip()
-        if "INSUFICIENTE" in texto.upper():
-            return None
         return json.loads(texto)
-    except (requests.RequestException, KeyError, ValueError) as exc:
-        print(f"   [info] no se pudo redactar ({exc.__class__.__name__}); "
-              f"se usa el gancho curado del tema")
-        return None
+    except ValueError:
+        # Algunos proveedores devuelven el JSON envuelto en un bloque de
+        # codigo aunque se pida json_object.
+        m = re.search(r"\{.*\}", texto, re.S)
+        if not m:
+            print("   [info] el modelo no devolvió JSON; se usa el gancho curado")
+            return None
+        try:
+            return json.loads(m.group(0))
+        except ValueError:
+            print("   [info] el modelo no devolvió JSON; se usa el gancho curado")
+            return None
 
 
 def verificar(prop: dict, *, cifras_permitidas: set[str],
@@ -258,15 +247,22 @@ def main() -> int:
     """
     import sys
 
-    from pipeline import plan
+    from pipeline import llm, plan
     from pipeline.themes import CATALOG
 
     if not disponible():
-        print("✗ NO hay GITHUB_TOKEN, así que el modelo no se usa y los posts")
+        print("✗ Falta LLM_API_KEY, así que el modelo no se usa y los posts")
         print("  salen con el gancho curado del tema.")
         print()
-        print("  Para activarlo acá:  export GITHUB_TOKEN=$(gh auth token)")
-        print("  En GitHub Actions ya está puesto y no hay que hacer nada.")
+        print("  1. Sacá una clave gratis en https://aistudio.google.com/apikey")
+        print("     (con tu cuenta de Google, sin tarjeta)")
+        print("  2. Guardala en el .env de este repo:")
+        print("     echo 'LLM_API_KEY=la-clave' >> .env")
+        print("  3. Y en GitHub, como secreto del repo:")
+        print("     gh secret set LLM_API_KEY")
+        print()
+        print(f"  Proveedor actual: {llm.modelo()} en {llm.endpoint()}")
+        print("  Se cambia con LLM_ENDPOINT y LLM_MODEL, sin tocar código.")
         return 1
 
     estado = {"themes": {}, "facts": {}, "evergreen": {}, "count": 0}

@@ -162,7 +162,7 @@ Corren en CI antes de publicar. Si alguno falla, no se publica.
 | GitHub Actions · Pages | $0 (free tier) |
 | Cloudflare R2 (staging IG) | $0 (free tier) |
 | Healthchecks.io | $0 |
-| LLM (resúmenes) | $0 — GitHub Models, incluido con la cuenta |
+| LLM (redacción) | $0 — capa gratuita, proveedor configurable |
 | **Total** | **$0/mes** |
 
 ---
