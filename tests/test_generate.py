@@ -74,6 +74,17 @@ def _check(spec, kind: str) -> list[str]:
                 errs.append(f"{kind}: tarjeta '{st.number}' cortada al medio: "
                             f"...{st.label[-40:]}")
 
+    # La cifra del gancho no se repite como tarjeta en el frame 2. Con dos
+    # hechos por post, mostrar los dos en el frame de datos garantizaba que el
+    # número gigante del 01 volviera a aparecer en el 02.
+    gancho = (spec.slides[0].stat or "").strip()
+    if gancho:
+        repes = [st.number for s in spec.slides[1:]
+                 for st in (s.stats or []) if st.number.strip() == gancho]
+        if repes:
+            errs.append(f"{kind}: '{gancho}' es el número del gancho y vuelve "
+                        f"como tarjeta en el frame de datos")
+
     frames = frames_for(spec)
     patron = [f.dark for f in frames]
     if patron != [True, False, True]:

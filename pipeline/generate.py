@@ -184,16 +184,22 @@ def generate(post: Post) -> PostSpec:
         # seguidos hace que el carrusel se sienta corto.
         Slide("hook", hook, kicker=kicker_para("data", post.id),
               stat=f1["number"], source=short_cite(f1["cite"])),
-        # La segunda cifra va primera y destacada: la primera ya fue el número
-        # grande del gancho, y repetirla como tarjeta inicial hacía que el
-        # slide de datos pareciera el mismo frame otra vez.
+        # El frame 2 lleva UNA sola tarjeta, y es la de la segunda cifra.
+        #
+        # Antes llevaba las dos, así que el número del gancho aparecía dos
+        # veces en tres frames: gigante en el 01 y otra vez como tarjeta en
+        # el 02. Con solo dos hechos por post, mostrar los dos acá garantiza
+        # esa repetición. El enunciado del hecho del gancho no se pierde: pasa
+        # al cuerpo, que es donde tiene que estar —el frame 1 promete una
+        # cifra, el 2 la explica y suma la que el lector todavía no vio.
+        #
         # El titular del frame de datos sale del tema. Era "Lo que dicen las
         # cifras" en los doce: una etiqueta de sección, no una afirmación.
         Slide("data", post.data_title or "Lo que dicen las cifras",
               kicker="En EE.UU.",
-              stats=[Stat(f2["number"], card_text(f2), short_cite(f2["cite"])),
-                     Stat(f1["number"], card_text(f1), short_cite(f1["cite"]))],
-              body=_clip(rest, 240), source=f"Fuentes: {sources}"),
+              stats=[Stat(f2["number"], card_text(f2), short_cite(f2["cite"]))],
+              body=f"{card_text(f1)} {_clip(rest, 200)}",
+              source=f"Fuentes: {sources}"),
         # El cierre sale del tema, no de una frase global. Antes los doce
         # posts de datos terminaban con la misma línea genérica.
         Slide("close", post.close, accent=post.close_accent,
