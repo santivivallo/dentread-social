@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import textwrap
 
 import requests
@@ -65,22 +66,81 @@ Reglas, todas obligatorias:
   INSUFICIENTE
 """
 
-REGLAS_PAPER = """\
+# Hay dos reglas para papers, y la diferencia no es de prudencia sino de
+# quién parece estar hablando.
+#
+# Reportar un hallazgo ajeno y atribuido es periodismo, no un claim propio.
+# Salvo en un caso: cuando el estudio trata sobre lo mismo que vende DentRead.
+# "La IA detectó caries con 92% de sensibilidad" publicado en la cuenta de una
+# empresa de IA para radiografías no se lee como "un estudio dice esto", se lee
+# como "esto es lo que hace DentRead". Lo que se juzga es la impresión neta,
+# no el pie de página, y DentRead no tiene FDA clearance para sostenerla.
+#
+# Entonces: rendimiento diagnóstico de IA, solo se señaliza. Todo lo demás
+# —acceso, utilización, economía, adherencia, prevención, periodontal— lleva
+# el hallazgo con su atribución.
+
+REGLAS_PAPER_LIBRE = """\
 Escribís para el Instagram de DentRead, una empresa de IA aplicada a
 radiografías dentales. Público: dentistas y responsables de clínicas.
 
-Resumí en español rioplatense, en 2 frases, QUÉ SE PREGUNTÓ este estudio y
-CÓMO se lo preguntó.
+Resumí este estudio en español rioplatense, en 2 o 3 frases: qué se preguntó,
+con qué diseño, y qué reportó.
 
 Reglas, todas obligatorias:
-- NO cuentes qué encontró. Nada de resultados, conclusiones, eficacia,
-  precisión, mejoras ni comparaciones de desempeño. Solo la pregunta y el
-  diseño.
+- El hallazgo va SIEMPRE atribuido al estudio: "el estudio reportó",
+  "los autores observaron". Nunca como afirmación general ni como verdad
+  establecida.
+- Sin generalizar: si el estudio es en una población concreta, decilo.
 - Con tus palabras. Nunca más de 6 palabras seguidas iguales al original.
-- Mencioná el diseño del estudio y, si está, el número de participantes.
+- Mencioná el diseño y, si está, el número de participantes.
+- No inventes cifras que no estén en el texto.
+- Sin em dashes, emojis ni hashtags. No menciones a DentRead ni saques
+  conclusiones para la práctica.
+- Si el texto no alcanza, respondé exactamente: INSUFICIENTE
+"""
+
+REGLAS_PAPER_SENALIZADOR = """\
+Escribís para el Instagram de DentRead, una empresa de IA aplicada a
+radiografías dentales. Público: dentistas y responsables de clínicas.
+
+Este estudio trata sobre rendimiento diagnóstico de inteligencia artificial,
+que es lo que vende DentRead. Por eso NO se cuenta qué encontró: en esta
+cuenta, ese hallazgo se leería como una afirmación sobre el producto.
+
+Resumí en 2 frases QUÉ SE PREGUNTÓ y CÓMO.
+
+Reglas, todas obligatorias:
+- Nada de resultados, precisión, sensibilidad, eficacia, mejoras ni
+  comparaciones de desempeño. Solo la pregunta y el diseño.
+- Con tus palabras. Nunca más de 6 palabras seguidas iguales al original.
+- Mencioná el diseño y, si está, el número de participantes.
 - Sin em dashes, emojis ni hashtags. No menciones a DentRead.
 - Si el texto no alcanza, respondé exactamente: INSUFICIENTE
 """
+
+# Un estudio entra en el carril señalizador si mide desempeño de IA o de un
+# sistema automático de detección. Necesita las dos cosas: hablar de IA y
+# hablar de rendimiento. Un paper sobre adopción de IA en clínicas, o sobre
+# costos, no cae acá.
+_IA = re.compile(
+    r"\b(artificial intelligence|deep learning|machine learning|"
+    r"convolutional|neural network|automated detection|computer-aided|CAD)\b",
+    re.I)
+_RENDIMIENTO = re.compile(
+    r"\b(accuracy|sensitivity|specificity|AUC|ROC|F1|precision|recall|"
+    r"diagnostic performance|detection rate|agreement|kappa)\b", re.I)
+
+
+def es_rendimiento_de_ia(texto: str) -> bool:
+    """
+    ¿El estudio mide qué tan bien detecta un sistema automático?
+
+    Se exigen las dos señales. Solo "artificial intelligence" no alcanza: un
+    paper sobre cuántas clínicas adoptaron IA es un dato de mercado, no un
+    claim de desempeño, y ese sí se puede contar entero.
+    """
+    return bool(_IA.search(texto) and _RENDIMIENTO.search(texto))
 
 
 def disponible() -> bool:
@@ -138,7 +198,13 @@ def resumen_verificado(fuente: str, *, es_paper: bool, url: str = "",
     if not fuente or len(fuente) < 200:
         return None
 
-    texto = _pedir(REGLAS_PAPER if es_paper else REGLAS_NOTICIA, fuente)
+    if not es_paper:
+        reglas = REGLAS_NOTICIA
+    elif es_rendimiento_de_ia(fuente):
+        reglas = REGLAS_PAPER_SENALIZADOR
+    else:
+        reglas = REGLAS_PAPER_LIBRE
+    texto = _pedir(reglas, fuente)
     if not texto:
         return None
 
