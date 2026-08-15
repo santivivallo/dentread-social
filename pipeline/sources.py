@@ -111,6 +111,9 @@ def post_from_article(article) -> Post:
         close_accent=accent,
         source_url=article.url,
         source_label=f"ADA News · {article.category}" if article.category else "ADA News",
+        source_text=f"{article.title}. {article.summary} {article.body}".strip(),
+        es_reciente=article.is_fresh,
+        publicado=article.published,
     )
 
 
@@ -141,4 +144,5 @@ def post_from_signpost(sp) -> Post:
         close_accent=accent,
         source_url=sp.url,
         source_label=f"{sp.journal} {sp.year}",
+        source_text=f"{sp.title}. {getattr(sp, 'abstract', '')}".strip(),
     )

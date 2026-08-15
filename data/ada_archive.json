@@ -156,7 +156,8 @@
    "buckets": [
     "workflow"
    ],
-   "first_seen": "2026-W33"
+   "first_seen": "2026-W33",
+   "used": true
   },
   "https://adanews.ada.org/ada-news/2026/july/center-for-medicaid-and-chip-services-encourages-states-to-restrict-amalgam-coverage/": {
    "title": "Center for Medicaid and CHIP Services encourages states to restrict amalgam coverage",
@@ -2770,10 +2771,463 @@
     "datos"
    ],
    "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/september/oral-health-sun-safety-focus-of-consumer-product-campaign/": {
+   "title": "Oral health, sun safety focus of consumer product campaign",
+   "published": "2025-09-02",
+   "category": "Access To Care",
+   "score": 6.0,
+   "buckets": [
+    "clinica",
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/september/weigh-in-on-oral-cancer-recommendations/": {
+   "title": "Weigh-in on oral cancer recommendations",
+   "published": "2025-09-02",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/september/dental-workforce-transitioning-to-younger-female-dentists/": {
+   "title": "Dental workforce transitioning to younger, female dentists",
+   "published": "2025-09-02",
+   "category": "Practice",
+   "score": 6.0,
+   "buckets": [
+    "admin",
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/one-big-beautiful-bills-impact-on-student-loans/": {
+   "title": "One Big Beautiful Bill&#x2019;s impact on student loans",
+   "published": "2025-08-30",
+   "category": "Government",
+   "score": 2.0,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/ada-lobbies-to-reduce-nicotine-in-cigarettes/": {
+   "title": "ADA lobbies to reduce nicotine in cigarettes",
+   "published": "2025-08-29",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/ada-treasurer-offers-deeper-dive-into-finances/": {
+   "title": "ADA treasurer offers deeper dive into finances",
+   "published": "2025-08-29",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/nominate-chair-for-strategic-forecasting-committee/": {
+   "title": "Nominate chair for Strategic Forecasting Committee",
+   "published": "2025-08-28",
+   "category": "Around The ADA",
+   "score": 2.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/dr-violin-wellness-advocate-recipient-of-distinguished-service-award/": {
+   "title": "&#x2018;Dr. Violin,&#x2019; wellness advocate, recipient of Distinguished Service Award",
+   "published": "2025-08-27",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/ada-advocates-for-removing-stigmatizing-questions-from-licensure-applications/": {
+   "title": "ADA advocates for removing stigmatizing questions from licensure applications",
+   "published": "2025-08-27",
+   "category": "Practice",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/ada-launches-ai-powered-credentialing-solution-urges-plan-administrators-to-join-effort/": {
+   "title": "ADA launches AI-powered credentialing solution, urges plan administrators to join effort",
+   "published": "2025-08-27",
+   "category": "Practice",
+   "score": 13.75,
+   "buckets": [
+    "admin",
+    "ai",
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/ada-coalition-urge-congress-to-support-health-care-workforce/": {
+   "title": "ADA, coalition urge Congress to support health care workforce",
+   "published": "2025-08-25",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/filmmaker-brett-culp-to-deliver-smilecon-2025-keynote-address/": {
+   "title": "Filmmaker Brett Culp to deliver SmileCon 2025 keynote address",
+   "published": "2025-08-21",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/you-ask-we-answer-fluoridation-facts/": {
+   "title": "You Ask, We Answer: Fluoridation Facts",
+   "published": "2025-08-18",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/ada-forsyth-friday-how-clear-aligners-shape-mouth-s-bacterial-ecosystem/": {
+   "title": "ADA Forsyth Friday: How clear aligners shape mouth&#x2019;s bacterial ecosystem",
+   "published": "2025-08-13",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/register-for-dental-editors-conference-in-san-diego/": {
+   "title": "Register for dental editors&#x2019; conference in San Diego",
+   "published": "2025-08-11",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/ada-seeks-ambassadors-to-help-address-workforce-shortages/": {
+   "title": "ADA seeks ambassadors to help address workforce shortages",
+   "published": "2025-08-08",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/dentist-to-pay-more-than-500000-after-allegedly-filing-false-medicaid-claims/": {
+   "title": "Dentist to pay more than $500,000 after allegedly filing false Medicaid claims",
+   "published": "2025-08-07",
+   "category": "Government",
+   "score": 6.0,
+   "buckets": [
+    "admin",
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/ada-board-implements-20-million-in-cuts-from-2025-budget/": {
+   "title": "ADA Board implements $20 million in cuts from 2025 budget",
+   "published": "2025-08-07",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/august-jada-finds-dentists-can-use-parents-photos-to-detect-caries-in-children/": {
+   "title": "August JADA finds dentists can use parents&#x2019; photos to detect caries in children",
+   "published": "2025-08-04",
+   "category": "Science",
+   "score": 8.5,
+   "buckets": [
+    "clinica",
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/august/3-things-you-missed-in-government-this-week-aug-1/": {
+   "title": "3 things you missed in government this week",
+   "published": "2025-08-01",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-forsyth-friday-unlocking-the-secrets-of-oral-microbiome/": {
+   "title": "ADA Forsyth Friday: Unlocking the secrets of oral microbiome",
+   "published": "2025-07-31",
+   "category": "Science",
+   "score": 3.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/organized-dentistry-coalition-supports-protect-our-teeth-act/": {
+   "title": "Organized Dentistry Coalition supports Protect Our TEETH Act",
+   "published": "2025-07-31",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/how-does-the-one-big-beautiful-bill-affect-dentists/": {
+   "title": "How does the One Big Beautiful Bill affect dentists?",
+   "published": "2025-07-30",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/smilecon-2025-to-offer-curated-learning-experiences-for-entire-team/": {
+   "title": "SmileCon 2025 to offer curated learning experiences for entire team",
+   "published": "2025-07-25",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/jadas-impact-factor-rises-to-3-5/": {
+   "title": "JADA&#x2019;s impact factor rises to 3.5",
+   "published": "2025-07-25",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/3-things-you-missed-in-government-this-week-july-25/": {
+   "title": "3 things you missed in government this week",
+   "published": "2025-07-25",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-debuts-new-informatics-standards-webpage-for-easy-access-adoption/": {
+   "title": "ADA debuts new informatics standards webpage for easy access, adoption",
+   "published": "2025-07-25",
+   "category": "Practice",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/proposed-ada-standards-technical-report-available-for-review-by-sept-7/": {
+   "title": "Proposed ADA standards, technical report available for review by Sept. 7",
+   "published": "2025-07-25",
+   "category": "Practice",
+   "score": 6.5,
+   "buckets": [
+    "admin",
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-files-amicus-brief-supporting-epas-appeal-of-fluoride-court-order/": {
+   "title": "ADA files amicus brief supporting EPA&#x2019;s appeal of fluoride court order",
+   "published": "2025-07-25",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-president-tells-fda-fluoride-supplements-are-safe-effective/": {
+   "title": "ADA president tells FDA fluoride supplements are safe, effective",
+   "published": "2025-07-24",
+   "category": "Government",
+   "score": 5.0,
+   "buckets": [
+    "ai"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-members-receive-preferred-pricing-on-marketing-services-and-the-new-ada-tvplus/": {
+   "title": "ADA members receive preferred pricing on marketing services and the new ADA TV&#x2B;",
+   "published": "2025-07-24",
+   "category": "Around The ADA",
+   "score": 2.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-urges-dea-to-ease-registration-rules-for-dentists-with-multiple-practice-locations/": {
+   "title": "ADA urges DEA to ease registration rules for dentists with multiple practice locations",
+   "published": "2025-07-23",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-urges-reforms-to-medicare-advantage-dental-benefits/": {
+   "title": "ADA urges reforms to Medicare Advantage dental benefits",
+   "published": "2025-07-23",
+   "category": "Government",
+   "score": 5.0,
+   "buckets": [
+    "clinica",
+    "workflow"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/bill-would-require-independent-review-of-epa-water-fluoridation-guidance/": {
+   "title": "Bill would require independent review of EPA water fluoridation guidance",
+   "published": "2025-07-22",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-forsyth-friday-researchers-identify-cellular-protein-that-may-help-inhibit-key-oral-microbe-also-associated-with-colorectal-cancer/": {
+   "title": "ADA Forsyth Friday: Researchers identify cellular protein that may help inhibit key oral microbe also associated with colorectal cancer",
+   "published": "2025-07-18",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/3-things-you-missed-in-government-this-week-july-18/": {
+   "title": "3 things you missed in government this week",
+   "published": "2025-07-18",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-urges-hhs-to-reduce-dental-regulations-that-burden-providers/": {
+   "title": "ADA urges HHS to reduce dental regulations that burden providers",
+   "published": "2025-07-17",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/dental-school-snapshots-july/": {
+   "title": "Dental School Snapshots: July",
+   "published": "2025-07-16",
+   "category": "Education",
+   "score": 2.0,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-backs-fdas-proposed-front-of-package-labeling-rule/": {
+   "title": "ADA backs FDA&#x2019;s proposed front-of-package labeling rule",
+   "published": "2025-07-16",
+   "category": "Government",
+   "score": 5.0,
+   "buckets": [
+    "ai"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/hpi-dental-economy-in-holding-pattern/": {
+   "title": "HPI: Dental economy in holding pattern",
+   "published": "2025-07-16",
+   "category": "Practice",
+   "score": 6.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-urges-congress-to-reauthorize-key-dental-workforce-programs/": {
+   "title": "ADA urges Congress to reauthorize key dental workforce programs",
+   "published": "2025-07-16",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-urges-revisions-to-ncoil-dental-loss-ratio-model-to-improve-transparency-patient-care/": {
+   "title": "ADA urges revisions to NCOIL dental loss ratio model to improve transparency, patient care",
+   "published": "2025-07-16",
+   "category": "",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/how-to-help-texas-flood-victims/": {
+   "title": "How to help Texas flood victims",
+   "published": "2025-07-14",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/connecticut-bill-defends-community-water-fluoridation/": {
+   "title": "Connecticut bill defends community water fluoridation",
+   "published": "2025-07-14",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/metlife-agrees-to-change-recoupment-policy-following-ada-letter/": {
+   "title": "MetLife agrees to change recoupment policy following ADA letter",
+   "published": "2025-07-11",
+   "category": "Practice",
+   "score": 3.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-sends-advocacy-update-on-reconciliation-bill/": {
+   "title": "ADA sends Advocacy Update on reconciliation bill",
+   "published": "2025-07-11",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-defends-safety-and-efficacy-of-fluoride-supplements-amid-fda-review/": {
+   "title": "ADA defends safety and efficacy of fluoride supplements amid FDA review",
+   "published": "2025-07-11",
+   "category": "Government",
+   "score": 5.0,
+   "buckets": [
+    "ai"
+   ],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/3-things-you-missed-in-government-this-week-1/": {
+   "title": "3 things you missed in government this week",
+   "published": "2025-07-11",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2025/july/ada-board-provides-information-on-finances-association-management-system/": {
+   "title": "ADA Board provides information on finances, association management system",
+   "published": "2025-07-10",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W33"
   }
  },
  "weeks": {
   "2026-W33": [
+   "https://adanews.ada.org/ada-news/2025/august/3-things-you-missed-in-government-this-week-aug-1/",
+   "https://adanews.ada.org/ada-news/2025/august/ada-advocates-for-removing-stigmatizing-questions-from-licensure-applications/",
+   "https://adanews.ada.org/ada-news/2025/august/ada-board-implements-20-million-in-cuts-from-2025-budget/",
+   "https://adanews.ada.org/ada-news/2025/august/ada-coalition-urge-congress-to-support-health-care-workforce/",
+   "https://adanews.ada.org/ada-news/2025/august/ada-forsyth-friday-how-clear-aligners-shape-mouth-s-bacterial-ecosystem/",
+   "https://adanews.ada.org/ada-news/2025/august/ada-launches-ai-powered-credentialing-solution-urges-plan-administrators-to-join-effort/",
+   "https://adanews.ada.org/ada-news/2025/august/ada-lobbies-to-reduce-nicotine-in-cigarettes/",
+   "https://adanews.ada.org/ada-news/2025/august/ada-seeks-ambassadors-to-help-address-workforce-shortages/",
+   "https://adanews.ada.org/ada-news/2025/august/ada-treasurer-offers-deeper-dive-into-finances/",
+   "https://adanews.ada.org/ada-news/2025/august/august-jada-finds-dentists-can-use-parents-photos-to-detect-caries-in-children/",
+   "https://adanews.ada.org/ada-news/2025/august/dentist-to-pay-more-than-500000-after-allegedly-filing-false-medicaid-claims/",
+   "https://adanews.ada.org/ada-news/2025/august/dr-violin-wellness-advocate-recipient-of-distinguished-service-award/",
+   "https://adanews.ada.org/ada-news/2025/august/filmmaker-brett-culp-to-deliver-smilecon-2025-keynote-address/",
+   "https://adanews.ada.org/ada-news/2025/august/nominate-chair-for-strategic-forecasting-committee/",
+   "https://adanews.ada.org/ada-news/2025/august/one-big-beautiful-bills-impact-on-student-loans/",
+   "https://adanews.ada.org/ada-news/2025/august/register-for-dental-editors-conference-in-san-diego/",
+   "https://adanews.ada.org/ada-news/2025/august/you-ask-we-answer-fluoridation-facts/",
    "https://adanews.ada.org/ada-news/2025/december/3-things-you-missed-in-government-this-week-dec-5/",
    "https://adanews.ada.org/ada-news/2025/december/ada-academy-for-sports-dentistry-collaborate-to-advance-oral-health-athlete-safety/",
    "https://adanews.ada.org/ada-news/2025/december/ada-backs-prevent-hpv-cancers-act-citing-dentists-role-in-prevention/",
@@ -2796,6 +3250,35 @@
    "https://adanews.ada.org/ada-news/2025/december/ncoil-approves-optin-amendment-to-transparency-in-dental-benefits-contracting-model-act/",
    "https://adanews.ada.org/ada-news/2025/december/senate-passes-national-defense-authorization-act/",
    "https://adanews.ada.org/ada-news/2025/december/tips-to-avoid-claim-denials-due-to-common-coding-mistakes/",
+   "https://adanews.ada.org/ada-news/2025/july/3-things-you-missed-in-government-this-week-1/",
+   "https://adanews.ada.org/ada-news/2025/july/3-things-you-missed-in-government-this-week-july-18/",
+   "https://adanews.ada.org/ada-news/2025/july/3-things-you-missed-in-government-this-week-july-25/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-backs-fdas-proposed-front-of-package-labeling-rule/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-board-provides-information-on-finances-association-management-system/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-debuts-new-informatics-standards-webpage-for-easy-access-adoption/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-defends-safety-and-efficacy-of-fluoride-supplements-amid-fda-review/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-files-amicus-brief-supporting-epas-appeal-of-fluoride-court-order/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-forsyth-friday-researchers-identify-cellular-protein-that-may-help-inhibit-key-oral-microbe-also-associated-with-colorectal-cancer/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-forsyth-friday-unlocking-the-secrets-of-oral-microbiome/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-members-receive-preferred-pricing-on-marketing-services-and-the-new-ada-tvplus/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-president-tells-fda-fluoride-supplements-are-safe-effective/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-sends-advocacy-update-on-reconciliation-bill/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-urges-congress-to-reauthorize-key-dental-workforce-programs/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-urges-dea-to-ease-registration-rules-for-dentists-with-multiple-practice-locations/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-urges-hhs-to-reduce-dental-regulations-that-burden-providers/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-urges-reforms-to-medicare-advantage-dental-benefits/",
+   "https://adanews.ada.org/ada-news/2025/july/ada-urges-revisions-to-ncoil-dental-loss-ratio-model-to-improve-transparency-patient-care/",
+   "https://adanews.ada.org/ada-news/2025/july/bill-would-require-independent-review-of-epa-water-fluoridation-guidance/",
+   "https://adanews.ada.org/ada-news/2025/july/connecticut-bill-defends-community-water-fluoridation/",
+   "https://adanews.ada.org/ada-news/2025/july/dental-school-snapshots-july/",
+   "https://adanews.ada.org/ada-news/2025/july/how-does-the-one-big-beautiful-bill-affect-dentists/",
+   "https://adanews.ada.org/ada-news/2025/july/how-to-help-texas-flood-victims/",
+   "https://adanews.ada.org/ada-news/2025/july/hpi-dental-economy-in-holding-pattern/",
+   "https://adanews.ada.org/ada-news/2025/july/jadas-impact-factor-rises-to-3-5/",
+   "https://adanews.ada.org/ada-news/2025/july/metlife-agrees-to-change-recoupment-policy-following-ada-letter/",
+   "https://adanews.ada.org/ada-news/2025/july/organized-dentistry-coalition-supports-protect-our-teeth-act/",
+   "https://adanews.ada.org/ada-news/2025/july/proposed-ada-standards-technical-report-available-for-review-by-sept-7/",
+   "https://adanews.ada.org/ada-news/2025/july/smilecon-2025-to-offer-curated-learning-experiences-for-entire-team/",
    "https://adanews.ada.org/ada-news/2025/november/3-things-you-missed-in-government-this-week-nov-21/",
    "https://adanews.ada.org/ada-news/2025/november/3-things-you-missed-in-government-this-week/",
    "https://adanews.ada.org/ada-news/2025/november/ada-begins-discussions-with-other-groups-to-advance-dental-licensure-exams/",
@@ -2886,6 +3369,7 @@
    "https://adanews.ada.org/ada-news/2025/september/dear-ada-im-being-paid-as-a-network-provider-but-i-never-signed-an-agreement-with-that-plan-what-happened/",
    "https://adanews.ada.org/ada-news/2025/september/dental-groups-urge-safeguards-in-student-loan-forgiveness-rule/",
    "https://adanews.ada.org/ada-news/2025/september/dental-products-could-cause-allergic-reactions-in-patients-with-alpha-gal-syndrome/",
+   "https://adanews.ada.org/ada-news/2025/september/dental-workforce-transitioning-to-younger-female-dentists/",
    "https://adanews.ada.org/ada-news/2025/september/ftc-wont-pursue-ban-on-noncompete-agreements/",
    "https://adanews.ada.org/ada-news/2025/september/house-passes-defense-bill-with-adasupported-dental-provisions/",
    "https://adanews.ada.org/ada-news/2025/september/how-to-talk-to-patients-about-hpv-vaccine/",
@@ -2893,11 +3377,13 @@
    "https://adanews.ada.org/ada-news/2025/september/medicaid-must-improve-network-adequacy-standards-ada-council-says/",
    "https://adanews.ada.org/ada-news/2025/september/millions-of-health-workers-gain-mental-health-protections-through-wellbeing-initiative/",
    "https://adanews.ada.org/ada-news/2025/september/new-cdt-codes-you-should-know-for-2026/",
+   "https://adanews.ada.org/ada-news/2025/september/oral-health-sun-safety-focus-of-consumer-product-campaign/",
    "https://adanews.ada.org/ada-news/2025/september/request-code-changes-to-cdt-2027-by-nov-1/",
    "https://adanews.ada.org/ada-news/2025/september/rosato-profile/",
    "https://adanews.ada.org/ada-news/2025/september/september-jada-finds-dental-fear-still-prevalent-in-us/",
    "https://adanews.ada.org/ada-news/2025/september/two-dentists-compete-for-roses-on-the-golden-bachelor/",
    "https://adanews.ada.org/ada-news/2025/september/two-vie-for-ada-speaker/",
+   "https://adanews.ada.org/ada-news/2025/september/weigh-in-on-oral-cancer-recommendations/",
    "https://adanews.ada.org/ada-news/2025/september/what-to-know-about-information-blocking-regulations/",
    "https://adanews.ada.org/ada-news/2025/september/who-were-looking-for-is-someone-who-wants-to-teach/",
    "https://adanews.ada.org/ada-news/2025/september/written-testimony-for-house-of-delegates-due-oct-20/",
@@ -3075,6 +3561,6 @@
    "https://adanews.ada.org/ada-news/2026/may/us-court-of-appeals-overturns-lower-court-judgement-in-epa-fluoride-case-citing-judicial-overreach/"
   ]
  },
- "runs": 3,
- "deepest_page": 6
+ "runs": 4,
+ "deepest_page": 7
 }

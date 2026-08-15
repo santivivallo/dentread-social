@@ -132,7 +132,8 @@ Corren en CI antes de publicar. Si alguno falla, no se publica.
 
 | Riesgo | Estado |
 |---|---|
-| Alucinación | **Imposible** — sin LLM, hechos curados |
+| Alucinación en cifras | **Imposible** — `data/facts.json` se cura a mano, sin LLM |
+| Alucinación en resúmenes | Modelo propone, newsguard y claims guard disponen; si falla, no hay resumen |
 | Claim clínico o regulatorio | Claims guard con reglas bilingües auditables |
 | Duplicado por falla parcial | Registro por plataforma, escrito apenas cada una confirma |
 | Repetición de contenido | Enfriamiento por hecho · verificado: 0 repeticiones en 14 semanas simuladas |
@@ -154,7 +155,7 @@ Corren en CI antes de publicar. Si alguno falla, no se publica.
 | GitHub Actions · Pages | $0 (free tier) |
 | Cloudflare R2 (staging IG) | $0 (free tier) |
 | Healthchecks.io | $0 |
-| LLM | $0 — no se usa |
+| LLM (resúmenes) | $0 — GitHub Models, incluido con la cuenta |
 | **Total** | **$0/mes** |
 
 ---

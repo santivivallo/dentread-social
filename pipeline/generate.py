@@ -300,10 +300,22 @@ def _generate_externo(post: Post) -> PostSpec:
     gancho = post.close if es_noticia else "Qué se está estudiando"
     acento = post.close_accent if es_noticia else ""
 
-    resumen = post.messages[0] if post.messages else ""
-    puntos = [f"«{titular}»"]
-    if resumen and resumen != titular:
-        puntos.append(_clip(resumen, 170))
+    # Resumen propio, escrito por el modelo y verificado contra copyright y
+    # claims. Si no pasa —o no hay token, o la API falló— el post sale con el
+    # formato señalizador de siempre. El peor caso es un post más pobre, nunca
+    # uno con texto sin verificar.
+    from pipeline import summarize
+    resumen = summarize.resumen_verificado(
+        post.source_text, es_paper=not es_noticia, url=post.source_url,
+        atribucion=etiqueta, es_reciente=post.es_reciente,
+        publicado=post.publicado)
+
+    puntos = []
+    if resumen:
+        puntos += [linea.strip() for linea in resumen.split("\n") if linea.strip()]
+    puntos.append(f"«{titular}»")
+    if not resumen and post.messages and post.messages[0] != titular:
+        puntos.insert(0, _clip(post.messages[0], 170))
 
     slides = [
         Slide("hook", gancho, accent=acento,
@@ -320,10 +332,12 @@ def _generate_externo(post: Post) -> PostSpec:
               body=""),
     ]
 
+    cuerpo = resumen if resumen else post.body
     caption_es = (
         f"{post.close} {post.close_accent} {EMOJI}\n\n"
-        f"{post.body}\n\n"
-        f"Título original: «{titular}».\n\n"
+        f"{cuerpo}\n\n"
+        f"{post.body if resumen else ''}"
+        f"{'' if not resumen else chr(10) + chr(10)}"
         f"{CTAS_ES[idx]}\n\n"
         f"Fuente: {etiqueta}. Enlace en el perfil.\n\n"
         f"{HASHTAGS}"

@@ -68,6 +68,11 @@ class Post:
     close_accent: str = ""
     source_url: str = ""             # noticia o paper: de dónde salió
     source_label: str = ""
+    # Texto fuente, solo en memoria: es lo que se resume y contra lo que
+    # newsguard mide copia. Nunca se publica ni se guarda en post.json.
+    source_text: str = ""
+    es_reciente: bool = True         # False = viene del stock del año
+    publicado: str = ""
 
     def fact_ids(self) -> list[str]:
         return [f["id"] for f in self.facts]

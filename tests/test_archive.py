@@ -137,6 +137,54 @@ def test_relevancia() -> int:
     return 0
 
 
+
+
+
+# --- El aro del resumen: modelo propone, verificadores disponen -----------
+def test_resumen() -> int:
+    from pipeline import summarize
+
+    fuente = ("The American Dental Association urged the Centers for Medicare "
+              "and Medicaid Services to adopt a dental-specific approach in its "
+              "interoperability and prior authorization proposal, warning that "
+              "medical templates do not fit dental claim attachments. " * 4)
+
+    casos = [
+        # (nombre, texto que "devuelve" el modelo, debe aceptarse, es_reciente)
+        ("copia literal", fuente[:300], False, True),
+        ("propio y atribuido",
+         "La ADA le pidió a CMS que trate los reclamos dentales aparte de los "
+         "médicos en su propuesta de interoperabilidad. El argumento es que las "
+         "plantillas médicas no sirven para los adjuntos dentales.", True, True),
+        ("claim clínico prohibido",
+         "La ADA confirmó que la IA diagnostica caries con precisión garantizada "
+         "y reemplaza al odontólogo.", False, True),
+        ("archivo presentado como novedad",
+         "Esta semana la ADA planteó a CMS un tratamiento distinto para los "
+         "reclamos dentales dentro de su propuesta.", False, False),
+    ]
+    original = summarize._pedir
+    errs = []
+    for nombre, texto, esperado, reciente in casos:
+        summarize._pedir = lambda *a, **k: texto
+        got = summarize.resumen_verificado(
+            fuente, es_paper=False, url="http://x",
+            atribucion="ADA News · Advocacy", es_reciente=reciente,
+            publicado="2026-02-10")
+        if bool(got) != esperado:
+            errs.append(f"{nombre}: se esperaba "
+                        f"{'aceptar' if esperado else 'descartar'}")
+    summarize._pedir = original
+
+    if errs:
+        print("✗ resumen verificado:")
+        print("\n".join(f"  {e}" for e in errs))
+        return 1
+    print(f"✓ resumen verificado: {len(casos)} casos, "
+          f"copia y claims descartados")
+    return 0
+
+
 if __name__ == "__main__":
     import sys
-    sys.exit(test_relevancia())
+    sys.exit(test_relevancia() or test_resumen())

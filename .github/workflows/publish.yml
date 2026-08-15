@@ -4,6 +4,7 @@ permissions:
   contents: write        # necesario solo para publicar docs/ en Pages
   pages: write
   id-token: write
+  models: read           # GitHub Models, para redactar el resumen de noticias
 
 concurrency:
   group: social-publish
@@ -75,8 +76,20 @@ jobs:
       - name: Test legibility
         run: python -m tests.test_legibility
 
+      # Relevancia de ADA News y el aro del resumen: que la copia literal y
+      # los claims clinicos se descarten sigue siendo cierto.
+      - name: Test sources
+        run: python -m tests.test_archive
+
       - name: Generate
         if: ${{ !inputs.folder }}
+        env:
+          # GitHub Models: incluido con la cuenta, sin clave nueva. El token
+          # del runner ya trae el permiso models:read. Se usa solo para
+          # redactar el resumen de noticias y papers, que despues pasa por
+          # newsguard y por el claims guard. Si falta o falla, el post sale
+          # en formato senalizador y no se rompe nada.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m pipeline.run --slots 1
 
       # Verificable · breve · con inventario · con activo indexable.
