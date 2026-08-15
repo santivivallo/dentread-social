@@ -152,18 +152,21 @@ Instagram rechaza el post sin explicar por qué.
 
 ---
 
-## 5 · Healthchecks.io — 5 min · **lo único que falta además de LinkedIn**
+## 5 · Healthchecks.io — hecho el 2026-08-14
 
-Period **2 días**, no 3: con cadencia lunes/miércoles/viernes, tres días de
-silencio ya son dos publicaciones perdidas.
+Check `dentread-social` · **Period 3 días · Grace 1 día** · alerta por mail a
+`santiago@dentread.app`.
 
-1. healthchecks.io → cuenta gratis → **Add Check**
-2. Nombre: `dentread-social` · Period: **2 días** · Grace: **1 día**
-3. Copiá la URL de ping
+**Por qué 3 y no 2.** En un borrador anterior de este archivo decía 2 días,
+razonando que tres días de silencio son dos publicaciones perdidas. Está mal:
+la cadencia es lunes, miércoles y viernes, así que **el hueco de viernes a
+lunes es de 3 días**. Con período de 2 el check habría disparado una alarma
+falsa todos los lunes por la mañana, y una alarma que grita cada fin de
+semana es una alarma que nadie mira.
 
-```bash
-HEALTHCHECK_URL=https://hc-ping.com/<uuid>
-```
+Con 3 días más 1 de gracia, una publicación perdida el miércoles se detecta
+el viernes. Es el compromiso correcto entre no perder un fallo real y no
+avisar de fallos que no existen.
 
 Sin esto, si el sistema deja de publicar nadie se entera. Es el modo de falla
 más probable.
