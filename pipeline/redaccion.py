@@ -51,6 +51,17 @@ MAX_LECTURA = 190
 # no la coherencia.
 UMBRAL_SOLAPE = 0.40
 
+# Lenguaje corporativo, de la lista "what doesn't work" de hook-writer.md.
+# Es lo único de esa lista que se puede medir sin criterio humano: el resto
+# —"witty AI-sounding one-liners", "forced casualness"— vive en el prompt,
+# porque un control que los persiga a ciegas rechaza contenido bueno. Ya pasó
+# con el detector de titulares sin verbo, que volteaba 7 de 37 titulares
+# correctos y se descartó.
+_CORPORATIVO = re.compile(
+    r"\b(optimiz\w*|potenci(a|ar|ando)\w*|aprovech\w*|desbloque\w*|"
+    r"maximiz\w*|impulsa\w*|revolucion\w*|soluci[oó]n integral|"
+    r"sinergia\w*|holístic\w*|disrupt\w*)\b", re.I)
+
 VACIAS = {"donde", "cuando", "sobre", "entre", "para", "desde", "cada",
           "como", "esta", "este", "esto", "pero", "mientras", "todo", "toda"}
 
@@ -85,8 +96,24 @@ Devolvés SOLO un objeto JSON con tres claves:
 {"gancho": "...", "titular_datos": "...", "lectura": "..."}
 
 - "gancho": el titular del primer frame, debajo de una cifra grande. Máximo 52
-  caracteres. Dice algo concreto y con tensión que haga querer deslizar. No es
-  un resumen ni una tesis abstracta.
+  caracteres.
+
+  Un gancho tiene UNA función: abrir una brecha que el cerebro no pueda
+  cerrar. No presenta ni explica. Elegí uno de estos tres registros, el que
+  mejor le calce a las cifras:
+
+    CONTRASTE   antes contra después, lo que todos hacen contra lo que pasa.
+                El cerebro resuelve la comparación solo y no puede scrollear
+                con una comparación sin terminar.
+                Ejemplo: "Cubrir no es lo mismo que pagar".
+    ESCENA      dejá al lector adentro de una situación concreta.
+                Ejemplo: "Al hospital por una muela".
+    REENCUADRE  tomá el dato y decilo desde un ángulo que obligue a mirar dos
+                veces. Ejemplo: "El software mide a los que ya van".
+
+  NO des la respuesta en el gancho: primero la brecha. "Los niños son el
+  grupo mejor cubierto" enuncia y cierra; "Estar cubierto no alcanza" abre.
+  Si tenés que explicar el contraste, el contraste es débil.
 - "titular_datos": el titular del segundo frame, el de las cifras. Máximo 40
   caracteres. Tiene que AFIRMAR algo, con verbo. No es una etiqueta de
   sección ni una lista de temas. Mal: "Expansión del beneficio y aranceles".
@@ -109,6 +136,12 @@ Reglas, todas obligatorias:
   supera a un profesional. DentRead no tiene autorización de la FDA.
 - Sin adjetivos de opinión: nada de revolucionario, innovador, clave,
   impresionante, alarmante.
+- Nada de lenguaje corporativo: optimizar, potenciar, aprovechar, desbloquear,
+  maximizar, impulsar, solución integral.
+- Nada de frases que suenen a inteligencia artificial escribiendo. Si nadie lo
+  diría en voz alta en una clínica, no va.
+- El gancho es amplio; lo específico va en el frame 2. Un gancho demasiado
+  técnico no abre ninguna brecha, la cierra por aburrimiento.
 - Sin em dashes, emojis, hashtags ni signos de exclamación.
 - Español rioplatense, tono profesional y seco. No menciones a DentRead.
 - Si no podés cumplir todo, respondé exactamente: INSUFICIENTE
@@ -179,12 +212,17 @@ def verificar(prop: dict, *, cifras_permitidas: set[str],
         if v >= UMBRAL_SOLAPE:
             fallas.append(f"el {na} y el {nb} dicen lo mismo ({v:.0%})")
 
-    # 3. Marca y formato.
+    # 3. Marca y formato, según `brand/references/hook-writer.md`.
     for clave, v in (("gancho", g), ("titular_datos", t), ("lectura", lec)):
         if "—" in v:
             fallas.append(f"'{clave}' trae em dash")
         if "#" in v or "!" in v or "¡" in v:
             fallas.append(f"'{clave}' trae hashtag o exclamación")
+        # "What doesn't work": lenguaje corporativo. Es lo único de esa lista
+        # que se puede medir sin criterio; el resto vive en el prompt.
+        m = _CORPORATIVO.search(v)
+        if m:
+            fallas.append(f"'{clave}' usa lenguaje corporativo: '{m.group(0)}'")
 
     # 4. Riesgo regulatorio, con las mismas reglas que el resto del copy.
     try:

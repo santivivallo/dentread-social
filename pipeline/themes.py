@@ -149,7 +149,7 @@ CATALOG: list[Theme] = [
           close="La cobertura está. La visita no.",
           close_accent="El problema es la conversión.",
           kicker="Cobertura infantil",
-          hook="Los niños son el grupo mejor cubierto",
+          hook="Estar cubierto no alcanza",
           data_title="Cubiertos casi todos, atendidos menos"),
 
     Theme("adultos-mayores", "Adultos mayores y el vacío de Medicare",
@@ -202,7 +202,7 @@ CATALOG: list[Theme] = [
           close="El sector no crece atendiendo más rápido.",
           close_accent="Crece terminando lo que ya diagnosticó.",
           kicker="Gasto en odontología",
-          hook="Dónde va cada dólar dental",
+          hook="Nadie manda en este mercado",
           data_title="Un sector grande y fragmentado"),
 
     Theme("consolidacion-dso", "Consolidación y DSOs",
@@ -281,7 +281,7 @@ CATALOG: list[Theme] = [
           close="Más datos no es más claridad.",
           close_accent="El paciente sigue viendo manchas grises.",
           kicker="CBCT y 3D",
-          hook="Cada año se toman más volúmenes",
+          hook="Nadie compró un CBCT para esto",
           data_title="Más imagen, misma explicación"),
 
     Theme("cdt-sin-codigo-ia", "La IA dental no tiene código de facturación",
@@ -362,7 +362,7 @@ CATALOG: list[Theme] = [
           close="Se diagnostica mucho y se termina poco.",
           close_accent="El plan aceptado que nadie completa.",
           kicker="Enfermedad periodontal",
-          hook="La enfermedad más común de la boca",
+          hook="Nadie viene por la encía",
           data_title="Diagnóstico alto, tratamiento bajo"),
 ]
 

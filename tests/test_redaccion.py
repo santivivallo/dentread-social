@@ -77,6 +77,10 @@ RECHAZOS = [
     ("em dash",
      {**BUENA, "lectura": "La cobertura fija el volumen — el reembolso, el margen."},
      "em dash"),
+    # hook-writer.md, "what doesn't work": corporate framing.
+    ("lenguaje corporativo",
+     {**BUENA, "lectura": "Una solución integral para optimizar la clínica."},
+     "corporativo"),
 ]
 
 
