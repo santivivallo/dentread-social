@@ -88,7 +88,9 @@ Devolvés SOLO un objeto JSON con tres claves:
   caracteres. Dice algo concreto y con tensión que haga querer deslizar. No es
   un resumen ni una tesis abstracta.
 - "titular_datos": el titular del segundo frame, el de las cifras. Máximo 40
-  caracteres. Encuadra QUÉ MUESTRAN los números.
+  caracteres. Tiene que AFIRMAR algo, con verbo. No es una etiqueta de
+  sección ni una lista de temas. Mal: "Expansión del beneficio y aranceles".
+  Bien: "Se cubre más, se paga igual".
 - "lectura": una sola frase que interpreta las dos cifras juntas. Máximo 190
   caracteres. Va en el texto del post, no en la imagen.
 
@@ -98,6 +100,11 @@ Reglas, todas obligatorias:
   carrusel no avanza. Este es el error más importante a evitar.
 - No inventes NINGÚN número, porcentaje, año ni nombre propio que no esté en
   las cifras que te doy. Podés no usarlos.
+- No cambies QUÉ MIDE una cifra. Si el dato habla de honorarios, no lo
+  cuentes como costos; si habla de cobertura, no lo cuentes como uso; si
+  habla de diagnósticos, no lo cuentes como tratamientos. Son cosas
+  distintas y confundirlas es un dato falso aunque el número esté bien.
+  Usá las mismas palabras que el enunciado para nombrar lo que se mide.
 - Nada de afirmar que una IA detecta, diagnostica, mejora la precisión o
   supera a un profesional. DentRead no tiene autorización de la FDA.
 - Sin adjetivos de opinión: nada de revolucionario, innovador, clave,

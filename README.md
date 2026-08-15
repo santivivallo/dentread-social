@@ -150,7 +150,7 @@ Corren en CI antes de publicar. Si alguno falla, no se publica.
 | Publicar en mal momento | `SOCIAL_PUBLISHING_PAUSED` |
 | Secreto filtrado en un traceback | Ningún `raise_for_status()` en llamadas con token en la URL |
 | Chequeo que miente | Un control informa OK solo si leyó el dato; si no, dice que no lo leyó |
-| Dato correcto, interpretación errada | **Sin cubrir** — ningún código lo detecta |
+| Dato correcto, interpretación errada | **Sin cubrir** — el modelo escribió "una fracción del costo operativo" sobre un dato de honorarios. Se intentó un control automático y se descartó: rechazaba 7 de 37 titulares buenos |
 | Cifra desactualizada | **Sin cubrir** — falta `review_by` |
 
 ---
