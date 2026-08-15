@@ -4,7 +4,7 @@ permissions:
   contents: write        # necesario solo para publicar docs/ en Pages
   pages: write
   id-token: write
-  models: read           # GitHub Models, para redactar el resumen de noticias
+  models: read           # GitHub Models: resumenes y titulares
 
 concurrency:
   group: social-publish
@@ -92,9 +92,12 @@ jobs:
         env:
           # GitHub Models: incluido con la cuenta, sin clave nueva. El token
           # del runner ya trae el permiso models:read. Se usa solo para
-          # redactar el resumen de noticias y papers, que despues pasa por
-          # newsguard y por el claims guard. Si falta o falla, el post sale
-          # en formato senalizador y no se rompe nada.
+          # redactar dos cosas, las dos verificadas antes de publicarse:
+          #   - el resumen de una noticia o un paper (pipeline/summarize)
+          #   - el gancho y los titulares de un post de datos
+          #     (pipeline/redaccion)
+          # Si falta o falla, el post sale con el formato senalizador y el
+          # gancho curado del tema. Nunca se rompe una corrida por esto.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m pipeline.run --slots 1
 
