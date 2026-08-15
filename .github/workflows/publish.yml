@@ -99,6 +99,19 @@ jobs:
       - name: Test sources
         run: python -m tests.test_archive
 
+      # Auditoria de los 26 posts posibles, ordenados de peor a mejor.
+      #
+      # NO bloquea, y es deliberado: audita TODO el catalogo, no el post del
+      # dia. Frenar la publicacion de hoy porque otro post tiene un problema
+      # seria castigar al que esta bien. El corte por post sigue donde
+      # corresponde, en el guard de build_one.
+      #
+      # Queda en el log de la corrida para que el deterioro se vea antes de
+      # que llegue al feed: si el promedio baja, algo se rompio.
+      - name: Audit quality
+        continue-on-error: true
+        run: python -m pipeline.auditoria --peores 8
+
       - name: Generate
         if: ${{ !inputs.folder }}
         env:

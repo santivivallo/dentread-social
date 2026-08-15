@@ -20,6 +20,7 @@ Herramientas:
 ```bash
 python -m pipeline.readiness --slots 3 # qué falta para esa cadencia
 python -m pipeline.verify              # auditoría: 4 controles
+python -m pipeline.auditoria --peores 5 # los 26 posts, de peor a mejor
 python -m pipeline.themes              # catálogo y disponibilidad
 python -m pipeline.site --rebuild      # regenera índices y sitemap
 python -m tools.pubmed --preset acceso # buscar literatura para curar
