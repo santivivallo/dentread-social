@@ -199,6 +199,20 @@ def main() -> None:
         record()
 
     record()
+    # El consumo se marca acá, no al generar.
+    #
+    # Antes lo hacia `pipeline.run`: generar un post quemaba tema, hechos y
+    # bloque aunque nunca saliera. Probando el sistema un solo dia se
+    # consumieron 5 temas, 12 hechos y 4 evergreen, el runway cayo a cero y el
+    # control de inventario bloqueo la publicacion real. El sistema se quedo
+    # sin material testeandose a si mismo.
+    #
+    # En dry-run no se marca: un ensayo no gasta contenido.
+    if not args.dry_run and results:
+        from pipeline import plan
+        plan.mark_used_from_folder(folder)
+        print("[ok] inventario actualizado")
+
     ping_healthcheck(args.dry_run)
     print(f"[ok] {results}")
 

@@ -317,6 +317,39 @@ def next_posts(n: int = 2) -> list[Post]:
     return posts[:n]
 
 
+def mark_used_from_folder(folder) -> None:
+    """
+    Marca el consumo a partir de una carpeta ya publicada.
+
+    Existe porque el consumo estaba atado a GENERAR, no a publicar. Cada
+    corrida local de `pipeline.run` quemaba tema, hechos y bloque aunque el
+    post nunca saliera: probando el sistema un solo día se consumieron 5
+    temas, 12 hechos y 4 evergreen, el inventario cayó a cero y el control de
+    runway bloqueó la publicación real. El sistema se quedó sin material
+    testeándose a sí mismo.
+
+    Un post que no se publicó no gastó nada. Lo que gasta es el feed.
+    """
+    from pathlib import Path
+
+    datos = json.loads((Path(folder) / "post.json").read_text())
+    s = _state()
+    hoy = date.today().isoformat()
+    slug = datos.get("slug", "")
+
+    if datos.get("mode") == "evergreen":
+        s["evergreen"][slug] = hoy
+    elif datos.get("mode") in ("news", "paper"):
+        pass          # su material es externo y no se repite por definición
+    else:
+        s["themes"][slug] = hoy
+        for fid in datos.get("fact_ids", []):
+            s["facts"][fid] = hoy
+
+    s["count"] = s.get("count", 0) + 1
+    _save(s)
+
+
 def mark_used(post: Post) -> None:
     s = _state()
     today = date.today().isoformat()

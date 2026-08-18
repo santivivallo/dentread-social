@@ -86,18 +86,20 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
         "article_url": f"{site.BASE_URL}/{spec.slug}/",
     }, indent=2, ensure_ascii=False))
 
-    # En preview no se escribe la pagina ni se marca el tema como usado.
+    # En preview tampoco se escribe la pagina: solo salen los PNG.
     #
     # Correr el pipeline localmente para mirar como quedan los slides dejaba
-    # el arbol sucio: paginas nuevas en docs/ y rotation.json modificado. Eso
-    # choca con los commits que hace el bot en cada corrida del cron y traba
-    # el proximo rebase. Un preview solo deberia producir imagenes.
+    # paginas nuevas en docs/, y eso choca con los commits del bot y traba el
+    # proximo rebase. Un preview solo deberia producir imagenes.
     if preview:
         print(f"   OK · {len(spec.slides)} slides → {folder}  (preview)")
         return folder
 
     page = site.write_article(spec, today)
-    plan.mark_used(post)
+
+    # OJO: acá NO se marca el consumo. Lo hace `publish.py` cuando el post
+    # sale de verdad. Generar y publicar son cosas distintas, y atarlas hizo
+    # que probar el sistema lo dejara sin contenido.
 
     print(f"   OK · {len(spec.slides)} slides → {folder}")
     print(f"        página → {page}")
@@ -142,8 +144,8 @@ def main() -> None:
         posts = [plan.post_from_theme(t, fs)]
     else:
         # Se piden dos de más: son los reemplazos si alguno se cae al
-        # construirse. Pedirlos no consume nada — el tema se marca como usado
-        # recién en `build_one`, cuando el post existe de verdad.
+        # construirse. Pedirlos no consume nada, y generarlos tampoco: el
+        # consumo lo marca `publish.py` cuando el post sale de verdad.
         posts = plan.next_posts(args.slots + 2)
 
     if not posts:

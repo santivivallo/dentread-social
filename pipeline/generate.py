@@ -55,7 +55,10 @@ CTAS_ES = [
 CTAS_EN = [
     "How are you seeing this play out?",
     "Does this match what you see day to day?",
-    "Curious what operators make of this.",
+    # Los cuatro tienen que ser PREGUNTA: `verify` exige una y este era el
+    # unico que no la traia, asi que la corrida fallaba solo cuando el hash
+    # del id caia en este indice. Un bug que aparece una de cada cuatro veces.
+    "What do operators make of this?",
     "What do you think is missing here?",
 ]
 
