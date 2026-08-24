@@ -2,7 +2,8 @@
  "themes": {
   "costo-barrera": "2026-08-10",
   "utilizacion": "2026-08-19",
-  "consolidacion-dso": "2026-08-21"
+  "consolidacion-dso": "2026-08-21",
+  "medicaid-adultos": "2026-08-24"
  },
  "facts": {
   "sin-seguro-72m": "2026-08-10",
@@ -10,14 +11,16 @@
   "intencion-vs-visita": "2026-08-19",
   "utilizacion-seguro": "2026-08-19",
   "medicaid-dso-caida": "2026-08-21",
-  "propietarios-caida": "2026-08-21"
+  "propietarios-caida": "2026-08-21",
+  "medicaid-38-estados": "2026-08-24",
+  "medicaid-reembolso": "2026-08-24"
  },
  "evergreen": {
   "que-es-dentread": "2026-08-10",
   "ia-radiografias-dentales": "2026-08-12",
   "apoyo-analisis-radiografico": "2026-08-18"
  },
- "count": 5,
+ "count": 6,
  "externos": {
   "news-56913837": "2026-08-14",
   "paper-41204923": "2026-08-14",
