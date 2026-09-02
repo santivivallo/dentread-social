@@ -4,7 +4,8 @@
   "utilizacion": "2026-08-19",
   "consolidacion-dso": "2026-08-21",
   "medicaid-adultos": "2026-08-24",
-  "demografia-dentista": "2026-08-26"
+  "demografia-dentista": "2026-08-26",
+  "cdt-sin-codigo-ia": "2026-09-02"
  },
  "facts": {
   "sin-seguro-72m": "2026-08-10",
@@ -16,7 +17,9 @@
   "medicaid-38-estados": "2026-08-24",
   "medicaid-reembolso": "2026-08-24",
   "medicaid-genero": "2026-08-26",
-  "practica-grupal": "2026-08-26"
+  "practica-grupal": "2026-08-26",
+  "cdt-2026-cambios": "2026-09-02",
+  "cdt-sin-ia": "2026-09-02"
  },
  "evergreen": {
   "que-es-dentread": "2026-08-10",
@@ -25,7 +28,7 @@
   "consistencia-evaluacion": "2026-08-28",
   "comunicacion-visual-paciente": "2026-08-31"
  },
- "count": 9,
+ "count": 10,
  "externos": {
   "news-56913837": "2026-08-14",
   "paper-41204923": "2026-08-14",
