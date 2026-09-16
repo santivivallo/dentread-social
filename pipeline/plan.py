@@ -39,6 +39,12 @@ EVERGREEN_EVERY = 4
 # Con seis ranuras y tres posts por semana, el ciclo dura dos semanas.
 CICLO = ("data", "news", "evergreen", "paper", "data", "news")
 
+# Cuántas noticias o papers de repuesto se ofrecen cuando el turno es de una
+# fuente externa. Existe porque esas dos pueden caerse DESPUÉS de elegidas
+# —sin resumen, o con un resumen que no cruza los controles— y una sola
+# alternativa no alcanza cuando hay cientos de artículos disponibles.
+ALTERNATIVAS_EXTERNAS = 3
+
 # Ventana editorial: noticias y literatura, solo de 2026. Un artículo de 2025
 # se lee como archivo y contradice que la cobertura crezca semana a semana.
 ANIO_MINIMO = 2026
@@ -209,7 +215,7 @@ def available_evergreen(state: dict | None = None) -> list[dict]:
 
 
 def _un_post(kind: str, state: dict, usados: set[str],
-             familias: set[str]) -> Post | None:
+             familias: set[str], saltar: set[str] | None = None) -> Post | None:
     """
     Devuelve un post de ese tipo, o None si esa fuente no tiene nada hoy.
 
@@ -246,9 +252,15 @@ def _un_post(kind: str, state: dict, usados: set[str],
             # `con_cuerpo` trae el texto del artículo. Sin esto, los del
             # stock llegan solo con el titular y el resumidor los rechaza por
             # corto, así que la ranura de noticias NUNCA publicaba.
-            for art in ada_news.latest_relevant(limit=5):
-                return post_from_article(ada_news.con_cuerpo(art))
-            for art in ada_news.backlog(year=2026, limit=40):
+            # `saltar` trae los que ya se ofrecieron en esta tanda. Sin esto
+            # la fuente devolvía siempre el primer artículo y pedir una
+            # alternativa daba el mismo.
+            omitir = saltar or set()
+            for art in list(ada_news.latest_relevant(limit=5)) + \
+                    list(ada_news.backlog(year=2026, limit=40)):
+                p = post_from_article(art)
+                if p.id in omitir:
+                    continue
                 return post_from_article(ada_news.con_cuerpo(art))
         except Exception as exc:                 # red, parseo, API
             print(f"   [info] ADA News no disponible ahora: "
@@ -265,11 +277,15 @@ def _un_post(kind: str, state: dict, usados: set[str],
             n_prev = len(state.get("externos", {}))
             orden = PRESETS_PAPER[n_prev % len(PRESETS_PAPER):] + \
                     PRESETS_PAPER[:n_prev % len(PRESETS_PAPER)]
+            omitir = saltar or set()
             for preset in orden:
                 for sp in journals.find(preset=preset, years=1, n=10):
                     if sp.year and int(sp.year) < ANIO_MINIMO:
                         continue          # solo 2026, como el resto del flujo
-                    return post_from_signpost(sp)
+                    p = post_from_signpost(sp)
+                    if p.id in omitir:
+                        continue
+                    return p
         except Exception as exc:
             print(f"   [info] PubMed no disponible ahora: "
                   f"{exc.__class__.__name__}")
@@ -300,7 +316,7 @@ def next_posts(n: int = 2) -> list[Post]:
         # se prueba el tipo que toca y, si no hay, los siguientes del ciclo
         for salto in range(len(CICLO)):
             kind = CICLO[(turno + salto) % len(CICLO)]
-            post = _un_post(kind, state, usados, familias)
+            post = _un_post(kind, state, usados, familias, emitidos)
             # Sin este filtro la tanda repetía el mismo post.
             #
             # Para noticias y papers, `_un_post` devuelve siempre el mejor
@@ -315,6 +331,27 @@ def next_posts(n: int = 2) -> list[Post]:
                 posts.append(post)
                 familias.add("dentread" if post.kind == "evergreen"
                              else post.family)
+
+                # Una noticia o un paper rechazado no pierde el turno.
+                #
+                # `generate` puede descartarlos después: sin resumen
+                # verificado, o porque el resumen no cruza el control de
+                # magnitudes. Antes eso alcanzaba para que el turno se lo
+                # llevara un post de datos, aunque el archivo tenga 604
+                # artículos y PubMed miles. Pasó el 16 de septiembre de 2026:
+                # una columna de opinión no pasó el control y la ranura de
+                # noticias se perdió con el primer intento.
+                #
+                # Acá se agregan alternativas de la MISMA fuente, que
+                # `run.py` prueba antes de bajar al tipo siguiente del ciclo.
+                if kind in ("news", "paper"):
+                    for _ in range(ALTERNATIVAS_EXTERNAS):
+                        otro = _un_post(kind, state, usados, familias,
+                                        emitidos)
+                        if not otro or otro.id in emitidos:
+                            break
+                        emitidos.add(otro.id)
+                        posts.append(otro)
                 break
 
     return posts[:n]

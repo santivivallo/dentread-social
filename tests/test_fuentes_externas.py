@@ -137,9 +137,41 @@ def probar_presupuesto_caption() -> list[str]:
     return errs
 
 
+def probar_alternativas() -> list[str]:
+    """
+    Que un turno de noticia ofrezca varias, no una sola.
+
+    El 16 de septiembre de 2026 el turno era de noticia, el sistema eligió
+    una columna de opinión, su resumen no cruzó el control de magnitudes, y
+    la ranura se la llevó un post de datos. Con UN intento. El archivo tiene
+    604 artículos.
+
+    Una fuente externa puede caerse DESPUÉS de elegida —sin resumen, o con un
+    resumen que no pasa los controles— así que el plan tiene que traer
+    alternativas para que `run.py` las pruebe antes de bajar de tipo.
+    """
+    from pipeline import plan
+
+    estado = {"themes": {}, "facts": {}, "evergreen": {}, "count": 0}
+    emitidos: set[str] = set()
+    primero = plan._un_post("news", estado, set(), set(), emitidos)
+    if not primero:
+        return []          # sin red o sin archivo: no es lo que se mide acá
+
+    emitidos.add(primero.id)
+    segundo = plan._un_post("news", estado, set(), set(), emitidos)
+    if not segundo:
+        return ["la fuente de noticias no ofrece una alternativa: si la "
+                "primera se cae, el turno se pierde"]
+    if segundo.id == primero.id:
+        return [f"la alternativa es el MISMO artículo ({primero.id}): pedir "
+                f"otra no sirve de nada"]
+    return []
+
+
 def main() -> int:
     errores = (probar_noticia() + probar_paper()
-               + probar_presupuesto_caption())
+               + probar_presupuesto_caption() + probar_alternativas())
     if errores:
         print("✗ las fuentes externas no van a poder publicar:\n")
         print("\n".join(f"  {e}" for e in errores))
