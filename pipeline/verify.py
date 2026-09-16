@@ -181,7 +181,12 @@ def check_brevity(folder: Path | None = None) -> tuple[int, int, list[str]]:
 def check_inventory() -> tuple[bool, list[str]]:
     """
     ¿Cuánto contenido queda? El sistema anterior se secaba en la semana 8 sin
-    avisar. Ahora la falta de inventario es un fallo visible, no una sorpresa.
+    avisar. Esto lo hace visible.
+
+    OJO: devuelve False cuando el runway está bajo, pero el que llama NO debe
+    bloquear la publicación con eso. Es un aviso sobre el futuro; frenar un
+    post que ya existe no agrega ni un hecho al banco. Ver el comentario en
+    `main`.
     """
     from pipeline.plan import inventory
     inv = inventory()
@@ -241,8 +246,25 @@ def main() -> None:
     print("\n═══ 3. INVENTARIO DE CONTENIDO")
     oki, notes = check_inventory()
     for n in notes:
-        print(f"    {'·' if oki else '✗'} {n}")
-    failed |= not oki
+        print(f"    {'·' if oki else '⚠'} {n}")
+
+    # El inventario bajo AVISA, no bloquea. Y es una corrección, no un
+    # descuido.
+    #
+    # Este control tiraba a la basura un post ya generado, ya verificado y ya
+    # renderizado, por un problema que es del FUTURO: quedarse sin material la
+    # semana que viene. El 14 de septiembre de 2026 el cron generó el post
+    # ("1/1 listos") y después se negó a publicarlo porque el runway estaba en
+    # 2 semanas. Resultado: cero publicaciones y el inventario intacto, que no
+    # le sirve a nadie.
+    #
+    # La repetición ya la impiden los enfriamientos por tema, hecho y bloque.
+    # Y si el inventario llega de verdad a cero, `pipeline.run` no produce
+    # ningún post y la corrida falla ahí sola, que es el freno correcto y en
+    # el momento correcto.
+    if not oki:
+        print("::warning::Inventario bajo: se publica igual, pero hay que "
+              "curar más hechos en data/facts.json")
 
     print("\n═══ 4. ACTIVO INDEXABLE")
     oks, notes = check_site()
