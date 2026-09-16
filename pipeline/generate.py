@@ -62,6 +62,11 @@ CTAS_EN = [
     "What do you think is missing here?",
 ]
 
+# Techo del caption en español, el mismo que mide `pipeline/verify.py`. Vive
+# acá para que el generador respete el límite en vez de que el verificador lo
+# descubra después y frene una publicación ya hecha.
+MAX_CAPTION_ES = 700
+
 # Caption: 2-4 líneas + 1 emoji dental + CTA + 4-6 hashtags (brand guide).
 # Un solo emoji, siempre dental — la regla de "sin emoji" aplica al diseño de
 # las slides, no al caption.
@@ -502,12 +507,29 @@ def _generate_externo(post: Post) -> PostSpec:
               body=""),
     ]
 
-    cuerpo = resumen if resumen else post.body
+    # El caption se arma con presupuesto, no a ojo.
+    #
+    # Mientras las noticias salían sin resumen, el texto era corto y nadie lo
+    # midió. Con el resumen conectado, la primera noticia real dio 792
+    # caracteres contra un límite de 700 y `verify` frenó la publicación: el
+    # sistema por fin generaba noticias y se bloqueaba a sí mismo por el
+    # tamaño del texto.
+    #
+    # Se calcula lo fijo —cierre, CTA, fuente, hashtags— y el resumen se lleva
+    # lo que sobra. Se recorta el RESUMEN y no las otras partes porque el
+    # cierre está aprobado, la fuente es obligatoria y los hashtags los pide
+    # el brand guide. `post.body` ("Publicado en ADA News el…") se omite
+    # cuando hay resumen: la línea de fuente ya lo dice.
+    fijo = (f"{post.close} {post.close_accent} {EMOJI}\n\n"
+            f"\n\n{CTAS_ES[idx]}\n\n"
+            f"Fuente: {etiqueta}. Enlace en el perfil.\n\n"
+            f"{HASHTAGS}")
+    espacio = MAX_CAPTION_ES - len(fijo)
+    cuerpo = _clip(resumen if resumen else post.body, max(espacio, 80))
+
     caption_es = (
         f"{post.close} {post.close_accent} {EMOJI}\n\n"
         f"{cuerpo}\n\n"
-        f"{post.body if resumen else ''}"
-        f"{'' if not resumen else chr(10) + chr(10)}"
         f"{CTAS_ES[idx]}\n\n"
         f"Fuente: {etiqueta}. Enlace en el perfil.\n\n"
         f"{HASHTAGS}"

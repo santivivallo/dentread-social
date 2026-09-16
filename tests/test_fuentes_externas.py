@@ -104,8 +104,42 @@ def probar_paper() -> list[str]:
     return []
 
 
+def probar_presupuesto_caption() -> list[str]:
+    """
+    Que el caption de una noticia entre en el límite, con resumen y todo.
+
+    Mientras las noticias salían sin resumen el texto era corto y nadie lo
+    midió. Con el resumen conectado, la primera noticia real dio 792
+    caracteres contra un límite de 700 y `verify` frenó la publicación: el
+    sistema por fin generaba noticias y se bloqueaba solo por el largo.
+
+    Se prueba con un resumen del tope que permite `summarize`, que es el peor
+    caso posible.
+    """
+    from pipeline.generate import (CTAS_ES, EMOJI, HASHTAGS, MAX_CAPTION_ES,
+                                   _clip)
+
+    largo = "Palabra " * 120          # ~960 chars: más de lo que el modelo da
+    close, accent = ("El proceso se cambia una vez.",
+                     "Se sostiene todas las semanas.")
+    etiqueta = "ADA News · Practice"
+
+    errs = []
+    for idx, cta in enumerate(CTAS_ES):
+        fijo = (f"{close} {accent} {EMOJI}\n\n\n\n{cta}\n\n"
+                f"Fuente: {etiqueta}. Enlace en el perfil.\n\n{HASHTAGS}")
+        cuerpo = _clip(largo, max(MAX_CAPTION_ES - len(fijo), 80))
+        cap = (f"{close} {accent} {EMOJI}\n\n{cuerpo}\n\n{cta}\n\n"
+               f"Fuente: {etiqueta}. Enlace en el perfil.\n\n{HASHTAGS}")
+        if len(cap) > MAX_CAPTION_ES:
+            errs.append(f"con el CTA {idx} el caption da {len(cap)} chars y "
+                        f"el límite es {MAX_CAPTION_ES}")
+    return errs
+
+
 def main() -> int:
-    errores = probar_noticia() + probar_paper()
+    errores = (probar_noticia() + probar_paper()
+               + probar_presupuesto_caption())
     if errores:
         print("✗ las fuentes externas no van a poder publicar:\n")
         print("\n".join(f"  {e}" for e in errores))
