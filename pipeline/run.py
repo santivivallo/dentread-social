@@ -182,6 +182,19 @@ def main() -> None:
     if not args.preview:
         site.rebuild_indexes()
 
+    # La carpeta recién hecha se deja anotada, para que el workflow no tenga
+    # que adivinarla.
+    #
+    # Antes el paso "Resolve folder" usaba `ls -d out/*/ | tail -1`, o sea la
+    # ÚLTIMA POR ORDEN ALFABÉTICO. En out/ conviven las carpetas del día con
+    # las que vuelven del repo trayendo solo su published.json, y el orden
+    # alfabético no distingue: con un post nuevo en 2026-09-16-news-4297932 y
+    # uno viejo en 2026-09-16-sin-seguro, ganaba el viejo. `publish.py` murió
+    # con "falta post.json" apuntando a una carpeta que solo tenía el registro
+    # de una publicación anterior.
+    if made and not args.preview:
+        (OUT / ".ultimo").write_text(f"{made[-1]}\n")
+
     print(f"\n[resumen] {len(made)}/{args.slots} listos")
     for f in made:
         print(f"   python publish.py {f} --dry-run")

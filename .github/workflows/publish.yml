@@ -150,7 +150,13 @@ jobs:
           if [ -n "${{ inputs.folder }}" ]; then
             echo "dir=${{ inputs.folder }}" >> "$GITHUB_OUTPUT"
           else
-            echo "dir=$(ls -d out/*/ | tail -1)" >> "$GITHUB_OUTPUT"
+            # La carpeta la anota `pipeline.run` en out/.ultimo. Antes se
+            # adivinaba con `ls -d out/*/ | tail -1`, la ultima por orden
+            # ALFABETICO: con un post nuevo en 2026-09-16-news-4297932 y una
+            # carpeta vieja en 2026-09-16-sin-seguro que vuelve del repo con
+            # solo su published.json, ganaba la vieja y publish.py moria con
+            # "falta post.json".
+            echo "dir=$(cat out/.ultimo)" >> "$GITHUB_OUTPUT"
           fi
 
       - uses: actions/cache@v4             # TODO: pinear por SHA
