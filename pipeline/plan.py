@@ -243,10 +243,13 @@ def _un_post(kind: str, state: dict, usados: set[str],
         try:
             from pipeline import ada_news
             from pipeline.sources import post_from_article
+            # `con_cuerpo` trae el texto del artículo. Sin esto, los del
+            # stock llegan solo con el titular y el resumidor los rechaza por
+            # corto, así que la ranura de noticias NUNCA publicaba.
             for art in ada_news.latest_relevant(limit=5):
-                return post_from_article(art)
+                return post_from_article(ada_news.con_cuerpo(art))
             for art in ada_news.backlog(year=2026, limit=40):
-                return post_from_article(art)
+                return post_from_article(ada_news.con_cuerpo(art))
         except Exception as exc:                 # red, parseo, API
             print(f"   [info] ADA News no disponible ahora: "
                   f"{exc.__class__.__name__}")

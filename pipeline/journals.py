@@ -75,6 +75,19 @@ class Signpost:
     design_es: str
     n: str = ""
 
+    # El abstract, que es lo ÚNICO que el resumidor puede resumir.
+    #
+    # Faltaba, y `sources.post_from_signpost` lo leía con
+    # `getattr(sp, "abstract", "")`: siempre vacío. Así el texto fuente de un
+    # paper era solo el título, unos 90 caracteres, y `resumen_verificado`
+    # exige 200. Cada turno de paper moría con SinMaterial y se lo llevaba un
+    # post de datos. Entre el 10 de agosto y el 15 de septiembre de 2026 no
+    # se publicó ni un paper, teniendo una ranura de cada seis reservada.
+    #
+    # No se publica el abstract: se resume, y ese resumen pasa por newsguard,
+    # el claims guard y el control de magnitudes como cualquier otro texto.
+    abstract: str = ""
+
     def question_es(self) -> str:
         """El título como pregunta, sin conclusión."""
         t = self.title.rstrip(".")
@@ -126,6 +139,7 @@ def find(preset: str = "ia", years: int = 1, n: int = 10) -> list[Signpost]:
             pmid=a["pmid"], title=a["title"], journal=a["journal"],
             year=a["year"], url=a["url"], design=design, design_es=design_es,
             n=_extract_n(a["abstract"]),
+            abstract=a.get("abstract", ""),
         )
         # el propio título puede traer la conclusión: si la trae, se descarta
         if FORBIDDEN.search(sp.question_es()):

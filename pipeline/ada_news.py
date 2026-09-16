@@ -200,6 +200,43 @@ def fetch_article(url: str) -> Article | None:
     )
 
 
+def con_cuerpo(article: Article) -> Article:
+    """
+    Devuelve el artículo con su texto completo, buscándolo si hace falta.
+
+    **Por qué existe.** El archivo guarda title, category, published, score y
+    buckets — NO el cuerpo. Cuando `backlog()` reconstruye un artículo del
+    stock, `summary` y `body` quedan vacíos, así que lo único que llega al
+    resumidor es el titular: unos 90 caracteres. `resumen_verificado` exige
+    200 como mínimo, devuelve None, y el post muere con `SinMaterial`.
+
+    Resultado medido: entre el 10 de agosto y el 15 de septiembre de 2026 se
+    publicaron 10 posts y **ninguno fue noticia ni paper**, aunque el ciclo
+    reserva la mitad de las ranuras para eso. Cada turno de noticia caía y se
+    lo llevaba un post de datos, que sí consume inventario: por eso el runway
+    se desplomó a 2 semanas.
+
+    Un solo GET por post, tres veces por semana. Si falla, se devuelve el
+    artículo como estaba y el post se descarta como antes.
+    """
+    if len(f"{article.summary} {article.body}".strip()) > 200:
+        return article
+    try:
+        completo = fetch_article(article.url)
+    except Exception as exc:
+        print(f"   [info] no se pudo traer el cuerpo de la nota "
+              f"({exc.__class__.__name__}); el post se descarta")
+        return article
+    if not completo:
+        return article
+
+    # Se conserva lo que ya estaba puntuado y clasificado; solo se agrega el
+    # texto, que es lo que faltaba.
+    article.summary = completo.summary or article.summary
+    article.body = completo.body
+    return article
+
+
 def score(article: Article) -> Article:
     haystack = f"{article.title} {article.summary} {article.category}"
     if EXCLUDE.search(haystack):

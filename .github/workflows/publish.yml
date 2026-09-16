@@ -99,6 +99,12 @@ jobs:
       - name: Test sources
         run: python -m tests.test_archive
 
+      # Que noticias y papers lleguen al resumidor con texto suficiente.
+      # Estuvieron un mes muriendo por fuente corta: 10 posts publicados y
+      # ninguno de esas dos fuentes, teniendo la mitad de las ranuras.
+      - name: Test external sources
+        run: python -m tests.test_fuentes_externas
+
       # Auditoria de los 26 posts posibles, ordenados de peor a mejor.
       #
       # NO bloquea, y es deliberado: audita TODO el catalogo, no el post del
