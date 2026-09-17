@@ -5416,6 +5416,153 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W33"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/collaboration-helps-drive-positive-insurance-changes-in-multiple-states/": {
+   "title": "Collaboration helps drive positive insurance changes in multiple states",
+   "published": "2026-09-17",
+   "category": "Practice",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/": {
+   "title": "Written testimony for ADA House of Delegates reference committees due Oct. 5",
+   "published": "2026-09-17",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/house-committee-considers-doc-access-act/": {
+   "title": "House committee considers DOC Access Act",
+   "published": "2026-09-16",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-launches-oral-health-certification-for-community-health-workers/": {
+   "title": "ADA launches oral health certification for community health workers",
+   "published": "2026-09-15",
+   "category": "Around The ADA",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-urges-nidcr-to-prioritize-prevention-oralsystemic-research-in-next-strategic-plan/": {
+   "title": "ADA urges NIDCR to prioritize prevention, oral-systemic research in next strategic plan",
+   "published": "2026-09-14",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-opposes-proposed-removal-of-head-start-oral-health-standards/": {
+   "title": "ADA opposes proposed removal of Head Start oral health standards",
+   "published": "2026-09-10",
+   "category": "Government",
+   "score": 5.5,
+   "buckets": [
+    "admin",
+    "clinica"
+   ],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/september-jada-highlights-product-development-strategies-that-lead-to-clinical-adoption/": {
+   "title": "September JADA highlights product development strategies that lead to clinical adoption",
+   "published": "2026-09-08",
+   "category": "Science",
+   "score": 3.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/my-view-the-future-of-dentistry-isnt-more-technology-its-more-humanity/": {
+   "title": "My View: The future of dentistry isn't more technology. It's more humanity.",
+   "published": "2026-09-07",
+   "category": "Practice",
+   "score": 10.0,
+   "buckets": [
+    "ai"
+   ],
+   "first_seen": "2026-W38",
+   "used": true
+  },
+  "https://adanews.ada.org/ada-news/2026/september/leadership-through-listening/": {
+   "title": "Leadership through listening",
+   "published": "2026-09-07",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/president-trump-signs-continuing-resolution-maintaining-oral-health-funding/": {
+   "title": "President Trump signs continuing resolution maintaining oral health funding",
+   "published": "2026-09-04",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/august/aetna-resolves-medicare-claims-processing-error-after-ada-push/": {
+   "title": "Aetna resolves Medicare claims-processing error after ADA push",
+   "published": "2026-09-03",
+   "category": "Practice",
+   "score": 9.0,
+   "buckets": [
+    "admin",
+    "workflow"
+   ],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/august/submit-code-change-requests-for-cdt-2028-by-nov-1/": {
+   "title": "Submit code change requests for CDT 2028 by Nov. 1",
+   "published": "2026-08-28",
+   "category": "Practice",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/august/ada-scientific-session-goes-beyond-learning-to-build-in-person-connections/": {
+   "title": "ADA Scientific Session goes beyond learning to build in-person connections",
+   "published": "2026-08-26",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/august/ada-urges-nih-to-broaden-measures-of-scientific-impact/": {
+   "title": "ADA urges NIH to broaden measures of scientific impact",
+   "published": "2026-08-21",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/august/mayo-researchers-seek-insight-into-dentists-antibiotic-prescribing-habits/": {
+   "title": "Mayo researchers seek insight into dentists’ antibiotic-prescribing habits",
+   "published": "2026-08-19",
+   "category": "Science",
+   "score": 3.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/august/doj-seeks-to-halt-nevada-firms-manufacture-sale-of-dental-products/": {
+   "title": "DOJ seeks to halt Nevada firm’s manufacture, sale of dental products",
+   "published": "2026-08-18",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
   }
  },
  "weeks": {
@@ -6015,8 +6162,25 @@
    "https://adanews.ada.org/ada-news/2026/may/us-court-of-appeals-overturns-lower-court-judgement-in-epa-fluoride-case-citing-judicial-overreach/"
   ],
   "2026-W34": [],
-  "2026-W38": []
+  "2026-W38": [
+   "https://adanews.ada.org/ada-news/2026/august/ada-scientific-session-goes-beyond-learning-to-build-in-person-connections/",
+   "https://adanews.ada.org/ada-news/2026/august/ada-urges-nih-to-broaden-measures-of-scientific-impact/",
+   "https://adanews.ada.org/ada-news/2026/august/aetna-resolves-medicare-claims-processing-error-after-ada-push/",
+   "https://adanews.ada.org/ada-news/2026/august/doj-seeks-to-halt-nevada-firms-manufacture-sale-of-dental-products/",
+   "https://adanews.ada.org/ada-news/2026/august/mayo-researchers-seek-insight-into-dentists-antibiotic-prescribing-habits/",
+   "https://adanews.ada.org/ada-news/2026/august/submit-code-change-requests-for-cdt-2028-by-nov-1/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-launches-oral-health-certification-for-community-health-workers/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-opposes-proposed-removal-of-head-start-oral-health-standards/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-urges-nidcr-to-prioritize-prevention-oralsystemic-research-in-next-strategic-plan/",
+   "https://adanews.ada.org/ada-news/2026/september/collaboration-helps-drive-positive-insurance-changes-in-multiple-states/",
+   "https://adanews.ada.org/ada-news/2026/september/house-committee-considers-doc-access-act/",
+   "https://adanews.ada.org/ada-news/2026/september/leadership-through-listening/",
+   "https://adanews.ada.org/ada-news/2026/september/my-view-the-future-of-dentistry-isnt-more-technology-its-more-humanity/",
+   "https://adanews.ada.org/ada-news/2026/september/president-trump-signs-continuing-resolution-maintaining-oral-health-funding/",
+   "https://adanews.ada.org/ada-news/2026/september/september-jada-highlights-product-development-strategies-that-lead-to-clinical-adoption/",
+   "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/"
+  ]
  },
- "runs": 76,
+ "runs": 86,
  "deepest_page": 12
 }

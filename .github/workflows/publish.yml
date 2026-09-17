@@ -208,7 +208,12 @@ jobs:
           # -f porque out/ esta en .gitignore: el registro de publicacion
           # SI tiene que persistir, o un re-run despues de una falla
           # parcial volveria a postear en la plataforma que ya salio.
-          git add data/rotation.json docs || true
+          # data/ada_archive.json es estado, no cache: guarda los 593
+          # articulos vistos, hasta donde llego el crawl y cuales ya se
+          # publicaron. No estaba en esta lista, asi que cada corrida
+          # empezaba con el archivo del repo: la profundidad del crawl se
+          # perdia y el flag `used` de la nota recien publicada tambien.
+          git add data/rotation.json data/ada_archive.json docs || true
           git add -f out/*/published.json || true
           git diff --staged --quiet || git commit -m "content: $(date +%F)"
           git push

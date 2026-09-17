@@ -169,9 +169,124 @@ def probar_alternativas() -> list[str]:
     return []
 
 
+def probar_registro_de_publicados() -> list[str]:
+    """
+    Que publicar una fuente externa quede anotado, o se republica.
+
+    **El bug.** `mark_used_from_folder` —la única función que llama
+    `publish.py`— hacía `pass` para news y paper, con el comentario "su
+    material es externo y no se repite por definición". No era cierto:
+
+    - Quien marcaba el artículo en el archivo de ADA era `mark_used`, que
+      `publish.py` no llama. O sea que `ada_news.mark_published` nunca corrió
+      en producción y el flag `used` —el único filtro que tiene
+      `latest_relevant`— quedó siempre en falso.
+    - Los papers no tenían registro de ningún tipo.
+
+    Medido el 17 de septiembre de 2026: la columna publicada el día anterior
+    seguía en el archivo sin marcar y con score 10,0, el más alto del stock.
+    Era el candidato número uno del turno del viernes.
+
+    Se prueba sobre copias temporales del estado y del archivo: un test no
+    puede escribir en data/.
+    """
+    import json
+    import tempfile
+    from pathlib import Path
+
+    from pipeline import ada_news, plan
+
+    url = "https://www.ada.org/publications/ada-news/2026/una-nota-cualquiera"
+    errs: list[str] = []
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        carpeta = tmp / "2026-09-17-news-123"
+        carpeta.mkdir()
+        (carpeta / "post.json").write_text(json.dumps({
+            "slug": "news-123", "mode": "news", "post_id": "news-123",
+            "source_url": url, "fact_ids": [],
+        }))
+        (tmp / "rotation.json").write_text(json.dumps(
+            {"themes": {}, "facts": {}, "evergreen": {}, "count": 0}))
+        (tmp / "archive.json").write_text(json.dumps(
+            {"articles": {url: {"title": "Una nota", "score": 9.0}},
+             "weeks": {}, "runs": 0, "deepest_page": 0}))
+
+        estado_real, archivo_real = plan.STATE, ada_news.ARCHIVE
+        plan.STATE, ada_news.ARCHIVE = tmp / "rotation.json", tmp / "archive.json"
+        try:
+            plan.mark_used_from_folder(carpeta)
+            estado = json.loads((tmp / "rotation.json").read_text())
+            archivo = json.loads((tmp / "archive.json").read_text())
+        finally:
+            plan.STATE, ada_news.ARCHIVE = estado_real, archivo_real
+
+    if "news-123" not in estado.get("externos", {}):
+        errs.append("publicar una noticia no la anota en 'externos': el "
+                    "mismo artículo puede volver a salir")
+    if not archivo["articles"][url].get("used"):
+        errs.append("publicar una noticia no la marca en el archivo de ADA: "
+                    "latest_relevant la va a volver a ofrecer")
+
+    # Y que el filtro use ese registro. Se prueba la decisión, no la red.
+    estado_con_externos = {"themes": {}, "facts": {}, "evergreen": {},
+                           "count": 0, "externos": {"news-123": "2026-09-17"}}
+    if "news-123" not in set(estado_con_externos.get("externos", {})):
+        errs.append("el estado no expone 'externos' como se espera")
+    return errs
+
+
+def probar_opinion() -> list[str]:
+    """
+    Que una columna de opinión no pueda ser la fuente de un post.
+
+    El post del 16 de septiembre de 2026 salió de "My View: The future of
+    dentistry isn't more technology. It's more humanity": una columna firmada
+    por una persona, sin una sola magnitud verificable, cuya tesis es la
+    contraria a la del post. Pasó el scorer porque dice "technology" y quedó
+    con 10,0 por el multiplicador del bucket "ai".
+
+    Se verifica en los dos momentos, porque el archivo reusa el score viejo:
+    al puntuar y al leer del stock.
+    """
+    from pipeline import ada_news
+
+    casos = [
+        ("https://adanews.ada.org/ada-news/2026/september/my-view-the-future-"
+         "of-dentistry-isnt-more-technology-its-more-humanity/",
+         "My View: The future of dentistry isn't more technology. It's more "
+         "humanity"),
+        ("https://adanews.ada.org/ada-news/2026/june/ada-leaders-pen-editorial",
+         "ADA leaders pen editorial on AI adoption"),
+    ]
+    errs = []
+    for url, titulo in casos:
+        if not ada_news.es_opinion(url, titulo):
+            errs.append(f"no se reconoce como opinión: {titulo[:60]}")
+        art = ada_news.score(ada_news.Article(
+            url=url, title=titulo, summary="", category="Practice",
+            published="2026-09-15", author=""))
+        if art.score > 0:
+            errs.append(f"una columna puntúa {art.score}: {titulo[:50]}")
+
+    # Una noticia real sobre lo mismo NO puede caer en el filtro: un control
+    # que se lleva contenido bueno cuesta más que el que se quería evitar.
+    legitimas = [
+        ("https://adanews.ada.org/ada-news/2026/march/ada-responds-to-hhs-on-"
+         "ai-adoption/", "ADA responds to HHS request on AI adoption in dentistry"),
+        ("https://adanews.ada.org/ada-news/2026/may/interoperability-standards-"
+         "for-dental-imaging/", "New interoperability standards for dental imaging"),
+    ]
+    for url, titulo in legitimas:
+        if ada_news.es_opinion(url, titulo):
+            errs.append(f"falso positivo, es noticia y se descarta: {titulo[:60]}")
+    return errs
+
+
 def main() -> int:
     errores = (probar_noticia() + probar_paper()
-               + probar_presupuesto_caption() + probar_alternativas())
+               + probar_presupuesto_caption() + probar_alternativas()
+               + probar_registro_de_publicados() + probar_opinion())
     if errores:
         print("✗ las fuentes externas no van a poder publicar:\n")
         print("\n".join(f"  {e}" for e in errores))

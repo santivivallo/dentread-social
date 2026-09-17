@@ -255,7 +255,7 @@ def _un_post(kind: str, state: dict, usados: set[str],
             # `saltar` trae los que ya se ofrecieron en esta tanda. Sin esto
             # la fuente devolvía siempre el primer artículo y pedir una
             # alternativa daba el mismo.
-            omitir = saltar or set()
+            omitir = (saltar or set()) | set(state.get("externos", {}))
             for art in list(ada_news.latest_relevant(limit=5)) + \
                     list(ada_news.backlog(year=2026, limit=40)):
                 p = post_from_article(art)
@@ -277,7 +277,10 @@ def _un_post(kind: str, state: dict, usados: set[str],
             n_prev = len(state.get("externos", {}))
             orden = PRESETS_PAPER[n_prev % len(PRESETS_PAPER):] + \
                     PRESETS_PAPER[:n_prev % len(PRESETS_PAPER)]
-            omitir = saltar or set()
+            # `externos` es el registro de lo que ya salió. Para los papers es
+            # el único filtro que hay: PubMed no sabe qué publicó DentRead, y
+            # el mismo preset devuelve el mismo ranking cada semana.
+            omitir = (saltar or set()) | set(state.get("externos", {}))
             for preset in orden:
                 for sp in journals.find(preset=preset, years=1, n=10):
                     if sp.year and int(sp.year) < ANIO_MINIMO:
@@ -380,7 +383,34 @@ def mark_used_from_folder(folder) -> None:
     if datos.get("mode") == "evergreen":
         s["evergreen"][slug] = hoy
     elif datos.get("mode") in ("news", "paper"):
-        pass          # su material es externo y no se repite por definición
+        # Una fuente externa no gasta inventario editorial, pero SÍ hay que
+        # anotar que ya salió.
+        #
+        # Acá había un `pass` con el comentario "su material es externo y no se
+        # repite por definición". Era falso de las dos formas posibles:
+        #
+        # - Quien marca el artículo en el archivo de ADA es `mark_used`, y
+        #   `publish.py` no llama a `mark_used` sino a esta función. O sea que
+        #   `ada_news.mark_published` nunca corrió en producción y el flag
+        #   `used` —el único filtro que tiene `latest_relevant`— quedó siempre
+        #   en falso.
+        # - Los papers no tenían registro de ningún tipo: `journals.find` con
+        #   el mismo preset devuelve el mismo ranking, así que el estudio de
+        #   esta semana es el candidato número uno de la próxima.
+        #
+        # El resultado es que el siguiente turno de noticia podía republicar
+        # exactamente lo mismo, y no se habría notado hasta verlo en el feed.
+        externos = s.setdefault("externos", {})
+        externos[datos.get("post_id") or slug] = hoy
+        url = datos.get("source_url") or ""
+        if datos.get("mode") == "news" and url:
+            try:
+                from pipeline import ada_news
+                ada_news.mark_published(url)
+            except Exception as exc:
+                # No frena la publicación: el post ya salió. Pero se ve.
+                print(f"   [aviso] no se pudo marcar la nota en el archivo "
+                      f"({exc.__class__.__name__}): puede volver a salir")
     else:
         s["themes"][slug] = hoy
         for fid in datos.get("fact_ids", []):

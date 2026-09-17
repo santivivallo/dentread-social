@@ -83,6 +83,12 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
         "caption_es": spec.caption_es, "commentary_en": spec.commentary_en,
         "title_en": spec.title_en, "citations": spec.citations,
         "fact_ids": post.fact_ids(),
+        # El id y la URL de la fuente viajan en el registro porque quien marca
+        # el consumo es `publish.py`, que ve la carpeta y no el Post. Sin esto
+        # una noticia publicada no se podía anotar en el archivo de ADA y el
+        # mismo artículo volvía a ser candidato al turno siguiente.
+        "post_id": post.id,
+        "source_url": post.source_url or "",
         "article_url": f"{site.BASE_URL}/{spec.slug}/",
     }, indent=2, ensure_ascii=False))
 

@@ -96,6 +96,33 @@ EXCLUDE = re.compile(
     re.I,
 )
 
+# Columnas de opinión, editoriales y cartas: no son noticia.
+#
+# El 16 de septiembre de 2026 se publicó un post sacado de "My View: The
+# future of dentistry isn't more technology, it's more humanity". Pasó el
+# scorer justamente porque dice "technology", y multiplicado por 1,25 porque
+# cayó en el bucket "ai".
+#
+# Hay tres problemas, y ninguno se arregla escribiendo mejor el resumen:
+#
+# 1. Una columna no tiene magnitudes verificables. El control de referentes
+#    mide que el texto no invente qué mide una cifra, pero acá no hay cifra:
+#    hay una tesis.
+# 2. La tesis era contraria a la del post. Resumir "el futuro no es más
+#    tecnología" desde una cuenta que vende software es o contradecirse o
+#    tergiversar a la fuente.
+# 3. Firma una persona, no la ADA. Citar "ADA News · Practice" como fuente de
+#    una opinión individual le atribuye a la asociación algo que no dijo.
+#
+# Se filtra por título y URL: ADA News no marca el género en la categoría
+# —"My View" sale como Practice o Science— pero sí lo pone en el slug.
+OPINION = re.compile(
+    r"(\bmy view\b|\bviewpoint\b|\beditorial\b|\bop-?ed\b|\bcommentary\b|"
+    r"\bguest column\b|\bletter to the editor\b|/my-view-|\breflections?\b|"
+    r"\bwhy i \w+|\bwhat i learned\b)",
+    re.I,
+)
+
 # Calibrado contra 20 titulares reales de ADA News (ago 2026).
 # MIN_SCORE es un piso, no el selector: el selector real es `limit` sobre el
 # ranking. Con 3.5 pasan ~35% y solo ~15% superan 5.0.
@@ -237,9 +264,29 @@ def con_cuerpo(article: Article) -> Article:
     return article
 
 
+def es_opinion(url: str, title: str) -> bool:
+    """
+    Si ese artículo es una columna, un editorial o una carta.
+
+    Se pregunta al PUNTUAR y también al LEER del archivo. Lo segundo es lo que
+    importa: el archivo guarda el score calculado en su momento y lo reusa
+    para siempre, así que una regla nueva no toca lo ya archivado. La columna
+    que se publicó el 16 de septiembre está guardada con score 10,0 —el más
+    alto del stock— y sin filtro de lectura habría sido el candidato número
+    uno del turno siguiente igual, con la regla puesta.
+
+    Es la misma lección que dejó el `&#x2019;` que salió en un slide: arreglar
+    solo la captura deja el stock viejo roto.
+    """
+    return bool(OPINION.search(f"{title} {url}"))
+
+
 def score(article: Article) -> Article:
     haystack = f"{article.title} {article.summary} {article.category}"
     if EXCLUDE.search(haystack):
+        article.score = 0.0
+        return article
+    if es_opinion(article.url, article.title):
         article.score = 0.0
         return article
     total, buckets = 0.0, set()
@@ -369,6 +416,8 @@ def latest_relevant(
 
         if url in seen_used or record.get("skipped"):
             continue
+        if es_opinion(url, record.get("title", "")):
+            continue
         if record.get("score", 0) < MIN_SCORE:
             continue
         try:
@@ -455,6 +504,8 @@ def backlog(*, year: int | None = None, limit: int = 20,
     out = []
     for url, a in arch["articles"].items():
         if a.get("used") or a.get("skipped"):
+            continue
+        if es_opinion(url, a.get("title", "")):
             continue
         if a.get("score", 0) < MIN_SCORE:
             continue
