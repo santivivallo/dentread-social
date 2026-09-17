@@ -120,8 +120,14 @@ def _check(spec, kind: str) -> list[str]:
 
     frames = frames_for(spec)
     patron = [f.dark for f in frames]
-    if patron != [True, False, True]:
-        errs.append(f"{kind}: alternancia {patron}, se esperaba oscuro/claro/oscuro")
+    # Lo que el brand guide exige es ALTERNAR, no empezar oscuro.
+    #
+    # Este test pedía exactamente [oscuro, claro, oscuro], así que le puso
+    # candado a la monotonía: en la grilla del perfil solo se ve el frame 1 y
+    # todos los posts daban la misma baldosa oscura. La polaridad de arranque
+    # es una decisión por carrusel según el propio brand guide.
+    if patron[0] == patron[1] or patron[1] == patron[2]:
+        errs.append(f"{kind}: los fondos no alternan: {patron}")
     medio = frames[1].body_html
     if 'class="stats"' not in medio and 'class="points"' not in medio:
         errs.append(f"{kind}: el frame 2 no tiene ni cifras ni puntos")

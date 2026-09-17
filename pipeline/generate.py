@@ -201,6 +201,26 @@ def _tail(text: str) -> str:
     return ". ".join(s.strip() for s in text.split(".")[1:] if s.strip())
 
 
+def _empieza_claro() -> bool:
+    """
+    Alterna la polaridad entre publicaciones, para que la grilla no sea un
+    muro de baldosas iguales.
+
+    Se usa el contador de publicaciones y no un hash del slug: lo que importa
+    es el ORDEN en que se ven en el perfil, y el hash daría variedad sin
+    garantizar que dos vecinas sean distintas.
+
+    Si una corrida genera y no publica, el contador no avanza y la siguiente
+    repite polaridad. Es aceptable: la alternancia que se ve es la de los
+    posts publicados, que son los que están en la grilla.
+    """
+    try:
+        from pipeline.plan import _state
+        return _state().get("count", 0) % 2 == 1
+    except Exception:
+        return False
+
+
 def generate(post: Post) -> PostSpec:
     """
     Un post de datos se construye sobre dos cifras; uno de posicionamiento,
@@ -342,6 +362,7 @@ def generate(post: Post) -> PostSpec:
         title_en=post.title,
         citations=citations,
         mode=post.kind,
+        empieza_claro=_empieza_claro(),
         redaccion=origen_redaccion,
         declarations={
             "has_source": True,
@@ -549,6 +570,7 @@ def _generate_externo(post: Post) -> PostSpec:
         title_en=post.title,
         citations=[f"{etiqueta} — {post.source_url}" if post.source_url else etiqueta],
         mode=post.kind,
+        empieza_claro=_empieza_claro(),
         declarations={
             "has_source": True,
             "model_metrics_documented": False,

@@ -233,10 +233,20 @@ def _br(text: str, max_chars: int = 26) -> str:
 
 def frames_for(spec) -> list[Frame]:
     """
-    PostSpec → 3 frames. Alterna oscuro / claro / oscuro: el brand guide pide
-    alternar, y el slide de datos va en claro porque las tarjetas `.stat`
-    necesitan fondo papel para leerse.
+    PostSpec → 3 frames, alternando fondo.
+
+    El brand guide pide ALTERNAR y deja el punto de partida como decisión por
+    carrusel. Esto estaba fijo en oscuro/claro/oscuro, y la consecuencia no se
+    veía en el carrusel sino en la grilla del perfil: ahí solo se muestra el
+    frame 1 de cada post, así que todos los posts daban la misma baldosa
+    oscura. Santiago lo describió como "el perfil queda muy monótono".
+
+    Con `spec.empieza_claro` la polaridad se invierte y la grilla queda en
+    damero. Las tarjetas `.stat` tienen su variante oscura en el CSS y
+    `tests/test_legibility` mide el contraste en los dos fondos, así que
+    arrancar en claro no cuesta legibilidad.
     """
+    claro = getattr(spec, "empieza_claro", False)
     out: list[Frame] = []
     for s in spec.slides:
         if s.role == "hook":
@@ -244,7 +254,7 @@ def frames_for(spec) -> list[Frame]:
                    if s.stat else "")
             src = f'<div class="src">{_esc(s.source)}</div>' if s.source else ""
             sub = f'<p class="sub">{_esc(s.body)}</p>' if s.body else ""
-            out.append(Frame(s.kicker, True,
+            out.append(Frame(s.kicker, not claro,
                              f'{big}<h1>{_br(s.headline)}</h1>{sub}{src}'))
 
         elif s.role == "data":
@@ -267,7 +277,7 @@ def frames_for(spec) -> list[Frame]:
 
             body = f'<p class="sub">{_esc(s.body)}</p>' if s.body else ""
             src = f'<div class="src">{_esc(s.source)}</div>' if s.source else ""
-            out.append(Frame(s.kicker, False,
+            out.append(Frame(s.kicker, claro,
                              f'<h1>{_br(s.headline)}</h1>{middle}{body}{src}'))
 
         else:                                   # close
@@ -276,7 +286,8 @@ def frames_for(spec) -> list[Frame]:
                 head += f'<br><span class="accent">{_br(s.accent)}</span>'
             chain = f'<div class="chain">{s.chain}</div>' if s.chain else ""
             body = f'<p class="sub">{_esc(s.body)}</p>' if s.body else ""
-            out.append(Frame(s.kicker, True, f'<h1>{head}</h1>{chain}{body}'))
+            out.append(Frame(s.kicker, not claro,
+                             f'<h1>{head}</h1>{chain}{body}'))
     return out
 
 

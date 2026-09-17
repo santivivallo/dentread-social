@@ -155,10 +155,12 @@ def auditar_post(spec: PostSpec, post) -> Auditoria:
         a.hallazgos.append(Hallazgo(
             "frame 2 vacío", 30, "ni cifras ni puntos en el frame del medio"))
 
-    # 8. Alternancia de fondos, del brand guide.
-    if [f.dark for f in frames] != [True, False, True]:
+    # 8. Alternancia de fondos, del brand guide. Lo que pide es ALTERNAR; el
+    #    punto de partida es decisión de cada carrusel.
+    patron = [f.dark for f in frames]
+    if patron[0] == patron[1] or patron[1] == patron[2]:
         a.hallazgos.append(Hallazgo(
-            "alternancia rota", 20, "no es oscuro / claro / oscuro"))
+            "alternancia rota", 20, f"los fondos no alternan: {patron}"))
 
     # 9. Entidades HTML crudas. Salió publicado un "&#x2019;".
     if "&#" in visible or "&amp;" in visible:

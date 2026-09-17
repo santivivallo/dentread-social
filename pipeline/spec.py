@@ -53,3 +53,10 @@ class PostSpec:
     # controles, "curada" si se cayó a la versión del catálogo. Queda en
     # post.json para poder auditar después de qué lado salió cada publicación.
     redaccion: str = "curada"
+
+    # ¿El carrusel arranca en claro? El brand guide trata el punto de partida
+    # como una decisión por carrusel —"define si empieza en claro u oscuro"— y
+    # solo exige ALTERNAR entre frames. Estaba fijo en oscuro, así que la
+    # grilla del perfil era un muro de baldosas idénticas: en el feed solo se
+    # ve el frame 1 de cada post.
+    empieza_claro: bool = False
