@@ -5563,6 +5563,34 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/my-view-what-do-we-own/": {
+   "title": "My View: What do we own?",
+   "published": "2026-09-18",
+   "category": "",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-calls-for-greater-oversight-of-dental-insurance-markets/": {
+   "title": "ADA calls for greater oversight of dental insurance markets",
+   "published": "2026-09-18",
+   "category": "Government",
+   "score": 5.5,
+   "buckets": [
+    "admin",
+    "datos"
+   ],
+   "first_seen": "2026-W38",
+   "used": true
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-governance-evaluation-enters-key-synthesis-stage/": {
+   "title": "ADA governance evaluation enters key synthesis stage",
+   "published": "2026-09-17",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W38"
   }
  },
  "weeks": {
@@ -6169,6 +6197,8 @@
    "https://adanews.ada.org/ada-news/2026/august/doj-seeks-to-halt-nevada-firms-manufacture-sale-of-dental-products/",
    "https://adanews.ada.org/ada-news/2026/august/mayo-researchers-seek-insight-into-dentists-antibiotic-prescribing-habits/",
    "https://adanews.ada.org/ada-news/2026/august/submit-code-change-requests-for-cdt-2028-by-nov-1/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-calls-for-greater-oversight-of-dental-insurance-markets/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-governance-evaluation-enters-key-synthesis-stage/",
    "https://adanews.ada.org/ada-news/2026/september/ada-launches-oral-health-certification-for-community-health-workers/",
    "https://adanews.ada.org/ada-news/2026/september/ada-opposes-proposed-removal-of-head-start-oral-health-standards/",
    "https://adanews.ada.org/ada-news/2026/september/ada-urges-nidcr-to-prioritize-prevention-oralsystemic-research-in-next-strategic-plan/",
@@ -6176,11 +6206,12 @@
    "https://adanews.ada.org/ada-news/2026/september/house-committee-considers-doc-access-act/",
    "https://adanews.ada.org/ada-news/2026/september/leadership-through-listening/",
    "https://adanews.ada.org/ada-news/2026/september/my-view-the-future-of-dentistry-isnt-more-technology-its-more-humanity/",
+   "https://adanews.ada.org/ada-news/2026/september/my-view-what-do-we-own/",
    "https://adanews.ada.org/ada-news/2026/september/president-trump-signs-continuing-resolution-maintaining-oral-health-funding/",
    "https://adanews.ada.org/ada-news/2026/september/september-jada-highlights-product-development-strategies-that-lead-to-clinical-adoption/",
    "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/"
   ]
  },
- "runs": 86,
+ "runs": 98,
  "deepest_page": 12
 }
