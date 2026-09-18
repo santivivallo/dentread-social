@@ -1,0 +1,20 @@
+# El archivo de ADA News tiene dos escritores: el bot en cada publicación y
+# el clon local cada vez que se corren los tests o un preview. Los dos agregan
+# artículos al mismo JSON, así que un `git pull --rebase` choca:
+#
+#     CONFLICT (content): Merge conflict in data/ada_archive.json
+#
+# Elegir un lado pierde datos en los dos sentidos: la versión del bot no tiene
+# lo que vio el crawl local, y la local no tiene la marca `used` de la nota
+# recién publicada — que es justamente el único filtro que evita republicarla.
+#
+# El driver une por clave. Se instala una vez por clon, porque git no permite
+# que un repo traiga consigo un comando de merge ejecutable:
+#
+#     git config merge.ada-archive.driver \
+#         "python3 tools/merge_archive.py %O %A %B"
+data/ada_archive.json merge=ada-archive
+
+# rotation.json lo escribe casi siempre el bot y es chico; si choca, conviene
+# mirarlo a mano antes que unirlo automáticamente: un `count` mal fusionado
+# corre la posición del ciclo y la polaridad de los fondos.
