@@ -84,8 +84,17 @@ gh workflow run publish.yml -f dry_run=true    # ensayo completo en CI
 gh workflow run publish.yml -f dry_run=false   # publicar ahora
 ```
 
-Seis tests corren en CI antes de publicar: `test_generate`, `test_legibility`,
-`test_redaccion`, `test_seleccion`, `test_referentes`, `test_archive`.
+Ocho tests corren en CI antes de publicar: `test_generate`, `test_legibility`,
+`test_redaccion`, `test_seleccion`, `test_referentes`, `test_archive`,
+`test_fuentes_externas`, `test_llm`.
+
+**En un clon nuevo, instalar el driver de merge del archivo de ADA**, o cada
+`git pull` va a chocar en `data/ada_archive.json`: lo escriben el bot en cada
+publicación y el clon local cada vez que corren los tests.
+
+```bash
+git config merge.ada-archive.driver "python3 tools/merge_archive.py %O %A %B"
+```
 
 ---
 
