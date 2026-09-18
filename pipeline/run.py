@@ -46,8 +46,8 @@ def run_guard(spec) -> tuple[bool, list[str]]:
     }
     problems = []
     for label, res in guard.check_post(meta).items():
-        problems += [f"{label}: {f.rule.id} → {f.match}"
-                     for f in res.findings if f.rule.level in ("BLOCK", "REVIEW")]
+        problems += [f"{label}: {f.domain}/{f.strength} → {f.match}"
+                     for f in res.findings if f.level in ("BLOCK", "REVIEW")]
     return (not problems), problems
 
 
