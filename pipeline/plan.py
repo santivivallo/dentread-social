@@ -449,19 +449,68 @@ def mark_used(post: Post) -> None:
 
 
 def inventory() -> dict:
-    """Cuánto contenido queda antes de secarse. La métrica que faltaba."""
+    """
+    Qué queda de cada fuente, y qué mezcla va a salir al feed.
+
+    **Ojo con el nombre que tenía.** Esto devolvía `semanas_de_runway`
+    descrito como "semanas hasta quedarse sin contenido", y lo calculaba solo
+    sobre los hechos curados y los evergreen. Con el banco de cifras agotado
+    marcaba 0,0 semanas, que se lee como "el sistema se seca el lunes".
+
+    No es cierto, y está medido: con 0 temas publicables, `next_posts(6)`
+    devuelve 6 posts. De las cuatro fuentes del CICLO, tres se reponen solas
+    —ADA News tiene 96 artículos publicables en stock, PubMed es ilimitado— y
+    la ranura de datos que no encuentra tema cae a la siguiente del ciclo. El
+    sistema se diseñó así justamente para que no pudiera quedarse sin qué
+    publicar.
+
+    Lo que el número medía de verdad era otra cosa: cuántas semanas quedan de
+    posts DE DATOS antes de que esas ranuras empiecen a caerse. Eso no para el
+    feed, le cambia la mezcla, y la consecuencia real es que 5 de cada 6 posts
+    salen de noticias.
+
+    Un nombre que exagera lo que mide manda a arreglar el problema equivocado:
+    con esto en cero se propuso curar cifras a mano como si fuera urgencia de
+    supervivencia, cuando era una decisión editorial sobre el balance del feed.
+    Así que ahora la clave dice qué mide, y además se informa la mezcla.
+    """
     s = _state()
     facts = load_facts()
     fresh = [f for f in facts if _age(s["facts"].get(f["id"])) >= COOLDOWN_FACT]
     themes = available_themes(s)
+    evergreen = available_evergreen(s)
     return {
         "hechos_totales": len(facts),
         "hechos_disponibles": len(fresh),
         "temas_publicables": len(themes),
-        "evergreen_disponibles": len(available_evergreen(s)),
+        "evergreen_disponibles": len(evergreen),
         "posts_publicados": s.get("count", 0),
-        "semanas_de_runway": _runway(len(themes), len(available_evergreen(s))),
+        "semanas_con_posts_de_datos": _runway(len(themes), len(evergreen)),
+        "mezcla_esperada": _mezcla(len(themes), len(evergreen)),
     }
+
+
+def _mezcla(temas: int, evergreen: int) -> str:
+    """
+    Con qué proporción de cada fuente va a salir el feed esta semana.
+
+    Es la métrica que importa cuando una fuente se agota, porque el ciclo no
+    deja de publicar: redistribuye. Un feed que pasa a ser 5/6 noticias no
+    está roto, pero dejó de ser el que se diseñó, y eso hay que verlo en el
+    `--inventory` y no descubrirlo mirando el perfil.
+    """
+    reparto: dict[str, int] = {}
+    for kind in CICLO:
+        # Una ranura sin material cae a la fuente siguiente del ciclo, que en
+        # la práctica es casi siempre noticias: es la única sin tope.
+        if kind == "data" and temas <= 0:
+            kind = "news"
+        elif kind == "evergreen" and evergreen <= 0:
+            kind = "news"
+        reparto[kind] = reparto.get(kind, 0) + 1
+    total = len(CICLO)
+    return " · ".join(f"{k} {n}/{total}"
+                      for k, n in sorted(reparto.items(), key=lambda x: -x[1]))
 
 
 # Publicaciones por semana. El cron corre lunes, miércoles y viernes.
@@ -476,7 +525,12 @@ def _ritmo(kind: str) -> float:
 
 def _runway(temas: int, evergreen: int) -> float:
     """
-    Semanas hasta quedarse sin contenido, por la restricción que apriete antes.
+    Semanas de posts de datos y evergreen, por la fuente que apriete antes.
+
+    NO es "semanas hasta quedarse sin contenido": las noticias y los papers se
+    reponen solos y una ranura sin material cae a la siguiente del ciclo. Con
+    esto en cero el sistema sigue publicando tres veces por semana; lo que
+    cambia es la mezcla, y eso lo informa `_mezcla`.
 
     Antes era `temas / 2`, un divisor escrito cuando todos los posts salían de
     hechos curados. Desde que CICLO intercala cuatro fuentes, los de datos son

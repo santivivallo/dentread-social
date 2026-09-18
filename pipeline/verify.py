@@ -194,12 +194,20 @@ def check_inventory() -> tuple[bool, list[str]]:
         f"{inv['temas_publicables']} temas publicables · "
         f"{inv['hechos_disponibles']}/{inv['hechos_totales']} hechos disponibles · "
         f"{inv['evergreen_disponibles']} evergreen",
-        f"runway: ~{inv['semanas_de_runway']} semanas al ritmo del ciclo",
+        f"posts de datos: ~{inv['semanas_con_posts_de_datos']} semanas al "
+        f"ritmo del ciclo",
+        f"mezcla esperada: {inv['mezcla_esperada']}",
     ]
-    ok = inv["semanas_de_runway"] >= 4
+    ok = inv["semanas_con_posts_de_datos"] >= 4
     if not ok:
-        notes.append("menos de 4 semanas de contenido: curar más hechos antes "
-                     "de dejarlo automático")
+        # Se nombra la consecuencia real. "Menos de 4 semanas de contenido"
+        # decía que el feed se apaga, y el feed no se apaga: tres de las
+        # cuatro fuentes del ciclo se reponen solas y la ranura sin tema cae
+        # a la siguiente. Lo que se degrada es el balance.
+        notes.append(f"quedan pocas semanas de posts de datos; el feed sigue "
+                     f"publicando con la mezcla {inv['mezcla_esperada']}. "
+                     f"Curar hechos es lo que recupera el balance, no lo que "
+                     f"evita que se detenga")
     return ok, notes
 
 

@@ -126,8 +126,19 @@ def main() -> None:
         inv = plan.inventory()
         for k, v in inv.items():
             print(f"  {k.replace('_', ' '):<24} {v}")
-        if inv["semanas_de_runway"] < 4:
-            print("\n  ⚠ menos de 4 semanas de contenido: curar más hechos")
+        # El aviso dice qué se degrada, no que el sistema se detiene.
+        #
+        # Antes decía "menos de 4 semanas de contenido: curar más hechos", y
+        # con el banco de cifras agotado eso se lee como que el feed se apaga.
+        # No se apaga: la ranura de datos cae a la fuente siguiente y se
+        # publica igual. Lo que se pierde es el balance.
+        if inv["semanas_con_posts_de_datos"] < 4:
+            print(f"\n  ⚠ quedan {inv['semanas_con_posts_de_datos']} semanas "
+                  f"de posts de datos. El feed NO se detiene: las ranuras sin "
+                  f"tema caen a noticias.")
+            print(f"    Mezcla que va a salir: {inv['mezcla_esperada']}")
+            print(f"    Para recuperar el balance hay que curar hechos "
+                  f"nuevos en data/facts.json.")
         return
 
     if args.theme:
@@ -207,7 +218,8 @@ def main() -> None:
     inv = plan.inventory()
     print(f"[inventario] {inv['temas_publicables']} temas · "
           f"{inv['hechos_disponibles']}/{inv['hechos_totales']} hechos · "
-          f"~{inv['semanas_de_runway']} semanas de runway")
+          f"~{inv['semanas_con_posts_de_datos']} semanas de posts de datos · "
+          f"{inv['mezcla_esperada']}")
     if not made:
         sys.exit(1)
 
