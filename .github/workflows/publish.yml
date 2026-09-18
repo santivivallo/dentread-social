@@ -94,6 +94,12 @@ jobs:
       - name: Test referents
         run: python -m tests.test_referentes
 
+      # Que una saturacion del proveedor no se lleve el post del dia. El 17 de
+      # septiembre dos de tres candidatos murieron con un 503 que el propio
+      # mensaje describia como temporal, y la corrida termino 0/1.
+      - name: Test model client
+        run: python -m tests.test_llm
+
       # Relevancia de ADA News y el aro del resumen: que la copia literal y
       # los claims clinicos se descarten sigue siendo cierto.
       - name: Test sources

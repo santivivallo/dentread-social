@@ -27,6 +27,7 @@ curados. Nunca se cae una publicación por esto.
 from __future__ import annotations
 
 import os
+import time
 
 import requests
 
@@ -67,11 +68,50 @@ MODELO_POR_DEFECTO = "gemini-flash-latest"
 
 TIMEOUT = 40
 
+# Reintentos ante fallas de capacidad, no de programación.
+#
+# **Medido el 17 de septiembre de 2026.** Tres candidatos de noticia murieron
+# en la misma corrida y dos con el mismo motivo:
+#
+#   [info] el modelo respondió 503: "This model is currently experiencing
+#   high demand. Spikes in demand are usually temporary. Please try again…"
+#
+# El propio mensaje dice que es temporal y el código se daba por vencido al
+# primer intento. Resultado: 0/1 posts, `pipeline.run` termina en rojo y el
+# día se pierde. Nada estaba roto: el proveedor estaba ocupado quince
+# segundos.
+#
+# Solo se reintenta lo que tiene sentido reintentar. Un 401 o un 404 de modelo
+# inexistente no mejora esperando, y reintentarlos solo retrasa el
+# diagnóstico. 429 y 5xx sí: son cola, no error.
+REINTENTABLES = {429, 500, 502, 503, 504}
+ESPERAS = (2, 6, 15)          # segundos; el sistema hace ~3 llamadas/semana
+
+# Si el modelo sigue saturado, se prueba otro.
+#
+# Un 503 es capacidad DE ESE modelo, así que cambiarlo suele alcanzar donde
+# esperar no alcanza. Se dejan en orden de preferencia y se saltan los que
+# repitan el modelo configurado.
+MODELOS_DE_RESERVA = ("gemini-2.5-flash", "gemini-2.0-flash",
+                      "gemini-flash-lite-latest")
+
 
 # Motivo del último fallo, para que quien diagnostica no tenga que ir a
 # buscarlo entre la salida del pipeline. Se guarda acá, en el único lugar que
 # sabe qué pasó de verdad.
 ultimo_error: str = ""
+
+# Si el proveedor ya se dio por muerto en esta corrida, no se insiste.
+#
+# El techo de tiempo importa: `redaccion` pide hasta 4 candidatos por post y
+# el ciclo prueba hasta 3 posts. Reintentar cada llamada contra 4 modelos son
+# ~90 s de espera, y multiplicado por una docena de llamadas se pasa de los 15
+# minutos del workflow. Reintentar sirve contra un pico de demanda; contra un
+# proveedor caído solo consume el presupuesto de la corrida.
+#
+# Así el costo de un proveedor caído es una espera de 90 s por corrida, no por
+# llamada, y todo lo demás sale con el texto curado.
+_agotado: bool = False
 
 
 def endpoint() -> str:
@@ -125,12 +165,16 @@ def pedir(reglas: str, contenido: str, *, json_mode: bool = False,
     una corrida es deliberado: el contenido de reserva siempre existe, así que
     un proveedor caído tiene que degradar la calidad, no la publicación.
     """
-    global ultimo_error
+    global ultimo_error, _agotado
     ultimo_error = ""
 
     clave = os.environ.get("LLM_API_KEY")
     if not clave:
         ultimo_error = "falta LLM_API_KEY"
+        return None
+
+    if _agotado:
+        ultimo_error = "el proveedor ya se dio por caído en esta corrida"
         return None
 
     cuerpo = {
@@ -148,44 +192,101 @@ def pedir(reglas: str, contenido: str, *, json_mode: bool = False,
     if json_mode:
         cuerpo["response_format"] = {"type": "json_object"}
 
-    try:
-        r = requests.post(endpoint(),
-                          headers={"Authorization": f"Bearer {clave}",
-                                   "Content-Type": "application/json"},
-                          json=cuerpo, timeout=TIMEOUT)
-        if not r.ok:
+    # Modelos a probar: el configurado primero, las reservas después. Solo se
+    # baja de modelo si el primero devuelve fallas de capacidad.
+    candidatos = [modelo()] + [m for m in MODELOS_DE_RESERVA if m != modelo()]
+
+    for n_modelo, nombre in enumerate(candidatos):
+        cuerpo["model"] = nombre
+        if n_modelo:
+            print(f"   [info] se prueba con {nombre}")
+
+        for intento in range(len(ESPERAS) + 1):
+            r, exc = _llamar(cuerpo, clave)
+
+            if exc is not None:
+                # Timeout o corte de conexión: también es transitorio.
+                ultimo_error = f"{exc.__class__.__name__}: {exc}"
+                if intento < len(ESPERAS):
+                    espera = ESPERAS[intento]
+                    print(f"   [info] falló la llamada "
+                          f"({exc.__class__.__name__}); se reintenta en "
+                          f"{espera} s")
+                    time.sleep(espera)
+                    continue
+                print(f"   [info] falló la llamada al modelo "
+                      f"({exc.__class__.__name__}); se usa el texto curado")
+                break
+
+            if r.ok:
+                try:
+                    datos = r.json()
+                except ValueError as err:
+                    ultimo_error = f"respuesta no es JSON: {err}"
+                    print(f"   [info] {ultimo_error}; se usa el texto curado")
+                    return None
+                texto, motivo = _texto_de(datos)
+                if texto is None:
+                    ultimo_error = motivo
+                    print(f"   [info] {motivo}; se usa el texto curado")
+                return texto
+
             # El cuerpo del error dice mucho más que el código: modelo
             # inexistente, cuota agotada, clave sin permisos. Se recorta y se
             # imprime, porque diagnosticar esto a ciegas costó una semana.
             detalle = (r.text or "")[:300].replace("\n", " ")
             ultimo_error = f"HTTP {r.status_code}: {detalle}"
-            print(f"   [info] el modelo respondió {r.status_code}: {detalle[:160]}")
+
             # `reasoning_effort` es reciente; si el proveedor lo rechaza, se
             # reintenta sin él antes de darse por vencido.
             if r.status_code == 400 and "reasoning_effort" in cuerpo:
+                print(f"   [info] el proveedor rechaza reasoning_effort; "
+                      f"se reintenta sin eso")
                 del cuerpo["reasoning_effort"]
-                r = requests.post(endpoint(),
-                                  headers={"Authorization": f"Bearer {clave}",
-                                           "Content-Type": "application/json"},
-                                  json=cuerpo, timeout=TIMEOUT)
-                if not r.ok:
-                    ultimo_error = (f"HTTP {r.status_code} incluso sin "
-                                    f"reasoning_effort: "
-                                    f"{(r.text or '')[:250]}")
-                    return None
-            else:
-                return None
+                continue
 
-        texto, motivo = _texto_de(r.json())
-        if texto is None:
-            ultimo_error = motivo
-            print(f"   [info] {motivo}; se usa el texto curado")
-        return texto
-    except (requests.RequestException, ValueError) as exc:
-        ultimo_error = f"{exc.__class__.__name__}: {exc}"
-        print(f"   [info] falló la llamada al modelo "
-              f"({exc.__class__.__name__}); se usa el texto curado")
+            if r.status_code in REINTENTABLES and intento < len(ESPERAS):
+                # Si el proveedor dice cuánto esperar, se le cree.
+                espera = _retry_after(r) or ESPERAS[intento]
+                print(f"   [info] el modelo respondió {r.status_code} "
+                      f"(saturado); se reintenta en {espera} s")
+                time.sleep(espera)
+                continue
+
+            print(f"   [info] el modelo respondió {r.status_code}: "
+                  f"{detalle[:160]}")
+            if r.status_code in REINTENTABLES:
+                break            # se agotaron los intentos: probar otro modelo
+            return None          # 401, 404: esperar no lo arregla
+
+    # Todos los modelos saturados o inalcanzables: el resto de la corrida sale
+    # con el texto curado, sin volver a pagar la espera.
+    _agotado = True
+    print("   [info] el proveedor no responde con ningún modelo; el resto de "
+          "la corrida usa el texto curado")
+    return None
+
+
+def _llamar(cuerpo: dict, clave: str):
+    """Una sola llamada. Devuelve (respuesta, None) o (None, excepción)."""
+    try:
+        return requests.post(endpoint(),
+                             headers={"Authorization": f"Bearer {clave}",
+                                      "Content-Type": "application/json"},
+                             json=cuerpo, timeout=TIMEOUT), None
+    except requests.RequestException as exc:
+        return None, exc
+
+
+def _retry_after(r) -> int | None:
+    """Los segundos que pide el proveedor, si los pide y son razonables."""
+    try:
+        segundos = int(float(r.headers.get("Retry-After", "")))
+    except (TypeError, ValueError):
         return None
+    # Un Retry-After de media hora no sirve: la corrida tiene 15 minutos de
+    # techo. En ese caso conviene bajar de modelo.
+    return segundos if 0 < segundos <= 30 else None
 
 
 def modelos_disponibles(limite: int = 12) -> list[str]:
