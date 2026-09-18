@@ -26,7 +26,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from pipeline import plan, site
+from pipeline import bitacora, plan, site
 from pipeline.generate import SinMaterial, generate
 from pipeline.plan import Post
 from pipeline import render_html
@@ -58,6 +58,8 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
     try:
         spec = generate(post)
     except SinMaterial as exc:
+        bitacora.anotar("candidato_descartado", kind=post.kind, id=post.id,
+                        motivo="sin_material", detalle=str(exc)[:200])
         # No es un fallo: esa fuente no tiene con qué hoy. Sale como aviso y
         # el ciclo prueba la siguiente, igual que cuando ADA no publicó nada
         # relevante. Antes esto no existía y una noticia sin resumen salía
@@ -65,11 +67,15 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
         print(f"   SIN MATERIAL · {exc}")
         return None
     except ValueError as exc:
+        bitacora.anotar("candidato_descartado", kind=post.kind, id=post.id,
+                        motivo="aborta", detalle=str(exc)[:200])
         print(f"   ABORTA · {exc}")
         return None
 
     ok, problems = run_guard(spec)
     if not ok:
+        bitacora.anotar("candidato_descartado", kind=post.kind, id=post.id,
+                        motivo="guard", detalle="; ".join(problems)[:300])
         for p in problems:
             print(f"   BLOQUEADO · {p}")
         return None
@@ -107,6 +113,9 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
     # sale de verdad. Generar y publicar son cosas distintas, y atarlas hizo
     # que probar el sistema lo dejara sin contenido.
 
+    bitacora.anotar("post_generado", kind=post.kind, id=post.id,
+                    slug=spec.slug, modo=spec.mode,
+                    redaccion=spec.redaccion)
     print(f"   OK · {len(spec.slides)} slides → {folder}")
     print(f"        página → {page}")
     return folder
@@ -211,6 +220,12 @@ def main() -> None:
     # de una publicación anterior.
     if made and not args.preview:
         (OUT / ".ultimo").write_text(f"{made[-1]}\n")
+
+    # Cómo terminó la corrida y quién la disparó. Es la métrica de costo que
+    # no aparece en ningún lado: un sistema que necesita que alguien lo empuje
+    # no es automático, y eso hoy solo se sabe recordándolo.
+    bitacora.anotar("corrida", pedidos=args.slots, listos=len(made),
+                    descartados=descartados, preview=bool(args.preview))
 
     print(f"\n[resumen] {len(made)}/{args.slots} listos")
     for f in made:

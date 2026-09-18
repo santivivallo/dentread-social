@@ -219,7 +219,12 @@ jobs:
           # publicaron. No estaba en esta lista, asi que cada corrida
           # empezaba con el archivo del repo: la profundidad del crawl se
           # perdia y el flag `used` de la nota recien publicada tambien.
-          git add data/rotation.json data/ada_archive.json docs || true
+          # data/bitacora.jsonl es el registro que lee la revision quincenal.
+          # Si no se commitea, los descartes y las llamadas al modelo se van
+          # con el runner y la revision no tiene nada que medir: exactamente
+          # el mismo error que dejaba caer el flag `used` del archivo de ADA.
+          git add data/rotation.json data/ada_archive.json \
+                  data/bitacora.jsonl docs || true
           git add -f out/*/published.json || true
           git diff --staged --quiet || git commit -m "content: $(date +%F)"
           git push

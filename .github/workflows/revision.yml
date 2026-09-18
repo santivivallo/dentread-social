@@ -1,0 +1,90 @@
+name: revision
+
+# Revision quincenal del sistema de contenido.
+#
+# Por que separada de publish.yml: publicar y revisar tienen riesgos
+# distintos. Un fallo de la revision no puede impedir una publicacion, y una
+# revision no deberia esperar a que haya algo que publicar. Ademas esto no
+# toca ningun secreto: solo lee archivos del repo.
+#
+# Costo: no llama a ningun modelo (tools.revision corre con llm.sin_modelo) y
+# tarda menos de un segundo. El unico gasto es el runner, que en repo publico
+# es gratis.
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      dias:
+        description: "Ventana en dias"
+        required: false
+        default: "14"
+  schedule:
+    # GitHub cron no sabe hacer "cada dos semanas": no hay expresion para eso.
+    # Asi que corre todos los lunes a las 11:00 ET y el propio job se sale
+    # temprano en las semanas impares. El numero de semana ISO es estable y no
+    # depende de cuando se instalo esto.
+    - cron: "0 15 * * 1"
+
+jobs:
+  revision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4          # TODO: pinear por SHA
+        with:
+          persist-credentials: true
+
+      - name: Semana par?
+        id: cuando
+        run: |
+          SEMANA=$(date -u +%V)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "corre=si" >> "$GITHUB_OUTPUT"
+          elif [ $((10#$SEMANA % 2)) -eq 0 ]; then
+            echo "corre=si" >> "$GITHUB_OUTPUT"
+          else
+            echo "corre=no" >> "$GITHUB_OUTPUT"
+            echo "::notice::Semana $SEMANA es impar; la revision es quincenal"
+          fi
+
+      - uses: actions/setup-python@v5      # TODO: pinear por SHA
+        if: steps.cuando.outputs.corre == 'si'
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        if: steps.cuando.outputs.corre == 'si'
+        run: pip install -r requirements.txt
+
+      # El script devuelve 1 cuando hay hallazgos de severidad alta. Eso es
+      # informacion, no un fallo del workflow: la corrida tiene que terminar
+      # verde y dejar el informe igual. Frenarla no arregla nada y enseña a
+      # ignorar el rojo.
+      - name: Revisar
+        if: steps.cuando.outputs.corre == 'si'
+        continue-on-error: true
+        run: |
+          python -m tools.revision \
+            --dias "${{ inputs.dias || 14 }}" --escribir | tee /tmp/informe.md
+
+      # El informe entero queda en el resumen de la corrida, para poder leerlo
+      # sin clonar el repo.
+      - name: Resumen
+        if: steps.cuando.outputs.corre == 'si'
+        run: cat /tmp/informe.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar el informe
+        if: steps.cuando.outputs.corre == 'si'
+        run: |
+          git config user.name "dentread-bot"
+          git config user.email "bot@dentread.app"
+          git add informes || true
+          git diff --staged --quiet || git commit -m "revision: $(date +%F)"
+          # El bot publica en paralelo desde publish.yml, asi que se rebasea
+          # antes de empujar en vez de fallar.
+          git pull --rebase --autostash || true
+          git push

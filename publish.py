@@ -209,8 +209,10 @@ def main() -> None:
     #
     # En dry-run no se marca: un ensayo no gasta contenido.
     if not args.dry_run and results:
-        from pipeline import plan
+        from pipeline import bitacora, plan
         plan.mark_used_from_folder(folder)
+        bitacora.anotar("publicado", carpeta=str(folder),
+                        plataformas=sorted(results), resultados=results)
         print("[ok] inventario actualizado")
 
     ping_healthcheck(args.dry_run)

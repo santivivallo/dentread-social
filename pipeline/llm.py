@@ -156,8 +156,63 @@ def _texto_de(datos: dict) -> tuple[str | None, str]:
     return None, f"respuesta vacía (finish_reason={razon})"
 
 
-def pedir(reglas: str, contenido: str, *, json_mode: bool = False,
-          temperatura: float = 0.3, max_tokens: int = 1500) -> str | None:
+def pedir(reglas: str, contenido: str, **kw) -> str | None:
+    """
+    Una llamada, anotada en la bitácora. Devuelve el texto o None.
+
+    El registro existe para que la revisión quincenal pueda medir si el
+    proveedor está rindiendo, en vez de deducirlo de los logs de CI —que se
+    borran. La diferencia entre "el modelo no responde" y "no hay material"
+    es lo que hizo perder un mes de noticias.
+    """
+    if _desactivado or not os.environ.get("LLM_API_KEY"):
+        # No se anota: no hubo intento. Anotar los no-intentos inflaba la tasa
+        # de fallo del proveedor con corridas que nunca lo tocaron, y esa tasa
+        # es justamente lo que decide si hay que cambiar de modelo.
+        return _pedir(reglas, contenido, **kw)
+
+    texto = _pedir(reglas, contenido, **kw)
+    try:
+        from pipeline import bitacora
+        bitacora.anotar("llamada_modelo", ok=texto is not None,
+                        modelo=modelo(), motivo=ultimo_error[:160])
+    except Exception:
+        pass
+    return texto
+
+
+# Apagado explícito, para las herramientas que tienen que correr sin costo.
+#
+# `tools.revision` audita los 26 posts cada quincena. Con el modelo prendido
+# eso son 26 llamadas y, si el proveedor está saturado, cuatro rondas de
+# reintentos cada una. Y hay una razón más fuerte que el costo: el modelo
+# escribe distinto cada vez, así que un promedio medido con su texto mezcla el
+# estado del sistema con la varianza del modelo. Con el texto curado, comparar
+# dos quincenas mide lo que cambió en el código.
+#
+# Antes esto se hacía sacando LLM_API_KEY del entorno a mano. Funcionaba a
+# medias y dejaba el sistema en un estado raro: "no hay clave" y "no quiero
+# usar el modelo" son cosas distintas y conviene que el código las distinga.
+_desactivado: bool = False
+
+
+class sin_modelo:
+    """Bloque donde `pedir` devuelve None sin salir a la red."""
+
+    def __enter__(self):
+        global _desactivado
+        self.antes = _desactivado
+        _desactivado = True
+        return self
+
+    def __exit__(self, *exc):
+        global _desactivado
+        _desactivado = self.antes
+        return False
+
+
+def _pedir(reglas: str, contenido: str, *, json_mode: bool = False,
+           temperatura: float = 0.3, max_tokens: int = 1500) -> str | None:
     """
     Una llamada. Devuelve el texto o None, nunca levanta.
 
@@ -171,6 +226,10 @@ def pedir(reglas: str, contenido: str, *, json_mode: bool = False,
     clave = os.environ.get("LLM_API_KEY")
     if not clave:
         ultimo_error = "falta LLM_API_KEY"
+        return None
+
+    if _desactivado:
+        ultimo_error = "modelo apagado a propósito (llm.sin_modelo)"
         return None
 
     if _agotado:

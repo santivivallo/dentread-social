@@ -15,8 +15,18 @@ Esto recorre los dos.
 from __future__ import annotations
 
 import sys
+import tempfile
+from pathlib import Path
 
-from pipeline import plan
+from pipeline import bitacora, plan
+
+# Este test genera los 26 posts posibles, y generar llama al modelo. Son
+# llamadas legítimas —se está probando el camino real— pero no son producción:
+# si se anotaran en la bitácora real, la revisión quincenal contaría los
+# intentos de los tests como intentos del sistema e inflaría la tasa de fallo
+# del proveedor, que es justo el número que decide si hay que cambiar de
+# modelo.
+bitacora.RUTA = Path(tempfile.gettempdir()) / "bitacora-de-prueba.jsonl"
 from pipeline.generate import N_SLIDES, generate
 from pipeline.render_html import frames_for
 

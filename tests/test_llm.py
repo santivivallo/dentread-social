@@ -27,8 +27,15 @@ cliente ante cada código.
 from __future__ import annotations
 
 import sys
+import tempfile
+from pathlib import Path
 
-from pipeline import llm
+from pipeline import bitacora, llm
+
+# Un test no escribe en la bitácora real: sus 8 llamadas falsas ensuciarían
+# la revisión quincenal, que cuenta exactamente eso para saber si el
+# proveedor está rindiendo.
+bitacora.RUTA = Path(tempfile.gettempdir()) / "bitacora-de-prueba.jsonl"
 
 
 class Respuesta:

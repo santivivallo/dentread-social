@@ -15,6 +15,12 @@
 #         "python3 tools/merge_archive.py %O %A %B"
 data/ada_archive.json merge=ada-archive
 
+# La bitácora es append-only, una línea por evento, así que acá el merge por
+# líneas de git SÍ es la semántica correcta: la unión de los eventos de los
+# dos lados es exactamente lo que se quiere. Es al revés que el archivo de
+# ADA, donde unir por líneas rompe el JSON.
+data/bitacora.jsonl merge=union
+
 # rotation.json lo escribe casi siempre el bot y es chico; si choca, conviene
 # mirarlo a mano antes que unirlo automáticamente: un `count` mal fusionado
 # corre la posición del ciclo y la polaridad de los fondos.
