@@ -187,9 +187,53 @@ def probar_caminos_de_construccion() -> list[str]:
     return errs
 
 
+def probar_camino_bloqueado() -> list[str]:
+    """
+    Que `run_guard` sepa leer un hallazgo del guard.
+
+    **El bug que esto habría evitado**, arreglado por Santi el 18 de
+    septiembre de 2026 en 190e702: `run_guard` armaba el mensaje con
+    `f.rule.id` y `f.rule.level`, y `Finding` no tiene `.rule` — tiene
+    `level`, `domain`, `strength`, `match`. O sea que el camino de bloqueo
+    levantaba AttributeError en vez de bloquear.
+
+    Nunca se notó porque **solo se recorre cuando un post tiene un hallazgo**,
+    y los posts del catálogo están limpios. El control que existe para frenar
+    contenido riesgoso se rompía justo en el momento de frenarlo, y la corrida
+    habría muerto con un error que no dice nada del claim.
+
+    Es el mismo patrón que el `NameError` de evergreen: un camino que nadie
+    probó a mano. Así que acá se fuerza un hallazgo con texto que el guard
+    tiene que marcar, y se verifica que devuelva el problema como string.
+    """
+    from pipeline.run import run_guard
+
+    class Falso:
+        # Un claim diagnóstico sin FDA clearance es exactamente lo que el
+        # guard existe para atajar.
+        caption_es = ("DentRead diagnostica caries con 99% de precisión y "
+                      "reemplaza al dentista. 🦷 #DentRead")
+        commentary_en = ("DentRead diagnoses caries with 99% accuracy and "
+                         "replaces the dentist.")
+        title_en = "DentRead diagnoses caries"
+        declarations: dict = {}
+
+    try:
+        ok, problemas = run_guard(Falso())
+    except AttributeError as exc:
+        return [f"run_guard no sabe leer un hallazgo del guard: {exc}"]
+    if ok:
+        return ["un claim diagnóstico con cifra de precisión no fue "
+                "bloqueado: revisar publisher/guard"]
+    if not all(isinstance(p, str) and p.strip() for p in problemas):
+        return [f"run_guard devolvió problemas no imprimibles: {problemas}"]
+    return []
+
+
 def main() -> int:
     state = {"themes": {}, "facts": {}, "evergreen": {}, "count": 0}
-    errors: list[str] = probar_caminos_de_construccion()
+    errors: list[str] = (probar_caminos_de_construccion()
+                         + probar_camino_bloqueado())
     tested = 0
     # El cierre es lo único que hace distinto a un post del siguiente cuando
     # el lector ya deslizó dos frames. Si se repite, el carrusel se vuelve
