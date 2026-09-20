@@ -223,8 +223,11 @@ jobs:
           # Si no se commitea, los descartes y las llamadas al modelo se van
           # con el runner y la revision no tiene nada que medir: exactamente
           # el mismo error que dejaba caer el flag `used` del archivo de ADA.
+          # data/pubmed_archive.json es la memoria de la literatura vista:
+          # PubMed no recuerda nada entre consultas, y sin commitearlo el
+          # motivo por el que se descarta cada estudio se va con el runner.
           git add data/rotation.json data/ada_archive.json \
-                  data/bitacora.jsonl docs || true
+                  data/pubmed_archive.json data/bitacora.jsonl docs || true
           git add -f out/*/published.json || true
           git diff --staged --quiet || git commit -m "content: $(date +%F)"
           git push

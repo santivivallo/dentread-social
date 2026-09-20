@@ -136,19 +136,49 @@ def _auditoria() -> tuple[float, int]:
     return round(sum(puntajes) / len(puntajes), 1), sum(1 for p in puntajes if p < piso)
 
 
-def _stock_noticias() -> int:
-    """Cuántos artículos de ADA quedan publicables, sin salir a la red."""
+def _stock_noticias(anio: int | None = None) -> int:
+    """
+    Cuántos artículos de ADA quedan publicables, sin salir a la red.
+
+    **Filtra por año, y eso es la mitad del número.** La primera versión de
+    esto contaba todo el archivo y reportaba 155 artículos publicables. El
+    consumidor real (`plan._un_post`, vía `backlog`) solo sirve los del año en
+    curso, y de 2026 hay 58: el archivo tiene además 382 de 2025 y 40 de 2024,
+    que el deep crawl trajo y que nunca se van a publicar.
+
+    O sea que la métrica sobrestimaba el stock 2,7 veces. Una métrica de
+    inventario que cuenta lo que el sistema no puede usar es peor que no
+    tenerla, porque da tranquilidad falsa sobre la fuente que hoy sostiene el
+    feed entero.
+    """
     try:
-        from pipeline import ada_news
+        from pipeline import ada_news, plan
+        anio = anio or plan.anio_minimo()
         arch = ada_news.load_archive()
         return sum(
             1 for url, a in arch["articles"].items()
             if not a.get("used") and not a.get("skipped")
             and a.get("score", 0) >= ada_news.MIN_SCORE
             and not ada_news.es_opinion(url, a.get("title", ""))
+            and str(a.get("published", "")).startswith(str(anio))
         )
     except Exception:
         return -1
+
+
+def _stock_papers() -> dict:
+    """Qué vio el archivo de PubMed y por qué descartó. Puede estar vacío."""
+    try:
+        from pipeline import journals
+        est = journals.cargar()["estudios"]
+        motivos: dict[str, int] = {}
+        for e in est.values():
+            clave = (e.get("descartado") or "publicable").split(":")[0]
+            motivos[clave] = motivos.get(clave, 0) + 1
+        return {"vistos": len(est), "motivos": motivos,
+                "publicados": sum(1 for e in est.values() if e.get("used"))}
+    except Exception:
+        return {"vistos": 0, "motivos": {}, "publicados": 0}
 
 
 def medir(dias: int) -> dict:
@@ -182,6 +212,8 @@ def medir(dias: int) -> dict:
         "auditoria_promedio": promedio,
         "auditoria_bajo_piso": bajo_piso,
         "stock_noticias": _stock_noticias(),
+        "stock_noticias_anio_proximo": _stock_noticias(date.today().year + 1),
+        "papers_en_archivo": _stock_papers(),
         "semanas_con_posts_de_datos": inv["semanas_con_posts_de_datos"],
         "mezcla_esperada": inv["mezcla_esperada"],
         "temas_publicables": inv["temas_publicables"],
@@ -272,6 +304,41 @@ def hallazgos(m: dict, previo: dict | None) -> list[tuple[str, str, str]]:
                   "El crawl entra una página más por corrida; si no crece, "
                   "revisar MAX_PAGES y el piso MIN_SCORE."))
 
+    # El cambio de año. La ventana editorial es el año en curso, así que el 1
+    # de enero el stock publicable se reinicia. Avisar en enero es tarde: la
+    # decisión (ensanchar la ventana o aceptar menos noticias) se toma en
+    # diciembre, con el número delante.
+    if date.today().month >= 11:
+        h.append(("alto" if m["stock_noticias_anio_proximo"] < 5 else "medio",
+                  f"Cambia el año editorial en "
+                  f"{(date(date.today().year + 1, 1, 1) - date.today()).days} "
+                  f"días y hay {m['stock_noticias_anio_proximo']} artículos "
+                  f"publicables de {date.today().year + 1} contra "
+                  f"{m['stock_noticias']} del año en curso.",
+                  "Al 1 de enero el stock se reinicia. Decidir ahora: "
+                  "ensanchar la ventana a dos años en plan.anio_minimo(), o "
+                  "aceptar menos noticias en enero y compensar con papers y "
+                  "evergreen."))
+
+    papers = m["papers_en_archivo"]
+    if papers["vistos"]:
+        cuello = max((k for k in papers["motivos"] if k != "publicable"),
+                     key=lambda k: papers["motivos"][k], default="")
+        if cuello and not papers["publicados"]:
+            h.append(("medio",
+                      f"El archivo de PubMed vio {papers['vistos']} estudios "
+                      f"y publicó 0. Motivo dominante de descarte: "
+                      f"{cuello} ({papers['motivos'][cuello]}).",
+                      "Si el cuello es la allowlist de revistas, "
+                      "python -m pipeline.journals --archivo lista las "
+                      "revistas rechazadas más frecuentes."))
+    elif plan.CICLO.count("paper"):
+        h.append(("info",
+                  "El archivo de PubMed está vacío: se instaló el 20-sep y se "
+                  "llena en la primera corrida que toque un turno de paper.",
+                  "Hasta entonces no hay forma de saber por qué los papers no "
+                  "publican."))
+
     if m["corridas_a_mano"] > m["corridas_por_cron"] and m["corridas"]:
         h.append(("medio",
                   f"{m['corridas_a_mano']} corridas disparadas a mano contra "
@@ -312,6 +379,7 @@ def informe(m: dict, h: list, previo: dict | None) -> str:
               "llamadas_modelo", "llamadas_fallidas", "corridas",
               "corridas_a_mano", "corridas_por_cron", "auditoria_promedio",
               "auditoria_bajo_piso", "stock_noticias",
+              "stock_noticias_anio_proximo", "papers_en_archivo",
               "semanas_con_posts_de_datos", "mezcla_esperada",
               "temas_publicables"):
         l.append(f"| {k.replace('_', ' ')} | {m[k]} |")

@@ -15,6 +15,12 @@
 #         "python3 tools/merge_archive.py %O %A %B"
 data/ada_archive.json merge=ada-archive
 
+# Mismo driver: el archivo de PubMed tiene la misma forma con otros nombres
+# de clave (`estudios` en vez de `articles`), y el driver une por clave sin
+# saber qué archivo es. Escribir uno por archivo garantizaba que el tercero se
+# olvidara.
+data/pubmed_archive.json merge=ada-archive
+
 # La bitácora es append-only, una línea por evento, así que acá el merge por
 # líneas de git SÍ es la semántica correcta: la unión de los eventos de los
 # dos lados es exactamente lo que se quiere. Es al revés que el archivo de

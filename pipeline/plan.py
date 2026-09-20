@@ -45,9 +45,27 @@ CICLO = ("data", "news", "evergreen", "paper", "data", "news")
 # alternativa no alcanza cuando hay cientos de artículos disponibles.
 ALTERNATIVAS_EXTERNAS = 3
 
-# Ventana editorial: noticias y literatura, solo de 2026. Un artículo de 2025
-# se lee como archivo y contradice que la cobertura crezca semana a semana.
-ANIO_MINIMO = 2026
+# Ventana editorial: noticias y literatura, solo del año en curso. Un artículo
+# del año pasado se lee como archivo y contradice que la cobertura crezca
+# semana a semana.
+#
+# **Era una constante con 2026 escrito a mano, y eso es una bomba de tiempo
+# con fecha conocida.** El 1 de enero de 2027 el sistema habría seguido
+# sirviendo stock de 2026 como si fuera del año en curso, y no habría mirado
+# un solo artículo de 2027: contenido cada vez más viejo, sin un error, sin un
+# aviso, exactamente el modo de falla que dejó el feed un mes sin noticias.
+#
+# Ahora se calcula. La política no cambia —sigue siendo solo el año en curso—
+# pero el cambio de año deja de depender de que alguien se acuerde.
+#
+# El costo de esto es visible y hay que decirlo: al 1 de enero el stock
+# publicable cae de golpe a los artículos del año nuevo, que el 1 de enero son
+# casi cero. Por eso `tools.revision` avisa en noviembre y diciembre cuántos
+# artículos hay para el año siguiente: la decisión de ensanchar la ventana o
+# de aceptar menos noticias en enero es editorial, y conviene tomarla en
+# diciembre con el número delante, no descubrirla en enero.
+def anio_minimo() -> int:
+    return date.today().year
 
 # Los papers rotan de tema entre corridas. Con un solo preset el sistema
 # volvía siempre sobre IA y dejaba fuera el resto de la tesis de mercado.
@@ -243,7 +261,7 @@ def _un_post(kind: str, state: dict, usados: set[str],
 
     if kind == "news":
         # Dos pasadas. Primero lo reciente, que es lo que da actualidad; si no
-        # hay, el stock de 2026, que son ~75 artículos publicables. Tratar a
+        # hay, el stock del año en curso. Tratar a
         # ADA News como un goteo semanal desperdiciaba el año entero: la
         # ventana de 21 días descartaba enero a julio.
         try:
@@ -257,7 +275,7 @@ def _un_post(kind: str, state: dict, usados: set[str],
             # alternativa daba el mismo.
             omitir = (saltar or set()) | set(state.get("externos", {}))
             for art in list(ada_news.latest_relevant(limit=5)) + \
-                    list(ada_news.backlog(year=2026, limit=40)):
+                    list(ada_news.backlog(year=anio_minimo(), limit=40)):
                 p = post_from_article(art)
                 if p.id in omitir:
                     continue
@@ -283,8 +301,8 @@ def _un_post(kind: str, state: dict, usados: set[str],
             omitir = (saltar or set()) | set(state.get("externos", {}))
             for preset in orden:
                 for sp in journals.find(preset=preset, years=1, n=10):
-                    if sp.year and int(sp.year) < ANIO_MINIMO:
-                        continue          # solo 2026, como el resto del flujo
+                    if sp.year and int(sp.year) < anio_minimo():
+                        continue          # solo el año en curso, como las noticias
                     p = post_from_signpost(sp)
                     if p.id in omitir:
                         continue
@@ -410,6 +428,18 @@ def mark_used_from_folder(folder) -> None:
             except Exception as exc:
                 # No frena la publicación: el post ya salió. Pero se ve.
                 print(f"   [aviso] no se pudo marcar la nota en el archivo "
+                      f"({exc.__class__.__name__}): puede volver a salir")
+        if datos.get("mode") == "paper":
+            # El pmid viaja en el id del post (`paper-41204923`). PubMed no
+            # sabe qué publicó DentRead y el mismo preset devuelve el mismo
+            # ranking cada semana, así que sin esto el estudio de hoy es el
+            # candidato número uno del turno siguiente.
+            pmid = (datos.get("post_id") or "").split("-")[-1]
+            try:
+                from pipeline import journals
+                journals.marcar_publicado(pmid)
+            except Exception as exc:
+                print(f"   [aviso] no se pudo marcar el estudio {pmid} "
                       f"({exc.__class__.__name__}): puede volver a salir")
     else:
         s["themes"][slug] = hoy

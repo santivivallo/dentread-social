@@ -44,32 +44,73 @@ import sys
 
 
 def unir(a: dict, b: dict) -> dict:
-    arts: dict[str, dict] = {}
-    for fuente in (a.get("articles", {}), b.get("articles", {})):
-        for url, datos in fuente.items():
-            actual = arts.setdefault(url, {})
-            # Lo que ya está no se pisa con vacío: un lado puede tener el
-            # artículo a medio registrar (solo `skipped`, por ejemplo).
-            for k, v in datos.items():
-                if v not in (None, "", [], {}) or k not in actual:
-                    actual[k] = v
-            # Publicado en cualquiera de los dos lados es publicado. Este es
-            # el dato que no se puede perder: es el único filtro que evita
-            # republicar una nota.
-            if datos.get("used") or actual.get("used"):
-                actual["used"] = True
+    """
+    Une por clave, sin saber qué archivo es.
 
-    semanas: dict[str, list[str]] = {}
-    for fuente in (a.get("weeks", {}), b.get("weeks", {})):
-        for semana, urls in fuente.items():
-            semanas[semana] = sorted(set(semanas.get(semana, [])) | set(urls))
+    Sirve para el archivo de ADA (`articles`, `weeks`, `runs`,
+    `deepest_page`) y para el de PubMed (`estudios`, `weeks`, `runs`), que
+    tienen la misma forma con otros nombres. Escribir un driver por archivo
+    garantizaba que el tercero se olvidara.
 
-    return {
-        "articles": arts,
-        "weeks": semanas,
-        "runs": max(a.get("runs", 0), b.get("runs", 0)),
-        "deepest_page": max(a.get("deepest_page", 0), b.get("deepest_page", 0)),
-    }
+    Las reglas, por tipo de valor:
+
+        dict de dicts   unión; en los repetidos se conservan las claves de
+                        los dos y `used` gana si está en cualquiera
+        dict de listas  unión por clave (así se unen las semanas)
+        entero          el mayor (contadores y profundidad de crawl)
+        lo demás        gana el lado no vacío
+    """
+    fusion: dict = {}
+    for clave in set(a) | set(b):
+        va, vb = a.get(clave), b.get(clave)
+
+        if isinstance(va, int) and isinstance(vb, int):
+            fusion[clave] = max(va, vb)
+            continue
+
+        if isinstance(va, dict) and isinstance(vb, dict):
+            juntos: dict = {}
+            for fuente in (va, vb):
+                for k, datos in fuente.items():
+                    if isinstance(datos, list):
+                        juntos[k] = sorted(set(juntos.get(k, [])) | set(datos))
+                        continue
+                    if not isinstance(datos, dict):
+                        juntos[k] = datos if datos not in (None, "", [], {}) \
+                            else juntos.get(k, datos)
+                        continue
+                    actual = juntos.setdefault(k, {})
+                    # Lo que ya está no se pisa con vacío: un lado puede tener
+                    # el registro a medio hacer (solo `skipped`, por ejemplo).
+                    for kk, vv in datos.items():
+                        if vv not in (None, "", [], {}) or kk not in actual:
+                            actual[kk] = vv
+                    # Publicado en cualquiera de los dos lados es publicado.
+                    # Es el dato que no se puede perder: es el único filtro
+                    # que evita republicar lo mismo.
+                    if datos.get("used") or actual.get("used"):
+                        actual["used"] = True
+            fusion[clave] = juntos
+            continue
+
+        fusion[clave] = va if va not in (None, "", [], {}) else vb
+    return fusion
+
+
+def _cuantos(d: dict) -> int:
+    """Registros en la colección principal, se llame como se llame."""
+    for clave in ("articles", "estudios"):
+        if isinstance(d.get(clave), dict):
+            return len(d[clave])
+    return 0
+
+
+def _usados(d: dict) -> int:
+    for clave in ("articles", "estudios"):
+        if isinstance(d.get(clave), dict):
+            return sum(1 for x in d[clave].values()
+                       if isinstance(x, dict) and x.get("used"))
+    return 0
 
 
 def main(argv: list[str]) -> int:
@@ -91,10 +132,8 @@ def main(argv: list[str]) -> int:
     with open(nuestro, "w") as fh:
         json.dump(fusion, fh, indent=1, ensure_ascii=False)
         fh.write("\n")
-    print(f"[merge-archive] {len(fusion['articles'])} artículos "
-          f"({len(a.get('articles', {}))} + {len(b.get('articles', {}))}), "
-          f"{sum(1 for x in fusion['articles'].values() if x.get('used'))} "
-          f"publicados")
+    print(f"[merge-archive] {_cuantos(fusion)} registros "
+          f"({_cuantos(a)} + {_cuantos(b)}), {_usados(fusion)} publicados")
     return 0
 
 

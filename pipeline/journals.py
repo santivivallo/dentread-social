@@ -30,8 +30,11 @@ Fuente: PubMed E-utilities, API oficial y gratuita del NCBI. Sin scraping.
 """
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import dataclass
+from datetime import date
+from pathlib import Path
 
 from tools.pubmed import PRESETS, search, summarize
 
@@ -125,29 +128,147 @@ def _design(pub_types: str) -> tuple[str, str]:
     return "", ""
 
 
+ARCHIVO = Path("data/pubmed_archive.json")
+
+
+def _archivo_vacio() -> dict:
+    return {"estudios": {}, "weeks": {}, "runs": 0}
+
+
+def cargar() -> dict:
+    if ARCHIVO.exists():
+        try:
+            return {**_archivo_vacio(), **json.loads(ARCHIVO.read_text())}
+        except ValueError:
+            pass
+    return _archivo_vacio()
+
+
+def guardar(arch: dict) -> None:
+    ARCHIVO.parent.mkdir(parents=True, exist_ok=True)
+    ARCHIVO.write_text(json.dumps(arch, indent=1, ensure_ascii=False))
+
+
+def marcar_publicado(pmid: str) -> None:
+    """Un estudio que salió al feed no se vuelve a proponer."""
+    if not pmid:
+        return
+    arch = cargar()
+    arch["estudios"].setdefault(str(pmid), {})["used"] = True
+    guardar(arch)
+
+
 def find(preset: str = "ia", years: int = 1, n: int = 10) -> list[Signpost]:
-    """Candidatos a señalizar. Filtra por revista, diseño y fecha."""
+    """
+    Candidatos a señalizar. Filtra por revista, diseño y fecha, y **archiva
+    todo lo que ve con el motivo por el que lo descartó**.
+
+    **Por qué archiva.** Los papers tienen 1 de las 6 ranuras del ciclo y
+    llevan 0 publicaciones. Ese es el mismo síntoma exacto que tuvieron las
+    noticias entre el 10 de agosto y el 15 de septiembre de 2026, cuando la
+    causa resultó ser que el archivo de ADA no guardaba el cuerpo del artículo
+    —algo que nadie podía ver porque cada pieza hacía lo suyo bien.
+
+    La diferencia es que las noticias sí tenían archivo, así que la causa se
+    pudo reconstruir. Acá no había nada: cada corrida consultaba PubMed en
+    vivo, descartaba en silencio por revista, por diseño o por título
+    concluyente, y no dejaba rastro. Diagnosticar el 0 era imposible sin
+    adivinar, y adivinar ya costó una semana con el 410 de GitHub Models.
+
+    Así que ahora cada candidato queda con su motivo. Después de una corrida
+    real, `python -m pipeline.journals --archivo` dice si el cuello está en la
+    allowlist de revistas, en los diseños aceptados o en el detector de
+    conclusiones.
+
+    Y además el archivo es la base de datos que Santiago pidió que creciera:
+    PubMed no recuerda nada entre consultas, así que sin esto la literatura
+    vista se perdía en cada corrida.
+    """
+    arch = cargar()
+    semana = date.today().strftime("%G-W%V")
+    ya_usados = {p for p, e in arch["estudios"].items() if e.get("used")}
+    nuevos: list[str] = []
+
     out: list[Signpost] = []
     for a in summarize(search(PRESETS.get(preset, preset), years, n * 2)):
+        pmid = str(a["pmid"])
         journal = (a["journal"] or "").lower().rstrip(".")
-        if not any(j in journal for j in JOURNAL_ALLOWLIST):
-            continue
         design, design_es = _design(a["type"])
-        if not design:
-            continue
-        sp = Signpost(
-            pmid=a["pmid"], title=a["title"], journal=a["journal"],
-            year=a["year"], url=a["url"], design=design, design_es=design_es,
-            n=_extract_n(a["abstract"]),
-            abstract=a.get("abstract", ""),
-        )
-        # el propio título puede traer la conclusión: si la trae, se descarta
-        if FORBIDDEN.search(sp.question_es()):
+
+        # El motivo se decide una sola vez y se guarda. Sin esto, un turno de
+        # paper que no publica nada no deja forma de saber por qué.
+        motivo = ""
+        if not any(j in journal for j in JOURNAL_ALLOWLIST):
+            motivo = "revista_fuera_de_allowlist"
+        elif not design:
+            motivo = f"diseno_no_señalizable:{a['type']}"[:60]
+
+        sp = None
+        if not motivo:
+            sp = Signpost(
+                pmid=pmid, title=a["title"], journal=a["journal"],
+                year=a["year"], url=a["url"], design=design,
+                design_es=design_es, n=_extract_n(a["abstract"]),
+                abstract=a.get("abstract", ""),
+            )
+            # El propio título puede traer la conclusión: si la trae, publicar
+            # el señalizador seria publicar un claim.
+            hallado = FORBIDDEN.search(sp.question_es())
+            if hallado:
+                motivo = f"titulo_concluyente:{hallado.group(0)}"[:60]
+
+        registro = arch["estudios"].get(pmid, {})
+        if pmid not in arch["estudios"]:
+            nuevos.append(pmid)
+        registro.update({
+            "title": a["title"][:180], "journal": a["journal"],
+            "year": a["year"], "design": design or "",
+            "preset": preset, "first_seen": registro.get("first_seen", semana),
+            "descartado": motivo,
+        })
+        arch["estudios"][pmid] = registro
+
+        if motivo or pmid in ya_usados:
             continue
         out.append(sp)
         if len(out) >= n:
             break
+
+    arch["runs"] = arch.get("runs", 0) + 1
+    arch["weeks"][semana] = sorted(set(arch["weeks"].get(semana, [])) | set(nuevos))
+    try:
+        guardar(arch)
+    except OSError:
+        pass          # un archivo de diagnóstico no frena una publicación
     return out
+
+
+def cobertura() -> str:
+    """Qué vio el archivo y por qué descartó, para diagnosticar el 0."""
+    arch = cargar()
+    est = arch["estudios"]
+    motivos: dict[str, int] = {}
+    for e in est.values():
+        clave = (e.get("descartado") or "PUBLICABLE").split(":")[0]
+        motivos[clave] = motivos.get(clave, 0) + 1
+    lineas = [f"archivo de PubMed: {len(est)} estudios · "
+              f"{len(arch['weeks'])} semanas · {arch.get('runs', 0)} consultas",
+              f"publicados por DentRead: "
+              f"{sum(1 for e in est.values() if e.get('used'))}", "",
+              "por qué se descartó cada uno:"]
+    for k, v in sorted(motivos.items(), key=lambda x: -x[1]):
+        lineas.append(f"  {v:5}  {k}")
+    revistas: dict[str, int] = {}
+    for e in est.values():
+        if (e.get("descartado") or "").startswith("revista"):
+            revistas[(e.get("journal") or "?")[:40]] = \
+                revistas.get((e.get("journal") or "?")[:40], 0) + 1
+    if revistas:
+        lineas += ["", "revistas rechazadas más frecuentes "
+                       "(candidatas a entrar en la allowlist):"]
+        for k, v in sorted(revistas.items(), key=lambda x: -x[1])[:10]:
+            lineas.append(f"  {v:5}  {k}")
+    return "\n".join(lineas)
 
 
 def validate(text: str) -> list[str]:
@@ -163,7 +284,13 @@ def _cli() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--preset", default="ia", choices=sorted(PRESETS))
     ap.add_argument("--years", type=int, default=1)
+    ap.add_argument("--archivo", action="store_true",
+                    help="qué vio el archivo y por qué descartó cada estudio")
     args = ap.parse_args()
+
+    if args.archivo:
+        print(cobertura())
+        return
 
     found = find(args.preset, args.years)
     print(f"{len(found)} candidatos a señalizar\n")
