@@ -98,7 +98,7 @@ git config merge.ada-archive.driver "python3 tools/merge_archive.py %O %A %B"
 
 ---
 
-## Estado al 19 de septiembre de 2026, y lo que se arregló esa semana
+## Estado al 20 de septiembre de 2026, y lo que se arregló esa semana
 
 Esto se trabajó en una sola conversación y **no existe en ningún otro chat**.
 Los commits tienen el detalle largo (`git log`); acá va lo que hay que saber
@@ -109,9 +109,10 @@ esperados. Las noticias por fin publican: 16-sep y 18-sep. Los papers siguen
 en 0 pese a tener ranura del ciclo — **ese es el próximo bug a mirar**.
 
 **Inventario:** 0 temas publicables, 5/21 hechos, stock de ADA **58** artículos
-publicables del año en curso (no 155: ver el punto 10). El feed sale con la mezcla `news 4/6 · evergreen 1/6 · paper 1/6`.
+publicables del año en curso (no 155: ver el punto 10). El feed sale con la
+mezcla `news 4/6 · evergreen 1/6 · paper 1/6`.
 
-Los siete arreglos, con el error de fondo de cada uno:
+Los diez arreglos, con el error de fondo de cada uno:
 
 1. **Las fuentes externas no quedaban registradas.**
    `mark_used_from_folder` —la única función que llama `publish.py`— hacía
