@@ -108,8 +108,8 @@ para no repetir el error.
 esperados. Las noticias por fin publican: 16-sep y 18-sep. Los papers siguen
 en 0 pese a tener ranura del ciclo — **ese es el próximo bug a mirar**.
 
-**Inventario:** 0 temas publicables, 5/21 hechos, stock de ADA 155 artículos
-publicables. El feed sale con la mezcla `news 4/6 · evergreen 1/6 · paper 1/6`.
+**Inventario:** 0 temas publicables, 5/21 hechos, stock de ADA **58** artículos
+publicables del año en curso (no 155: ver el punto 10). El feed sale con la mezcla `news 4/6 · evergreen 1/6 · paper 1/6`.
 
 Los siete arreglos, con el error de fondo de cada uno:
 
@@ -157,6 +157,28 @@ Los siete arreglos, con el error de fondo de cada uno:
    que `Finding` no tiene. Solo se recorre cuando un post tiene un hallazgo,
    así que el control que frena claims riesgosos fallaba justo al frenar.
 
+Y el 20-sep, verificando si la base de contenido crecía de verdad:
+
+8. **PubMed no tenía archivo.** BMC Oral Health y las otras nueve revistas
+   están en la allowlist, pero cada corrida consultaba en vivo y descartaba en
+   silencio por revista, diseño o título concluyente. Por eso el 0 de papers
+   no se podía diagnosticar. `data/pubmed_archive.json` guarda cada candidato
+   **con el motivo del descarte**; `python -m pipeline.journals --archivo`
+   lista las revistas rechazadas más frecuentes. Los publicados se marcan.
+
+9. **La ventana editorial tenía 2026 escrito a mano.** El 1 de enero de 2027
+   el sistema habría seguido sirviendo stock de 2026 sin mirar un artículo de
+   2027. Ahora `plan.anio_minimo()` se calcula; la política no cambia.
+   **Al 1 de enero el stock cae a casi cero**, así que la revisión avisa en
+   noviembre y diciembre: ensanchar la ventana a dos años o aceptar menos
+   noticias en enero es decisión editorial.
+
+10. **Mi métrica de stock sobrestimaba 2,7 veces.** Contaba todo el archivo
+    (155) cuando el consumidor solo sirve el año en curso (**58**). Hay 382
+    artículos de 2025 y 40 de 2024 que el crawl trajo y no son publicables. El
+    crawl de ADA ya está en su techo (12 de 12 páginas): subirlo solo agrega
+    años viejos.
+
 El hilo común: **cada pieza hacía lo suyo bien y la falla estaba en la junta.**
 Ningún control las veía porque para verlas hay que comparar corridas, no leer
 una. Por eso existe la revisión quincenal.
@@ -195,8 +217,10 @@ Santiago → créditos de modelo → minutos de CI** (repo público, gratis).
 - **Desvíos de magnitud fuera de las familias conocidas** de `referentes.py`.
 - **Cifra desactualizada**: falta un campo `review_by` en los hechos.
 - **Los papers no publican.** Tienen 1 de 6 ranuras del ciclo y llevan 0
-  publicaciones. Es el mismo síntoma que tuvieron las noticias durante un mes,
-  así que probablemente sea otra junta rota. Sin diagnosticar.
+  publicaciones. Desde el 20-sep hay instrumento: el archivo de PubMed guarda
+  el motivo de cada descarte, así que la primera corrida que toque un turno de
+  paper deja el diagnóstico servido. Correr entonces
+  `python -m pipeline.journals --archivo`.
 - **Métricas del feed.** El sistema no lee nada de vuelta de Instagram:
   alcance, guardados ni interacciones. Mientras eso falte, "qué contenido
   funciona mejor" no es medible y cualquier propuesta al respecto es opinión.
