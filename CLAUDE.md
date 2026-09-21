@@ -228,8 +228,31 @@ Santiago → créditos de modelo → minutos de CI** (repo público, gratis).
   alcance, guardados ni interacciones. Mientras eso falte, "qué contenido
   funciona mejor" no es medible y cualquier propuesta al respecto es opinión.
   Se ofreció conectarlo el 19-sep y Santiago prefirió dejarlo para después.
-- **LinkedIn**: la app `263015564` espera aprobación del Dev Tier de Community
-  Management. Sin productos concedidos no hay OAuth posible.
+- **LinkedIn: la solicitud fue RECHAZADA, no está pendiente.** Correo de
+  `api-noreply@linkedin.com` del 31-ago-2026 (CRM:015285037642400) sobre la app
+  `263015564`: *"Access Denied: Business verification failed"*. El estado que
+  figuraba acá —"review in progress"— era incorrecto.
+
+  Tres cosas que hay que arreglar **antes** de volver a pedirlo, y la primera
+  es la más probable:
+
+  1. **El correo registrado no puede ser personal.** La política de LinkedIn
+     dice que una dirección personal no pasa el vetting, y el aviso llegó a un
+     Gmail. Hace falta un correo de negocio del dominio del sitio
+     (`@dentread.app`), lo que choca con que se perdió el acceso a ese Google
+     Workspace: recuperarlo es el paso cero.
+  2. **Datos legales exactos**: nombre legal, dirección registrada, sitio y
+     **privacy policy** accesible. El EIN tiene que coincidir carácter por
+     carácter con el registro del IRS; Santi sospecha que ahí estuvo el error.
+  3. **Un super admin de la Página** tiene que verificar la app.
+
+  Y un detalle que cambia el plan: **no se puede reaplicar con la misma app.**
+  Tras un rechazo hay que crear una app nueva, asociarla a la Página y enviar
+  una solicitud nueva de Development Tier. La `263015564` está quemada.
+
+  Alternativa sin review, si esto se estira: los productos *Share on LinkedIn*
+  y *Sign In with LinkedIn using OpenID Connect* son autoservicio y dan
+  `w_member_social`, que publica como Santiago persona y no como la Página.
 
 ---
 
