@@ -228,8 +228,7 @@ Santiago → créditos de modelo → minutos de CI** (repo público, gratis).
   alcance, guardados ni interacciones. Mientras eso falte, "qué contenido
   funciona mejor" no es medible y cualquier propuesta al respecto es opinión.
   Se ofreció conectarlo el 19-sep y Santiago prefirió dejarlo para después.
-- **LinkedIn (21-sep-2026): app nueva creada y verificada; falta enviar la
-  solicitud.** La app vieja `263015564` quedó con el producto en "Access
+- **LinkedIn (21-sep-2026): solicitud ENVIADA, esperando vetting.** La app vieja `263015564` quedó con el producto en "Access
   denied" y sin reintento posible, así que se creó otra.
 
   | | |
@@ -246,11 +245,17 @@ Santiago → créditos de modelo → minutos de CI** (repo público, gratis).
   domains like Gmail". Una dirección personal no pasa el vetting por
   política. No hay ningún campo de EIN en el portal.
 
-  Falta: Products → Community Management API → *Request access*, y llenar el
-  formulario con los datos legales. Los correctos, sacados de la propia
-  política de privacidad de DentRead: **DentRead AI, Inc., 712 5th Ave, New
-  York, NY 10019**. **No** HUMANO SpA (RUT 78.069.409-2), que es la entidad
-  chilena para LatAm. Mezclar las dos entidades es el error más plausible de
+  El formulario de Development Tier se envió el 21-sep (100% completado). El
+  acuse dice que llega un correo de **Microsoft Vetting Services** a
+  `santiago@dentread.app`, que LinkedIn va a intentar verificar la empresa, y
+  que pueden pedir documentación adicional.
+
+  **Ahí está el riesgo que ya nos costó tres semanas:** el rechazo de agosto
+  llegó por correo y nadie lo vio. Revisar ese buzón. Si piden documentación
+  de la entidad, es el momento del EIN: tener a mano el CP-575 del IRS (o la
+  147C) y el certificado de incorporación de **DentRead AI, Inc., 712 5th Ave,
+  New York, NY 10019** — **no** HUMANO SpA (RUT 78.069.409-2), que es la
+  entidad chilena para LatAm. Mezclar las dos es el error más plausible de
   agosto.
 
   Alternativa sin review, si esto se estira: *Share on LinkedIn* es
