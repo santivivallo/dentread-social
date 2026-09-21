@@ -152,7 +152,9 @@ Los diez arreglos, con el error de fondo de cada uno:
    eran oscuros. El brand guide pide *alternar*, no empezar oscuro; yo lo fijé
    y escribí un test que exigía `[oscuro, claro, oscuro]`. `spec.empieza_claro`
    alterna la polaridad entre publicaciones por contador.
-   **Nunca se renderizó un carrusel que empiece en claro: falta mirarlo.**
+   **Confirmado en el feed:** el post del 18-sep se generó con `count` en 13
+   (impar) y salió con frame 1 claro; con `count` en 14 el siguiente arranca
+   oscuro. La alternancia entre publicaciones funciona en producción.
 
 7. **El camino de bloqueo del guard estaba roto.** `run_guard` leía `f.rule`,
    que `Finding` no tiene. Solo se recorre cuando un post tiene un hallazgo,
