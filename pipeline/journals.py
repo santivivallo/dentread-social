@@ -76,6 +76,16 @@ JOURNAL_ALLOWLIST = {
     "clin oral investig", "j public health dent", "health aff",
     "jama netw open", "bmc health serv res", "sci rep",
     "j am med inform assoc", "npj digit med",
+    # Segunda ronda, con el barrido de 430 estudios a la vista. Las tres son
+    # salud pública y política sanitaria, que es el lado de acceso de la
+    # tesis, y las tres aparecieron repetidas entre las rechazadas:
+    "jama health forum", "bmc public health", "front public health",
+    # Siguen afuera, y con razón medida: BMC Med Educ (14 rechazos) es
+    # educación de pregrado; Dent Clin North Am (11) publica revisiones
+    # narrativas que el filtro de diseño descarta igual; J Prosthet Dent y
+    # J Clin Periodontol son de especialidad clínica; Medicina (Kaunas) y
+    # PLoS One son generalistas de baja selectividad, y `sci rep` ya cubre
+    # ese riesgo una vez.
 }
 
 # Vocabulario de conclusión. Si aparece en el texto que se va a publicar,
