@@ -14,7 +14,7 @@
    "journal": "Matern Child Health J",
    "year": "2025",
    "design": "",
-   "preset": "acceso",
+   "preset": "medicaid",
    "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
   },
@@ -23,7 +23,7 @@
    "journal": "JDR Clin Trans Res",
    "year": "2025",
    "design": "Observational Study",
-   "preset": "acceso",
+   "preset": "medicaid",
    "first_seen": "2026-W39",
    "descartado": ""
   },
@@ -34,14 +34,14 @@
    "design": "",
    "preset": "medicaid",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, Non"
   },
   "41967636": {
    "title": "National Trends in Child and Adult Medicaid Coverage and Reimbursement for Endodontic Procedures.",
    "journal": "J Endod",
    "year": "2026",
    "design": "",
-   "preset": "acceso",
+   "preset": "medicaid",
    "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
   },
@@ -403,7 +403,7 @@
    "design": "",
    "preset": "ia",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article"
   },
   "40650464": {
    "title": "Deep Learning Photo Processing for Periodontitis Screening.",
@@ -502,7 +502,7 @@
    "design": "",
    "preset": "ia",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article"
   },
   "41061312": {
    "title": "AI Acceptability in Dentistry: Insights from Dental Professionals and Students in the Netherlands: A Pilot Study.",
@@ -574,7 +574,7 @@
    "design": "",
    "preset": "aceptacion",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article"
   },
   "41168743": {
    "title": "Synergy between resilience and empathy in health sciences students: a cross-sectional study.",
@@ -635,7 +635,7 @@
    "journal": "Int Dent J",
    "year": "2026",
    "design": "",
-   "preset": "aceptacion",
+   "preset": "acceso",
    "first_seen": "2026-W39",
    "descartado": "diseno_no_señalizable:Journal Article"
   },
@@ -871,7 +871,7 @@
    "design": "",
    "preset": "acceso",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article"
   },
   "42160809": {
    "title": "Antibiotic Prescribing in Dental Practice: A Cross-sectional Survey in Trinidad and Tobago.",
@@ -961,7 +961,7 @@
    "design": "",
    "preset": "economia",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article"
   },
   "40505774": {
    "title": "Oral cavity myiasis and mouth parasitic infestations: A systematic review.",
@@ -1078,35 +1078,3055 @@
    "design": "",
    "preset": "medicaid",
    "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, N.I"
+  },
+  "40251567": {
+   "title": "Artificial intelligence (AI) in restorative dentistry: current trends and future prospects.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "40044292": {
+   "title": "Artificial Intelligence in Prosthodontics.",
+   "journal": "Dent Clin North Am",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39505292": {
+   "title": "Artificial intelligence for orthodontic diagnosis and treatment planning: A scoping review.",
+   "journal": "J Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Scoping Review, Resea"
+  },
+  "39993553": {
+   "title": "Artificial intelligence in dentistry: Exploring emerging applications and future prospects.",
+   "journal": "J Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review, Research Supp"
+  },
+  "39654301": {
+   "title": "Artificial intelligence applications in smile design dentistry: A scoping review.",
+   "journal": "J Prosthodont",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40074616": {
+   "title": "The Transformative Role of Artificial Intelligence in Dentistry: A Comprehensive Overview. Part 1: Fundamentals of AI, and its Contemporary Applications in Dentistry.",
+   "journal": "Int Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "39075670": {
+   "title": "Artificial intelligence in endodontics: Data preparation, clinical applications, ethical considerations, limitations, and future directions.",
+   "journal": "Int Endod J",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40195079": {
+   "title": "Artificial Intelligence in Dentistry: A Narrative Review of Diagnostic and Therapeutic Applications.",
+   "journal": "Med Sci Monit",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39526945": {
+   "title": "Unveiling the power of artificial intelligence for image-based diagnosis and treatment in endodontics: An ally or adversary?",
+   "journal": "Int Endod J",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39947783": {
+   "title": "ARTIFICIAL INTELLIGENCE PLATFORMS IN DENTAL CARIES DETECTION: A SYSTEMATIC REVIEW AND META-ANALYSIS.",
+   "journal": "J Evid Based Dent Pract",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40181403": {
+   "title": "Accuracy of artificial intelligence in caries detection: a systematic review and meta-analysis.",
+   "journal": "Head Face Med",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39396775": {
+   "title": "Diagnostic accuracy of artificial intelligence for approximal caries on bitewing radiographs: A systematic review and meta-analysis.",
+   "journal": "J Dent",
+   "year": "2024",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "titulo_concluyente:accuracy"
+  },
+  "38586899": {
+   "title": "Artificial intelligence chatbots and large language models in dental education: Worldwide survey of educators.",
+   "journal": "Eur J Dent Educ",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39656957": {
+   "title": "Detection of periodontal bone loss and periodontitis from 2D dental radiographs via machine learning and deep learning: systematic review employing APPRAISE-AI and meta-analysis.",
+   "journal": "Dentomaxillofac Radiol",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40252692": {
+   "title": "How Artificial Intelligence Differs From Humans in Peer Review.",
+   "journal": "J Oral Maxillofac Surg",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40762676": {
+   "title": "Automated classification of skeletal malocclusion in German orthodontic patients.",
+   "journal": "Clin Oral Investig",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40372446": {
+   "title": "Cephalometric tracing: comparing artificial intelligence and augmented intelligence on online platforms.",
+   "journal": "Dentomaxillofac Radiol",
+   "year": "2025",
+   "design": "Observational Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40320757": {
+   "title": "Consensus Report of the 20th European Workshop on Periodontology: Contemporary and Emerging Technologies in Periodontal Diagnosis.",
+   "journal": "J Clin Periodontol",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39415666": {
+   "title": "Automatic feature segmentation in dental panoramic radiographs.",
+   "journal": "Sci Prog",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41652399": {
+   "title": "Dental students' knowledge, perceptions, and educational needs regarding artificial intelligence: a multinational cross-sectional survey.",
+   "journal": "BMC Med Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39746083": {
+   "title": "Artificial intelligence in dentistry: Assessing the informational quality of YouTube videos.",
+   "journal": "PLoS One",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40576997": {
+   "title": "Quantifying Sagittal Craniosynostosis Severity: A Machine Learning Approach With CranioRate.",
+   "journal": "Cleft Palate Craniofac J",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40389919": {
+   "title": "Exploring dental students' attitudes and perceptions toward artificial intelligence in dentistry in Iran.",
+   "journal": "BMC Med Educ",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40467108": {
+   "title": "Shotgun Metagenomics Identifies in a Cross-Sectional Setting Improved Plaque Microbiome Biomarkers for Peri-Implant Diseases.",
+   "journal": "J Clin Periodontol",
+   "year": "2025",
+   "design": "Observational Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41692680": {
+   "title": "Dental Students' Knowledge, Attitudes and Perceptions of Artificial Intelligence Tools to Aid in the Diagnosis of Oral Cancer and Oral Potentially Malignant Disorders.",
+   "journal": "Oral Dis",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41291711": {
+   "title": "Use of artificial intelligence in oral radiology: a multicenter cross-sectional study in Egypt.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "Multicenter Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "39642920": {
+   "title": "Evaluating Artificial Intelligence Chatbots in Oral and Maxillofacial Surgery Board Exams: Performance and Potential.",
+   "journal": "J Oral Maxillofac Surg",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41055139": {
+   "title": "Artificial Intelligence Segmentation Errors in Implant Planning Software Programs: An Overview.",
+   "journal": "Clin Implant Dent Relat Res",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41411807": {
+   "title": "Cross-country patterns in radiography student readiness for artificial intelligence.",
+   "journal": "Radiography (Lond)",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39471663": {
+   "title": "Comparative accuracy of artificial intelligence chatbots in pulpal and periradicular diagnosis: A cross-sectional study.",
+   "journal": "Comput Biol Med",
+   "year": "2024",
+   "design": "Comparative Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41366369": {
+   "title": "Artificial intelligence usage among dental students/dentists of different educational level: a multi-country survey.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "Multicenter Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "41449250": {
+   "title": "Awareness, usage, and perspectives on ChatGPT in dental education among graduate and undergraduate students.",
+   "journal": "Sci Rep",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40335999": {
+   "title": "Evaluating the impact of AI-generated educational content on patient understanding and anxiety in endodontics and restorative dentistry: a comparative study.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "Comparative Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "38728144": {
+   "title": "ChatGPT May Help Inform Patients in Dental Implantology.",
+   "journal": "Int J Oral Maxillofac Implants",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40551097": {
+   "title": "Perception, usage, and concerns of artificial intelligence applications among postgraduate dental students: cross-sectional study.",
+   "journal": "BMC Med Educ",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39753215": {
+   "title": "Allied Health Professionals' Perceptions of Artificial Intelligence in the Clinical Setting: Cross-Sectional Survey.",
+   "journal": "JMIR Form Res",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39019079": {
+   "title": "Is ChatGPT an Accurate and Readable Patient Aid for Third Molar Extractions?",
+   "journal": "J Oral Maxillofac Surg",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40968684": {
+   "title": "Ethical and Regulatory Perception of Artificial Intelligence Among Dental Students: A Cross-Sectional Study.",
+   "journal": "Eur J Dent Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "41106908": {
+   "title": "Artificial Intelligence and Prognosis of Treatment in Endodontics.",
+   "journal": "Dent Clin North Am",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41106913": {
+   "title": "On the Horizon: What's Next for Endodontics.",
+   "journal": "Dent Clin North Am",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41106910": {
+   "title": "Artificial Intelligence and Ethics in Endodontics.",
+   "journal": "Dent Clin North Am",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40665264": {
+   "title": "Medical undergraduate students' awareness and perspectives on artificial intelligence: A developing nation's context.",
+   "journal": "BMC Med Educ",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40943129": {
+   "title": "Shaping Orthodontics of the Future: Concepts and Implications from a Cellular and Molecular Perspective.",
+   "journal": "Int J Mol Sci",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41905749": {
+   "title": "Exploring Knowledge, Attitudes, and Practices of Dental Hygiene Students Regarding Artificial Intelligence.",
+   "journal": "J Dent Hyg",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40764570": {
+   "title": "Attitudes and readiness to adopt artificial intelligence among healthcare practitioners in Pakistan's resource-limited settings.",
+   "journal": "BMC Health Serv Res",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "41106904": {
+   "title": "Artificial Intelligence in Endo, an Overview.",
+   "journal": "Dent Clin North Am",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42223076": {
+   "title": "Artificial intelligence readiness in Pakistan's medical and dental education: training-phase decline, a knowledge-practice paradox, and the role of digital determinants of health.",
+   "journal": "Med Educ Online",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41736329": {
+   "title": "Artificial intelligence for medical writing in doctors of Punjab: A cross-sectional study.",
+   "journal": "J Pak Med Assoc",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38055037": {
+   "title": "Deep learning prediction of curve severity from rasterstereographic back images in adolescent idiopathic scoliosis.",
+   "journal": "Eur Spine J",
+   "year": "2024",
+   "design": "Multicenter Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39352434": {
+   "title": "Is Artificial Intelligence a Useful Tool for Clinical Practice of Oral and Maxillofacial Surgery?",
+   "journal": "J Craniofac Surg",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39762843": {
+   "title": "The relationships of personality traits on perceptions and attitudes of dentistry students towards AI.",
+   "journal": "BMC Med Educ",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41107819": {
+   "title": "What artificial intelligence (AI) can tell us about Nasoalveolar Molding (NAM)?",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39529301": {
+   "title": "Artificial Intelligence-based Assessment of Facial Symmetry Aesthetics of Saudi Arabian Population.",
+   "journal": "Facial Plast Surg",
+   "year": "2025",
+   "design": "Observational Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39189187": {
+   "title": "Euler-angle norms for tooth rotation, torque and tip.",
+   "journal": "Orthod Craniofac Res",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42050484": {
+   "title": "Artificial intelligence related anxiety among dental students: associations with demographics and AI use behaviors.",
+   "journal": "BMC Med Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40368705": {
+   "title": "Deep learning applications in prosthodontics: A systematic review.",
+   "journal": "J Prosthet Dent",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40464289": {
+   "title": "Applications of Artificial Intelligence (AI) for Diagnosis of Periodontal/Peri-Implant Diseases: A Narrative Review.",
+   "journal": "J Oral Rehabil",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39342231": {
+   "title": "Global cross-sectional student survey on AI in medical, dental, and veterinary education and practice at 192 faculties.",
+   "journal": "BMC Med Educ",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39673022": {
+   "title": "Utility of Chatbot Literature Search in Radiation Oncology.",
+   "journal": "J Cancer Educ",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40538834": {
+   "title": "Application of Artificial Intelligence in Orthognathic Surgery: A Scoping Review.",
+   "journal": "Biomed Res Int",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42020222": {
+   "title": "Artificial intelligence-powered automatic tooth segmentation from cone-beam computed tomography for the fabrication of surgical splints.",
+   "journal": "Int J Oral Maxillofac Surg",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42050517": {
+   "title": "Artificial intelligence in dentistry: knowledge, attitudes, and educational readiness among dental students and dentists.",
+   "journal": "BMC Med Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41014093": {
+   "title": "Evaluating Dental Students' Perspectives on Artificial Intelligence (AI)-Driven Large Language Models in Education in Saudi Arabia.",
+   "journal": "Eur J Dent Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39384683": {
+   "title": "Acceptability of artificial intelligence in dental radiology among patients in India: are we ready for this revolution?",
+   "journal": "Oral Radiol",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41840911": {
+   "title": "The Utility of Artificial Intelligence in Dermatology Training and Practice: A National, Cross-Sectional Study.",
+   "journal": "Australas J Dermatol",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41752810": {
+   "title": "Development and Internal Evaluation of an Interpretable AI-Based Composite Score for Psychosocial and Behavioral Screening in Dental Clinics Using a Mamdani Fuzzy Inference System.",
+   "journal": "Medicina (Kaunas)",
+   "year": "2026",
+   "design": "Multicenter Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41837824": {
+   "title": "Artificial Intelligence in Predicting Surgical Problems and Postoperative Morbidity in Mandibular Third Molar Extractions.",
+   "journal": "Ann Afr Med",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40217049": {
+   "title": "Endodontic education - present status and future directions.",
+   "journal": "Br Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40044285": {
+   "title": "Understanding Radiology and Imaging for the Prosthodontic Patient.",
+   "journal": "Dent Clin North Am",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40646219": {
+   "title": "Evaluating user perceptions and usability of an AI-powered smartphone application for at-home dental plaque screening.",
+   "journal": "Br Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41183138": {
+   "title": "Artificial intelligence's role in dentistry and dental bleaching.",
+   "journal": "Am J Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "39311453": {
+   "title": "Trustworthy Artificial Intelligence in Dentistry: Learnings from the EU AI Act.",
+   "journal": "J Dent Res",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "41106905": {
+   "title": "Increasing Diagnostic Acumen in Endodontics.",
+   "journal": "Dent Clin North Am",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41022558": {
+   "title": "Artificial Intelligence and Its Influence on Dental Hygiene.",
+   "journal": "J Dent Hyg",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "42076917": {
+   "title": "Exploring the Potential of the PerioAI System to Support Periodontal Clinical Decision Making: A Proof-of-Principle Study.",
+   "journal": "J Clin Periodontol",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42024346": {
+   "title": "Reliability of artificial intelligence (ChatGPT) in the diagnosis and classification of tibial plateau fractures.",
+   "journal": "Rev Esp Cir Ortop Traumatol",
+   "year": "2026",
+   "design": "Comparative Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39056554": {
+   "title": "Artificial intelligence in endodontics: Fundamental principles, workflow, and tasks.",
+   "journal": "Int Endod J",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41987112": {
+   "title": "Artificial intelligence analysis of facial movements and satisfaction in online medical lectures: a cross-sectional study.",
+   "journal": "BMC Med Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41522299": {
+   "title": "Knowledge, Attitudes, and Practices of Artificial Intelligence in Dentistry: A cross-sectional survey.",
+   "journal": "F1000Res",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42559854": {
+   "title": "Large language model use in dental education: a cross-sectional multi-country study.",
+   "journal": "Med Educ Online",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41504171": {
+   "title": "The Utilization of Artificial Intelligence by Pediatric Otolaryngology Surgeons in Professional Practice.",
+   "journal": "J Otolaryngol Head Neck Surg",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41685843": {
+   "title": "Artificial Intelligence in The Diagnosis, Treatment, and Prognostication in Endodontics: A Comprehensive Literature Review.",
+   "journal": "Eur Endod J",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38637235": {
+   "title": "Applications of artificial intelligence in dentomaxillofacial imaging: a systematic review.",
+   "journal": "Oral Surg Oral Med Oral Pathol Oral Radiol",
+   "year": "2024",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38655727": {
+   "title": "Artificial intelligence and smile design: An e-Delphi consensus statement of ethical challenges.",
+   "journal": "J Prosthodont",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40987933": {
+   "title": "Vendors' perspectives on AI implementation in medical imaging and oncology: a cross-sectional survey.",
+   "journal": "Eur Radiol",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39460511": {
+   "title": "Accuracy and Consistency of Gemini Responses Regarding the Management of Traumatized Permanent Teeth.",
+   "journal": "Dent Traumatol",
+   "year": "2025",
+   "design": "Observational Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41845306": {
+   "title": "Structural gender inequities in dental specialty training in Türkiye: evidence from a national cross-sectional study.",
+   "journal": "BMC Med Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40802302": {
+   "title": "Classification success of salivary interleukin-1β in periodontitis grading with artificial intelligence models: a cross-sectional observational study.",
+   "journal": "J Appl Oral Sci",
+   "year": "2025",
+   "design": "Observational Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40223150": {
+   "title": "Machine learning models for improving the diagnosing efficiency of skeletal class I and III in German orthodontic patients.",
+   "journal": "Sci Rep",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40731042": {
+   "title": "Dentists' perception and use of AI and robotics in the care of persons with disabilities.",
+   "journal": "Sci Rep",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "41513220": {
+   "title": "Artificial Intelligence for the Oral and Maxillofacial Surgeon.",
+   "journal": "J Oral Maxillofac Surg",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41014309": {
+   "title": "Patient trust in artificial intelligence for orthodontic advice: A systematic review.",
+   "journal": "J Am Dent Assoc",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "39821532": {
+   "title": "Applications of artificial intelligence in orthodontics: a bibliometric and visual analysis.",
+   "journal": "Clin Oral Investig",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "39912320": {
+   "title": "A Comparative Analysis of Three Large Language Models on Bruxism Knowledge.",
+   "journal": "J Oral Rehabil",
+   "year": "2025",
+   "design": "Observational Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42015461": {
+   "title": "Artificial Intelligence in Endodontics-A Bibliometric Analysis.",
+   "journal": "Aust Endod J",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40228324": {
+   "title": "The role of patient outcomes in shaping moral responsibility in AI-supported decision making.",
+   "journal": "Radiography (Lond)",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41212424": {
+   "title": "Evaluation of Deep Learning Convolutional Neural Networks for Classification of Carcinoma Ex Pleomorphic Adenoma and Pleomorphic Adenoma in Whole-Slide Images.",
+   "journal": "Head Neck Pathol",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41364724": {
+   "title": "Accuracy of AI-based binary classification for detecting malocclusion in the mixed dentition stage.",
+   "journal": "PLoS One",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41712011": {
+   "title": "Impact of Transfer Learning on Convolutional Neural Networks for Odontogenic Tumor Diagnosis.",
+   "journal": "Head Neck Pathol",
+   "year": "2026",
+   "design": "Multicenter Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39030766": {
+   "title": "Performance of three artificial intelligence (AI)-based large language models in standardized testing; implications for AI-assisted dental education.",
+   "journal": "J Periodontal Res",
+   "year": "2025",
+   "design": "Comparative Study",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41224568": {
+   "title": "Artificial intelligence in joint face-skeletal prediction for orthognathic procedures: A systematic review.",
+   "journal": "J Craniomaxillofac Surg",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39563180": {
+   "title": "Understanding Occlusion and Temporomandibular Joint Function Using Deep Learning and Predictive Modeling.",
+   "journal": "Clin Exp Dent Res",
+   "year": "2024",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40963116": {
+   "title": "Is there a link between diet and painful temporomandibular disorders? A cross-sectional study.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "38963173": {
+   "title": "Development and integration of a clinical dashboard within a dental school setting.",
+   "journal": "J Dent Educ",
+   "year": "2024",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40935378": {
+   "title": "[Digital CBT for Depression].",
+   "journal": "Brain Nerve",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39382084": {
+   "title": "Benefits of Dental Scaling and Polishing in Adults: A Rapid Review and Evidence Synthesis.",
+   "journal": "JDR Clin Trans Res",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "39177528": {
+   "title": "Patient-provider communication during consultations for elective dental procedures: A scoping review.",
+   "journal": "Am J Orthod Dentofacial Orthop",
+   "year": "2024",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "36935269": {
+   "title": "Peri-implantitis after 40 years: Evidence, mechanisms, and implications: A mapping review.",
+   "journal": "J Prosthet Dent",
+   "year": "2024",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39422271": {
+   "title": "Connective tissue versus free gingival grafts for deep mandibular anterior recessions. A 2- to 5-year cross-sectional study.",
+   "journal": "Int J Esthet Dent",
+   "year": "2024",
+   "design": "Comparative Study",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40374321": {
+   "title": "Clinical and Radiological Markers of Periodontal Status and Risk of Cognitive Decline and Incident Dementia.",
+   "journal": "J Clin Periodontol",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39248151": {
+   "title": "Dietary patterns and periodontitis: A systematic review.",
+   "journal": "J Periodontal Res",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39455942": {
+   "title": "Oral screening of dental calculus, gingivitis and dental caries through segmentation on intraoral photographic images using deep learning.",
+   "journal": "BMC Oral Health",
+   "year": "2024",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "38676371": {
+   "title": "Strategic approaches in oral squamous cell carcinoma diagnostics using liquid biopsy.",
+   "journal": "Periodontol 2000",
+   "year": "2024",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39833122": {
+   "title": "Anthropometric and Sociodemographic Correlates of Dental Caries and Gingival Health in Children With Special Healthcare Needs at a Saudi Tertiary Care Hospital.",
+   "journal": "Spec Care Dentist",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41090891": {
+   "title": "Tunnel vs coronally advanced flap with connective tissue graft for maxillary anterior gingival recessions. Esthetic outcomes of a 2- to 14-year patient-centered cross-sectional stu",
+   "journal": "Int J Esthet Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39362229": {
+   "title": "Conversion practice recall and mental health symptoms in sexual and gender minority adults in the USA: a cross-sectional study.",
+   "journal": "Lancet Psychiatry",
+   "year": "2024",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38468379": {
+   "title": "Association of tooth location, occlusal support and chewing ability with cognitive decline and incident dementia.",
+   "journal": "J Clin Periodontol",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39239673": {
+   "title": "Consumption frequency of ultra-processed foods and beverages among 6- to 36-month-olds in Kampala, Uganda.",
+   "journal": "Matern Child Nutr",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39838400": {
+   "title": "The impact of dental photography in social media platforms on patients' selection of dentists and type of treatment.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39078931": {
+   "title": "Factors associated with chronic abdominal pain in patients with inflammatory bowel disease in remission: A pilot cross-sectional study.",
+   "journal": "Neurogastroenterol Motil",
+   "year": "2024",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40572774": {
+   "title": "Mind over Malignancy: A Systematic Review and Meta-Analysis of Psychological Distress, Coping, and Therapeutic Interventions in Oncology.",
+   "journal": "Medicina (Kaunas)",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39153892": {
+   "title": "Healthy Dietary Pattern Improves Cognitive Function in Elderly Persons With Periodontitis: A Cross-Sectional Study of NHANES.",
+   "journal": "Int Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40254249": {
+   "title": "Teaching repair versus replacement of direct composite resin restorations: A cross-sectional study across dental schools in Malaysia.",
+   "journal": "J Dent",
+   "year": "2025",
+   "design": "Comparative Study",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "42150341": {
+   "title": "Oral Health in Early and Advanced Stages (1-4) of Chronic Kidney Disease: A Systematic Review and Meta-Analysis.",
+   "journal": "Int Dent J",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "42467298": {
+   "title": "Clinical performance of Class II resin composite restorations in primary molars with or without pulpotomy: a prospective 24-month clinical study.",
+   "journal": "Eur Arch Paediatr Dent",
+   "year": "2026",
+   "design": "Comparative Study",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41489275": {
+   "title": "Head and Neck Cancer Patients' Health Literacy: A Systematic Review and Meta-Analysis.",
+   "journal": "Head Neck",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41579662": {
+   "title": "Dysphagia, cognitive function, amd dysphagia-related quality of life among oral cancer patients: A cross-sectional survey.",
+   "journal": "Geriatr Nurs",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40643835": {
+   "title": "Association of parental oral health literacy and child temperament with dental attendance in children with early childhood caries: a cross-sectional study.",
+   "journal": "Eur Arch Paediatr Dent",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41317140": {
+   "title": "The Role of Teledentistry in Improving Pediatric Oral Health Care: A Systematic Review of Interventions in Rural and Low-Access Settings.",
+   "journal": "Int J Paediatr Dent",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39436729": {
+   "title": "Effect of Supportive Peri-implant Care After Treatment of Peri-implant Diseases: A Systematic Review.",
+   "journal": "Int J Periodontics Restorative Dent",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42522825": {
+   "title": "Outcomes of an Opportunistic Screening Mammography Program Using the Mobile Mammography Unit in Sindh, Pakistan.",
+   "journal": "Asian Pac J Cancer Prev",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40473543": {
+   "title": "Potential risks, treatment strategies, and treatment outcomes of retrograde peri-implantitis: A systematic review.",
+   "journal": "J Prosthet Dent",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40087017": {
+   "title": "ASSESSMENT BY ORAL HEALTH PROFESSIONALS OF PATIENT-REPORTED OUTCOMES IN OBSTRUCTIVE SLEEP APNEA.",
+   "journal": "J Evid Based Dent Pract",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40512526": {
+   "title": "Peri-implantitis Risk Assessment (PiRA) Part 1: Umbrella Review of a Multifactorial Disease with Many Risk Factors.",
+   "journal": "Int J Oral Maxillofac Implants",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39563303": {
+   "title": "Nonsurgical endodontic retreatment of C-shaped maxillary molars: case reports and review of literature.",
+   "journal": "BMC Oral Health",
+   "year": "2024",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Case Reports, Review"
+  },
+  "41005221": {
+   "title": "Outcomes assessed in clinical trials concerning orthodontic retention: A scoping review.",
+   "journal": "Int Orthod",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40583354": {
+   "title": "The importance of patient-reported outcomes: A call for their integration in the routine care of patients with multiple sclerosis.",
+   "journal": "Mult Scler",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41648761": {
+   "title": "A narrative review of precision and ethical considerations in cardiovascular health: CRISPR-Cas9, telemedicine, and lifestyle interventions.",
+   "journal": "Front Public Health",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40428887": {
+   "title": "Efficacy and Safety of Nitrous Oxide (N2O) Inhalation Sedation Compared to Other Sedative Agents in Dental Procedures: A Systematic Review with Meta-Analysis.",
+   "journal": "Medicina (Kaunas)",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40355678": {
+   "title": "Barriers to and facilitators for attending dental care appointments among adults in low- and middle-income countries: a scoping review.",
+   "journal": "Evid Based Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40458007": {
+   "title": "Effectiveness of silver diamine fluoride application with atraumatic restorative treatment in arresting the progression of dental caries in children and adults: a systematic review",
+   "journal": "JBI Evid Synth",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41546008": {
+   "title": "The association between attention deficit hyperactivity disorder and orthodontic outcomes: a systematic review.",
+   "journal": "BMC Oral Health",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "40889543": {
+   "title": "Photobiomodulation as a preventive strategy for oral mucositis in pediatric oncology: a systematic review and meta-analysis.",
+   "journal": "J Dent",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "40420396": {
+   "title": "Craniofacial Manifestation and Oral Health Care Needs in Pediatric Population With Fetal Alcohol Syndrome: A Systematic Review.",
+   "journal": "Spec Care Dentist",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40924663": {
+   "title": "Promoting patients' empowerment in rheumatic diseases: the perspective of the International Society of Behçet's Disease Working Group on Patient Empowerment, Adherence to Therapy a",
+   "journal": "Clin Exp Rheumatol",
+   "year": "2025",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41915928": {
+   "title": "Periodontitis, Oral Helicobacter pylori Reservoirs, and Gastric Cancer: Implications for Adjunctive Periodontal Therapy.",
+   "journal": "Neuro Endocrinol Lett",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41862556": {
+   "title": "Guideline-directed heart failure pharmacotherapy and depression/anxiety: a scoping review of heart failure and related cardiovascular populations.",
+   "journal": "Eur J Clin Pharmacol",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42538058": {
+   "title": "Efficacy and Safety of Tesamorelin in People Living With HIV (PLWH) With Lipodystrophy: A Systematic Review and Meta-Analysis.",
+   "journal": "J Int Assoc Provid AIDS Care",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39613137": {
+   "title": "Re-evaluating the role of moist dentin of adhesive systems used in the etch-and-rinse bonding strategy. A systematic review and meta-analysis.",
+   "journal": "J Dent",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "42081070": {
+   "title": "Once-weekly somapacitan vs. daily norditropin in GHD: a systematic review and meta-analysis of efficacy and safety in children and adults.",
+   "journal": "Endocrine",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41204923": {
+   "title": "Efficacy of supportive peri-implant therapy in the management of peri-implant mucositis and peri-implantitis: A systematic review.",
+   "journal": "J Am Dent Assoc",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "42395591": {
+   "title": "Systematic Review and Exploratory Meta-Analysis of AI-Enabled and Digital Technology-Assisted Interventions for Dental Anxiety During Dental Treatment.",
+   "journal": "Depress Anxiety",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42103367": {
+   "title": "Prevalence and determinants of drug-resistant pulmonary tuberculosis in the MENA region: a systematic review and meta-analysis.",
+   "journal": "BMJ Open Respir Res",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42760388": {
+   "title": "Cystic fibrosis and its impact on the oral cavity and dental treatments - a scoping review.",
+   "journal": "Clin Oral Investig",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Scoping Review, Revie"
+  },
+  "42195252": {
+   "title": "Oral Behaviors, Anxiety, and Depression in Temporomandibular Disorders: A Conceptual Narrative Review Within the DC/TMD Axis II Framework.",
+   "journal": "Medicina (Kaunas)",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42625095": {
+   "title": "Comparative effects of CPAP and mandibular advancement devices in obstructive sleep apnea: an overview of systematic reviews.",
+   "journal": "Sleep Breath",
+   "year": "2026",
+   "design": "Comparative Study",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40052408": {
+   "title": "Gingival odontogenic keratocyst presenting as pseudoinfection: Inclusion of demonstrative case report and review.",
+   "journal": "Clin Adv Periodontics",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41764765": {
+   "title": "Efficacy of Automatic 3D Segmentation of the Upper Airway in CBCT or CT Scans via Artificial Intelligence Versus Manual Segmentation by Human Experts: A Systematic Review and Meta-",
+   "journal": "Clin Exp Dent Res",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "aceptacion",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38511739": {
+   "title": "Periodontal diseases and cardiovascular diseases, diabetes, and respiratory diseases: Summary of the consensus report by the European Federation of Periodontology and WONCA Europe.",
+   "journal": "Eur J Gen Pract",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39395540": {
+   "title": "Management of antithrombotic therapy in patients undergoing dental procedures.",
+   "journal": "J Thromb Haemost",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39576614": {
+   "title": "Dental Coverage and Care When Transitioning From Medicaid to Medicare.",
+   "journal": "JAMA Health Forum",
+   "year": "2024",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40651329": {
+   "title": "Oral Health of International Migrant Workers: Is Acculturation an Explanatory Factor?",
+   "journal": "Int Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40000835": {
+   "title": "Dental Care Utilization Among Middle Eastern and North African Children in the United States.",
+   "journal": "J Public Health Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40505997": {
+   "title": "Dental Care Utilization Among Medicaid-Enrolled Adults With Substance Use Disorder.",
+   "journal": "Am J Prev Med",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39714842": {
+   "title": "Dental Clinic Deserts in the US: Spatial Accessibility Analysis.",
+   "journal": "JAMA Netw Open",
+   "year": "2024",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, N.I"
+  },
+  "38671252": {
+   "title": "Race, Ethnicity, and Other Barriers to Access Dental Care During Pregnancy.",
+   "journal": "J Racial Ethn Health Disparities",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39484343": {
+   "title": "Rural-urban differences in dental opioid prescribing among adolescent/young adult and adult Medicaid beneficiaries.",
+   "journal": "Front Public Health",
+   "year": "2024",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39230199": {
+   "title": "Risk factors for Early Childhood Caries in Italian preschoolers: A cross-sectional analysis.",
+   "journal": "Eur J Paediatr Dent",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40781615": {
+   "title": "Dental treatment affordability and oral outcomes among U.S. adults: NHANES 2015-2018.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39854003": {
+   "title": "Benefit Design and Access to Dental Care Among Seniors With Medicare Advantage Dental Benefits.",
+   "journal": "JAMA Health Forum",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39253777": {
+   "title": "Associations between disability type and untreated dental decay among community dwelling US adults.",
+   "journal": "J Public Health Dent",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, N.I"
+  },
+  "39844673": {
+   "title": "Who Could Be Targeted for Teledentistry in Japanese Clinics? A Questionnaire Survey of Patients.",
+   "journal": "J Public Health Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40525997": {
+   "title": "Dental Faculty Knowledge, Attitudes, and Willingness to Treat Pregnant Persons at 2 Institutions.",
+   "journal": "JDR Clin Trans Res",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, Non"
+  },
+  "40992835": {
+   "title": "Managing Early Childhood Caries in Asia-Pacific Region.",
+   "journal": "Int Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "41574455": {
+   "title": "Age Differences in Oral Function and Unmet Dental Care Among Korean Adults.",
+   "journal": "Gerodontology",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40691546": {
+   "title": "Attitudes, knowledge, and practices of Turkish dentists regarding HIV/AIDS: a cross-sectional study.",
+   "journal": "BMC Public Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41417486": {
+   "title": "Gender, Sexual Orientation, and Intersectionality in Oral Health Care.",
+   "journal": "Adv Dent Res",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38733119": {
+   "title": "Depression Symptoms Linked to Multiple Oral Health Outcomes in US Adults.",
+   "journal": "JDR Clin Trans Res",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40468237": {
+   "title": "Dental anxiety among students in Indonesia: the role of demographic, behavioral, social, and spiritual support.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39370368": {
+   "title": "Challenges and resilience of Taiwan's oral health care system after Covid-19 pandemic.",
+   "journal": "J Formos Med Assoc",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42288840": {
+   "title": "Dental disease among adults with and without HIV in the MACS/WIHS Combined Cohort Study (MWCCS).",
+   "journal": "BMC Oral Health",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40823231": {
+   "title": "Social determinants of oral health in migrants at the Spanish border.",
+   "journal": "Front Public Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38942346": {
+   "title": "Environmental, Metabolic, and Nutritional Factors Concerning Dementia in African American and Hispanic American Populations.",
+   "journal": "Am J Med",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41582608": {
+   "title": "Assessing Oral Health Awareness Among Arab Immigrants & Refugees.",
+   "journal": "J Public Health Dent",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40411340": {
+   "title": "Veteran Status and Oral Health Indicators in Older Men: An Analysis Using the 2016 and 2018 Behavioral Risk Factor Surveillance System.",
+   "journal": "J Public Health Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40152759": {
+   "title": "Factors influencing the oral health of children undergoing general anesthesia.",
+   "journal": "Swiss Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41024022": {
+   "title": "Associations between the use of caries preventive methods and ECC experience in Ile-Ife, Nigeria: a cross-sectional study.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39887365": {
+   "title": "Dental Care Use Among Children and Adolescents in Medicaid: Associations With State-Level Medicaid Policy Factors and Provider Availability.",
+   "journal": "J Public Health Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "38874592": {
+   "title": "Effects of dental insurance and dental care utilization on oral health-related daily life activities among federally qualified healthcare center patients in the United States.",
+   "journal": "Community Dent Oral Epidemiol",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, Non"
+  },
+  "40456563": {
+   "title": "The case for affordable oral health care: the public voice.",
+   "journal": "Public Health Res Pract",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42174538": {
+   "title": "Prior incarceration and out-of-pocket dental care expenditures among older adults in the United States.",
+   "journal": "BMC Oral Health",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "41482843": {
+   "title": "Comparison of Healthcare Expenditures Among Individuals With and Without Long COVID in the United States.",
+   "journal": "Inquiry",
+   "year": "2026",
+   "design": "Comparative Study",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41292531": {
+   "title": "Social and Behavioral Determinants of Dental Care Utilization among Homeless Pregnant Women in the United States.",
+   "journal": "J Prev Med Hyg",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40138994": {
+   "title": "Acceptance and Willingness-to-Pay for Teledentistry: A Contingent Valuation Study.",
+   "journal": "Int Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39580737": {
+   "title": "Frequent recreational cannabis use and its association with caries and severe tooth loss: Findings from the National Health and Nutrition Examination Survey, 2015-2018.",
+   "journal": "J Am Dent Assoc",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40241956": {
+   "title": "Barriers to healthcare access and continuity of care among Ukrainian war refugees in Europe: findings from the RefuHealthAccess study.",
+   "journal": "Front Public Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41067098": {
+   "title": "Association Between Mediterranean Diet Adherence and Periodontal Health Among Junior High School Students in China.",
+   "journal": "Int Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "42262581": {
+   "title": "[Utilisation of dental check-ups in Germany-prevalence and trends based on routine statutory health insurance data].",
+   "journal": "Bundesgesundheitsblatt Gesundheitsforschung Gesundheitsschutz",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39937810": {
+   "title": "Factors associated with the use of dental services in older adults in Peru.",
+   "journal": "PLoS One",
+   "year": "2025",
+   "design": "Observational Study",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40375194": {
+   "title": "Oral health, quality of life and general health of people from refugee and asylum-seeking backgrounds from South Asia and the Middle East resettled in South Australia: a cross sect",
+   "journal": "BMC Public Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40091718": {
+   "title": "6th German Oral Health Study (DMS • 6): fieldwork, data collection, and quality assurance.",
+   "journal": "Quintessence Int",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39692641": {
+   "title": "The impact of teledentistry on travel distance and carbon emissions at a children's hospital.",
+   "journal": "J Am Dent Assoc",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39406489": {
+   "title": "Prevalence of Dental Caries and Utilization of Dental Services among WIC-participating Children: A scoping review.",
+   "journal": "J Dent Hyg",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Scoping Review"
+  },
+  "39075774": {
+   "title": "Oral health care for individuals with intellectual and developmental disabilities: A statewide model.",
+   "journal": "Spec Care Dentist",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42343366": {
+   "title": "Indigenous-non-Indigenous inequalities in oral health prevention among children and adolescents in Ecuador: a cross-sectional study.",
+   "journal": "Int J Equity Health",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39265566": {
+   "title": "Symptoms of Attention Deficit Hyperactivity Disorder and Oral Health Problems among Children in Spain.",
+   "journal": "Caries Res",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41265471": {
+   "title": "Oral health and workforce efficiency: Analyzing productivity loss using NHANES data.",
+   "journal": "Community Dent Health",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38568403": {
+   "title": "Disparities of Delayed Dental Visits and Severe Tooth Loss Among Older Native Hawaiians and Other Pacific Islanders in Hawai'i: A Cross-Sectional Study of Behavioral Risk Factor Su",
+   "journal": "J Racial Ethn Health Disparities",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42243776": {
+   "title": "Sociodemographic, health, and oral factors associated with health-related quality of life in children and adolescents with chronic kidney disease: a cross-sectional study.",
+   "journal": "BMC Public Health",
+   "year": "2026",
+   "design": "Observational Study",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41866746": {
+   "title": "Workforce Equity and Dental Health Aides in CHAP: A Scoping Review.",
+   "journal": "J Public Health Dent",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Scoping Review"
+  },
+  "39708007": {
+   "title": "Adult mental health impairment and oral health care use in the United States, Medical Expenditure Panel Survey 2017-2021.",
+   "journal": "J Am Dent Assoc",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39846316": {
+   "title": "Antibiotic Prescription Trends in Dentistry: A Descriptive Study Using Japan's National Database.",
+   "journal": "J Public Health Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "41251099": {
+   "title": "Geographic disparities in children's oral health in the United States.",
+   "journal": "Community Dent Health",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42204467": {
+   "title": "Oral function and physical function converge: national evidence linking functional teeth, scaling care, and muscle strength.",
+   "journal": "BMC Geriatr",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41046304": {
+   "title": "Predictors of dental caries among inmates in the Eastern Province of Saudi Arabia: A cross-sectional study.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40201363": {
+   "title": "Pandemic-driven shift: increase in silver diamine fluoride utilization among Medicaid-enrolled children during the COVID-19 public health emergency.",
+   "journal": "Front Public Health",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39780095": {
+   "title": "Association between type of health insurance and dental visits among Ecuadorian older population: evidence from a cross-sectional study.",
+   "journal": "BMC Public Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39557585": {
+   "title": "Addressing social and health needs in health care: Characterizing case managers' work to address patient-defined goals.",
+   "journal": "Health Serv Res",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40215136": {
+   "title": "Health Risks and Benefits of Fluoride Exposure During Pregnancy and Infancy.",
+   "journal": "Annu Rev Public Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39838388": {
+   "title": "The association between cognitive impairment and oral health or oral hygiene behaviors among multiethnic older adults in Western China: a cross-sectional multicenter study.",
+   "journal": "BMC Public Health",
+   "year": "2025",
+   "design": "Multicenter Study",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40992833": {
+   "title": "Special Care Dentistry for People in Asia-Pacific Region.",
+   "journal": "Int Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "41793787": {
+   "title": "Estimating Future Demand for Dental Prostheses and Workforce Needs in a Dental Care Setting: The Saudi Experience.",
+   "journal": "Int Dent J",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "38720430": {
+   "title": "Determining the most appropriate socioeconomic status indicator for describing inequalities in dental visits by Japanese older people.",
+   "journal": "Gerodontology",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42536023": {
+   "title": "The Economic Toll of Inequitable Dental Care Access: A Welfare Analysis of Racial and Ethnic Disparities.",
+   "journal": "Health Serv Res",
+   "year": "2026",
+   "design": "Observational Study",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38922997": {
+   "title": "Oral health literacy, knowledge, practice and beliefs among Asian Americans: A scoping review.",
+   "journal": "Community Dent Oral Epidemiol",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Scoping Review, Resea"
+  },
+  "39513096": {
+   "title": "Newcomers' perceptions of their experiences with oral health care in Canada and the United States.",
+   "journal": "Can J Dent Hyg",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "39078171": {
+   "title": "Effectiveness of interventions on improving early-life dental care utilization: a systematic review and meta-analysis.",
+   "journal": "Quintessence Int",
+   "year": "2024",
+   "design": "Systematic Review",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40012113": {
+   "title": "Prenatal Dental Visits, Perceived Benefits of Oral Health, and Preterm Birth Outcome, 2009-2021.",
+   "journal": "JDR Clin Trans Res",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, Non"
+  },
+  "40851263": {
+   "title": "Mediating Role of Health Insurance on Socioeconomic Inequalities in Dental Utilisation Patterns Among Indonesian Adults.",
+   "journal": "Community Dent Oral Epidemiol",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, Non"
+  },
+  "42063027": {
+   "title": "Patient-reported gaps in use and quality of informed consent practices in dental care in Saudi Arabia: a regional cross-sectional survey.",
+   "journal": "BMC Oral Health",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39799286": {
+   "title": "Prevalence and associated factors of self-reported oral health problems among adults in the Fanteakwa districts in Ghana.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40268727": {
+   "title": "Dental visit avoidance during the COVID-19 pandemic is associated with oral frailty in Japanese community-dwelling older adults.",
+   "journal": "Geriatr Gerontol Int",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39467174": {
+   "title": "Racial/ethnic disparities in cost-related barriers to care among near-poor beneficiaries in Medicare Advantage vs traditional Medicare.",
+   "journal": "Am J Manag Care",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40280725": {
+   "title": "Initial opioid prescribing practices among providers treating an opioid-naïve US military sample.",
+   "journal": "BMJ Mil Health",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40847809": {
+   "title": "Situational analysis of osteoradionecrosis of the jaw management in older adults among dentists in community hospitals.",
+   "journal": "Australas J Ageing",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41493530": {
+   "title": "Barriers to dental care and parental attitudes toward oral health in children with haemophilia: a cross-sectional study in China.",
+   "journal": "Eur Arch Paediatr Dent",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39134257": {
+   "title": "Inclusion of Dental Services in Medicare to Improve Oral and General Health for Older Americans.",
+   "journal": "Am J Med",
+   "year": "2024",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40944716": {
+   "title": "MASCC/ISOO Clinical Practice Statement: management of oral complications of immunotherapy.",
+   "journal": "Support Care Cancer",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40907543": {
+   "title": "The Impact of Oral Health and Dental Services on the Prevalence of Subjective Cognitive Decline Among Middle-Aged and Older US Adults: Behavioral Risk Factor Surveillance System, 2",
+   "journal": "Prev Chronic Dis",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42200713": {
+   "title": "Access to routine primary healthcare and past-year dental visits: results from the 2017-2020 National Health and Nutrition Examination Survey.",
+   "journal": "Prim Health Care Res Dev",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41554077": {
+   "title": "Cost-benefit analysis of mobile dental clinics in remote areas of Ukraine.",
+   "journal": "Pol Merkur Lekarski",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41120455": {
+   "title": "Influence of oral health on smoking cessation intention in current smokers with insights from a nationally representative survey.",
+   "journal": "Sci Rep",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "42454812": {
+   "title": "Race/skin color and educational inequalities in toothache and access to dental care among adults in Brazil: National Oral Health Survey2023.",
+   "journal": "Rev Bras Epidemiol",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42138894": {
+   "title": "Individual and Contextual Factors Associated with the Need for and Use of Dental Prostheses in Brazil: A Multilevel Analysis of SB Brasil 2023 Data.",
+   "journal": "Rev Bras Epidemiol",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40554837": {
+   "title": "Oral frailty and fall risk: A systematic review and meta-analysis in adults aged 45 and over.",
+   "journal": "Clin Biomech (Bristol)",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40525992": {
+   "title": "The Importance of Interprofessional Dental Care in the Community in the United States.",
+   "journal": "JDR Clin Trans Res",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "41959561": {
+   "title": "From prescription to resistance: integrating one health perspectives into dental antibiotic stewardship in Saudi Arabia.",
+   "journal": "Front Cell Infect Microbiol",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40352271": {
+   "title": "Oral health status, oral hygiene behaviors, and caries risk assessment of individuals with special needs: a comparative study of Pakistan and Saudi Arabia.",
+   "journal": "PeerJ",
+   "year": "2025",
+   "design": "Comparative Study",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40993552": {
+   "title": "Evaluation of primary oral health-related factors predicting depression before and after the COVID-19 pandemic using KNHANES data.",
+   "journal": "BMC Public Health",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41213049": {
+   "title": "Reusing Impression Copings.",
+   "journal": "J Long Term Eff Med Implants",
+   "year": "2025",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39075766": {
+   "title": "Competency assessment in pediatric dental practice: A study on recent dental graduates in integrated curriculum.",
+   "journal": "J Dent Educ",
+   "year": "2024",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40148883": {
+   "title": "Management of deep carious lesions among Syrian dentists: a cross-sectional study.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40769650": {
+   "title": "Summary of the Veterans Health Administration's First International Symposium on Artificial Intelligence in Dentistry.",
+   "journal": "J Am Dent Assoc",
+   "year": "2025",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "39847024": {
+   "title": "Factors that affect alginates: a brief review.",
+   "journal": "Minerva Dent Oral Sci",
+   "year": "2025",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41040031": {
+   "title": "Global Patterns, Impact, and Networking in Mouthwash and Cancer: A Scientometric Analysis.",
+   "journal": "J Contemp Dent Pract",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40572754": {
+   "title": "Clinical Applications of Artificial Intelligence in Periodontology: A Scoping Review.",
+   "journal": "Medicina (Kaunas)",
+   "year": "2025",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39954171": {
+   "title": "Allergic Reactions in Dental Practice: Classification of Medicines, Mechanisms of Action, and Clinical Manifestations.",
+   "journal": "Clin Rev Allergy Immunol",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40460969": {
+   "title": "Effect of at-home agents and concentrations on bleaching efficacy: A systematic review and network meta-analysis.",
+   "journal": "J Dent",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "40111697": {
+   "title": "Effects of Antimicrobial Agents Used for Dental Treatments: Impacts on the Human Oral Ecosystem and the Resistome.",
+   "journal": "Adv Exp Med Biol",
+   "year": "2025",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40892734": {
+   "title": "RETRACTED: Effect of sensory art therapies on root canal treatment anxiety and high dental anxiety in adults: A systematic review with meta-analysis.",
+   "journal": "PLoS One",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39323071": {
+   "title": "Impact of public health and patient-centered prevention strategies on periodontitis and caries as causes of tooth loss in high-income countries.",
+   "journal": "Periodontol 2000",
+   "year": "2025",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41636033": {
+   "title": "[Treatment of obstructive sleep apnoea with a mandibular advancement device in the dental practice].",
+   "journal": "Ned Tijdschr Tandheelkd",
+   "year": "2026",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39069390": {
+   "title": "Comparative analyses of time efficiency and cost in fabricating fixed implant-supported prostheses in digital, hybrid, and conventional workflows: A systematic review and meta-anal",
+   "journal": "J Prosthet Dent",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41652112": {
+   "title": "Emerging trends in the early diagnosis of dental caries: a scoping review of artificial intelligence, digital diagnostics, and teledentistry.",
+   "journal": "Evid Based Dent",
+   "year": "2026",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40586392": {
+   "title": "Educational Outcomes Associated With Undergraduate Dental Education in Primary Care and Community Settings in Europe: Findings From a Rapid Scoping Review.",
+   "journal": "Eur J Dent Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Scoping Review"
+  },
+  "38881495": {
+   "title": "Medicaid coverage for gender-affirming surgery: A state-by-state review.",
+   "journal": "Health Serv Res",
+   "year": "2024",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40828535": {
+   "title": "Differential Use of Depression and Anxiety Medications in Adults With a History of Cancer.",
+   "journal": "JAMA Netw Open",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, N.I"
+  },
+  "39963082": {
+   "title": "Advances in modeling periodontal host-microbe interactions: insights from organotypic and organ-on-chip systems.",
+   "journal": "Lab Chip",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38647184": {
+   "title": "Barriers to dental utilization among Medicaid-enrolled young children from primary care practices in Northeast Ohio.",
+   "journal": "Community Dent Oral Epidemiol",
+   "year": "2024",
+   "design": "Observational Study",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": ""
+  },
+  "39183321": {
+   "title": "Effects of donor-engrafted clonal hematopoiesis in allogeneic and autologous stem cell transplantation: a systematic review and meta-analysis.",
+   "journal": "Bone Marrow Transplant",
+   "year": "2024",
+   "design": "Systematic Review",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39792401": {
+   "title": "Medicaid Unwinding Experiences in Dual-Eligible Older Adults.",
+   "journal": "JAMA Health Forum",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39808428": {
+   "title": "Use and Costs of Supplemental Benefits in Medicare Advantage, 2017-2021.",
+   "journal": "JAMA Netw Open",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, Non"
+  },
+  "40257795": {
+   "title": "Medicaid Accountable Care Organization Implementation and Perinatal Claims Documentation of Social Risk Factors.",
+   "journal": "JAMA Netw Open",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, N.I"
+  },
+  "39107925": {
+   "title": "Application of principles learned in a prevention-focused pediatric dental residency curriculum to professional practice.",
+   "journal": "J Dent Educ",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39503646": {
+   "title": "Emergency department use for nontraumatic dental conditions for children with special health care needs enrolled in Oregon Medicaid.",
+   "journal": "J Am Dent Assoc",
+   "year": "2024",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39903422": {
+   "title": "A Comprehensive Review of Contemporary Bioreactors for Vascular Inflammation Studies.",
+   "journal": "Inflammation",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40254908": {
+   "title": "Disparities in Pediatric Emergency Department Revisits Within 7 Days by Disease Process.",
+   "journal": "Pediatr Emerg Care",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40199625": {
+   "title": "Emerging supramolecular and living materials in oral medicine.",
+   "journal": "Trends Biotechnol",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39777443": {
+   "title": "Severe Maternal Morbidity Among Pregnant People With Opioid Use Disorder Enrolled in Medicaid.",
+   "journal": "JAMA Netw Open",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Research Support, N.I"
+  },
+  "40172205": {
+   "title": "Examination of rural-urban disparities in utilization of preventive dental procedures in the US pediatric population: A cross-sectional study.",
+   "journal": "J Rural Health",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39295312": {
+   "title": "Barriers in Accessing Orthodontic Care for Patients with Orofacial Clefts: Insights from a Florida-Based Survey and National Database Analysis.",
+   "journal": "Cleft Palate Craniofac J",
+   "year": "2025",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42281416": {
+   "title": "Oral Health Status and Utilization of Dental Services Among Adults With Disability Compared to Those Without Disabilities in Nevada, United States.",
+   "journal": "Spec Care Dentist",
+   "year": "2026",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42696541": {
+   "title": "Florida Health and Health Care: A Status Report.",
+   "journal": "South Med J",
+   "year": "2026",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40802652": {
+   "title": "Associations between neighborhood social capital, oral health risk factors, and tooth decay among Medicaid-enrolled adolescents: A hypothesis-generating preliminary study.",
+   "journal": "PLoS One",
+   "year": "2025",
+   "design": "Multicenter Study",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40221004": {
+   "title": "Effectiveness of School Fluoride Delivery Programs: A Community Guide Systematic Review.",
+   "journal": "Am J Prev Med",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41526776": {
+   "title": "Systematic Review of Managed Care Medicaid Outcomes Versus Fee-for-Service Medicaid Outcomes for Youth in Foster Care.",
+   "journal": "J Behav Health Serv Res",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41319410": {
+   "title": "Salivary biomarkers in forensic science: Bridging molecular biology and legal medicine.",
+   "journal": "J Forensic Leg Med",
+   "year": "2026",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40021878": {
+   "title": "Dental careers: findings of a national dental workforce survey.",
+   "journal": "Br Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38461485": {
+   "title": "Peri-implantitis: Knowledge and attitudes of implantology clinicians regarding the disease management: Peri-implantitis knowledge.",
+   "journal": "Int J Dent Hyg",
+   "year": "2024",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39882856": {
+   "title": "Parental knowledge, awareness, and attitudes towards children's oral habits: a descriptive cross-sectional study.",
+   "journal": "Acta Odontol Scand",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39564702": {
+   "title": "A Cross-Sectional Survey of Anesthesiologists' Awareness Toward Traumatic Dental Injuries During General Anesthesia in Syrian Arab Republic.",
+   "journal": "Dent Traumatol",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39511586": {
+   "title": "Examination of oral health quality of life and patient satisfaction in removable denture wearers with OHIP-14 scale and visual analog scale: a cross-sectional study.",
+   "journal": "BMC Oral Health",
+   "year": "2024",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40105006": {
+   "title": "Anxiety, stress, and depression levels among dental students: gender, age, and stage of dental education related.",
+   "journal": "Psychol Health Med",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39963879": {
+   "title": "Masticatory Performance Within a Representative Swiss Cohort: A Cross-Sectional Study.",
+   "journal": "J Oral Rehabil",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39503218": {
+   "title": "Self-Perceived Oral Health Related to Eating Disorders-A Cross-Sectional Questionnaire Study.",
+   "journal": "Int J Dent Hyg",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "39835673": {
+   "title": "Patient-reported outcomes of esthetics, function and oral hygiene with single dental implants 10-15 years after placement: a cross-sectional study.",
+   "journal": "Acta Odontol Scand",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39431044": {
+   "title": "Accessibility of Patients With Special Healthcare Needs to Dental Care in the Eastern Province of Saudi Arabia: A Multicentre Study From Perspective of Caregiver and Dental Care Pr",
+   "journal": "ScientificWorldJournal",
+   "year": "2024",
+   "design": "Multicenter Study",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40465213": {
+   "title": "Flexible Electronics-Driven Intelligent Oral Healthcare Paradigms and Next-Generation Preventive Diagnostics.",
+   "journal": "Adv Healthc Mater",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40138995": {
+   "title": "Current Status and Future Perspectives of Robot-Assisted Dental Implant Surgery.",
+   "journal": "Int Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "39654430": {
+   "title": "[Implants: the 'holy grail' or the solution of last resort?].",
+   "journal": "Ned Tijdschr Tandheelkd",
+   "year": "2024",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39789088": {
+   "title": "Denture care attitudes, hygiene levels and oral mucosal lesions in complete denture wearers from a single-institution cross-sectional study.",
+   "journal": "Sci Rep",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40849496": {
+   "title": "Contribution of dental prostheses on the association between dental visits and self- reported chewing ability among older Japanese adults: a cross-sectional study.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "40536004": {
+   "title": "Surface Pretreatment Protocols For Indirect/Semi-Direct Dental Restorations: A Cross-Sectional Survey and Expert Consensus.",
+   "journal": "J Adhes Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40059809": {
+   "title": "Interdisciplinary Approaches to Restoring Single-Tooth Implants in the Esthetic Zone.",
+   "journal": "J Esthet Restor Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39489638": {
+   "title": "Mechanical performance of endocrown restorations in anterior teeth: A systematic review and network meta-analysis.",
+   "journal": "Dent Mater",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41412788": {
+   "title": "Periodontitis: pharmacist's options in its prevention and treatment.",
+   "journal": "Ceska Slov Farm",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39387857": {
+   "title": "Restorative and endodontic clinical strategies during COVID-19 (SARS-CoV-2) pandemic: a revision of the literature.",
+   "journal": "Minerva Dent Oral Sci",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39510050": {
+   "title": "Dentists' Treatment Decisions Concerning Restorations in Adult Patients in North Norway: A Cross-Sectional Tromsø 7 Study.",
+   "journal": "Caries Res",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "39842265": {
+   "title": "How and why do health system factors influence general dentists' participation in publicly funded, contracted primary dental care services: A realist review.",
+   "journal": "Health Policy",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "38848508": {
+   "title": "To Preserve or Extract? A Scoping Review and a Prognostic Decision Tool Using Multispecialty Indicators.",
+   "journal": "Int J Prosthodont",
+   "year": "2025",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
   }
  },
  "weeks": {
   "2026-W39": [
+   "36935269",
+   "38055037",
+   "38461485",
+   "38468379",
+   "38511739",
+   "38568403",
+   "38586899",
+   "38637235",
+   "38647184",
    "38653687",
+   "38655727",
+   "38671252",
+   "38676371",
+   "38720430",
+   "38728144",
+   "38733119",
+   "38848508",
+   "38874592",
+   "38881495",
+   "38922997",
+   "38942346",
+   "38963173",
+   "39019079",
+   "39030766",
+   "39056554",
+   "39069390",
+   "39075670",
+   "39075766",
+   "39075774",
+   "39078171",
+   "39078931",
+   "39107925",
+   "39134257",
+   "39153892",
+   "39177528",
+   "39183321",
+   "39189187",
+   "39230199",
+   "39239673",
+   "39248151",
+   "39253777",
+   "39265566",
+   "39295312",
+   "39311453",
+   "39323071",
+   "39342231",
+   "39352434",
+   "39362229",
+   "39370368",
+   "39382084",
+   "39384683",
+   "39387857",
+   "39395540",
+   "39396775",
+   "39406489",
+   "39415666",
+   "39422271",
+   "39431044",
+   "39436729",
+   "39455942",
+   "39460511",
+   "39467174",
+   "39471663",
+   "39484343",
+   "39489638",
+   "39503218",
+   "39503646",
+   "39505292",
+   "39510050",
+   "39511586",
+   "39513096",
+   "39526945",
+   "39529301",
+   "39557585",
+   "39563180",
+   "39563303",
+   "39564702",
+   "39576614",
+   "39580737",
+   "39613137",
+   "39642920",
+   "39654301",
+   "39654430",
+   "39656957",
+   "39673022",
+   "39692641",
    "39707588",
+   "39708007",
+   "39714842",
+   "39746083",
+   "39753215",
+   "39762843",
+   "39777443",
+   "39780095",
+   "39789088",
+   "39792401",
+   "39799286",
+   "39808428",
+   "39821532",
+   "39833122",
+   "39835673",
+   "39838388",
+   "39838400",
+   "39842265",
+   "39844673",
+   "39846316",
+   "39847024",
+   "39854003",
+   "39882856",
+   "39887365",
+   "39903422",
+   "39912320",
+   "39937810",
+   "39947783",
+   "39954171",
+   "39963082",
+   "39963879",
+   "39993553",
+   "40000835",
+   "40012113",
+   "40021878",
+   "40044285",
+   "40044292",
+   "40052408",
+   "40059809",
+   "40074616",
+   "40087017",
+   "40091718",
+   "40105006",
+   "40111697",
+   "40138994",
+   "40138995",
+   "40148883",
+   "40152759",
    "40170270",
+   "40172205",
+   "40181403",
+   "40195079",
+   "40199625",
+   "40201363",
+   "40215136",
+   "40217049",
+   "40221004",
+   "40223150",
+   "40228324",
+   "40241956",
+   "40251567",
+   "40252692",
+   "40254249",
+   "40254908",
+   "40257795",
+   "40268727",
+   "40280725",
+   "40320757",
+   "40335999",
+   "40352271",
+   "40355678",
+   "40368705",
+   "40372446",
+   "40374321",
+   "40375194",
+   "40389919",
+   "40411340",
+   "40420396",
+   "40428887",
    "40436717",
+   "40456563",
+   "40458007",
+   "40460969",
+   "40464289",
+   "40465213",
+   "40467108",
+   "40468237",
+   "40473543",
    "40505774",
+   "40505997",
+   "40512526",
+   "40525992",
+   "40525997",
    "40532390",
+   "40536004",
+   "40538834",
    "40550637",
+   "40551097",
+   "40554837",
+   "40572754",
+   "40572774",
+   "40576997",
+   "40583354",
+   "40586392",
    "40608779",
+   "40643835",
+   "40646219",
    "40650464",
+   "40651329",
+   "40665264",
+   "40691546",
    "40701837",
+   "40731042",
    "40739701",
+   "40762676",
+   "40764570",
+   "40769650",
    "40771021",
    "40778524",
+   "40781615",
+   "40802302",
+   "40802652",
+   "40823231",
+   "40828535",
    "40835557",
+   "40847809",
+   "40849496",
+   "40851263",
+   "40889543",
+   "40892734",
+   "40907543",
+   "40924663",
+   "40935378",
+   "40943129",
+   "40944716",
    "40944802",
+   "40963116",
+   "40968684",
+   "40987933",
+   "40992833",
+   "40992835",
    "40993494",
+   "40993552",
+   "41005221",
+   "41014093",
+   "41014309",
+   "41022558",
+   "41024022",
    "41032395",
+   "41040031",
+   "41046304",
+   "41055139",
    "41061312",
+   "41067098",
    "41068696",
    "41071549",
    "41073252",
    "41088107",
+   "41090891",
+   "41106904",
+   "41106905",
+   "41106908",
    "41106909",
+   "41106910",
+   "41106913",
    "41106914",
+   "41107819",
+   "41120455",
    "41120771",
    "41139820",
    "41145659",
@@ -1114,17 +4134,28 @@
    "41168743",
    "41174606",
    "41176626",
+   "41183138",
    "41186542",
    "41188814",
+   "41204923",
    "41211190",
+   "41212424",
+   "41213049",
+   "41224568",
    "41235621",
    "41239881",
    "41247676",
+   "41251099",
    "41254003",
+   "41265471",
+   "41291711",
+   "41292531",
    "41295945",
    "41299635",
    "41310625",
+   "41317140",
    "41318741",
+   "41319410",
    "41319579",
    "41327262",
    "41330410",
@@ -1132,78 +4163,147 @@
    "41345620",
    "41358927",
    "41361387",
+   "41364724",
    "41366352",
+   "41366369",
    "41385197",
    "41398911",
+   "41411807",
+   "41412788",
+   "41417486",
    "41422004",
    "41429595",
    "41437346",
    "41448289",
+   "41449250",
    "41462460",
    "41475300",
    "41478403",
+   "41482843",
+   "41489275",
    "41491423",
+   "41493530",
+   "41504171",
    "41511432",
+   "41513220",
+   "41522299",
+   "41526776",
    "41528281",
+   "41546008",
+   "41554077",
    "41559009",
+   "41574455",
+   "41579662",
    "41580382",
    "41582600",
+   "41582608",
    "41597290",
    "41607015",
    "41614714",
    "41628009",
    "41629184",
+   "41636033",
+   "41648761",
+   "41652112",
+   "41652399",
    "41653838",
+   "41685843",
    "41691795",
+   "41692680",
    "41703550",
+   "41712011",
    "41720395",
    "41728913",
    "41731100",
    "41733603",
+   "41736329",
+   "41752810",
    "41758524",
    "41758632",
    "41761176",
+   "41764765",
+   "41793787",
    "41803659",
    "41806081",
    "41826000",
    "41826010",
    "41830787",
+   "41837824",
+   "41840911",
+   "41845306",
    "41861193",
+   "41862556",
+   "41866746",
    "41872816",
    "41873028",
    "41882585",
    "41903621",
+   "41905749",
+   "41915928",
    "41932677",
    "41954936",
+   "41959561",
    "41967636",
    "41980731",
+   "41987112",
    "42001112",
+   "42015461",
+   "42020222",
+   "42024346",
    "42026787",
+   "42050484",
+   "42050517",
+   "42063027",
+   "42076917",
+   "42081070",
+   "42103367",
+   "42138894",
+   "42150341",
    "42151108",
    "42160809",
    "42168090",
+   "42174538",
+   "42195252",
+   "42200713",
+   "42204467",
    "42216484",
+   "42223076",
    "42225535",
    "42237185",
+   "42243776",
+   "42262581",
    "42277816",
+   "42281416",
+   "42288840",
    "42296618",
    "42302486",
    "42304188",
    "42321751",
    "42341599",
+   "42343366",
    "42356099",
    "42359873",
    "42387532",
+   "42395591",
    "42402887",
    "42431093",
+   "42454812",
+   "42467298",
    "42480545",
+   "42522825",
+   "42536023",
+   "42538058",
    "42542291",
+   "42559854",
    "42593481",
    "42607520",
+   "42625095",
    "42627280",
    "42671441",
-   "42758428"
+   "42696541",
+   "42758428",
+   "42760388"
   ]
  },
- "runs": 20
+ "runs": 26
 }
