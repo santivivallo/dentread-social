@@ -66,8 +66,19 @@ def _check(spec, kind: str) -> list[str]:
         errs.append(f"{kind}: {n_tags} hashtags, el brand guide pide 4-6")
     if "🦷" not in spec.caption_es:
         errs.append(f"{kind}: falta el emoji dental en el caption")
-    if "—" in spec.caption_es:
-        errs.append(f"{kind}: em dash en el caption")
+    # El em dash se mide en los TRES textos que revisa el guard, no solo en
+    # el caption español.
+    #
+    # Acá estaba el agujero. Este test verificaba `caption_es` y nada más,
+    # así que pasaba en verde mientras el guard —que mira también
+    # `commentary_en` y `title_en`— frenaba la publicación. El 21 de
+    # septiembre de 2026 la corrida del lunes murió con
+    # "BLOQUEADO · EN/LinkedIn: em_dash/assertive → —" con los ocho tests en
+    # verde: el control existía, pero medía un campo de los tres.
+    for campo in ("caption_es", "commentary_en", "title_en"):
+        texto = getattr(spec, campo, "") or ""
+        if "—" in texto or "–" in texto:
+            errs.append(f"{kind}: em dash en {campo} (el guard lo bloquea)")
 
     # Alternancia y densidad, sobre los frames ya compuestos.
     #

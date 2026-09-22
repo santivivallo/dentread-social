@@ -197,6 +197,51 @@ def short_cite(cite: str) -> str:
     return f"{pub}{' ' + year.group(1) if year else ''}"
 
 
+def sin_em_dash(texto: str) -> str:
+    """
+    Cambia guiones largos por puntuación que el brand guide sí permite.
+
+    **El fallo que esto evita.** El 21 de septiembre de 2026 la corrida del
+    lunes no publicó: el guard rechazó los tres candidatos con
+
+        BLOQUEADO · EN/LinkedIn: em_dash/assertive → —
+
+    Un guion largo en el texto en inglés, y el día perdido. El guion no lo
+    pone el código: entra por el titular de ADA News o por el resumen que
+    escribe el modelo, y ninguna de las dos cosas se puede controlar desde
+    acá.
+
+    **Por qué normalizar y no rechazar.** El brand guide prohíbe el em dash
+    por estilo, no por exactitud: reemplazarlo no cambia lo que el texto
+    dice. Un control que bloquea lo que se puede arreglar mecánicamente no
+    protege nada, solo apaga el feed. Esto es lo contrario de
+    `referentes.py`, que sí rechaza, porque ahí el arreglo cambiaría el
+    significado.
+
+    El guard sigue en su lugar como última línea: si un em dash apareciera
+    por un camino que no pasa por acá, la publicación se frena igual.
+
+    Se reemplaza por coma, no por dos puntos. Entre espacios el em dash puede
+    ser aposición ("el reembolso — no la cobertura — decide") o explicación
+    ("no publicó nada — el archivo no guardaba el cuerpo"), y desde el código
+    no hay forma de distinguirlas. La coma funciona en las dos; los dos puntos
+    quedan raros en la primera y peor todavía antes de una conjunción
+    ("action: and sets a deadline").
+    """
+    if not texto:
+        return texto
+    for guion in ("—", "–"):
+        texto = (texto.replace(f" {guion} ", ", ")
+                      .replace(f" {guion}", ",")
+                      .replace(f"{guion} ", ", ")
+                      .replace(guion, ", "))
+    # Los reemplazos pueden dejar espacios dobles o ", ," si la fuente ya
+    # traía puntuación alrededor del guion.
+    while "  " in texto:
+        texto = texto.replace("  ", " ")
+    return texto.replace(", ,", ",").replace(" ,", ",")
+
+
 def _tail(text: str) -> str:
     return ". ".join(s.strip() for s in text.split(".")[1:] if s.strip())
 
@@ -357,9 +402,12 @@ def generate(post: Post) -> PostSpec:
     return PostSpec(
         slug=slugify(post.id),
         slides=slides,
-        caption_es=caption_es.strip(),
-        commentary_en=commentary_en.strip(),
-        title_en=post.title,
+        # Los tres textos que mira el guard pasan por el normalizador. Lo que
+        # entra por un titular de ADA o por el resumen del modelo no se puede
+        # controlar antes, y un guion largo no vale un día sin publicar.
+        caption_es=sin_em_dash(caption_es.strip()),
+        commentary_en=sin_em_dash(commentary_en.strip()),
+        title_en=sin_em_dash(post.title),
         citations=citations,
         mode=post.kind,
         empieza_claro=_empieza_claro(),
@@ -436,9 +484,12 @@ def _generate_evergreen(post: Post) -> PostSpec:
     return PostSpec(
         slug=slugify(post.id),
         slides=slides,
-        caption_es=caption_es.strip(),
-        commentary_en=commentary_en.strip(),
-        title_en=post.title,
+        # Los tres textos que mira el guard pasan por el normalizador. Lo que
+        # entra por un titular de ADA o por el resumen del modelo no se puede
+        # controlar antes, y un guion largo no vale un día sin publicar.
+        caption_es=sin_em_dash(caption_es.strip()),
+        commentary_en=sin_em_dash(commentary_en.strip()),
+        title_en=sin_em_dash(post.title),
         citations=citations,
         mode="evergreen",
         declarations={
@@ -565,9 +616,12 @@ def _generate_externo(post: Post) -> PostSpec:
     return PostSpec(
         slug=slugify(post.id),
         slides=slides,
-        caption_es=caption_es.strip(),
-        commentary_en=commentary_en.strip(),
-        title_en=post.title,
+        # Los tres textos que mira el guard pasan por el normalizador. Lo que
+        # entra por un titular de ADA o por el resumen del modelo no se puede
+        # controlar antes, y un guion largo no vale un día sin publicar.
+        caption_es=sin_em_dash(caption_es.strip()),
+        commentary_en=sin_em_dash(commentary_en.strip()),
+        title_en=sin_em_dash(post.title),
         citations=[f"{etiqueta} — {post.source_url}" if post.source_url else etiqueta],
         mode=post.kind,
         empieza_claro=_empieza_claro(),
