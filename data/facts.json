@@ -415,6 +415,79 @@
    "statement_en": "WHO estimates oral diseases affect nearly 3.7 billion people, and untreated caries in permanent teeth is the most common health condition worldwide.",
    "cite": "OMS, hoja informativa Salud bucodental (17-03-2025), a partir de GBD 2021",
    "tier": "primary"
+  },
+  {
+   "id": "ia-adopcion-433",
+   "themes": [
+    "ia-odontologia",
+    "tecnologia-clinica"
+   ],
+   "number": "43,3%",
+   "number_en": "43.3%",
+   "card": "de los dentistas ya usa IA para al menos una tarea",
+   "statement": "El 43,3% de los dentistas encuestados usa IA para al menos una tarea en su clínica, y otro 26,4% dice que piensa hacerlo.",
+   "statement_en": "43.3% of surveyed dentists use AI for at least one task in their practice, and another 26.4% say they plan to.",
+   "cite": "ADA Health Policy Institute, HPI Perspectives (julio 2026), panel trimestral de dentistas de EE.UU.",
+   "tier": "primary",
+   "caution": "Es 'al menos una tarea' y la mayoría son administrativas. Presentarlo como uso clínico sería falso."
+  },
+  {
+   "id": "ia-imagen-228",
+   "themes": [
+    "imagen-radiologia",
+    "ia-odontologia"
+   ],
+   "number": "22,8%",
+   "number_en": "22.8%",
+   "card": "usa IA para imagenología; otro 25,4% piensa hacerlo",
+   "statement": "El 22,8% de los dentistas encuestados usa IA para imagenología y diagnóstico, y otro 25,4% que hoy no la usa piensa usarla para eso.",
+   "statement_en": "22.8% of surveyed dentists use AI for imaging and diagnostics, and another 25.4% who do not use it today plan to use it for that.",
+   "cite": "ADA Health Policy Institute, HPI Perspectives (julio 2026), panel trimestral de dentistas de EE.UU.",
+   "tier": "primary",
+   "caution": "Adopción no es respaldo: la fuente no contiene ninguna métrica de desempeño y no sirve para hablar de precisión."
+  },
+  {
+   "id": "ia-explicar-paciente-132",
+   "themes": [
+    "imagen-radiologia",
+    "tecnologia-clinica"
+   ],
+   "number": "13,2%",
+   "number_en": "13.2%",
+   "card": "usa IA para explicar hallazgos al paciente",
+   "statement": "El 13,2% de los dentistas encuestados usa IA para explicar hallazgos clínicos a sus pacientes, y el 68,3% dice que no piensa usarla para eso.",
+   "statement_en": "13.2% of surveyed dentists use AI to explain clinical findings to their patients, while 68.3% say they do not plan to use it for that.",
+   "cite": "ADA Health Policy Institute, HPI Perspectives (julio 2026), panel trimestral de dentistas de EE.UU.",
+   "tier": "primary",
+   "caution": "El 68,3% es evidencia EN CONTRA del módulo de explicación al paciente. Va junto con el 13,2% siempre: publicar solo el primero sería elegir la mitad cómoda."
+  },
+  {
+   "id": "ia-tratamiento-826",
+   "themes": [
+    "ia-odontologia",
+    "tecnologia-clinica"
+   ],
+   "number": "82,6%",
+   "number_en": "82.6%",
+   "card": "no piensa usar IA para recomendar tratamiento",
+   "statement": "El 82,6% de los dentistas encuestados no piensa usar IA para recomendaciones de tratamiento, y hoy menos del 5% la usa para eso.",
+   "statement_en": "82.6% of surveyed dentists do not plan to use AI for treatment recommendations, and fewer than 5% use it for that today.",
+   "cite": "ADA Health Policy Institute, HPI Perspectives (julio 2026), panel trimestral de dentistas de EE.UU.",
+   "tier": "primary"
+  },
+  {
+   "id": "dentistas-sobrecargados-324",
+   "themes": [
+    "economia-practica",
+    "higienistas"
+   ],
+   "number": "32,4%",
+   "number_en": "32.4%",
+   "card": "de los dentistas se declara sobrecargado de trabajo",
+   "statement": "El 32,4% de los dentistas encuestados declara estar sobrecargado de trabajo.",
+   "statement_en": "32.4% of surveyed dentists report being overworked.",
+   "cite": "ADA Health Policy Institute, HPI Perspectives (julio 2026), panel trimestral de dentistas de EE.UU.",
+   "tier": "primary"
   }
  ]
 }

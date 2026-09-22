@@ -41,6 +41,9 @@ EXTERNAL_SOURCES = {
     "OMS, hoja informativa Salud bucodental (17-03-2025), a partir de "
     "GBD 2021":
         "data/corpus_notes/oms-salud-bucodental-2025.md",
+    "ADA Health Policy Institute, HPI Perspectives (julio 2026), panel "
+    "trimestral de dentistas de EE.UU.":
+        "data/corpus_notes/ada-hpi-ia-dentistas-2026.md",
     _CDC: _NOTA_CDC,
     f"{_CDC}, NHANES 2017-marzo 2020, NHSR 158 tablas 4 y 9": _NOTA_CDC,
     f"{_CDC}, Health, United States 2019, tabla 28 "
