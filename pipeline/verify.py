@@ -26,10 +26,28 @@ FACTS = Path("data/facts.json")
 KB_PATH = Path("data/kb.jsonl")   # opcional: solo si se usó tools/kb_build
 DOCS = Path("docs")
 
-# Fuentes citadas que no están en el corpus indexado, con su respaldo.
+# Fuentes cuyo texto vive en una nota de corpus y no en kb.jsonl.
+#
+# Varias claves pueden apuntar al mismo archivo, y es correcto: FastStats es un
+# índice donde cada cifra remite a su encuesta y su tabla. El hecho cita la
+# encuesta, que es la fuente real de la cifra; la verificación lee la nota que
+# transcribe la página donde se leyeron todas.
+_CDC = "CDC/NCHS, FastStats Oral and Dental Health (revisado 2026-01-16)"
+_NOTA_CDC = "data/corpus_notes/cdc-nchs-faststats-dental.md"
+
 EXTERNAL_SOURCES = {
     "ADA News, New CDT codes you should know for 2026 (2025-09-29)":
         "data/corpus_notes/cdt-2026-sin-codigos-ia.md",
+    "OMS, hoja informativa Salud bucodental (17-03-2025), a partir de "
+    "GBD 2021":
+        "data/corpus_notes/oms-salud-bucodental-2025.md",
+    _CDC: _NOTA_CDC,
+    f"{_CDC}, NHANES 2017-marzo 2020, NHSR 158 tablas 4 y 9": _NOTA_CDC,
+    f"{_CDC}, Health, United States 2019, tabla 28 "
+    f"(NHANES 2015-2018)": _NOTA_CDC,
+    f"{_CDC}, NHIS 2023 Early Release": _NOTA_CDC,
+    f"{_CDC}, Health, United States 2019, tabla DentCh (niños, 2019) y "
+    f"NHIS 2023 (adultos)": _NOTA_CDC,
 }
 
 # Límites de lectura. No son de la API — son de atención.
