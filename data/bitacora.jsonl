@@ -1,3 +1,0 @@
-{"ts": "2026-09-22T02:28:06+00:00", "evento": "post_generado", "origen": "workflow_dispatch", "corrida": "35679212134", "kind": "evergreen", "id": "comprension-y-confianza", "slug": "comprension-y-confianza", "modo": "evergreen", "redaccion": "curada"}
-{"ts": "2026-09-22T02:28:06+00:00", "evento": "corrida", "origen": "workflow_dispatch", "corrida": "35679212134", "pedidos": 1, "listos": 1, "descartados": 0, "preview": false}
-{"ts": "2026-09-22T02:28:45+00:00", "evento": "publicado", "origen": "workflow_dispatch", "corrida": "35679212134", "carpeta": "out/2026-09-22-comprension-y-confianza", "plataformas": ["instagram"], "resultados": {"instagram": "18105069592960409"}}

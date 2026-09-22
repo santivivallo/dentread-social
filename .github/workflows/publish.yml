@@ -27,7 +27,11 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # 25 y no 15: `tools.recuperar --ada --refetch` dejó 125 artículos
+    # marcados para volver a bajar con texto completo, y esos GET los paga la
+    # corrida siguiente. Con Chromium (~2 min) y los ocho tests, 15 quedaba
+    # demasiado cerca del borde para una falla que se puede prever.
+    timeout-minutes: 25
     environment: production
 
     steps:

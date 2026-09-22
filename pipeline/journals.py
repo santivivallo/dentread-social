@@ -39,10 +39,43 @@ from pathlib import Path
 from tools.pubmed import PRESETS, search, summarize
 
 # Revistas cuyo alcance es relevante para la audiencia de DentRead.
+#
+# **Medido el 22 de septiembre de 2026, cuando el archivo de PubMed por fin
+# permitió contar.** De 120 estudios vistos, 77 se caían acá: el 64%. El
+# detector de conclusiones y el filtro de diseño juntos rechazaban menos que
+# esta lista sola. Con diez revistas contra todo PubMed, el cuello era la
+# lista y no el resto del pipeline, y eso se podía sospechar sin instrumentar
+# nada — bastaba preguntarse qué porcentaje pasa.
+#
+# Las que se agregan y por qué, todas observadas entre las rechazadas salvo
+# las dos últimas:
+#
+#   jama netw open        acceso, cobertura y servicios de salud: es la tesis
+#   bmc health serv res   investigación de servicios, lo mismo
+#   sci rep               donde aterriza buena parte de la IA aplicada a
+#                         radiografía dental. Es una mega-revista y la
+#                         selectividad es menor, así que baja el promedio de
+#                         calidad; entra igual porque sin ella la ranura de
+#                         IA se queda sin candidatos, y el diseño y el
+#                         detector de conclusiones siguen filtrando después
+#   j am med inform assoc informática clínica: el terreno de la integración
+#   npj digit med         salud digital revisada por pares
+#
+# Las dos últimas NO aparecieron entre las rechazadas: se agregan por
+# razonamiento, no por evidencia. Si en un mes no aportaron candidatos, se
+# sacan.
+#
+# Las que se dejaron AFUERA a propósito, aunque aparecían rechazadas:
+# J Endod, J Prosthet Dent y Gen Dent son de especialidad clínica y no le
+# hablan a quien administra un mini-DSO; Dent Clin North Am publica
+# revisiones narrativas, que el filtro de diseño descarta igual; BMC Med Educ
+# es educación de pregrado, otro público.
 JOURNAL_ALLOWLIST = {
     "j am dent assoc", "jada", "j dent res", "j dent", "int dent j",
     "community dent oral epidemiol", "bmc oral health", "jdr clin trans res",
     "clin oral investig", "j public health dent", "health aff",
+    "jama netw open", "bmc health serv res", "sci rep",
+    "j am med inform assoc", "npj digit med",
 }
 
 # Vocabulario de conclusión. Si aparece en el texto que se va a publicar,

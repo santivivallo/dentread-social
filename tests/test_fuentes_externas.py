@@ -283,10 +283,87 @@ def probar_opinion() -> list[str]:
     return errs
 
 
+def probar_paper_sale_entero() -> list[str]:
+    """
+    Que un estudio no solo ENTRE al resumidor, sino que SALGA como post.
+
+    **La crítica que originó este test, textual: "llevamos semanas revisando
+    esto y ahora recién entiendes el error".** Tenía razón.
+
+    `probar_paper` (arriba) verifica que el abstract llegue al resumidor con
+    más de 200 caracteres. Eso es el lado de ENTRADA. Nunca verificó que del
+    otro lado saliera un post, y los papers llevaban seis semanas publicando
+    cero con este test en verde. Es exactamente el mismo error que costó el
+    mes sin noticias: medir que la pieza recibe lo que espera, en vez de
+    medir el resultado.
+
+    Acá se recorre el camino completo: Signpost → Post → `generate` →
+    `run_guard`. Si en cualquier punto se cae, esto falla.
+
+    Sin clave de modelo no hay resumen y `generate` levanta `SinMaterial` por
+    diseño, así que en ese caso no se mide nada y se dice. En CI la clave
+    está.
+    """
+    import os
+
+    from pipeline.generate import SinMaterial, generate
+    from pipeline.journals import Signpost
+    from pipeline.run import run_guard
+    from pipeline.sources import post_from_signpost
+
+    if not os.environ.get("LLM_API_KEY"):
+        return []          # sin clave el resumen no existe: no es lo que se mide
+
+    sp = Signpost(
+        pmid="40999001",
+        title="Dental care utilization among adults with public insurance",
+        journal="BMC Oral Health", year="2026",
+        url="https://pubmed.ncbi.nlm.nih.gov/40999001/",
+        design="Observational Study", design_es="estudio observacional",
+        n="4200",
+        abstract=(
+            "This observational study examined dental care utilization among "
+            "adults enrolled in public insurance programs across twelve "
+            "states. The authors linked enrollment records to dental claims "
+            "over a three year period and described patterns of preventive "
+            "and restorative visits by age group, rurality and plan type. "
+            "The analysis also documented how often enrollees changed "
+            "provider between visits."),
+    )
+
+    post = post_from_signpost(sp)
+    try:
+        spec = generate(post)
+    except SinMaterial as exc:
+        # Distinguir "el pipeline no sabe armar un paper" de "el proveedor no
+        # contestó" es el punto entero de este test. Sin esta distinción el
+        # test daría rojo cada vez que Gemini está saturado, y un test que
+        # falla por la red enseña a ignorarlo.
+        from pipeline import llm
+        red = ("ProxyError", "ConnectionError", "Timeout", "HTTP 5",
+               "503", "429", "no responde", "falta LLM_API_KEY")
+        if any(m in llm.ultimo_error for m in red):
+            print(f"   [info] el proveedor no respondió "
+                  f"({llm.ultimo_error[:60]}); no se mide el camino del paper")
+            return []
+        return [f"un paper con abstract completo no produce post: {exc} "
+                f"(el modelo SÍ respondió: {llm.ultimo_error[:80]})"]
+    except ValueError as exc:
+        return [f"un paper aborta al generarse: {exc}"]
+
+    ok, problemas = run_guard(spec)
+    if not ok:
+        return [f"el post de paper lo bloquea el guard: {problemas[:2]}"]
+    if not spec.caption_es.strip() or len(spec.slides) != 3:
+        return ["el post de paper sale incompleto"]
+    return []
+
+
 def main() -> int:
     errores = (probar_noticia() + probar_paper()
                + probar_presupuesto_caption() + probar_alternativas()
-               + probar_registro_de_publicados() + probar_opinion())
+               + probar_registro_de_publicados() + probar_opinion()
+               + probar_paper_sale_entero())
     if errores:
         print("✗ las fuentes externas no van a poder publicar:\n")
         print("\n".join(f"  {e}" for e in errores))
