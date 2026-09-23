@@ -16,8 +16,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/ada-council-highlights-need-for-evidence-based-antibiotic-prescribing/": {
    "title": "ADA council highlights need for evidence-based antibiotic prescribing",
@@ -25,8 +24,7 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/ada-calls-out-unitedhealthcare-credentialing-portal-for-doubling-dentists-paperwork/": {
    "title": "ADA calls out UnitedHealthcare credentialing portal for doubling dentists&#x2019; paperwork",
@@ -41,15 +39,14 @@
    "used": true
   },
   "https://adanews.ada.org/ada-news/2026/august/ada-member-advantages-hertz-endorsement-brings-enhanced-member-benefits/": {
-   "title": "ADA Member Advantage&#x2019;s Hertz endorsement brings enhanced member benefits",
+   "title": "ADA Member Advantage’s Hertz endorsement brings enhanced member benefits",
    "published": "2026-08-12",
    "category": "Around The ADA",
    "score": 2.5,
    "buckets": [
     "workflow"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/massachusetts-orders-84-million-in-dental-insurance-rebates-under-loss-ratio-law/": {
    "title": "Massachusetts orders $8.4 million in dental insurance rebates under loss ratio law",
@@ -62,13 +59,12 @@
    "first_seen": "2026-W33"
   },
   "https://adanews.ada.org/ada-news/2026/august/ada-seeks-feedback-on-first-recommendation-from-new-antibiotic-guideline-for-implant-surgery/": {
-   "title": "ADA seeks feedback&#x202F;on first recommendation from new antibiotic guideline for implant surgery",
+   "title": "ADA seeks feedback on first recommendation from new antibiotic guideline for implant surgery",
    "published": "2026-08-10",
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/ada-launches-new-advocacy-resources-to-help-dentists-host-members-of-congress-in-their-communities/": {
    "title": "ADA launches new advocacy resources to help dentists host members of Congress in their communities",
@@ -76,8 +72,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/historic-plaque-returns-to-ada-founding-site/": {
    "title": "Historic plaque returns to ADA founding site",
@@ -85,19 +80,15 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/dear-ada-insurance-premiums/": {
    "title": "Dear ADA: Insurance premiums",
    "published": "2026-08-05",
    "category": "Practice",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/ada-reaffirms-support-for-nevada-proposal-to-expand-dental-assistant-duties/": {
    "title": "ADA reaffirms support for Nevada proposal to expand dental assistant duties",
@@ -105,8 +96,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/ada-urges-cms-to-recognize-adult-dental-coverage-as-an-essential-health-benefit/": {
    "title": "ADA urges CMS to recognize adult dental coverage as an essential health benefit",
@@ -120,15 +110,14 @@
    "first_seen": "2026-W33"
   },
   "https://adanews.ada.org/ada-news/2026/august/august-jada-evaluates-omega-3-fatty-acids-role-in-periodontal-health/": {
-   "title": "August JADA evaluates omega-3 fatty acids&#x2019; role in periodontal health",
+   "title": "August JADA evaluates omega-3 fatty acids’ role in periodontal health",
    "published": "2026-08-03",
    "category": "Science",
    "score": 2.5,
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/finwise-bancorp-acquires-ada-credit-card-administrator/": {
    "title": "FinWise Bancorp acquires ADA credit card administrator",
@@ -136,8 +125,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/ada-member-advantage-endorsed-compliancy-group-acquires-healthicity/": {
    "title": "ADA Member Advantage-endorsed Compliancy Group acquires Healthicity",
@@ -153,12 +141,9 @@
    "title": "ADA applauds Senate HELP Committee action on Title VII workforce reauthorization",
    "published": "2026-07-24",
    "category": "Government",
-   "score": 2.5,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/proposed-ada-standard-specifies-requirements-for-comprehensive-consistent-dental-eobs/": {
    "title": "Proposed ADA standard specifies requirements for comprehensive, consistent dental EOBs",
@@ -179,8 +164,7 @@
    "buckets": [
     "workflow"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/action-for-dental-health-act-advances-in-house-introduced-in-senate/": {
    "title": "Action for Dental Health Act advances in House, introduced in Senate",
@@ -188,8 +172,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/ada-backs-legislation-to-make-adult-dental-benefits-mandatory-under-medicaid/": {
    "title": "ADA backs legislation to make adult dental benefits mandatory under Medicaid",
@@ -219,8 +202,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/new-ada-toolkit-aims-to-reduce-credentialing-delays-for-dentists/": {
    "title": "New ADA toolkit aims to reduce credentialing delays for dentists",
@@ -236,23 +218,17 @@
    "title": "ADA calls out Aetna for limiting payment options for out-of-network dentists",
    "published": "2026-07-22",
    "category": "Practice",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/ada-standards-program-consensus-bodies-to-meet-july-november/": {
    "title": "ADA Standards Program consensus bodies to meet July-November",
    "published": "2026-07-21",
    "category": "Practice",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/ada-summit-examines-future-role-of-salivary-biomarkers-in-dentistry/": {
    "title": "ADA summit examines future role of salivary biomarkers in dentistry",
@@ -260,8 +236,7 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/state-dental-insurance-reforms-continue-momentum-in-2026-legislative-sessions/": {
    "title": "State dental insurance reforms continue momentum in 2026 legislative sessions",
@@ -306,12 +281,9 @@
    "title": "ADA opposes insurance companies charging for paper checks",
    "published": "2026-07-09",
    "category": "Practice",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/latest-ada-governance-evaluation-update-clarifies-project-scope-alignment/": {
    "title": "Latest ADA governance evaluation update clarifies project scope, alignment",
@@ -319,8 +291,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/ada-immersify-launch-online-training-course-for-dental-assistants/": {
    "title": "ADA, Immersify launch online training course for dental assistants",
@@ -330,8 +301,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/july-jada-evaluates-research-on-silver-diamine-fluoride-as-remineralizing-agent/": {
    "title": "July JADA evaluates research on silver diamine fluoride as remineralizing agent",
@@ -339,8 +309,7 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/july/ada-seeks-dentalspecific-changes-to-patients-deserve-price-tags-act/": {
    "title": "ADA seeks dental-specific changes to Patients Deserve Price Tags Act",
@@ -353,24 +322,20 @@
    "first_seen": "2026-W33"
   },
   "https://adanews.ada.org/ada-news/2026/july/jadas-impact-factor-rises-nearly-full-point-to-4-4/": {
-   "title": "JADA&#x2019;s impact factor rises nearly full point to 4.4",
+   "title": "JADA’s impact factor rises nearly full point to 4.4",
    "published": "2026-07-01",
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/100-years-of-dental-standards/": {
    "title": "100 years of dental standards",
    "published": "2026-06-30",
    "category": "Practice",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/new-hpi-series-offers-at-a-glance-overviews-of-key-issues-impacting-dentistry/": {
    "title": "New HPI series offers at-a-glance overviews of key issues impacting dentistry",
@@ -394,15 +359,14 @@
    "first_seen": "2026-W33"
   },
   "https://adanews.ada.org/ada-news/2026/june/ada-supports-senate-bill-aimed-at-expanding-dental-team-training/": {
-   "title": "ADA supports Senate bill aimed at expanding dental team training&#xA0;",
+   "title": "ADA supports Senate bill aimed at expanding dental team training",
    "published": "2026-06-23",
    "category": "Government",
    "score": 2.0,
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/cdt-2027-available-for-preorder-through-ada-store/": {
    "title": "CDT 2027 available for preorder through ADA Store",
@@ -410,8 +374,7 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/survey-finds-americans-more-likely-to-trust-ada-than-rfk-jr-on-fluoride-information/": {
    "title": "Survey finds Americans more likely to trust ADA than RFK Jr. on fluoride information",
@@ -435,13 +398,12 @@
    "first_seen": "2026-W33"
   },
   "https://adanews.ada.org/ada-news/2026/june/student-loan-changes-ahead-adas-new-guide-can-help/": {
-   "title": "Student loan changes ahead? ADA&#x2019;s new guide can help&#xA0;",
+   "title": "Student loan changes ahead? ADA’s new guide can help",
    "published": "2026-06-17",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/ada-2026-scientific-session-highlights-value-of-peer-to-peer-connections/": {
    "title": "ADA 2026 Scientific Session highlights value of peer-to-peer connections",
@@ -449,8 +411,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/organized-dentistry-coalition-backs-bill-to-reauthorize-cdc-oral-health-program/": {
    "title": "Organized Dentistry Coalition backs bill to reauthorize CDC oral health program",
@@ -460,8 +421,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/ada-pilot-program-offers-blueprint-for-increasingdentist-participation-within-medicaid-launches-new-multistate-partnership/": {
    "title": "ADA pilot program offers blueprint for increasing&#xA0;dentist participation within Medicaid, launches new multistate partnership&#xA0;",
@@ -491,8 +451,7 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/ada-urges-congress-to-focus-transparency-efforts-on-dental-benefit-plans/": {
    "title": "ADA urges Congress to focus transparency efforts on dental benefit plans&#xA0;",
@@ -521,17 +480,15 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/june-jada-highlights-dentists-role-in-rare-disease-management/": {
-   "title": "June JADA highlights dentists&#x2019; role in rare disease management",
+   "title": "June JADA highlights dentists’ role in rare disease management",
    "published": "2026-06-08",
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/ada-forsyth-ranks-54th-on-list-of-us-research-institutions/": {
    "title": "ADA Forsyth ranks 54th on list of US research institutions",
@@ -539,17 +496,15 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/ada-highlights-dentistrys-role-in-antibiotic-stewardship-calls-for-practical-support-in-national-action-plan/": {
-   "title": "ADA highlights dentistry&#x2019;s role in antibiotic stewardship, calls for practical support in national action plan",
+   "title": "ADA highlights dentistry’s role in antibiotic stewardship, calls for practical support in national action plan",
    "published": "2026-06-03",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/june/federal-funding-sparksnewdentalworkforce-inunderserved-communities/": {
    "title": "Federal funding sparks&#xA0;new&#xA0;dental&#xA0;workforce in&#xA0;underserved communities&#xA0;",
@@ -568,17 +523,15 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/ada-calls-for-deliberative-approach-in-epa-fluoride-review/": {
-   "title": "ADA calls for &#x2018;deliberative approach&#x2019; in EPA fluoride review",
+   "title": "ADA calls for ‘deliberative approach’ in EPA fluoride review",
    "published": "2026-05-29",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/prioritize-well-being-this-mental-health-awareness-month-with-ada-resources/": {
    "title": "Prioritize well-being this Mental Health Awareness Month with ADA resources",
@@ -586,8 +539,7 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/ada-forsyth-ranks-no-1-nationally-in-nidcr-funding-to-dental-institutions/": {
    "title": "ADA Forsyth ranks No. 1 nationally in NIDCR funding to dental institutions",
@@ -595,19 +547,17 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/ada-supports-partners-act-aimed-at-strengthening-oversight-of-medicare-advantage-dental-benefits/": {
-   "title": "ADA supports PARTNERS Act aimed at strengthening oversight of Medicare Advantage dental benefits&#xA0;",
+   "title": "ADA supports PARTNERS Act aimed at strengthening oversight of Medicare Advantage dental benefits",
    "published": "2026-05-27",
    "category": "Government",
    "score": 2.5,
    "buckets": [
     "workflow"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/dental-college-of-georgia-breaks-ground-on-second-campus/": {
    "title": "Dental College of Georgia breaks ground on second campus",
@@ -617,8 +567,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/my-view-we-are-stronger-together/": {
    "title": "My View: We Are Stronger Together",
@@ -629,13 +578,12 @@
    "first_seen": "2026-W33"
   },
   "https://adanews.ada.org/ada-news/2026/may/us-court-of-appeals-overturns-lower-court-judgement-in-epa-fluoride-case-citing-judicial-overreach/": {
-   "title": "U.S. Court of Appeals overturns lower court judgement in EPA fluoride case, citing judicial overreach&#xA0;",
+   "title": "U.S. Court of Appeals overturns lower court judgement in EPA fluoride case, citing judicial overreach",
    "published": "2026-05-22",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/dear-ada-out-of-network-billing/": {
    "title": "Dear ADA: Out-of-network billing",
@@ -651,12 +599,9 @@
    "title": "New ADA standards on dental cartridges, water quality available for review",
    "published": "2026-05-22",
    "category": "Practice",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/cms-finalizes-rule-prohibiting-adult-dental-benefits-as-an-essential-health-benefit-in-marketplace-exchanges/": {
    "title": "CMS finalizes rule prohibiting adult dental benefits as an essential health benefit in Marketplace Exchanges",
@@ -687,17 +632,15 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/ada-grassroots-alert-urges-dentists-to-support-erisa-reform/": {
-   "title": "ADA Grassroots Alert urges dentists to support ERISA reform&#xA0;&#xA0;",
+   "title": "ADA Grassroots Alert urges dentists to support ERISA reform",
    "published": "2026-05-20",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/explore-world-of-forensic-dentistry-through-ada-program/": {
    "title": "Explore world of forensic dentistry through ADA program",
@@ -705,8 +648,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/jada-foundational-science-indexed-in-pubmed-central/": {
    "title": "JADA Foundational Science indexed in PubMed Central",
@@ -722,23 +664,17 @@
    "title": "Dentists file class action lawsuits against Delta Dental in four states",
    "published": "2026-05-13",
    "category": "Practice",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/live-ada-seminars-to-tackle-dentists-biggest-insurance-issues/": {
-   "title": "Live ADA seminars to tackle dentists&#x2019; biggest insurance issues",
+   "title": "Live ADA seminars to tackle dentists’ biggest insurance issues",
    "published": "2026-05-13",
    "category": "Practice",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/california-attorney-general-reaches-settlement-with-aspen-dental-over-corporate-practice-claims/": {
    "title": "California attorney general reaches settlement with Aspen Dental over corporate practice claims",
@@ -779,8 +715,7 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/ada-member-advantage-endorses-hp-for-technology-solutions/": {
    "title": "ADA Member Advantage endorses HP for technology solutions",
@@ -800,8 +735,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/ada-council-addresses-orthopedic-guideline-on-dental-care-for-prosthetic-joint-patients/": {
    "title": "ADA council addresses orthopedic guideline on dental care for prosthetic joint patients",
@@ -809,8 +743,7 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/may/may-jada-evaluates-ability-of-automated-testing-platform-to-detect-hpv-in-saliva/": {
    "title": "May JADA evaluates ability of automated testing platform to detect HPV in saliva",
@@ -842,19 +775,15 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/coloradoenacts-dental-insurance-reform-targeting-network-leasing-practices/": {
-   "title": "Colorado&#xA0;enacts dental insurance reform targeting network leasing practices&#xA0;",
+   "title": "Colorado enacts dental insurance reform targeting network leasing practices",
    "published": "2026-04-29",
    "category": "Government",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/ada-2026-scientific-session-to-tackle-real-clinical-challenges-faced-by-dentists/": {
    "title": "ADA 2026 Scientific Session to tackle real clinical challenges faced by dentists",
@@ -862,8 +791,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/ada-selects-firm-to-conduct-governance-and-organizational-health-evaluation/": {
    "title": "ADA selects firm to conduct governance and organizational health evaluation",
@@ -871,8 +799,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/you-ask-we-answer-does-water-fluoridation-present-unusual-safety-concerns-for-water-facility-operators/": {
    "title": "You Ask, We Answer: Does water fluoridation present unusual safety concerns for water facility operators?",
@@ -880,17 +807,15 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/us-olympic-paralympic-committee-seeks-dentists-to-join-volunteer-network/": {
-   "title": "US Olympic &amp; Paralympic Committee seeks dentists to join volunteer network",
+   "title": "US Olympic & Paralympic Committee seeks dentists to join volunteer network",
    "published": "2026-04-27",
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/guide-offers-resources-data-dentists-can-use-to-encourage-hpv-vaccination/": {
    "title": "Guide offers resources, data dentists can use to encourage HPV vaccination",
@@ -918,8 +843,7 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/ada-releases-updated-sedation-and-anesthesia-guidelines/": {
    "title": "ADA releases updated sedation and anesthesia guidelines",
@@ -936,12 +860,9 @@
    "title": "Oklahoma strengthens noncovered services protections in new law",
    "published": "2026-04-17",
    "category": "Government",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/new-research-reaffirms-recommended-fluoride-levels-do-not-negatively-affect-iq/": {
    "title": "New research reaffirms recommended fluoride levels do not negatively affect IQ",
@@ -959,19 +880,15 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/virginia-governor-signs-adasupported-workforce-bills-into-law/": {
    "title": "Virginia governor signs ADA-supported workforce bills into law",
    "published": "2026-04-14",
    "category": "Government",
-   "score": 2.5,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/67-changes-coming-to-cdt-2027/": {
    "title": "67 changes coming to CDT 2027",
@@ -991,8 +908,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/sanders-welch-announce-new-dental-clinic-and-training-partnership/": {
    "title": "Sanders, Welch announce new dental clinic and training partnership",
@@ -1013,17 +929,15 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/fighting-sugar-protecting-patients-ada-advocacy-in-action/": {
-   "title": "Fighting sugar, protecting patients: ADA advocacy in action&#xA0;",
+   "title": "Fighting sugar, protecting patients: ADA advocacy in action",
    "published": "2026-04-08",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/maryland-orders-cigna-to-stop-automatic-downcoding-issues-80000-fine/": {
    "title": "Maryland orders Cigna to stop automatic downcoding, issues $80,000 fine&#xA0;",
@@ -1043,8 +957,7 @@
    "buckets": [
     "workflow"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/ada-guideline-prioritizes-clinical-exam-over-vital-staining-in-early-oral-cancer-detection/": {
    "title": "ADA guideline prioritizes clinical exam over vital staining in early oral cancer detection",
@@ -1052,8 +965,7 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/ada-member-advantage-endorsed-cyracom-joins-propio-language-services/": {
    "title": "ADA Member Advantage-endorsed CyraCom joins Propio Language Services",
@@ -1061,8 +973,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/april/ada-raises-concerns-about-cms-crush-initiative-proposals-affecting-dentistry/": {
    "title": "ADA raises concerns about CMS CRUSH initiative proposals affecting dentistry",
@@ -1072,17 +983,15 @@
    "buckets": [
     "workflow"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/dear-ada-noncovered-services/": {
-   "title": "Dear ADA:&#xA0;Noncovered services",
+   "title": "Dear ADA: Noncovered services",
    "published": "2026-03-30",
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/q-a-what-are-your-ethical-obligations-if-another-dentist-dies-before-completing-treatment/": {
    "title": "Q&amp;A: What are your ethical obligations if another dentist dies before completing treatment?",
@@ -1102,8 +1011,7 @@
    "buckets": [
     "datos"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/ada-adds-mental-health-glp1-questions-to-health-history-forms/": {
    "title": "ADA adds mental health, GLP-1 questions to health history forms",
@@ -1111,8 +1019,7 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/lobby-day-2026-delivers-strong-impact/": {
    "title": "Lobby Day 2026 delivers strong impact",
@@ -1120,8 +1027,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/organized-dentistry-coalition-urges-cms-to-not-prohibit-adult-dental-coverage/": {
    "title": "Organized Dentistry Coalition urges CMS to not prohibit adult dental coverage",
@@ -1131,8 +1037,7 @@
    "buckets": [
     "workflow"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/coalition-urges-congress-to-boost-cdc-tobacco-prevention-funding/": {
    "title": "Coalition urges Congress to boost CDC tobacco prevention funding",
@@ -1142,8 +1047,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/ada-calls-for-improved-interoperability-standards-for-dental-imaging/": {
    "title": "ADA calls for improved interoperability standards for dental imaging&#xA0;",
@@ -1164,8 +1068,7 @@
    "buckets": [
     "workflow"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/ada-voices-support-for-reintroduction-of-promoting-dental-health-act/": {
    "title": "ADA voices support for reintroduction of Promoting Dental Health Act",
@@ -1175,19 +1078,15 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/new-ada-course-offers-strategies-for-supporting-dentists-mental-health/": {
-   "title": "New ADA course offers strategies for supporting dentists&#x2019; mental health",
+   "title": "New ADA course offers strategies for supporting dentists’ mental health",
    "published": "2026-03-17",
    "category": "Practice",
-   "score": 2.5,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/ada-forsyth-wins-massachusetts-economic-impact-award/": {
    "title": "ADA Forsyth wins Massachusetts economic impact award",
@@ -1197,19 +1096,15 @@
    "buckets": [
     "datos"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/legislation-introduced-to-apply-state-dental-insurance-laws-to-selffunded-plans/": {
-   "title": "Legislation introduced to apply state dental insurance laws to self-funded plans&#xA0;",
+   "title": "Legislation introduced to apply state dental insurance laws to self-funded plans",
    "published": "2026-03-12",
    "category": "Government",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/translate-science-into-practice-at-ada-2026-scientific-session/": {
    "title": "Translate science into practice at ADA 2026 Scientific Session",
@@ -1217,8 +1112,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/ada-member-advantage-endorses-weave-as-patient-engagement-platform/": {
    "title": "ADA Member Advantage endorses Weave as patient engagement platform",
@@ -1237,8 +1131,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/ada-joins-coalition-urging-education-department-to-adjust-timeline-for-student-loan-changes-1/": {
    "title": "ADA joins coalition urging Education Department to adjust timeline for student loan changes",
@@ -1248,8 +1141,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/ada-council-on-dental-education-and-licensure-seeks-committee-nominees/": {
    "title": "ADA Council on Dental Education and Licensure seeks committee nominees",
@@ -1259,8 +1151,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/march/ada-reaffirms-importance-of-clinical-exams-in-early-oral-cancer-detection/": {
    "title": "ADA reaffirms importance of clinical exams in early oral cancer detection",
@@ -1268,17 +1159,15 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/ada-urges-epa-to-strengthen-scientific-rigor-in-fluoride-health-assessment/": {
-   "title": "ADA urges EPA to strengthen scientific rigor in fluoride health assessment&#xA0;",
+   "title": "ADA urges EPA to strengthen scientific rigor in fluoride health assessment",
    "published": "2026-02-26",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/ada-foundation-launches-disaster-relief-fund/": {
    "title": "ADA Foundation launches disaster relief fund",
@@ -1286,17 +1175,15 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/ada-backs-independent-fluoride-review-at-house-hearing/": {
-   "title": "ADA backs independent fluoride review at House hearing&#xA0;",
+   "title": "ADA backs independent fluoride review at House hearing",
    "published": "2026-02-24",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/oral-history-dr-emmett-bolden/": {
    "title": "Oral History: Dr. Emmett Bolden",
@@ -1304,8 +1191,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/ada-president-discusses-oral-health-2050-initiative-at-dental-innovators-event/": {
    "title": "ADA president discusses Oral Health 2050 Initiative at dental innovators event",
@@ -1315,8 +1201,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/ada-urges-principal-to-reconsider-documentation-for-periapical-radiographs/": {
    "title": "ADA urges Principal to reconsider documentation for periapical radiographs",
@@ -1343,12 +1228,9 @@
    "title": "Proposed ADA standards available for review by March 22",
    "published": "2026-02-19",
    "category": "Science",
-   "score": 3.0,
-   "buckets": [
-    "workflow"
-   ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/ada-seeks-dental-imaging-experts-to-inform-response-to-federal-interoperability-request/": {
    "title": "ADA seeks dental imaging experts to inform response to federal interoperability request",
@@ -1369,8 +1251,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/indian-health-service-to-end-dental-amalgam-use-by-2027/": {
    "title": "Indian Health Service to end dental amalgam use by 2027",
@@ -1378,19 +1259,17 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/cms-proposes-reversal-of-adult-dental-essential-health-benefit-policy-in-payment-notice/": {
-   "title": "CMS proposes reversal of adult dental essential health benefit policy in payment notice&#xA0;",
+   "title": "CMS proposes reversal of adult dental essential health benefit policy in payment notice",
    "published": "2026-02-11",
    "category": "Government",
    "score": 2.5,
    "buckets": [
     "workflow"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/cms-launches-online-complaint-form-for-providers-to-report-medicare-advantage-issues/": {
    "title": "CMS launches online complaint form for providers to report Medicare Advantage issues",
@@ -1420,8 +1299,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/give-kids-a-smile-2026-kicks-off-in-houston/": {
    "title": "Give Kids A Smile 2026 kicks off in Houston",
@@ -1440,8 +1318,7 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/february/american-association-of-dental-editors-and-journalists-releases-guidance-on-ai-use-in-publishing/": {
    "title": "American Association of Dental Editors and Journalists releases guidance on AI use in publishing",
@@ -1470,26 +1347,23 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/dentists-at-thehelm-ofcivicleadership/": {
-   "title": "Dentists at the&#xA0;helm of&#xA0;civic&#xA0;leadership&#xA0;",
+   "title": "Dentists at the helm of civic leadership",
    "published": "2026-01-30",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/ada-seeks-volunteers-to-help-shape-dentistrys-future/": {
-   "title": "ADA seeks volunteers to help shape dentistry&#x2019;s future",
+   "title": "ADA seeks volunteers to help shape dentistry’s future",
    "published": "2026-01-30",
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/code-maintenance-committee-to-meet-march-13/": {
    "title": "Code Maintenance Committee to meet March 13",
@@ -1507,8 +1381,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/search-for-ada-executive-director-progresses/": {
    "title": "Search for ADA executive director progresses",
@@ -1516,46 +1389,41 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/ada-seeks-feedback-on-recommendations-for-using-light-based-adjuncts-in-oral-cancer-detection/": {
-   "title": "ADA seeks feedback&#x202F;on recommendations for using light-based adjuncts in oral cancer detection",
+   "title": "ADA seeks feedback on recommendations for using light-based adjuncts in oral cancer detection",
    "published": "2026-01-29",
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/ada-launches-task-force-on-specialty-engagement/": {
-   "title": "ADA launches Task Force on Specialty Engagement&#xA0;&#xA0;&#xA0;&#xA0;",
+   "title": "ADA launches Task Force on Specialty Engagement",
    "published": "2026-01-27",
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/new-york-dental-advocacy-yields-multiple-policy-wins/": {
-   "title": "New York dental advocacy yields multiple policy wins&#xA0;",
+   "title": "New York dental advocacy yields multiple policy wins",
    "published": "2026-01-26",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/adahighlightsdental-market-reformsin-advance-ofinsurer-ceo-hearings/": {
-   "title": "ADA&#xA0;highlights&#xA0;dental market reforms&#xA0;in advance of&#xA0;insurer CEO hearings&#xA0;",
+   "title": "ADA highlights dental market reforms in advance of insurer CEO hearings",
    "published": "2026-01-23",
    "category": "Government",
    "score": 2.5,
    "buckets": [
     "datos"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/academy-for-sports-dentistry-to-offer-sports-dentist-certification-course/": {
    "title": "Academy for Sports Dentistry to offer sports dentist certification course",
@@ -1563,8 +1431,7 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/dear-ada-reimbursement-rates/": {
    "title": "Dear ADA: Reimbursement rates",
@@ -1583,8 +1450,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/patient-lawsuit-alleges-delta-dental-misrepresents-out-of-network-coverage/": {
    "title": "Patient lawsuit alleges Delta Dental misrepresents out-of-network coverage",
@@ -1597,15 +1463,14 @@
    "first_seen": "2026-W33"
   },
   "https://adanews.ada.org/ada-news/2026/january/ada-resources-for-national-childrens-dental-health-month-2026/": {
-   "title": "ADA resources for National Children&#x2019;s Dental Health Month 2026",
+   "title": "ADA resources for National Children’s Dental Health Month 2026",
    "published": "2026-01-21",
    "category": "Practice",
    "score": 2.5,
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/ada-urges-congress-to-modernize-macra-to-better-integrate-oral-health/": {
    "title": "ADA urges Congress to modernize MACRA to better integrate oral health&#xA0;",
@@ -1620,15 +1485,14 @@
    "first_seen": "2026-W33"
   },
   "https://adanews.ada.org/ada-news/2026/january/senate-passes-fy-2026-interior-spending-package/": {
-   "title": "Senate passes FY 2026 interior spending package&#xA0;",
+   "title": "Senate passes FY 2026 interior spending package",
    "published": "2026-01-16",
    "category": "Government",
    "score": 3.0,
    "buckets": [
     "datos"
    ],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/new-hipaa-rules-address-substance-use-disorder-records/": {
    "title": "New HIPAA rules address substance use disorder records",
@@ -1646,8 +1510,7 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/former-harvard-school-of-dental-medicine-dean-dies-at-83/": {
    "title": "Former Harvard School of Dental Medicine dean dies at 83",
@@ -1655,17 +1518,15 @@
    "category": "Education",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/hhs-usda-release-2025-2030-dietary-guidelines/": {
-   "title": "HHS, USDA release&#xA0;2025&#x2013;2030 dietary guidelines&#xA0;",
+   "title": "HHS, USDA release 2025–2030 dietary guidelines",
    "published": "2026-01-12",
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/past-american-academy-of-periodontology-president-dies-at-87/": {
    "title": "Past American Academy of Periodontology president dies at 87",
@@ -1673,8 +1534,7 @@
    "category": "Education",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/ada-webinar-to-address-how-to-talk-to-patients-about-mental-health/": {
    "title": "ADA webinar to address how to talk to patients about mental health",
@@ -1682,8 +1542,7 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/ada-member-advantage-ends-classpass-onpay-endorsements/": {
    "title": "ADA Member Advantage ends ClassPass, OnPay endorsements",
@@ -1691,8 +1550,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/january-jada-outlines-emerging-dental-therapies-for-obstructive-sleep-apnea/": {
    "title": "January JADA outlines emerging dental therapies for obstructive sleep apnea",
@@ -1700,8 +1558,7 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W33",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/january/new-ada-recommendations-confirm-dental-imaging-most-effectively-used-in-moderation/": {
    "title": "New ADA recommendations confirm dental imaging most effectively used in moderation",
@@ -5535,11 +5392,10 @@
   "https://adanews.ada.org/ada-news/2026/september/collaboration-helps-drive-positive-insurance-changes-in-multiple-states/": {
    "title": "Collaboration helps drive positive insurance changes in multiple states",
    "published": "2026-09-17",
-   "category": "Practice",
+   "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/": {
    "title": "Written testimony for ADA House of Delegates reference committees due Oct. 5",
@@ -5547,8 +5403,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/september/house-committee-considers-doc-access-act/": {
    "title": "House committee considers DOC Access Act",
@@ -5556,8 +5411,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/september/ada-launches-oral-health-certification-for-community-health-workers/": {
    "title": "ADA launches oral health certification for community health workers",
@@ -5567,8 +5421,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/september/ada-urges-nidcr-to-prioritize-prevention-oralsystemic-research-in-next-strategic-plan/": {
    "title": "ADA urges NIDCR to prioritize prevention, oral-systemic research in next strategic plan",
@@ -5578,8 +5431,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/september/ada-opposes-proposed-removal-of-head-start-oral-health-standards/": {
    "title": "ADA opposes proposed removal of Head Start oral health standards",
@@ -5619,8 +5471,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/september/president-trump-signs-continuing-resolution-maintaining-oral-health-funding/": {
    "title": "President Trump signs continuing resolution maintaining oral health funding",
@@ -5630,8 +5481,7 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/aetna-resolves-medicare-claims-processing-error-after-ada-push/": {
    "title": "Aetna resolves Medicare claims-processing error after ADA push",
@@ -5650,8 +5500,7 @@
    "category": "Practice",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/ada-scientific-session-goes-beyond-learning-to-build-in-person-connections/": {
    "title": "ADA Scientific Session goes beyond learning to build in-person connections",
@@ -5659,8 +5508,7 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/ada-urges-nih-to-broaden-measures-of-scientific-impact/": {
    "title": "ADA urges NIH to broaden measures of scientific impact",
@@ -5668,8 +5516,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/august/mayo-researchers-seek-insight-into-dentists-antibiotic-prescribing-habits/": {
    "title": "Mayo researchers seek insight into dentists’ antibiotic-prescribing habits",
@@ -5687,8 +5534,7 @@
    "category": "Government",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
   },
   "https://adanews.ada.org/ada-news/2026/september/my-view-what-do-we-own/": {
    "title": "My View: What do we own?",
@@ -5716,8 +5562,44 @@
    "category": "Around The ADA",
    "score": 0.0,
    "buckets": [],
-   "first_seen": "2026-W38",
-   "needs_refetch": true
+   "first_seen": "2026-W39"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-raises-concerns-about-proposed-accreditation-rule-changes/": {
+   "title": "ADA raises concerns about proposed accreditation rule changes",
+   "published": "2026-09-22",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-welcomes-jonathan-burke-dmd-as-new-nidcr-director/": {
+   "title": "ADA welcomes Jonathan Burke, D.M.D., as new NIDCR director",
+   "published": "2026-09-22",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/400-laws-and-counting-dental-advocacy-is-driving-change/": {
+   "title": "400 laws and counting: dental advocacy is driving change",
+   "published": "2026-09-22",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W39"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-urges-cms-to-account-for-dental-data-in-medicaid-it-standards/": {
+   "title": "ADA urges CMS to account for dental data in Medicaid IT standards",
+   "published": "2026-09-22",
+   "category": "Government",
+   "score": 15.0,
+   "buckets": [
+    "admin",
+    "ai",
+    "datos",
+    "workflow"
+   ],
+   "first_seen": "2026-W39"
   }
  },
  "weeks": {
@@ -6338,8 +6220,138 @@
    "https://adanews.ada.org/ada-news/2026/september/september-jada-highlights-product-development-strategies-that-lead-to-clinical-adoption/",
    "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/"
   ],
-  "2026-W39": []
+  "2026-W39": [
+   "https://adanews.ada.org/ada-news/2026/april/ada-2026-scientific-session-to-tackle-real-clinical-challenges-faced-by-dentists/",
+   "https://adanews.ada.org/ada-news/2026/april/ada-american-board-of-dental-examiners-advance-dental-licensure-exams-through-new-agreement/",
+   "https://adanews.ada.org/ada-news/2026/april/ada-guideline-prioritizes-clinical-exam-over-vital-staining-in-early-oral-cancer-detection/",
+   "https://adanews.ada.org/ada-news/2026/april/ada-member-advantage-endorsed-cyracom-joins-propio-language-services/",
+   "https://adanews.ada.org/ada-news/2026/april/ada-raises-concerns-about-cms-crush-initiative-proposals-affecting-dentistry/",
+   "https://adanews.ada.org/ada-news/2026/april/ada-seeks-feedback-on-recommendations-for-using-salivary-tests-in-oral-cancer-detection/",
+   "https://adanews.ada.org/ada-news/2026/april/ada-selects-firm-to-conduct-governance-and-organizational-health-evaluation/",
+   "https://adanews.ada.org/ada-news/2026/april/ada-urges-congress-to-increase-oral-health-funding-restore-leadership/",
+   "https://adanews.ada.org/ada-news/2026/april/applications-open-for-2026-27-ada-certified-clinic-director-program/",
+   "https://adanews.ada.org/ada-news/2026/april/april-jada-evaluates-water-fluoridation-benefits-impact-of-discontinuation/",
+   "https://adanews.ada.org/ada-news/2026/april/coloradoenacts-dental-insurance-reform-targeting-network-leasing-practices/",
+   "https://adanews.ada.org/ada-news/2026/april/fighting-sugar-protecting-patients-ada-advocacy-in-action/",
+   "https://adanews.ada.org/ada-news/2026/april/oklahoma-strengthens-noncovered-services-protections-in-new-law/",
+   "https://adanews.ada.org/ada-news/2026/april/organized-dentistry-coalition-calls-for-protection-of-federal-oral-health-infrastructure/",
+   "https://adanews.ada.org/ada-news/2026/april/us-olympic-paralympic-committee-seeks-dentists-to-join-volunteer-network/",
+   "https://adanews.ada.org/ada-news/2026/april/virginia-governor-signs-adasupported-workforce-bills-into-law/",
+   "https://adanews.ada.org/ada-news/2026/april/you-ask-we-answer-does-water-fluoridation-present-unusual-safety-concerns-for-water-facility-operators/",
+   "https://adanews.ada.org/ada-news/2026/august/ada-council-highlights-need-for-evidence-based-antibiotic-prescribing/",
+   "https://adanews.ada.org/ada-news/2026/august/ada-governance-evaluation-sees-extensive-stakeholder-engagement/",
+   "https://adanews.ada.org/ada-news/2026/august/ada-launches-new-advocacy-resources-to-help-dentists-host-members-of-congress-in-their-communities/",
+   "https://adanews.ada.org/ada-news/2026/august/ada-member-advantages-hertz-endorsement-brings-enhanced-member-benefits/",
+   "https://adanews.ada.org/ada-news/2026/august/ada-reaffirms-support-for-nevada-proposal-to-expand-dental-assistant-duties/",
+   "https://adanews.ada.org/ada-news/2026/august/ada-scientific-session-goes-beyond-learning-to-build-in-person-connections/",
+   "https://adanews.ada.org/ada-news/2026/august/ada-seeks-feedback-on-first-recommendation-from-new-antibiotic-guideline-for-implant-surgery/",
+   "https://adanews.ada.org/ada-news/2026/august/ada-urges-nih-to-broaden-measures-of-scientific-impact/",
+   "https://adanews.ada.org/ada-news/2026/august/august-jada-evaluates-omega-3-fatty-acids-role-in-periodontal-health/",
+   "https://adanews.ada.org/ada-news/2026/august/dear-ada-insurance-premiums/",
+   "https://adanews.ada.org/ada-news/2026/august/doj-seeks-to-halt-nevada-firms-manufacture-sale-of-dental-products/",
+   "https://adanews.ada.org/ada-news/2026/august/finwise-bancorp-acquires-ada-credit-card-administrator/",
+   "https://adanews.ada.org/ada-news/2026/august/historic-plaque-returns-to-ada-founding-site/",
+   "https://adanews.ada.org/ada-news/2026/august/submit-code-change-requests-for-cdt-2028-by-nov-1/",
+   "https://adanews.ada.org/ada-news/2026/february/ada-backs-independent-fluoride-review-at-house-hearing/",
+   "https://adanews.ada.org/ada-news/2026/february/ada-foundation-launches-disaster-relief-fund/",
+   "https://adanews.ada.org/ada-news/2026/february/ada-offers-scholarships-for-teaching-and-leadership-training-program/",
+   "https://adanews.ada.org/ada-news/2026/february/ada-president-discusses-oral-health-2050-initiative-at-dental-innovators-event/",
+   "https://adanews.ada.org/ada-news/2026/february/ada-urges-epa-to-strengthen-scientific-rigor-in-fluoride-health-assessment/",
+   "https://adanews.ada.org/ada-news/2026/february/cms-proposes-reversal-of-adult-dental-essential-health-benefit-policy-in-payment-notice/",
+   "https://adanews.ada.org/ada-news/2026/february/epa-initiates-accelerated-review-of-fluoride-in-drinking-water/",
+   "https://adanews.ada.org/ada-news/2026/february/february-jada-examines-burden-of-severe-periodontitis/",
+   "https://adanews.ada.org/ada-news/2026/february/indian-health-service-to-end-dental-amalgam-use-by-2027/",
+   "https://adanews.ada.org/ada-news/2026/february/oral-history-dr-emmett-bolden/",
+   "https://adanews.ada.org/ada-news/2026/february/proposed-ada-standards-available-for-review-by-march-22/",
+   "https://adanews.ada.org/ada-news/2026/february/what-to-know-about-ada-seal/",
+   "https://adanews.ada.org/ada-news/2026/january/2025-marks-strong-year-for-ada-advocacy/",
+   "https://adanews.ada.org/ada-news/2026/january/academy-for-sports-dentistry-to-offer-sports-dentist-certification-course/",
+   "https://adanews.ada.org/ada-news/2026/january/ada-explores-opportunities-to-educate-dentists-on-type-1-diabetes/",
+   "https://adanews.ada.org/ada-news/2026/january/ada-launches-new-patient-service-coordinator-program/",
+   "https://adanews.ada.org/ada-news/2026/january/ada-launches-task-force-on-specialty-engagement/",
+   "https://adanews.ada.org/ada-news/2026/january/ada-member-advantage-ends-classpass-onpay-endorsements/",
+   "https://adanews.ada.org/ada-news/2026/january/ada-resources-for-national-childrens-dental-health-month-2026/",
+   "https://adanews.ada.org/ada-news/2026/january/ada-seeks-feedback-on-recommendations-for-using-light-based-adjuncts-in-oral-cancer-detection/",
+   "https://adanews.ada.org/ada-news/2026/january/ada-seeks-volunteers-to-help-shape-dentistrys-future/",
+   "https://adanews.ada.org/ada-news/2026/january/ada-webinar-to-address-how-to-talk-to-patients-about-mental-health/",
+   "https://adanews.ada.org/ada-news/2026/january/adahighlightsdental-market-reformsin-advance-ofinsurer-ceo-hearings/",
+   "https://adanews.ada.org/ada-news/2026/january/dentists-at-thehelm-ofcivicleadership/",
+   "https://adanews.ada.org/ada-news/2026/january/former-harvard-school-of-dental-medicine-dean-dies-at-83/",
+   "https://adanews.ada.org/ada-news/2026/january/hhs-usda-release-2025-2030-dietary-guidelines/",
+   "https://adanews.ada.org/ada-news/2026/january/january-jada-outlines-emerging-dental-therapies-for-obstructive-sleep-apnea/",
+   "https://adanews.ada.org/ada-news/2026/january/new-york-dental-advocacy-yields-multiple-policy-wins/",
+   "https://adanews.ada.org/ada-news/2026/january/past-american-academy-of-periodontology-president-dies-at-87/",
+   "https://adanews.ada.org/ada-news/2026/january/search-for-ada-executive-director-progresses/",
+   "https://adanews.ada.org/ada-news/2026/january/senate-passes-fy-2026-interior-spending-package/",
+   "https://adanews.ada.org/ada-news/2026/july/action-for-dental-health-act-advances-in-house-introduced-in-senate/",
+   "https://adanews.ada.org/ada-news/2026/july/ada-applauds-senate-help-committee-action-on-title-vii-workforce-reauthorization/",
+   "https://adanews.ada.org/ada-news/2026/july/ada-calls-out-aetna-for-limiting-payment-options-for-out-of-network-dentists/",
+   "https://adanews.ada.org/ada-news/2026/july/ada-immersify-launch-online-training-course-for-dental-assistants/",
+   "https://adanews.ada.org/ada-news/2026/july/ada-opposes-insurance-companies-charging-for-paper-checks/",
+   "https://adanews.ada.org/ada-news/2026/july/ada-standards-program-consensus-bodies-to-meet-july-november/",
+   "https://adanews.ada.org/ada-news/2026/july/ada-summit-examines-future-role-of-salivary-biomarkers-in-dentistry/",
+   "https://adanews.ada.org/ada-news/2026/july/center-for-medicaid-and-chip-services-encourages-states-to-restrict-amalgam-coverage/",
+   "https://adanews.ada.org/ada-news/2026/july/house-passes-national-defense-authorization-act/",
+   "https://adanews.ada.org/ada-news/2026/july/jadas-impact-factor-rises-nearly-full-point-to-4-4/",
+   "https://adanews.ada.org/ada-news/2026/july/july-jada-evaluates-research-on-silver-diamine-fluoride-as-remineralizing-agent/",
+   "https://adanews.ada.org/ada-news/2026/july/latest-ada-governance-evaluation-update-clarifies-project-scope-alignment/",
+   "https://adanews.ada.org/ada-news/2026/june/100-years-of-dental-standards/",
+   "https://adanews.ada.org/ada-news/2026/june/ada-2026-scientific-session-highlights-value-of-peer-to-peer-connections/",
+   "https://adanews.ada.org/ada-news/2026/june/ada-forsyth-ranks-54th-on-list-of-us-research-institutions/",
+   "https://adanews.ada.org/ada-news/2026/june/ada-governance-and-organizational-health-evaluation-is-underway-scheduled-to-conclude-in-october-2027/",
+   "https://adanews.ada.org/ada-news/2026/june/ada-highlights-dentistrys-role-in-antibiotic-stewardship-calls-for-practical-support-in-national-action-plan/",
+   "https://adanews.ada.org/ada-news/2026/june/ada-standards-program-seeks-volunteers-for-new-work-projects/",
+   "https://adanews.ada.org/ada-news/2026/june/ada-supports-senate-bill-aimed-at-expanding-dental-team-training/",
+   "https://adanews.ada.org/ada-news/2026/june/cdt-2027-available-for-preorder-through-ada-store/",
+   "https://adanews.ada.org/ada-news/2026/june/june-jada-highlights-dentists-role-in-rare-disease-management/",
+   "https://adanews.ada.org/ada-news/2026/june/north-carolina-orthodontist-nearly-80-year-ada-member-dies-at-102/",
+   "https://adanews.ada.org/ada-news/2026/june/organized-dentistry-coalition-backs-bill-to-reauthorize-cdc-oral-health-program/",
+   "https://adanews.ada.org/ada-news/2026/june/student-loan-changes-ahead-adas-new-guide-can-help/",
+   "https://adanews.ada.org/ada-news/2026/march/3-convicted-in-racketeering-conspiracy-involving-dental-practice/",
+   "https://adanews.ada.org/ada-news/2026/march/ada-adds-mental-health-glp1-questions-to-health-history-forms/",
+   "https://adanews.ada.org/ada-news/2026/march/ada-council-on-dental-education-and-licensure-seeks-committee-nominees/",
+   "https://adanews.ada.org/ada-news/2026/march/ada-forsyth-wins-massachusetts-economic-impact-award/",
+   "https://adanews.ada.org/ada-news/2026/march/ada-joins-coalition-urging-education-department-to-adjust-timeline-for-student-loan-changes-1/",
+   "https://adanews.ada.org/ada-news/2026/march/ada-names-next-executive-director/",
+   "https://adanews.ada.org/ada-news/2026/march/ada-reaffirms-importance-of-clinical-exams-in-early-oral-cancer-detection/",
+   "https://adanews.ada.org/ada-news/2026/march/ada-voices-support-for-reintroduction-of-promoting-dental-health-act/",
+   "https://adanews.ada.org/ada-news/2026/march/coalition-urges-congress-to-boost-cdc-tobacco-prevention-funding/",
+   "https://adanews.ada.org/ada-news/2026/march/dear-ada-noncovered-services/",
+   "https://adanews.ada.org/ada-news/2026/march/legislation-introduced-to-apply-state-dental-insurance-laws-to-selffunded-plans/",
+   "https://adanews.ada.org/ada-news/2026/march/lobby-day-2026-delivers-strong-impact/",
+   "https://adanews.ada.org/ada-news/2026/march/new-ada-course-offers-strategies-for-supporting-dentists-mental-health/",
+   "https://adanews.ada.org/ada-news/2026/march/new-ada-executive-director-emphasizes-clarity-trust-and-growth/",
+   "https://adanews.ada.org/ada-news/2026/march/organized-dentistry-coalition-urges-cms-to-not-prohibit-adult-dental-coverage/",
+   "https://adanews.ada.org/ada-news/2026/march/translate-science-into-practice-at-ada-2026-scientific-session/",
+   "https://adanews.ada.org/ada-news/2026/may/ada-calls-for-deliberative-approach-in-epa-fluoride-review/",
+   "https://adanews.ada.org/ada-news/2026/may/ada-council-addresses-orthopedic-guideline-on-dental-care-for-prosthetic-joint-patients/",
+   "https://adanews.ada.org/ada-news/2026/may/ada-forsyth-ranks-no-1-nationally-in-nidcr-funding-to-dental-institutions/",
+   "https://adanews.ada.org/ada-news/2026/may/ada-grassroots-alert-urges-dentists-to-support-erisa-reform/",
+   "https://adanews.ada.org/ada-news/2026/may/ada-supports-partners-act-aimed-at-strengthening-oversight-of-medicare-advantage-dental-benefits/",
+   "https://adanews.ada.org/ada-news/2026/may/dental-college-of-georgia-breaks-ground-on-second-campus/",
+   "https://adanews.ada.org/ada-news/2026/may/dentists-file-class-action-lawsuits-against-delta-dental-in-four-states/",
+   "https://adanews.ada.org/ada-news/2026/may/education-department-finalizes-student-loan-rule-implementing-2025-law/",
+   "https://adanews.ada.org/ada-news/2026/may/expand-your-practice-with-ada-ce-on-sports-dentistry-botox/",
+   "https://adanews.ada.org/ada-news/2026/may/explore-world-of-forensic-dentistry-through-ada-program/",
+   "https://adanews.ada.org/ada-news/2026/may/hhs-office-for-civil-rights-extends-compliance-deadline-for-digital-accessibility-final-rule-to-may-2027/",
+   "https://adanews.ada.org/ada-news/2026/may/live-ada-seminars-to-tackle-dentists-biggest-insurance-issues/",
+   "https://adanews.ada.org/ada-news/2026/may/new-ada-standards-on-dental-cartridges-water-quality-available-for-review/",
+   "https://adanews.ada.org/ada-news/2026/may/prioritize-well-being-this-mental-health-awareness-month-with-ada-resources/",
+   "https://adanews.ada.org/ada-news/2026/may/us-court-of-appeals-overturns-lower-court-judgement-in-epa-fluoride-case-citing-judicial-overreach/",
+   "https://adanews.ada.org/ada-news/2026/september/400-laws-and-counting-dental-advocacy-is-driving-change/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-governance-evaluation-enters-key-synthesis-stage/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-launches-oral-health-certification-for-community-health-workers/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-raises-concerns-about-proposed-accreditation-rule-changes/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-urges-cms-to-account-for-dental-data-in-medicaid-it-standards/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-urges-nidcr-to-prioritize-prevention-oralsystemic-research-in-next-strategic-plan/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-welcomes-jonathan-burke-dmd-as-new-nidcr-director/",
+   "https://adanews.ada.org/ada-news/2026/september/collaboration-helps-drive-positive-insurance-changes-in-multiple-states/",
+   "https://adanews.ada.org/ada-news/2026/september/house-committee-considers-doc-access-act/",
+   "https://adanews.ada.org/ada-news/2026/september/leadership-through-listening/",
+   "https://adanews.ada.org/ada-news/2026/september/president-trump-signs-continuing-resolution-maintaining-oral-health-funding/",
+   "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/"
+  ]
  },
- "runs": 138,
+ "runs": 150,
  "deepest_page": 12
 }

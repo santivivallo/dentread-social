@@ -7,7 +7,8 @@
   "demografia-dentista": "2026-08-26",
   "cdt-sin-codigo-ia": "2026-09-02",
   "sin-seguro": "2026-09-16",
-  "ninos-chip": "2026-09-16"
+  "ninos-chip": "2026-09-16",
+  "prevencion": "2026-09-23"
  },
  "facts": {
   "sin-seguro-72m": "2026-08-10",
@@ -25,7 +26,9 @@
   "medicaid-privado": "2026-09-16",
   "cobertura-perdida": "2026-09-16",
   "utilizacion-edad": "2026-09-16",
-  "medicaid-ninos-visita": "2026-09-16"
+  "medicaid-ninos-visita": "2026-09-16",
+  "caries-ninos-46": "2026-09-23",
+  "caries-sin-tratar-2044": "2026-09-23"
  },
  "evergreen": {
   "que-es-dentread": "2026-08-10",
@@ -35,7 +38,7 @@
   "comunicacion-visual-paciente": "2026-08-31",
   "comprension-y-confianza": "2026-09-22"
  },
- "count": 15,
+ "count": 16,
  "externos": {
   "news-56913837": "2026-08-14",
   "paper-41204923": "2026-08-14",

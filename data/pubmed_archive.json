@@ -14,7 +14,7 @@
    "journal": "Matern Child Health J",
    "year": "2025",
    "design": "",
-   "preset": "medicaid",
+   "preset": "acceso",
    "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
   },
@@ -23,7 +23,7 @@
    "journal": "JDR Clin Trans Res",
    "year": "2025",
    "design": "Observational Study",
-   "preset": "medicaid",
+   "preset": "acceso",
    "first_seen": "2026-W39",
    "descartado": ""
   },
@@ -41,7 +41,7 @@
    "journal": "J Endod",
    "year": "2026",
    "design": "",
-   "preset": "medicaid",
+   "preset": "acceso",
    "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
   },
@@ -88,7 +88,7 @@
    "design": "",
    "preset": "medicaid",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article"
   },
   "41580382": {
    "title": "Organ-on-a-chip in oral medicine: Emerging approaches and applications.",
@@ -430,7 +430,7 @@
    "design": "",
    "preset": "ia",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article"
   },
   "40701837": {
    "title": "The Association of Periodontal Inflammation and Systemic Health Indicators: A Machine Learning Approach.",
@@ -466,7 +466,7 @@
    "design": "",
    "preset": "ia",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article"
   },
   "40170270": {
    "title": "Can Artificial Intelligence Language Models Effectively Address Dental Trauma Questions?",
@@ -1003,10 +1003,10 @@
    "title": "Dentists', dental students' and patients' knowledge, attitudes and practices on artificial intelligence: a scoping review.",
    "journal": "BMC Oral Health",
    "year": "2026",
-   "design": "Systematic Review",
+   "design": "",
    "preset": "economia",
    "first_seen": "2026-W39",
-   "descartado": ""
+   "descartado": "diseno_no_señalizable:Journal Article, Scoping Review"
   },
   "42607520": {
    "title": "Musculoskeletal Disorders in Dentists: A Practical Review and Self-Management Framework.",
@@ -4305,5 +4305,5 @@
    "42760388"
   ]
  },
- "runs": 26
+ "runs": 40
 }
