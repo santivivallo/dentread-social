@@ -6,3 +6,7 @@
 {"ts": "2026-09-23T17:51:50+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "35897103502", "kind": "data", "id": "prevencion", "slug": "prevencion", "modo": "data", "redaccion": "curada"}
 {"ts": "2026-09-23T17:51:50+00:00", "evento": "corrida", "origen": "schedule", "corrida": "35897103502", "pedidos": 1, "listos": 1, "descartados": 2, "preview": false}
 {"ts": "2026-09-23T17:52:26+00:00", "evento": "publicado", "origen": "schedule", "corrida": "35897103502", "carpeta": "out/2026-09-23-prevencion", "plataformas": ["instagram"], "resultados": {"instagram": "17933076216394881"}}
+{"ts": "2026-09-25T17:49:47+00:00", "evento": "llamada_modelo", "origen": "schedule", "corrida": "36168959428", "ok": false, "modelo": "gemini-flash-latest", "motivo": "HTTP 404: [{   \"error\": {     \"code\": 404,     \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to us"}
+{"ts": "2026-09-25T17:49:59+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "36168959428", "kind": "data", "id": "adultos-mayores", "slug": "adultos-mayores", "modo": "data", "redaccion": "curada"}
+{"ts": "2026-09-25T17:49:59+00:00", "evento": "corrida", "origen": "schedule", "corrida": "36168959428", "pedidos": 1, "listos": 1, "descartados": 0, "preview": false}
+{"ts": "2026-09-25T17:50:43+00:00", "evento": "publicado", "origen": "schedule", "corrida": "36168959428", "carpeta": "out/2026-09-25-adultos-mayores", "plataformas": ["instagram"], "resultados": {"instagram": "18145427665562529"}}

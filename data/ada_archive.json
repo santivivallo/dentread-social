@@ -5600,6 +5600,17 @@
     "workflow"
    ],
    "first_seen": "2026-W39"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-to-launch-cbct-training-for-dentists-teams/": {
+   "title": "ADA to launch CBCT training for dentists, teams",
+   "published": "2026-09-24",
+   "category": "Science",
+   "score": 8.12,
+   "buckets": [
+    "ai",
+    "clinica"
+   ],
+   "first_seen": "2026-W39"
   }
  },
  "weeks": {
@@ -6342,6 +6353,7 @@
    "https://adanews.ada.org/ada-news/2026/september/ada-governance-evaluation-enters-key-synthesis-stage/",
    "https://adanews.ada.org/ada-news/2026/september/ada-launches-oral-health-certification-for-community-health-workers/",
    "https://adanews.ada.org/ada-news/2026/september/ada-raises-concerns-about-proposed-accreditation-rule-changes/",
+   "https://adanews.ada.org/ada-news/2026/september/ada-to-launch-cbct-training-for-dentists-teams/",
    "https://adanews.ada.org/ada-news/2026/september/ada-urges-cms-to-account-for-dental-data-in-medicaid-it-standards/",
    "https://adanews.ada.org/ada-news/2026/september/ada-urges-nidcr-to-prioritize-prevention-oralsystemic-research-in-next-strategic-plan/",
    "https://adanews.ada.org/ada-news/2026/september/ada-welcomes-jonathan-burke-dmd-as-new-nidcr-director/",
@@ -6352,6 +6364,6 @@
    "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/"
   ]
  },
- "runs": 150,
+ "runs": 162,
  "deepest_page": 12
 }
