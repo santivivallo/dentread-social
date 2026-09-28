@@ -10,3 +10,8 @@
 {"ts": "2026-09-25T17:49:59+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "36168959428", "kind": "data", "id": "adultos-mayores", "slug": "adultos-mayores", "modo": "data", "redaccion": "curada"}
 {"ts": "2026-09-25T17:49:59+00:00", "evento": "corrida", "origen": "schedule", "corrida": "36168959428", "pedidos": 1, "listos": 1, "descartados": 0, "preview": false}
 {"ts": "2026-09-25T17:50:43+00:00", "evento": "publicado", "origen": "schedule", "corrida": "36168959428", "carpeta": "out/2026-09-25-adultos-mayores", "plataformas": ["instagram"], "resultados": {"instagram": "18145427665562529"}}
+{"ts": "2026-09-28T20:05:43+00:00", "evento": "llamada_modelo", "origen": "schedule", "corrida": "36475813397", "ok": true, "modelo": "gemini-flash-latest", "motivo": ""}
+{"ts": "2026-09-28T20:06:31+00:00", "evento": "llamada_modelo", "origen": "schedule", "corrida": "36475813397", "ok": true, "modelo": "gemini-flash-latest", "motivo": "ReadTimeout: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=40)"}
+{"ts": "2026-09-28T20:06:43+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "36475813397", "kind": "news", "id": "news-95424708", "slug": "news-95424708", "modo": "news", "redaccion": "curada"}
+{"ts": "2026-09-28T20:06:43+00:00", "evento": "corrida", "origen": "schedule", "corrida": "36475813397", "pedidos": 1, "listos": 1, "descartados": 0, "preview": false}
+{"ts": "2026-09-28T20:07:29+00:00", "evento": "publicado", "origen": "schedule", "corrida": "36475813397", "carpeta": "out/2026-09-28-news-95424708", "plataformas": ["instagram"], "resultados": {"instagram": "18216047851342328"}}

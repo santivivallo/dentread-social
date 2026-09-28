@@ -5599,7 +5599,8 @@
     "datos",
     "workflow"
    ],
-   "first_seen": "2026-W39"
+   "first_seen": "2026-W39",
+   "used": true
   },
   "https://adanews.ada.org/ada-news/2026/september/ada-to-launch-cbct-training-for-dentists-teams/": {
    "title": "ADA to launch CBCT training for dentists, teams",
@@ -5611,6 +5612,22 @@
     "clinica"
    ],
    "first_seen": "2026-W39"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/dear-ada-recoupments/": {
+   "title": "Dear ADA: Recoupments",
+   "published": "2026-09-28",
+   "category": "Practice",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W40"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/no-new-dental-requirements-in-updated-cdc-infection-control-guidance/": {
+   "title": "No new dental requirements in updated CDC infection control guidance",
+   "published": "2026-09-25",
+   "category": "Practice",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W40"
   }
  },
  "weeks": {
@@ -6362,8 +6379,12 @@
    "https://adanews.ada.org/ada-news/2026/september/leadership-through-listening/",
    "https://adanews.ada.org/ada-news/2026/september/president-trump-signs-continuing-resolution-maintaining-oral-health-funding/",
    "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/"
+  ],
+  "2026-W40": [
+   "https://adanews.ada.org/ada-news/2026/september/dear-ada-recoupments/",
+   "https://adanews.ada.org/ada-news/2026/september/no-new-dental-requirements-in-updated-cdc-infection-control-guidance/"
   ]
  },
- "runs": 162,
+ "runs": 182,
  "deepest_page": 12
 }
