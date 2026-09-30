@@ -5628,6 +5628,25 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W40"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/ada-member-advantage-endorsed-best-card-announces-integration-with-open-dental-software/": {
+   "title": "ADA Member Advantage-endorsed Best Card announces integration with Open Dental software",
+   "published": "2026-09-30",
+   "category": "Around The ADA",
+   "score": 8.12,
+   "buckets": [
+    "ai",
+    "workflow"
+   ],
+   "first_seen": "2026-W40"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/first-ada-living-guideline-reaffirms-dental-exams-crucial-to-detecting-oral-cancer-early/": {
+   "title": "First ADA living guideline reaffirms dental exams crucial to detecting oral cancer early",
+   "published": "2026-09-28",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W40"
   }
  },
  "weeks": {
@@ -6381,10 +6400,12 @@
    "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/"
   ],
   "2026-W40": [
+   "https://adanews.ada.org/ada-news/2026/september/ada-member-advantage-endorsed-best-card-announces-integration-with-open-dental-software/",
    "https://adanews.ada.org/ada-news/2026/september/dear-ada-recoupments/",
+   "https://adanews.ada.org/ada-news/2026/september/first-ada-living-guideline-reaffirms-dental-exams-crucial-to-detecting-oral-cancer-early/",
    "https://adanews.ada.org/ada-news/2026/september/no-new-dental-requirements-in-updated-cdc-infection-control-guidance/"
   ]
  },
- "runs": 182,
+ "runs": 194,
  "deepest_page": 12
 }
