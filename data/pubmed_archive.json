@@ -14,7 +14,7 @@
    "journal": "Matern Child Health J",
    "year": "2025",
    "design": "",
-   "preset": "acceso",
+   "preset": "medicaid",
    "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
   },
@@ -41,7 +41,7 @@
    "journal": "J Endod",
    "year": "2026",
    "design": "",
-   "preset": "acceso",
+   "preset": "medicaid",
    "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
   },
@@ -3869,6 +3869,114 @@
    "preset": "workforce",
    "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
+  },
+  "42788604": {
+   "title": "Factors associated with the municipal provision of dental prostheses in the Brazilian Unified Health System.",
+   "journal": "Braz Oral Res",
+   "year": "2026",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W40",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41339885": {
+   "title": "Medical undergraduate students' readiness and anxiety toward artificial intelligence: a systematic review and meta-analysis.",
+   "journal": "BMC Med Educ",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W40",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42125889": {
+   "title": "Exploring LLM-based chatbot effectiveness in answering questions related to the risks and benefits of orthognathic treatment: a cross-sectional study.",
+   "journal": "Eur J Orthod",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W40",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40754062": {
+   "title": "Bioglass in dentistry: A comprehensive review of current applications and innovative frontiers.",
+   "journal": "J Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W40",
+   "descartado": "diseno_no_señalizable:Journal Article, Review, Research Supp"
+  },
+  "41015898": {
+   "title": "Artificial Intelligence to Detect Developmental Dysplasia of Hip: A Systematic Review.",
+   "journal": "J Paediatr Child Health",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W40",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41825997": {
+   "title": "ProSocial Artificial Intelligence in Oral and Maxillofacial Imaging, Pathology, and Laboratory Applications.",
+   "journal": "Dent Clin North Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W40",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42060125": {
+   "title": "Identifying diagnostic biomarkers in functional motor disorders through multimodal behavioral, neurophysiological, and imaging assessment using explainable machine learning.",
+   "journal": "J Neurol",
+   "year": "2026",
+   "design": "Multicenter Study",
+   "preset": "ia",
+   "first_seen": "2026-W40",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41284519": {
+   "title": "What is the role of AI-driven automation in static surgical guide design? A scoping review.",
+   "journal": "J Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W40",
+   "descartado": "diseno_no_señalizable:Journal Article, Scoping Review, Resea"
+  },
+  "41730897": {
+   "title": "The rise of artificial intelligence in respiratory primary care and pulmonology: a scoping review.",
+   "journal": "NPJ Prim Care Respir Med",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W40",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42613266": {
+   "title": "Accuracy of artificial intelligence-based functions in intraoral scanners: A systematic review.",
+   "journal": "J Prosthet Dent",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W40",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42363128": {
+   "title": "Comparative assessment of the accuracy of different artificial intelligence models in answering analytical and knowledge-based questions in oral and maxillofacial radiology and ora",
+   "journal": "BMC Oral Health",
+   "year": "2026",
+   "design": "Comparative Study",
+   "preset": "aceptacion",
+   "first_seen": "2026-W40",
+   "descartado": "titulo_concluyente:accuracy"
+  },
+  "42501778": {
+   "title": "Socioeconomic differences in the effectiveness of oral health programs for dental caries prevention in Europe: A systematic review and meta-analysis.",
+   "journal": "J Dent",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "acceso",
+   "first_seen": "2026-W40",
+   "descartado": "titulo_concluyente:effective"
   }
  },
  "weeks": {
@@ -4303,7 +4411,21 @@
    "42696541",
    "42758428",
    "42760388"
+  ],
+  "2026-W40": [
+   "40754062",
+   "41015898",
+   "41284519",
+   "41339885",
+   "41730897",
+   "41825997",
+   "42060125",
+   "42125889",
+   "42363128",
+   "42501778",
+   "42613266",
+   "42788604"
   ]
  },
- "runs": 40
+ "runs": 55
 }

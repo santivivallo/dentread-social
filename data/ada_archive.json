@@ -5611,7 +5611,8 @@
     "ai",
     "clinica"
    ],
-   "first_seen": "2026-W39"
+   "first_seen": "2026-W39",
+   "used": true
   },
   "https://adanews.ada.org/ada-news/2026/september/dear-ada-recoupments/": {
    "title": "Dear ADA: Recoupments",
@@ -5646,6 +5647,48 @@
    "category": "Science",
    "score": 0.0,
    "buckets": [],
+   "first_seen": "2026-W40"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/fda-warns-public-about-unauthorized-directtoconsumer-clear-aligners/": {
+   "title": "FDA warns public about unauthorized direct-to-consumer clear aligners",
+   "published": "2026-10-01",
+   "category": "Government",
+   "score": 5.0,
+   "buckets": [
+    "ai"
+   ],
+   "first_seen": "2026-W40"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/ada-urges-senate-finance-committee-to-include-dental-in-insurance-reforms/": {
+   "title": "ADA urges Senate Finance Committee to include dental in insurance reforms",
+   "published": "2026-09-30",
+   "category": "Government",
+   "score": 5.5,
+   "buckets": [
+    "admin",
+    "workflow"
+   ],
+   "first_seen": "2026-W40"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/american-certifying-board-of-oral-and-maxillofacial-radiology-applies-for-national-certifying-board-recognition/": {
+   "title": "American Certifying Board of Oral and Maxillofacial Radiology applies for national certifying board recognition",
+   "published": "2026-09-30",
+   "category": "Education",
+   "score": 8.12,
+   "buckets": [
+    "ai",
+    "clinica"
+   ],
+   "first_seen": "2026-W40"
+  },
+  "https://adanews.ada.org/ada-news/2026/september/coalition-for-modernizing-dental-licensure-sunsets-after-achieving-portability-goals/": {
+   "title": "Coalition for Modernizing Dental Licensure sunsets after achieving portability goals",
+   "published": "2026-09-30",
+   "category": "Education",
+   "score": 2.0,
+   "buckets": [
+    "clinica"
+   ],
    "first_seen": "2026-W40"
   }
  },
@@ -6400,12 +6443,16 @@
    "https://adanews.ada.org/ada-news/2026/september/written-testimony-for-ada-house-of-delegates-reference-committees-due-oct-5/"
   ],
   "2026-W40": [
+   "https://adanews.ada.org/ada-news/2026/october/ada-urges-senate-finance-committee-to-include-dental-in-insurance-reforms/",
+   "https://adanews.ada.org/ada-news/2026/october/fda-warns-public-about-unauthorized-directtoconsumer-clear-aligners/",
    "https://adanews.ada.org/ada-news/2026/september/ada-member-advantage-endorsed-best-card-announces-integration-with-open-dental-software/",
+   "https://adanews.ada.org/ada-news/2026/september/american-certifying-board-of-oral-and-maxillofacial-radiology-applies-for-national-certifying-board-recognition/",
+   "https://adanews.ada.org/ada-news/2026/september/coalition-for-modernizing-dental-licensure-sunsets-after-achieving-portability-goals/",
    "https://adanews.ada.org/ada-news/2026/september/dear-ada-recoupments/",
    "https://adanews.ada.org/ada-news/2026/september/first-ada-living-guideline-reaffirms-dental-exams-crucial-to-detecting-oral-cancer-early/",
    "https://adanews.ada.org/ada-news/2026/september/no-new-dental-requirements-in-updated-cdc-infection-control-guidance/"
   ]
  },
- "runs": 194,
+ "runs": 206,
  "deepest_page": 12
 }
