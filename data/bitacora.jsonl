@@ -29,3 +29,6 @@
 {"ts": "2026-10-02T18:19:48+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "37045632168", "kind": "news", "id": "news-95725951", "slug": "news-95725951", "modo": "news", "redaccion": "curada"}
 {"ts": "2026-10-02T18:19:48+00:00", "evento": "corrida", "origen": "schedule", "corrida": "37045632168", "pedidos": 1, "listos": 1, "descartados": 2, "preview": false}
 {"ts": "2026-10-02T18:20:32+00:00", "evento": "publicado", "origen": "schedule", "corrida": "37045632168", "carpeta": "out/2026-10-02-news-95725951", "plataformas": ["instagram"], "resultados": {"instagram": "18135286210645024"}}
+{"ts": "2026-10-05T20:58:29+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "37372715263", "kind": "evergreen", "id": "aceptacion-tratamientos", "slug": "aceptacion-tratamientos", "modo": "evergreen", "redaccion": "curada"}
+{"ts": "2026-10-05T20:58:29+00:00", "evento": "corrida", "origen": "schedule", "corrida": "37372715263", "pedidos": 1, "listos": 1, "descartados": 0, "preview": false}
+{"ts": "2026-10-05T20:59:10+00:00", "evento": "publicado", "origen": "schedule", "corrida": "37372715263", "carpeta": "out/2026-10-05-aceptacion-tratamientos", "plataformas": ["instagram"], "resultados": {"instagram": "17962054368235851"}}

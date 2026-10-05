@@ -3977,6 +3977,33 @@
    "preset": "acceso",
    "first_seen": "2026-W40",
    "descartado": "titulo_concluyente:effective"
+  },
+  "42829977": {
+   "title": "Site-Specific Associations Between CBCT-Derived Gray Value and Fractal Dimension and DEXA T-Scores in Postmenopausal Women: A Cross-Sectional Analytical Study.",
+   "journal": "Clin Exp Dent Res",
+   "year": "2026",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W41",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41165843": {
+   "title": "Intraoperative use of artificial intelligence (AI) during endoscopic lithotripsy: a systematic review from EAU endourology.",
+   "journal": "World J Urol",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W41",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42036148": {
+   "title": "Are dental policies in Australia inclusive of children with intellectual and developmental disabilities in the state of Victoria? A grey literature review.",
+   "journal": "Aust J Prim Health",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "acceso",
+   "first_seen": "2026-W41",
+   "descartado": "revista_fuera_de_allowlist"
   }
  },
  "weeks": {
@@ -4425,7 +4452,12 @@
    "42501778",
    "42613266",
    "42788604"
+  ],
+  "2026-W41": [
+   "41165843",
+   "42036148",
+   "42829977"
   ]
  },
- "runs": 55
+ "runs": 73
 }
