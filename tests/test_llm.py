@@ -37,6 +37,11 @@ from pipeline import bitacora, llm
 # proveedor está rindiendo.
 bitacora.RUTA = Path(tempfile.gettempdir()) / "bitacora-de-prueba.jsonl"
 
+# La clave del segundo proveedor puede estar en el .env local. Acá se saca:
+# cada caso mide al proveedor principal solo, y el segundo tiene su propio
+# caso, que la pone y la quita.
+llm.os.environ.pop("RESERVA_API_KEY", None)
+
 
 class Respuesta:
     """Lo mínimo de `requests.Response` que usa el cliente."""
@@ -293,12 +298,14 @@ def probar_segundo_proveedor() -> list[str]:
     tiene que contestar OpenRouter, con su clave y en su URL.
     """
     errs = []
-    for codigo in (429, 401):
+    for codigo in (429, 401, 400):
         urls: list[tuple[str, str]] = []
+        con_campo: list[bool] = []
 
         def falso_post(url, headers=None, json=None, timeout=None):
             urls.append((url, headers["Authorization"]))
             if "openrouter" in url:
+                con_campo.append("reasoning_effort" in json)
                 return Respuesta(200)
             return Respuesta(codigo)
 
@@ -326,6 +333,9 @@ def probar_segundo_proveedor() -> list[str]:
             errs.append(f"con {codigo} no se llamó a OpenRouter con su propia clave")
         if codigo == 401 and sum("openrouter" not in u for u, _ in urls) > 1:
             errs.append("un 401 de Gemini siguió probando modelos de Gemini")
+        if not all(c for c in con_campo):
+            errs.append("el segundo proveedor recibió la llamada sin "
+                        "reasoning_effort por un rechazo del primero")
     return errs
 
 

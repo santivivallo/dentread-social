@@ -156,8 +156,10 @@ def reservas() -> list[str]:
 #   RESERVA_MODELOS    separados por coma; por defecto, dos gratuitos que
 #                      estaban en el catálogo de OpenRouter el 10-10-2026
 RESERVA_ENDPOINT_POR_DEFECTO = "https://openrouter.ai/api/v1/chat/completions"
-RESERVA_MODELOS_POR_DEFECTO = ("google/gemma-4-31b-it:free",
-                               "nvidia/nemotron-3-super-120b-a12b:free")
+# Nemotron primero: el 10-10-2026, con la clave real, respondió en 2 s y en
+# buen español; Gemma devolvía 429 "rate-limited upstream".
+RESERVA_MODELOS_POR_DEFECTO = ("nvidia/nemotron-3-super-120b-a12b:free",
+                               "google/gemma-4-31b-it:free")
 
 
 def proveedores() -> list[tuple[str, str, list[str]]]:
@@ -314,6 +316,11 @@ def _pedir(reglas: str, contenido: str, *, json_mode: bool = False,
         if url == proveedor_caido:
             continue
         cuerpo["model"] = nombre
+        # Cada modelo arranca con el campo puesto. Si un proveedor lo rechazó
+        # (o contestó 400 por otra cosa, como Gemini con una clave inválida),
+        # eso no dice nada del siguiente: sin el campo, un modelo con
+        # razonamiento se come el presupuesto de tokens antes de responder.
+        cuerpo.setdefault("reasoning_effort", "none")
         if n_modelo:
             print(f"   [info] se prueba con {nombre}")
 
