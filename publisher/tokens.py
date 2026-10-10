@@ -10,6 +10,7 @@ LinkedIn: access token 60 días + refresh token 365 días. El refresh token
 from __future__ import annotations
 
 import json
+import hashlib
 import os
 import time
 from pathlib import Path
@@ -62,9 +63,27 @@ def _save(data: dict) -> None:
 
 # --------------------------------------------------------------------------
 
+def _huella(token: str) -> str:
+    """Huella corta del secreto, para saber si cambió sin guardarlo dos veces."""
+    return hashlib.sha256(token.encode()).hexdigest()[:16]
+
+
 def meta_token() -> str:
     data = _load().get("meta", {})
-    token = data.get("access_token") or os.environ["META_ACCESS_TOKEN"]
+    semilla = os.environ.get("META_ACCESS_TOKEN", "")
+
+    # Si el secreto cambió, la copia guardada ya no vale.
+    #
+    # La copia tenía prioridad sobre el secreto, sin condiciones. Cuando el
+    # token de agosto venció (8-oct-2026) y se cargó uno nuevo con
+    # `gh secret set`, el workflow habría seguido leyendo el viejo del caché
+    # y fallando al refrescarlo: renovar el secreto no arreglaba nada. La
+    # huella del secreto con que se sembró la copia viaja con ella; si no
+    # coincide con el secreto de hoy, manda el secreto.
+    if semilla and data.get("semilla") != _huella(semilla):
+        data = {}
+
+    token = data.get("access_token") or semilla or os.environ["META_ACCESS_TOKEN"]
     expires_at = data.get("expires_at", 0)
 
     if expires_at and expires_at - time.time() > REFRESH_MARGIN:
@@ -94,6 +113,7 @@ def meta_token() -> str:
     store["meta"] = {
         "access_token": new,
         "expires_at": time.time() + payload.get("expires_in", 60 * 24 * 3600),
+        "semilla": _huella(semilla) if semilla else "",
     }
     _save(store)
     return new

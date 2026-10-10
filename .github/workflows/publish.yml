@@ -121,6 +121,11 @@ jobs:
       - name: Test site
         run: python -m tests.test_site
 
+      # Que cargar un token nuevo con `gh secret set` alcance. La copia en
+      # cache le ganaba al secreto, asi que renovarlo no arreglaba nada.
+      - name: Test tokens
+        run: python -m tests.test_tokens
+
       # Auditoria de los 26 posts posibles, ordenados de peor a mejor.
       #
       # NO bloquea, y es deliberado: audita TODO el catalogo, no el post del
