@@ -16,6 +16,7 @@ dos archivos en vez de un secreto.
     LLM_API_KEY     la clave (único dato obligatorio)
     LLM_ENDPOINT    por defecto, la capa compatible con OpenAI de Gemini
     LLM_MODEL       por defecto, un Flash
+    LLM_RESERVAS    modelos de reserva separados por coma (opcional)
 
 Cualquier proveedor con API compatible con OpenAI sirve cambiando esas tres:
 Gemini, Groq, Cerebras, OpenRouter, Mistral. El sistema hace unas tres
@@ -126,6 +127,23 @@ def endpoint() -> str:
 
 def modelo() -> str:
     return os.environ.get("LLM_MODEL") or MODELO_POR_DEFECTO
+
+
+def reservas() -> list[str]:
+    """
+    Modelos de reserva, en orden. `LLM_RESERVAS` (separados por coma) manda.
+
+    Sin la variable, las reservas por defecto son nombres de Gemini y solo
+    sirven contra Gemini: mandarlas a otro proveedor (OpenRouter, 10-oct-2026)
+    es pedir modelos que no existen ahí. En ese caso no hay reserva salvo que
+    se configure.
+    """
+    propias = os.environ.get("LLM_RESERVAS", "")
+    if propias.strip():
+        return [m.strip() for m in propias.split(",") if m.strip()]
+    if endpoint() == ENDPOINT_POR_DEFECTO:
+        return list(MODELOS_DE_RESERVA)
+    return []
 
 
 def disponible() -> bool:
@@ -259,7 +277,7 @@ def _pedir(reglas: str, contenido: str, *, json_mode: bool = False,
 
     # Modelos a probar: el configurado primero, las reservas después. Solo se
     # baja de modelo si el primero devuelve fallas de capacidad.
-    candidatos = [modelo()] + [m for m in MODELOS_DE_RESERVA if m != modelo()]
+    candidatos = [modelo()] + [m for m in reservas() if m != modelo()]
 
     for n_modelo, nombre in enumerate(candidatos):
         cuerpo["model"] = nombre

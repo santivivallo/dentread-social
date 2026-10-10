@@ -164,6 +164,39 @@ def probar_404_cambia_de_modelo() -> list[str]:
     return errs
 
 
+def probar_reservas_por_proveedor() -> list[str]:
+    """
+    Las reservas de Gemini no se mandan a otro proveedor.
+
+    Al pasar a OpenRouter (10-oct-2026), "gemini-3.5-flash" no existe ahí:
+    serían llamadas perdidas. Las reservas salen de LLM_RESERVAS, o de la
+    lista de Gemini solo si el endpoint es el de Gemini.
+    """
+    import os
+    previo = {k: os.environ.get(k) for k in ("LLM_ENDPOINT", "LLM_RESERVAS")}
+    errs = []
+    try:
+        os.environ.pop("LLM_RESERVAS", None)
+        os.environ["LLM_ENDPOINT"] = "https://openrouter.ai/api/v1/chat/completions"
+        if llm.reservas():
+            errs.append(f"con OpenRouter se usan reservas de Gemini: "
+                        f"{llm.reservas()}")
+        os.environ["LLM_RESERVAS"] = "a/uno:free, b/dos"
+        if llm.reservas() != ["a/uno:free", "b/dos"]:
+            errs.append(f"LLM_RESERVAS no se respeta: {llm.reservas()}")
+        os.environ.pop("LLM_ENDPOINT")
+        os.environ.pop("LLM_RESERVAS")
+        if llm.reservas() != list(llm.MODELOS_DE_RESERVA):
+            errs.append("con Gemini por defecto se perdieron sus reservas")
+    finally:
+        for k, v in previo.items():
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
+    return errs
+
+
 def probar_reasoning_effort() -> list[str]:
     """
     Un 400 por `reasoning_effort` se reintenta sin ese campo, sin esperar.
@@ -252,7 +285,7 @@ def probar_sin_clave() -> list[str]:
 def main() -> int:
     errores = (probar_503_transitorio() + probar_baja_de_modelo()
                + probar_error_permanente() + probar_404_cambia_de_modelo()
-               + probar_reasoning_effort()
+               + probar_reservas_por_proveedor() + probar_reasoning_effort()
                + probar_corte_tras_agotarse() + probar_sin_clave())
     if errores:
         print("✗ el cliente del modelo no aguanta una saturación:\n")

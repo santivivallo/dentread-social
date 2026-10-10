@@ -53,7 +53,6 @@ def recuperar_ada(refetch: bool = False) -> None:
     """
     arch = ada_news.load_archive()
     arts = arch["articles"]
-    anio = plan.anio_minimo()
 
     subieron: list[tuple[str, float, float]] = []
     bajaron = 0
@@ -93,7 +92,7 @@ def recuperar_ada(refetch: bool = False) -> None:
         # del año en curso, así que reevaluar los de 2025 y 2024 no puede
         # producir un post. Acotado al año, son unos 130.
         if (refetch and viejo < ada_news.MIN_SCORE
-                and str(reg.get("published", "")).startswith(str(anio))):
+                and plan.en_ventana(reg.get("published", ""))):
             reg["needs_refetch"] = True
             marcados += 1
 
@@ -104,7 +103,7 @@ def recuperar_ada(refetch: bool = False) -> None:
         if not x.get("used") and not x.get("skipped")
         and x.get("score", 0) >= ada_news.MIN_SCORE
         and not ada_news.es_opinion(u, x.get("title", ""))
-        and str(x.get("published", "")).startswith(str(anio))
+        and plan.en_ventana(x.get("published", ""))
     ]
 
     print(f"\n=== ADA News: {len(arts)} artículos archivados ===")
@@ -117,7 +116,7 @@ def recuperar_ada(refetch: bool = False) -> None:
     if refetch:
         print(f"marcados para volver a bajar con texto completo: {marcados}")
         print("   las corridas normales los van a reevaluar solos")
-    print(f"publicables de {anio}: {len(publicables)}")
+    print(f"publicables desde {plan.ventana_desde()}: {len(publicables)}")
 
 
 def recuperar_papers(anios: int = 2, por_preset: int = 60) -> None:

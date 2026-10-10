@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 from pipeline.themes import CATALOG, Theme
@@ -37,7 +37,13 @@ EVERGREEN_EVERY = 4
 # esperar a que un pozo se seque para abrir otro deja huecos justo cuando el
 # inventario está bajo, y hace que el feed se lea por tandas del mismo tipo.
 # Con seis ranuras y tres posts por semana, el ciclo dura dos semanas.
-CICLO = ("data", "news", "evergreen", "paper", "data", "news")
+#
+# **10-oct-2026: noticias de 2/6 a 3/6, datos de 2/6 a 1/6.** ADA es la
+# fuente que se repone sola (88 publicables en la ventana de 12 meses) y los
+# hechos curados son la que se agota (13 disponibles, ~6 semanas a 2/6). Con
+# 1/6 los hechos duran el doble. Dos noticias nunca van seguidas. Es una
+# apuesta editorial: el feed aún no devuelve métricas para medirla.
+CICLO = ("news", "data", "news", "evergreen", "news", "paper")
 
 # Cuántas noticias o papers de repuesto se ofrecen cuando el turno es de una
 # fuente externa. Existe porque esas dos pueden caerse DESPUÉS de elegidas
@@ -59,17 +65,34 @@ ALTERNATIVAS_EXTERNAS = 2
 # un solo artículo de 2027: contenido cada vez más viejo, sin un error, sin un
 # aviso, exactamente el modo de falla que dejó el feed un mes sin noticias.
 #
-# Ahora se calcula. La política no cambia —sigue siendo solo el año en curso—
-# pero el cambio de año deja de depender de que alguien se acuerde.
+# **Desde el 10-oct-2026 es una ventana móvil de 12 meses, no el año
+# calendario.** Con "solo el año en curso" el stock caía de golpe a casi cero
+# cada 1 de enero: lo publicable de diciembre pasaba a no serlo de un día
+# para otro. Con la ventana móvil cada día entra lo nuevo y sale lo que cumple
+# un año, sin saltos. Decisión de Santiago: que el cambio de año no haga
+# perder el stock.
 #
-# El costo de esto es visible y hay que decirlo: al 1 de enero el stock
-# publicable cae de golpe a los artículos del año nuevo, que el 1 de enero son
-# casi cero. Por eso `tools.revision` avisa en noviembre y diciembre cuántos
-# artículos hay para el año siguiente: la decisión de ensanchar la ventana o
-# de aceptar menos noticias en enero es editorial, y conviene tomarla en
-# diciembre con el número delante, no descubrirla en enero.
+# El stock viejo no se presenta como novedad: `is_fresh=False` y newsguard
+# bloquea "nuevo" o "esta semana" en todo lo que no sea reciente.
+VENTANA_DIAS = 365
+
+
+def ventana_desde() -> str:
+    """Fecha ISO más antigua publicable. Se compara como texto con `published`."""
+    return (date.today() - timedelta(days=VENTANA_DIAS)).isoformat()
+
+
+def en_ventana(publicado: str) -> bool:
+    return bool(publicado) and str(publicado)[:10] >= ventana_desde()
+
+
 def anio_minimo() -> int:
-    return date.today().year
+    """
+    Para fuentes que solo traen año, como PubMed: el año que contiene el
+    borde de la ventana. Un paper de ese año puede quedar hasta unos meses
+    fuera, que es el error menor frente a perder enero entero.
+    """
+    return int(ventana_desde()[:4])
 
 # Los papers rotan de tema entre corridas. Con un solo preset el sistema
 # volvía siempre sobre IA y dejaba fuera el resto de la tesis de mercado.
@@ -279,7 +302,7 @@ def _un_post(kind: str, state: dict, usados: set[str],
             # alternativa daba el mismo.
             omitir = (saltar or set()) | set(state.get("externos", {}))
             for art in list(ada_news.latest_relevant(limit=5)) + \
-                    list(ada_news.backlog(year=anio_minimo(), limit=40)):
+                    list(ada_news.backlog(desde=ventana_desde(), limit=40)):
                 p = post_from_article(art)
                 if p.id in omitir:
                     continue
@@ -306,7 +329,7 @@ def _un_post(kind: str, state: dict, usados: set[str],
             for preset in orden:
                 for sp in journals.find(preset=preset, years=1, n=10):
                     if sp.year and int(sp.year) < anio_minimo():
-                        continue          # solo el año en curso, como las noticias
+                        continue          # fuera de la ventana editorial
                     p = post_from_signpost(sp)
                     if p.id in omitir:
                         continue

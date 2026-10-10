@@ -211,6 +211,23 @@ en el workflow y sale con `[]` en silencio. Si se le da la clave, que sea con
 `continue-on-error`: bloquear el publish por una fuente rota es justo lo que
 detuvo el feed.
 
+**Mismo día, decisiones de Santiago:**
+
+- **Ventana editorial móvil de 12 meses** (`plan.VENTANA_DIAS`), no el año
+  calendario: el 1 de enero ya no vacía el stock. Medido: ADA pasó de 65 a
+  88 publicables, y el 2-ene-2027 quedarían 65 aun sin noticias nuevas.
+  `tools.revision` avisa si en 30 días el stock cae bajo 10.
+- **Ciclo `news · data · news · evergreen · news · paper`**: noticias 3/6,
+  datos 1/6 (los hechos duran ~12 semanas en vez de 6). Apuesta editorial,
+  sin métricas del feed para medirla.
+- **Proveedor: OpenRouter.** `LLM_RESERVAS` (variable de GitHub, separada
+  por comas) define las reservas; las de Gemini solo se usan contra Gemini.
+
+**Token de Meta: el secreto `META_ACCESS_TOKEN` es del 15-ago y venció el
+8-oct.** CI vive del token store renovado en el caché de Actions, y GitHub
+borra cachés sin acceso por 7 días. Una racha de corridas que fallan antes
+del paso Publish deja expirar el caché y con él el único token vigente.
+
 Ojo al probar local: el cliente lee la clave del `.env`, así que los tests
 llaman al modelo de verdad y gastan la cuota gratuita (se agotó así el
 10-oct). Para correrlos como en CI: `LLM_API_KEY="" python -m tests.<test>`.

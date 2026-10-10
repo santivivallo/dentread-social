@@ -136,7 +136,7 @@ def _auditoria() -> tuple[float, int]:
     return round(sum(puntajes) / len(puntajes), 1), sum(1 for p in puntajes if p < piso)
 
 
-def _stock_noticias(anio: int | None = None) -> int:
+def _stock_noticias(dias_adelante: int = 0) -> int:
     """
     Cuántos artículos de ADA quedan publicables, sin salir a la red.
 
@@ -153,14 +153,17 @@ def _stock_noticias(anio: int | None = None) -> int:
     """
     try:
         from pipeline import ada_news, plan
-        anio = anio or plan.anio_minimo()
+        # `dias_adelante` mide lo que SEGUIRÁ en la ventana dentro de N días,
+        # sin contar lo que entre nuevo: el piso de stock si ADA no publica.
+        desde = (date.fromisoformat(plan.ventana_desde())
+                 + timedelta(days=dias_adelante)).isoformat()
         arch = ada_news.load_archive()
         return sum(
             1 for url, a in arch["articles"].items()
             if not a.get("used") and not a.get("skipped")
             and a.get("score", 0) >= ada_news.MIN_SCORE
             and not ada_news.es_opinion(url, a.get("title", ""))
-            and str(a.get("published", "")).startswith(str(anio))
+            and str(a.get("published", ""))[:10] >= desde
         )
     except Exception:
         return -1
@@ -212,7 +215,7 @@ def medir(dias: int) -> dict:
         "auditoria_promedio": promedio,
         "auditoria_bajo_piso": bajo_piso,
         "stock_noticias": _stock_noticias(),
-        "stock_noticias_anio_proximo": _stock_noticias(date.today().year + 1),
+        "stock_noticias_en_30_dias": _stock_noticias(30),
         "papers_en_archivo": _stock_papers(),
         "semanas_con_posts_de_datos": inv["semanas_con_posts_de_datos"],
         "mezcla_esperada": inv["mezcla_esperada"],
@@ -304,21 +307,16 @@ def hallazgos(m: dict, previo: dict | None) -> list[tuple[str, str, str]]:
                   "El crawl entra una página más por corrida; si no crece, "
                   "revisar MAX_PAGES y el piso MIN_SCORE."))
 
-    # El cambio de año. La ventana editorial es el año en curso, así que el 1
-    # de enero el stock publicable se reinicia. Avisar en enero es tarde: la
-    # decisión (ensanchar la ventana o aceptar menos noticias) se toma en
-    # diciembre, con el número delante.
-    if date.today().month >= 11:
-        h.append(("alto" if m["stock_noticias_anio_proximo"] < 5 else "medio",
-                  f"Cambia el año editorial en "
-                  f"{(date(date.today().year + 1, 1, 1) - date.today()).days} "
-                  f"días y hay {m['stock_noticias_anio_proximo']} artículos "
-                  f"publicables de {date.today().year + 1} contra "
-                  f"{m['stock_noticias']} del año en curso.",
-                  "Al 1 de enero el stock se reinicia. Decidir ahora: "
-                  "ensanchar la ventana a dos años en plan.anio_minimo(), o "
-                  "aceptar menos noticias en enero y compensar con papers y "
-                  "evergreen."))
+    # La ventana es móvil (12 meses) desde el 10-oct-2026, así que ya no hay
+    # un 1 de enero que reinicie el stock. Lo que sí puede pasar es que salga
+    # de la ventana más de lo que entra: se avisa con un mes de margen.
+    if 0 <= m["stock_noticias_en_30_dias"] < UMBRALES["stock_noticias"]:
+        h.append(("medio",
+                  f"En 30 días quedarían {m['stock_noticias_en_30_dias']} "
+                  f"artículos publicables si ADA no publica nada relevante "
+                  f"(hoy {m['stock_noticias']}).",
+                  "Lo viejo sale de la ventana más rápido de lo que entra. "
+                  "Revisar MIN_SCORE o subir el peso de papers y evergreen."))
 
     papers = m["papers_en_archivo"]
     if papers["vistos"]:
@@ -379,7 +377,7 @@ def informe(m: dict, h: list, previo: dict | None) -> str:
               "llamadas_modelo", "llamadas_fallidas", "corridas",
               "corridas_a_mano", "corridas_por_cron", "auditoria_promedio",
               "auditoria_bajo_piso", "stock_noticias",
-              "stock_noticias_anio_proximo", "papers_en_archivo",
+              "stock_noticias_en_30_dias", "papers_en_archivo",
               "semanas_con_posts_de_datos", "mezcla_esperada",
               "temas_publicables"):
         l.append(f"| {k.replace('_', ' ')} | {m[k]} |")

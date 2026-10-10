@@ -430,11 +430,48 @@ def probar_turno_siguiente() -> list[str]:
     return []
 
 
+def probar_ventana_movil() -> list[str]:
+    """
+    Que el 1 de enero no vacíe el stock.
+
+    Con "solo el año en curso", el 2 de enero de 2027 un artículo de
+    diciembre de 2026 dejaba de ser publicable y el stock caía a casi cero.
+    La ventana ahora es de 12 meses móviles. Se fija la fecha y se mide.
+    """
+    from datetime import date as _date
+
+    from pipeline import plan
+
+    class Fija(_date):
+        @classmethod
+        def today(cls):
+            return cls(2027, 1, 2)
+
+    real = plan.date
+    plan.date = Fija
+    try:
+        errs = []
+        if not plan.en_ventana("2026-12-15"):
+            errs.append("el 2-ene-2027 un artículo de diciembre quedó fuera: "
+                        "el cambio de año vuelve a vaciar el stock")
+        if plan.en_ventana("2025-12-15"):
+            errs.append("un artículo de hace más de un año sigue en la ventana")
+        if plan.en_ventana(""):
+            errs.append("un artículo sin fecha cuenta como publicable")
+        if plan.anio_minimo() != 2026:
+            errs.append(f"en enero de 2027 los papers de 2026 quedan fuera "
+                        f"(anio_minimo={plan.anio_minimo()})")
+        return errs
+    finally:
+        plan.date = real
+
+
 def main() -> int:
     errores = (probar_noticia() + probar_paper()
                + probar_presupuesto_caption() + probar_alternativas()
                + probar_registro_de_publicados() + probar_opinion()
                + probar_atribucion_paper() + probar_turno_siguiente()
+               + probar_ventana_movil()
                + probar_paper_sale_entero())
     if errores:
         print("✗ las fuentes externas no van a poder publicar:\n")

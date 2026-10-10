@@ -147,6 +147,7 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_ENDPOINT: ${{ vars.LLM_ENDPOINT }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_RESERVAS: ${{ vars.LLM_RESERVAS }}
         run: python -m pipeline.run --slots 1
 
       # Verificable · breve · con inventario · con activo indexable.

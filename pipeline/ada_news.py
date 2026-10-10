@@ -477,10 +477,11 @@ def coverage_report() -> str:
     return "\n".join(lines)
 
 
-def backlog(*, year: int | None = None, limit: int = 20,
+def backlog(*, desde: str | None = None, limit: int = 20,
             pages: int | None = None) -> list[Article]:
     """
-    El stock del año: artículos relevantes que ya no son noticia.
+    El stock de la ventana editorial: artículos relevantes que ya no son
+    noticia, publicados desde `desde` (fecha ISO; por defecto, hace un año).
 
     Medido: el 50% de los titulares de ene-mar 2026 supera el piso, lo que
     proyecta ~75 publicables sobre los ~150 artículos de 2026. Eso es más de
@@ -495,7 +496,7 @@ def backlog(*, year: int | None = None, limit: int = 20,
     generador debe enmarcarlos con su fecha ("en febrero la ADA pidió…"),
     nunca como "nuevo" o "esta semana". `publisher.newsguard` lo verifica.
     """
-    year = year or date.today().year
+    desde = desde or (date.today() - timedelta(days=365)).isoformat()
     # profundidad suficiente para cubrir el año entero: ~50 artículos/página
     depth = pages or MAX_PAGES
     latest_relevant(pages=depth, max_age_days=400, limit=0)  # solo para archivar
@@ -509,7 +510,7 @@ def backlog(*, year: int | None = None, limit: int = 20,
             continue
         if a.get("score", 0) < MIN_SCORE:
             continue
-        if not str(a.get("published", "")).startswith(str(year)):
+        if str(a.get("published", ""))[:10] < desde:
             continue
         art = Article(
             url=url, title=_html.unescape(a["title"]), summary="",
