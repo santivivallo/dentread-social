@@ -146,8 +146,38 @@ def reservas() -> list[str]:
     return []
 
 
+# Segundo proveedor, opcional. Las reservas de arriba son otros modelos del
+# MISMO proveedor y con la MISMA clave: si Gemini agota la cuota gratis del
+# día (429 "exceeded your current quota", visto el 10-10-2026) o se cae
+# entero, se caen todas juntas. Esto es otra cuenta en otra empresa.
+#
+#   RESERVA_API_KEY    clave de OpenRouter (sin ella no hay segundo proveedor)
+#   RESERVA_ENDPOINT   por defecto, OpenRouter
+#   RESERVA_MODELOS    separados por coma; por defecto, dos gratuitos que
+#                      estaban en el catálogo de OpenRouter el 10-10-2026
+RESERVA_ENDPOINT_POR_DEFECTO = "https://openrouter.ai/api/v1/chat/completions"
+RESERVA_MODELOS_POR_DEFECTO = ("google/gemma-4-31b-it:free",
+                               "nvidia/nemotron-3-super-120b-a12b:free")
+
+
+def proveedores() -> list[tuple[str, str, list[str]]]:
+    """(endpoint, clave, modelos) en el orden en que se prueban."""
+    out = []
+    if os.environ.get("LLM_API_KEY"):
+        out.append((endpoint(), os.environ["LLM_API_KEY"],
+                    [modelo()] + [m for m in reservas() if m != modelo()]))
+    if os.environ.get("RESERVA_API_KEY"):
+        propios = os.environ.get("RESERVA_MODELOS", "")
+        modelos = ([m.strip() for m in propios.split(",") if m.strip()]
+                   or list(RESERVA_MODELOS_POR_DEFECTO))
+        out.append((os.environ.get("RESERVA_ENDPOINT")
+                    or RESERVA_ENDPOINT_POR_DEFECTO,
+                    os.environ["RESERVA_API_KEY"], modelos))
+    return out
+
+
 def disponible() -> bool:
-    return bool(os.environ.get("LLM_API_KEY"))
+    return bool(proveedores())
 
 
 def _texto_de(datos: dict) -> tuple[str | None, str]:
@@ -247,8 +277,7 @@ def _pedir(reglas: str, contenido: str, *, json_mode: bool = False,
     global ultimo_error, _agotado
     ultimo_error = ""
 
-    clave = os.environ.get("LLM_API_KEY")
-    if not clave:
+    if not proveedores():
         ultimo_error = "falta LLM_API_KEY"
         return None
 
@@ -275,17 +304,21 @@ def _pedir(reglas: str, contenido: str, *, json_mode: bool = False,
     if json_mode:
         cuerpo["response_format"] = {"type": "json_object"}
 
-    # Modelos a probar: el configurado primero, las reservas después. Solo se
-    # baja de modelo si el primero devuelve fallas de capacidad.
-    candidatos = [modelo()] + [m for m in reservas() if m != modelo()]
+    # Modelos a probar: el configurado primero, las reservas después, y el
+    # segundo proveedor al final. Solo se baja de modelo si el anterior
+    # devuelve fallas de capacidad o no existe; un 401 salta de proveedor.
+    candidatos = [(url, clave, m) for url, clave, ms in proveedores() for m in ms]
+    proveedor_caido: str | None = None
 
-    for n_modelo, nombre in enumerate(candidatos):
+    for n_modelo, (url, clave, nombre) in enumerate(candidatos):
+        if url == proveedor_caido:
+            continue
         cuerpo["model"] = nombre
         if n_modelo:
             print(f"   [info] se prueba con {nombre}")
 
         for intento in range(len(ESPERAS) + 1):
-            r, exc = _llamar(cuerpo, clave)
+            r, exc = _llamar(cuerpo, clave, url)
 
             if exc is not None:
                 # Timeout o corte de conexión: también es transitorio.
@@ -342,7 +375,10 @@ def _pedir(reglas: str, contenido: str, *, json_mode: bool = False,
                 break            # se agotaron los intentos: probar otro modelo
             if r.status_code == 404:
                 break            # ESE modelo no existe; el siguiente quizá sí
-            return None          # 401: esperar ni cambiar de modelo lo arregla
+            # 401 y similares: esperar ni cambiar de modelo lo arregla, pero
+            # otro proveedor con otra clave sí puede.
+            proveedor_caido = url
+            break
 
     # Todos los modelos saturados o inalcanzables: el resto de la corrida sale
     # con el texto curado, sin volver a pagar la espera.
@@ -352,10 +388,10 @@ def _pedir(reglas: str, contenido: str, *, json_mode: bool = False,
     return None
 
 
-def _llamar(cuerpo: dict, clave: str):
+def _llamar(cuerpo: dict, clave: str, url: str | None = None):
     """Una sola llamada. Devuelve (respuesta, None) o (None, excepción)."""
     try:
-        return requests.post(endpoint(),
+        return requests.post(url or endpoint(),
                              headers={"Authorization": f"Bearer {clave}",
                                       "Content-Type": "application/json"},
                              json=cuerpo, timeout=TIMEOUT), None

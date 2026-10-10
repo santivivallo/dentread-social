@@ -293,7 +293,8 @@ def _un_post(kind: str, state: dict, usados: set[str],
         # ventana de 21 días descartaba enero a julio.
         try:
             from pipeline import ada_news
-            from pipeline.sources import post_from_article
+            from pipeline.sources import cierres_recientes, post_from_article
+            recientes = cierres_recientes()
             # `con_cuerpo` trae el texto del artículo. Sin esto, los del
             # stock llegan solo con el titular y el resumidor los rechaza por
             # corto, así que la ranura de noticias NUNCA publicaba.
@@ -306,7 +307,7 @@ def _un_post(kind: str, state: dict, usados: set[str],
                 p = post_from_article(art)
                 if p.id in omitir:
                     continue
-                return post_from_article(ada_news.con_cuerpo(art))
+                return post_from_article(ada_news.con_cuerpo(art), recientes)
         except Exception as exc:                 # red, parseo, API
             print(f"   [info] ADA News no disponible ahora: "
                   f"{exc.__class__.__name__}")
@@ -459,7 +460,7 @@ def mark_used_from_folder(folder) -> None:
         if datos.get("mode") == "news" and url:
             try:
                 from pipeline import ada_news
-                ada_news.mark_published(url)
+                ada_news.mark_published(url, cierre=datos.get("cierre"))
             except Exception as exc:
                 # No frena la publicación: el post ya salió. Pero se ve.
                 print(f"   [aviso] no se pudo marcar la nota en el archivo "

@@ -5739,6 +5739,52 @@
     "clinica"
    ],
    "first_seen": "2026-W41"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/more-than-41-million-health-workers-gain-safer-path-to-mental-healthcare/": {
+   "title": "More than 4.1 million health workers gain safer path to mental healthcare",
+   "published": "2026-10-09",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W41"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/survey-finds-strong-interest-in-using-hsa-fsa-funds-for-oral-care-products/": {
+   "title": "Survey finds strong interest in using HSA, FSA funds for oral care products",
+   "published": "2026-10-08",
+   "category": "Government",
+   "score": 3.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W41"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/ada-scientific-session-kicks-off-with-fireside-chat-on-translating-science-into-practice/": {
+   "title": "ADA Scientific Session kicks off with fireside chat on translating science into practice",
+   "published": "2026-10-08",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W41"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/volunteers-assemble-500-kits-during-give-veterans-a-smile-pack-and-give-back/": {
+   "title": "Volunteers assemble 500 kits during Give Veterans A Smile Pack and Give Back",
+   "published": "2026-10-08",
+   "category": "Access To Care",
+   "score": 3.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W41"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/ada-cda-collaboration-helps-protect-proposition-56-dental-funding/": {
+   "title": "ADA, CDA collaboration helps protect Proposition 56 dental funding",
+   "published": "2026-10-02",
+   "category": "Government",
+   "score": 3.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W41"
   }
  },
  "weeks": {
@@ -6503,12 +6549,17 @@
   ],
   "2026-W41": [
    "https://adanews.ada.org/ada-news/2026/october/ada-american-board-of-dental-examiners-collaborate-to-advance-dental-hygiene-licensure/",
+   "https://adanews.ada.org/ada-news/2026/october/ada-cda-collaboration-helps-protect-proposition-56-dental-funding/",
    "https://adanews.ada.org/ada-news/2026/october/ada-governance-evaluation-reports-available-on-ada-website/",
+   "https://adanews.ada.org/ada-news/2026/october/ada-scientific-session-kicks-off-with-fireside-chat-on-translating-science-into-practice/",
    "https://adanews.ada.org/ada-news/2026/october/manufacturers-report-flumazenil-injection-shortage/",
+   "https://adanews.ada.org/ada-news/2026/october/more-than-41-million-health-workers-gain-safer-path-to-mental-healthcare/",
    "https://adanews.ada.org/ada-news/2026/october/october-jada-examines-how-human-virome-research-could-impact-dentistry/",
+   "https://adanews.ada.org/ada-news/2026/october/survey-finds-strong-interest-in-using-hsa-fsa-funds-for-oral-care-products/",
+   "https://adanews.ada.org/ada-news/2026/october/volunteers-assemble-500-kits-during-give-veterans-a-smile-pack-and-give-back/",
    "https://adanews.ada.org/ada-news/2026/september/american-certifying-board-of-oral-and-maxillofacial-radiology-applies-for-national-recognition/"
   ]
  },
- "runs": 210,
+ "runs": 227,
  "deepest_page": 12
 }

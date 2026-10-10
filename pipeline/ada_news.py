@@ -453,9 +453,14 @@ def latest_relevant(
     return candidates[:limit]
 
 
-def mark_published(url: str) -> None:
+def mark_published(url: str, cierre: str | None = None) -> None:
+    """Marca la nota como publicada y guarda con qué cierre salió."""
     arch = load_archive()
-    arch["articles"].setdefault(url, {})["used"] = True
+    entrada = arch["articles"].setdefault(url, {})
+    entrada["used"] = True
+    entrada["published_on"] = date.today().isoformat()
+    if cierre:
+        entrada["cierre"] = cierre
     save_archive(arch)
 
 

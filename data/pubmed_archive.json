@@ -635,7 +635,7 @@
    "journal": "Int Dent J",
    "year": "2026",
    "design": "",
-   "preset": "acceso",
+   "preset": "aceptacion",
    "first_seen": "2026-W39",
    "descartado": "diseno_no_señalizable:Journal Article"
   },
@@ -4004,6 +4004,15 @@
    "preset": "acceso",
    "first_seen": "2026-W41",
    "descartado": "revista_fuera_de_allowlist"
+  },
+  "42781998": {
+   "title": "Clear Aligner Treatment in China: a Cross-sectional Survey of Clinical Practice among Dental Practitioners.",
+   "journal": "Chin J Dent Res",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W41",
+   "descartado": "diseno_no_señalizable:Journal Article"
   }
  },
  "weeks": {
@@ -4456,8 +4465,9 @@
   "2026-W41": [
    "41165843",
    "42036148",
+   "42781998",
    "42829977"
   ]
  },
- "runs": 73
+ "runs": 77
 }

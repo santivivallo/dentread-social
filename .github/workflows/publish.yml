@@ -115,6 +115,12 @@ jobs:
       - name: Test external sources
         run: python -m tests.test_fuentes_externas
 
+      # Que la pagina indexable tenga cuerpo y que dos noticias no cierren
+      # igual. 24 de 25 paginas salieron vacias durante dos meses y 3 de 6
+      # noticias repitieron cierre: ninguna de las dos cosas se ve en el feed.
+      - name: Test site
+        run: python -m tests.test_site
+
       # Auditoria de los 26 posts posibles, ordenados de peor a mejor.
       #
       # NO bloquea, y es deliberado: audita TODO el catalogo, no el post del
@@ -148,6 +154,10 @@ jobs:
           LLM_ENDPOINT: ${{ vars.LLM_ENDPOINT }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}
           LLM_RESERVAS: ${{ vars.LLM_RESERVAS }}
+          # Segundo proveedor (OpenRouter): entra si Gemini no responde con
+          # ningun modelo. Sin el secreto, no hay segundo proveedor.
+          RESERVA_API_KEY: ${{ secrets.RESERVA_API_KEY }}
+          RESERVA_MODELOS: ${{ vars.RESERVA_MODELOS }}
         run: python -m pipeline.run --slots 1
 
       # Verificable · breve · con inventario · con activo indexable.

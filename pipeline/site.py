@@ -23,8 +23,9 @@ import re
 from datetime import date
 from pathlib import Path
 
+from pipeline.generate import sin_em_dash
 from pipeline.plan import load_facts
-from pipeline.spec import PostSpec
+from pipeline.spec import PostSpec, Slide
 from pipeline.themes import CATALOG
 
 DOCS = Path("docs")
@@ -100,6 +101,12 @@ def _shell(title: str, description: str, body: str, canonical: str,
 
 def _citation_ld(cite: str) -> dict:
     """Cada cita como CreativeWork: es lo que hace la página citable."""
+    m = re.match(r"^(.*?)\s*[—–]\s*(https?://\S+)\s*$", cite)
+    if m:
+        # Noticias: "ADA News · Categoría — https://…". La URL va en `url`,
+        # no pegada al nombre con una raya larga.
+        return {"@type": "CreativeWork", "name": m.group(1), "url": m.group(2),
+                "publisher": {"@type": "Organization", "name": "ADA News"}}
     publisher = cite.split(",")[0].strip()
     name = cite.split(",", 1)[1].split("(")[0].strip() if "," in cite else cite
     year = re.search(r"(20\d\d)", cite)
@@ -112,29 +119,78 @@ def _citation_ld(cite: str) -> dict:
 
 # --------------------------------------------------------------------------
 
+def _cita_html(cite: str) -> str:
+    """
+    Una cita como ítem de lista, con la URL como enlace.
+
+    Las citas de noticias vienen como "ADA News · Categoría — https://…". La
+    raya larga está prohibida por el brand guide y una URL desnuda no se puede
+    clickear, así que se separan: el texto queda como etiqueta del enlace.
+    """
+    m = re.match(r"^(.*?)\s*[—–-]\s*(https?://\S+)\s*$", cite)
+    if m:
+        return f'<li><a href="{_esc(m.group(2))}">{_esc(m.group(1))}</a></li>'
+    return f"<li>{_esc(cite.replace(' — ', ', '))}</li>"
+
+
+def _frame_html(s: Slide) -> str:
+    """
+    El contenido de un frame, como HTML legible fuera del carrusel.
+
+    En el frame del gancho la cifra y su enunciado van juntos en una tarjeta.
+    En los demás, primero lo que se afirma (tarjetas, puntos) y después la
+    lectura o la nota: "Título original, en inglés." describe la última línea
+    de la lista y antes quedaba arriba de ella.
+    """
+    if s.stat:
+        return (f'<div class="stat"><span class="n">{_esc(s.stat)}</span>'
+                f'{_esc(s.body)}<div class="src">{_esc(s.source)}</div></div>\n')
+    out = ""
+    for st in s.stats:
+        out += (f'<div class="stat"><span class="n">{_esc(st.number)}</span>'
+                f'{_esc(st.label)}<div class="src">{_esc(st.source)}</div></div>\n')
+    if s.bullets:
+        out += "<ul>" + "".join(f"<li>{_esc(b)}</li>" for b in s.bullets) + "</ul>\n"
+    if s.body:
+        # "Esta semana" es cierto el día que sale el carrusel; en una página
+        # que queda indexada años deja de serlo. La fecha ya va en .meta.
+        out += f"<p>{_esc(s.body.replace('Publicado esta semana en', 'Publicado en'))}</p>\n"
+    return out
+
+
 def write_article(spec: PostSpec, post_date: str | None = None) -> Path:
+    """
+    La página indexable de un post.
+
+    Leía los frames por los roles `evidence`, `reading` y `thesis`, que eran
+    los del renderer de Pillow. El motor HTML usa `hook`, `data` y `close`, así
+    que desde el cambio de motor ningún frame coincidía: 24 de las 25 páginas
+    publicadas salían con el título y las fuentes, sin una línea de cuerpo.
+    Por eso ahora se recorre por rol conocido y `tests/test_site.py` exige
+    cuerpo en cada página.
+    """
     post_date = post_date or date.today().isoformat()
     url = f"{BASE_URL}/{spec.slug}/"
-    facts_html = ""
-    for s in spec.slides:
-        if s.role == "evidence":
-            facts_html += (
-                f'<div class="stat"><span class="n">{_esc(s.stat)}</span>'
-                f'{_esc(s.headline)}<div class="src">{_esc(s.source)}</div></div>\n'
-            )
+    por_rol = {s.role: s for s in spec.slides}
+    hook_s, data_s, close_s = (por_rol.get(r) for r in ("hook", "data", "close"))
 
-    hook = spec.slides[0].headline if spec.slides else spec.title_en
-    prose = "\n".join(
-        f"<p>{_esc(s.body or s.headline)}</p>"
-        for s in spec.slides if s.role in ("reading", "thesis") and (s.body or s.headline)
-    )
-    sources = "".join(f"<li>{_esc(c)}</li>" for c in spec.citations)
+    hook = hook_s.headline if hook_s else spec.title_en
+    partes = []
+    if hook_s:
+        partes.append(_frame_html(hook_s))
+    if data_s:
+        partes.append(f"<h2>{_esc(data_s.headline)}</h2>\n{_frame_html(data_s)}")
+    if close_s:
+        cierre = " ".join(x for x in (close_s.headline, close_s.accent) if x)
+        partes.append(f"<h2>{_esc(close_s.kicker or 'Qué implica')}</h2>\n"
+                      f"<p><strong>{_esc(cierre)}</strong></p>\n"
+                      + (f"<p>{_esc(close_s.body)}</p>\n" if close_s.body else ""))
+    sources = "".join(_cita_html(c) for c in spec.citations)
 
-    body = f"""<p class="kicker">{_esc(spec.mode)}</p>
+    body = f"""<p class="kicker">{_esc(hook_s.kicker if hook_s and hook_s.kicker else spec.mode)}</p>
 <h1>{_esc(hook)}</h1>
 <p class="meta">{post_date} · DentRead</p>
-{facts_html}
-{prose}
+{"".join(partes)}
 <h2>Fuentes</h2>
 <ul>{sources}</ul>
 """
@@ -181,7 +237,7 @@ def write_data_index() -> Path:
     for fam in sorted(by_family):
         items = "".join(
             f'<li><span class="n">{_esc(f["number"])}</span>'
-            f'{_esc(f["statement"])}'
+            f'{_esc(sin_em_dash(f["statement"]))}'
             f'<span class="src">{_esc(f["cite"])}</span></li>'
             for f in by_family[fam]
         )

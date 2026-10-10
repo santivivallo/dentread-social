@@ -95,6 +95,8 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
         # mismo artículo volvía a ser candidato al turno siguiente.
         "post_id": post.id,
         "source_url": post.source_url or "",
+        # El cierre con que sale, para que la próxima noticia no lo repita.
+        "cierre": " ".join(x for x in (post.close, post.close_accent) if x),
         "article_url": f"{site.BASE_URL}/{spec.slug}/",
     }, indent=2, ensure_ascii=False))
 

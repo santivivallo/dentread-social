@@ -80,10 +80,15 @@ def _correr(secuencia: list[Respuesta]) -> tuple[str | None, list[str], list[int
     llm._agotado = False       # cada caso arranca con el proveedor vivo
     llm.time.sleep = lambda s: esperas.append(s)
     llm.os.environ["LLM_API_KEY"] = "clave-de-prueba"
+    # Una clave de reserva en el .env local no puede cambiar lo que mide
+    # cada caso: el segundo proveedor tiene su propio caso.
+    reserva_real = llm.os.environ.pop("RESERVA_API_KEY", None)
     try:
         texto = llm.pedir("reglas", "contenido")
     finally:
         llm.requests.post, llm.time.sleep = post_real, sleep_real
+        if reserva_real is not None:
+            llm.os.environ["RESERVA_API_KEY"] = reserva_real
         if clave_real is None:
             llm.os.environ.pop("LLM_API_KEY", None)
         else:
@@ -282,11 +287,54 @@ def probar_sin_clave() -> list[str]:
     return []
 
 
+def probar_segundo_proveedor() -> list[str]:
+    """
+    Gemini sin cuota (429 en todos sus modelos) o con la clave vencida (401):
+    tiene que contestar OpenRouter, con su clave y en su URL.
+    """
+    errs = []
+    for codigo in (429, 401):
+        urls: list[tuple[str, str]] = []
+
+        def falso_post(url, headers=None, json=None, timeout=None):
+            urls.append((url, headers["Authorization"]))
+            if "openrouter" in url:
+                return Respuesta(200)
+            return Respuesta(codigo)
+
+        post_real, sleep_real = llm.requests.post, llm.time.sleep
+        antes = {k: llm.os.environ.get(k) for k in
+                 ("LLM_API_KEY", "RESERVA_API_KEY", "RESERVA_MODELOS")}
+        llm.requests.post, llm.time.sleep = falso_post, lambda s: None
+        llm._agotado = False
+        llm.os.environ.update(LLM_API_KEY="clave-gemini",
+                              RESERVA_API_KEY="clave-openrouter")
+        llm.os.environ.pop("RESERVA_MODELOS", None)
+        try:
+            texto = llm.pedir("reglas", "contenido")
+        finally:
+            llm.requests.post, llm.time.sleep = post_real, sleep_real
+            for k, v in antes.items():
+                if v is None:
+                    llm.os.environ.pop(k, None)
+                else:
+                    llm.os.environ[k] = v
+        if texto != "texto del modelo":
+            errs.append(f"con {codigo} en Gemini no contestó el segundo proveedor")
+        if not any("openrouter" in u and h == "Bearer clave-openrouter"
+                   for u, h in urls):
+            errs.append(f"con {codigo} no se llamó a OpenRouter con su propia clave")
+        if codigo == 401 and sum("openrouter" not in u for u, _ in urls) > 1:
+            errs.append("un 401 de Gemini siguió probando modelos de Gemini")
+    return errs
+
+
 def main() -> int:
     errores = (probar_503_transitorio() + probar_baja_de_modelo()
                + probar_error_permanente() + probar_404_cambia_de_modelo()
                + probar_reservas_por_proveedor() + probar_reasoning_effort()
-               + probar_corte_tras_agotarse() + probar_sin_clave())
+               + probar_corte_tras_agotarse() + probar_sin_clave()
+               + probar_segundo_proveedor())
     if errores:
         print("✗ el cliente del modelo no aguanta una saturación:\n")
         print("\n".join(f"  {e}" for e in errores))

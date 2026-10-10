@@ -22,6 +22,8 @@ Las dos llevan un resumen propio, escrito y verificado en `pipeline/summarize`.
 """
 from __future__ import annotations
 
+import zlib
+
 from pipeline.plan import Post
 
 # Cierres por familia temática de la noticia. Son varios por familia para que
@@ -79,12 +81,56 @@ FALLBACK = ("La literatura marca la dirección.",
             "La decisión clínica sigue siendo de quien atiende.")
 
 
-def _pick(opciones: list[tuple[str, str]], clave: str) -> tuple[str, str]:
-    """Elección estable: el mismo artículo siempre da el mismo cierre."""
-    return opciones[sum(ord(c) for c in clave) % len(opciones)]
+def _pick(opciones: list[tuple[str, str]], clave: str,
+          recientes: list[str] | None = None) -> tuple[str, str]:
+    """
+    Elección estable que no repite lo que acaba de salir.
+
+    Antes era solo el hash de la URL, y el hash no sabe qué se publicó: de
+    las seis noticias publicadas hasta el 10-10-2026, tres cerraron con la
+    misma frase («La discusión ya no es si la IA sirve…»), dos de ellas con
+    dos días de diferencia. Con dos o tres opciones por familia, que choquen
+    es lo esperable, no la excepción.
+
+    `recientes` son los cierres ya publicados, del más nuevo al más viejo. Se
+    parte del índice del hash —el mismo artículo sigue dando el mismo cierre
+    mientras nada cambie— y se salta lo usado. Si la familia entera ya salió,
+    gana el que lleva más tiempo sin usarse.
+    """
+    inicio = sum(ord(c) for c in clave) % len(opciones)
+    orden = opciones[inicio:] + opciones[:inicio]
+    recientes = recientes or []
+    for op in orden:
+        if " ".join(op) not in recientes:
+            return op
+    return max(orden, key=lambda op: recientes.index(" ".join(op)))
 
 
-def post_from_article(article) -> Post:
+def cierres_recientes() -> list[str]:
+    """
+    Cierres de las noticias ya publicadas, del más nuevo al más viejo.
+
+    Se leen del archivo de ADA: `mark_published` guarda ahí el cierre que
+    salió. Las notas publicadas antes de que existiera ese campo no lo
+    tienen, y para esas se reconstruye con la regla vieja (solo el hash), que
+    es exactamente la que las eligió.
+    """
+    from pipeline import ada_news
+    arts = ada_news.load_archive()["articles"]
+    usados = [(v.get("published_on") or v.get("published", ""), url, v)
+              for url, v in arts.items() if v.get("used")]
+    out = []
+    for _, url, v in sorted(usados, reverse=True):
+        cierre = v.get("cierre")
+        if not cierre:
+            fam = next((b for b in v.get("buckets", [])
+                        if b in CIERRES_NOTICIA), "datos")
+            cierre = " ".join(_pick(CIERRES_NOTICIA[fam], url))
+        out.append(cierre)
+    return out
+
+
+def post_from_article(article, recientes: list[str] | None = None) -> Post:
     """
     Noticia de ADA News → Post.
 
@@ -94,7 +140,7 @@ def post_from_article(article) -> Post:
     si fuera de esta semana es un error de credibilidad barato de evitar.
     """
     familia = next((b for b in article.buckets if b in CIERRES_NOTICIA), "datos")
-    close, accent = _pick(CIERRES_NOTICIA[familia], article.url)
+    close, accent = _pick(CIERRES_NOTICIA[familia], article.url, recientes)
 
     marco = ("Publicado esta semana en ADA News."
              if article.is_fresh
@@ -102,7 +148,10 @@ def post_from_article(article) -> Post:
 
     return Post(
         kind="news",
-        id=f"news-{abs(hash(article.url)) % 10**8}",
+        # crc32 y no `hash()`: el hash de str cambia en cada proceso
+        # (PYTHONHASHSEED), así que el id de la misma nota era otro en cada
+        # corrida y el registro `externos` nunca la reconocía.
+        id=f"news-{zlib.crc32(article.url.encode()) % 10**8}",
         title=article.title,
         audience="es",
         angle=article.title.rstrip("."),
