@@ -199,7 +199,7 @@ desperdiciaba el stock que justamente sostiene la cadencia.
 | Bucket R2 | `dentread-social` · `pub-af83c99af903416e98da3000418a50cc.r2.dev` | ✓ escritura y URL pública verificadas |
 | LinkedIn | `urn:li:organization:102793096` | Santiago admin ✓ |
 | App de LinkedIn | DentRead Social Publisher · `263015564` | Dev Tier de Community Management **pedido**, esperando |
-| Dominio | **dentread.app** · sitio en `santivivallo.github.io/dentread-social` (el subdominio `insights` nunca se creó) | — |
+| Dominio | **dentread.app** · sitio en `dentread-social.pages.dev` (Cloudflare Pages) | — |
 
 Ojo: **@dentread** (sin guion bajo) y **dentread.com** son de otra empresa del
 mismo rubro. Ver [GO-LIVE.md](GO-LIVE.md) §0.
@@ -213,5 +213,5 @@ Detalle en [GO-LIVE.md](GO-LIVE.md) y [SETUP-CREDENCIALES.md](SETUP-CREDENCIALES
 3. **Healthchecks + GitHub**. Verificar todo con `python -m tools.check_credentials`.
 4. Correr `pipeline.ada_news.backlog()` una vez para archivar los ~75 artículos de 2026.
 5. Revisar los 22 ángulos del catálogo y los 15 bloques evergreen — son la voz de la empresa.
-6. Activar GitHub Pages sobre `docs/` (se sirve en `santivivallo.github.io/dentread-social`).
+6. Cloudflare Pages: proyecto `dentread-social`, secretos `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID` en el environment `production`.
 7. **Dos semanas en `--dry-run`** revisando cada salida antes de soltar el cron.

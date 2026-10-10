@@ -252,6 +252,25 @@ jobs:
           git diff --staged --quiet || git commit -m "content: $(date +%F)"
           git push
 
+      # El sitio vive en https://dentread-social.pages.dev (Cloudflare Pages,
+      # como dentlife-cl y radar-salud). Se despliega docs/ tal como quedo
+      # commiteado. Va despues del commit y no frena la corrida: el post ya
+      # salio en Instagram, y una caida de Cloudflare no lo deshace. Sin el
+      # secreto se salta con aviso. El token solo tiene permiso Pages Write.
+      - name: Deploy site to Cloudflare Pages
+        if: ${{ !inputs.dry_run }}
+        continue-on-error: true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::warning::Sin CLOUDFLARE_API_TOKEN: el sitio no se actualizo"
+            exit 0
+          fi
+          npx --yes wrangler@4.40.0 pages deploy docs \
+            --project-name dentread-social --branch main --commit-dirty=true
+
       - uses: actions/upload-artifact@v4   # TODO: pinear por SHA
         if: always()
         with:

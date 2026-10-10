@@ -29,13 +29,13 @@ from pipeline.spec import PostSpec, Slide
 from pipeline.themes import CATALOG
 
 DOCS = Path("docs")
-# La dirección que GitHub Pages sirve de verdad. Estuvo en
-# "https://insights.dentread.app", un subdominio que nunca se creó: cada
-# página declaraba como canónica una URL que no cargaba, y el sitemap listaba
-# 26 direcciones inexistentes. Si algún día se crea el subdominio (CNAME a
-# santivivallo.github.io + dominio propio en Pages), se cambia acá y se corre
-# `python -m tools.rehacer_paginas --todas`.
-BASE_URL = "https://santivivallo.github.io/dentread-social"
+# Cloudflare Pages, como el resto de los proyectos (dentlife-cl, radar-salud).
+# Estuvo en "https://insights.dentread.app", un subdominio que nunca se creó:
+# cada página declaraba como canónica una URL que no cargaba. Después pasó
+# por la de GitHub Pages (santivivallo.github.io/dentread-social), que sigue
+# sirviendo lo mismo desde docs/ pero ya no es la canónica. Si se cambia de
+# nuevo: tocar acá y correr `python -m tools.rehacer_paginas --todas`.
+BASE_URL = "https://dentread-social.pages.dev"
 SITE_NAME = "DentRead Insights"
 TAGLINE = ("Datos verificados sobre el mercado dental de Estados Unidos, "
            "con su fuente.")
