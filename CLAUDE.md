@@ -78,6 +78,7 @@ python -m pipeline.auditoria --peores 5   # los 26 posts, de peor a mejor
 python -m pipeline.redaccion              # ¿el modelo responde?
 python -m pipeline.run --slots 1          # generar (no consume)
 python -m tools.preview                   # ver los slides a tamaño de feed
+python -m tools.rehacer_paginas --todas    # rehacer docs/ tras cambiar el formato de página
 python -m pipeline.verify --strict        # los 4 controles
 python -m tools.check_credentials         # ¿funcionan las credenciales?
 gh workflow run publish.yml -f dry_run=true    # ensayo completo en CI
@@ -317,3 +318,14 @@ Directo y crítico. Quiere **soluciones sistémicas, no parches al post que
 mostró**: si te manda una captura con un defecto, arreglá la clase entera y
 agregá el control que impide que vuelva. Prefiere que le digas que algo está
 mal antes que un acuerdo cómodo. Si te equivocaste, decilo y arreglalo.
+
+---
+
+## Proveedor de modelo (10-10-2026)
+
+Gemini es el principal (`LLM_API_KEY`) y su cuota gratis se agota en días de
+mucho uso: 429 "exceeded your current quota". Las reservas de `LLM_RESERVAS`
+son modelos del **mismo** proveedor y comparten esa cuota. El segundo
+proveedor es otra cuenta: `RESERVA_API_KEY` (secreto del environment
+`production`, OpenRouter por defecto), con modelos en la variable
+`RESERVA_MODELOS`. Sin ese secreto no hay segundo proveedor y nada falla.
