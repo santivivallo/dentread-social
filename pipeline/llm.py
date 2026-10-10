@@ -92,7 +92,13 @@ ESPERAS = (2, 6, 15)          # segundos; el sistema hace ~3 llamadas/semana
 # Un 503 es capacidad DE ESE modelo, así que cambiarlo suele alcanzar donde
 # esperar no alcanza. Se dejan en orden de preferencia y se saltan los que
 # repitan el modelo configurado.
-MODELOS_DE_RESERVA = ("gemini-2.5-flash", "gemini-2.0-flash",
+#
+# **Verificados el 10 de octubre de 2026** con una llamada real, no con el
+# listado: `/models` seguía mostrando `gemini-2.5-flash`, que respondía 404
+# "no longer available to new users". Ese 404 y el de `gemini-2.0-flash`
+# dejaron sin reserva a la corrida del 7-oct. Un nombre fijo caduca en
+# silencio; por eso un 404 ahora pasa al siguiente en vez de cortar.
+MODELOS_DE_RESERVA = ("gemini-3.5-flash", "gemini-3.1-flash-lite",
                       "gemini-flash-lite-latest")
 
 
@@ -316,7 +322,9 @@ def _pedir(reglas: str, contenido: str, *, json_mode: bool = False,
                   f"{detalle[:160]}")
             if r.status_code in REINTENTABLES:
                 break            # se agotaron los intentos: probar otro modelo
-            return None          # 401, 404: esperar no lo arregla
+            if r.status_code == 404:
+                break            # ESE modelo no existe; el siguiente quizá sí
+            return None          # 401: esperar ni cambiar de modelo lo arregla
 
     # Todos los modelos saturados o inalcanzables: el resto de la corrida sale
     # con el texto curado, sin volver a pagar la espera.

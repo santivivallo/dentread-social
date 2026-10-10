@@ -155,11 +155,14 @@ def _quotes(text: str) -> list[str]:
 
 
 def check_derived(post_text: str, source_text: str, source_url: str = "",
-                  *, is_fresh: bool = True, published: str = "") -> NewsResult:
+                  *, is_fresh: bool = True, published: str = "",
+                  attribution: str = "") -> NewsResult:
     """
     post_text   copy que se va a publicar
     source_text cuerpo del artículo original
     is_fresh    False si el artículo viene del stock del año y no es novedad
+    attribution la fuente que el post dice citar ("J Dent Res 2026"); si se
+                pasa, una línea "Fuente: <attribution>" cuenta como crédito
     """
     findings: list[NewsFinding] = []
 
@@ -230,7 +233,18 @@ def check_derived(post_text: str, source_text: str, source_url: str = "",
             ))
 
     # ---- 4. Atribución obligatoria --------------------------------------
+    #
+    # Los patrones solo conocen a ADA News, y los papers se atribuyen a su
+    # revista ("Fuente: J Dent Res 2026."). Resultado: ningún paper pasó este
+    # control desde que existe — 0 publicados con ranura en el ciclo — y el
+    # 7 y el 9 de octubre de 2026 la corrida entera terminó en rojo porque los
+    # tres candidatos del turno eran papers. Se acepta además la fuente que el
+    # post declara citar, exigiendo que aparezca como crédito explícito.
     has_attr = any(re.search(p, post_text, re.I) for p in ATTRIBUTION_PATTERNS)
+    if not has_attr and attribution.strip():
+        has_attr = bool(re.search(
+            r"\b(fuente|source|v[íi]a|seg[úu]n)\s*:?\s*"
+            + re.escape(attribution.strip()), post_text, re.I))
     if not has_attr:
         findings.append(NewsFinding(
             "BLOCK", "attribution.missing",

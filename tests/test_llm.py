@@ -129,20 +129,38 @@ def probar_baja_de_modelo() -> list[str]:
 
 def probar_error_permanente() -> list[str]:
     """
-    Un 401 o un 404 no se reintenta: esperar no lo arregla.
+    Un 401 no se reintenta: esperar no lo arregla.
 
     Reintentar un error de configuración solo retrasa el diagnóstico, que es
     justo lo que hizo perder una semana con el 410 de GitHub Models.
     """
     errs = []
-    for codigo in (401, 404):
-        texto, modelos, esperas = _correr([Respuesta(codigo)])
-        if texto is not None:
-            errs.append(f"un {codigo} devolvió texto")
-        if len(modelos) != 1:
-            errs.append(f"un {codigo} se reintentó {len(modelos)} veces")
-        if esperas:
-            errs.append(f"un {codigo} durmió {esperas}")
+    texto, modelos, esperas = _correr([Respuesta(401)])
+    if texto is not None:
+        errs.append("un 401 devolvió texto")
+    if len(modelos) != 1:
+        errs.append(f"un 401 se reintentó {len(modelos)} veces")
+    if esperas:
+        errs.append(f"un 401 durmió {esperas}")
+    return errs
+
+
+def probar_404_cambia_de_modelo() -> list[str]:
+    """
+    Un 404 es de ESE modelo: se pasa al siguiente, sin esperar ni repetirlo.
+
+    El 7 de octubre de 2026 el principal dio 503, la reserva `gemini-2.5-flash`
+    respondió 404 "no longer available to new users" y el cliente cortó ahí,
+    con dos reservas más sin probar.
+    """
+    errs = []
+    texto, modelos, esperas = _correr([Respuesta(404), Respuesta(200)])
+    if texto != "texto del modelo":
+        errs.append("tras un 404 no probó el modelo siguiente")
+    if len(modelos) != 2 or len(set(modelos)) != 2:
+        errs.append(f"un 404 repitió el mismo modelo: {modelos}")
+    if esperas:
+        errs.append(f"un 404 durmió {esperas}")
     return errs
 
 
@@ -233,14 +251,15 @@ def probar_sin_clave() -> list[str]:
 
 def main() -> int:
     errores = (probar_503_transitorio() + probar_baja_de_modelo()
-               + probar_error_permanente() + probar_reasoning_effort()
+               + probar_error_permanente() + probar_404_cambia_de_modelo()
+               + probar_reasoning_effort()
                + probar_corte_tras_agotarse() + probar_sin_clave())
     if errores:
         print("✗ el cliente del modelo no aguanta una saturación:\n")
         print("\n".join(f"  {e}" for e in errores))
         return 1
     print("✓ 503 y timeouts se reintentan con espera creciente, se baja de "
-          "modelo si persiste, y 401/404 cortan de una")
+          "modelo si persiste o da 404, y un 401 corta de una")
     return 0
 
 

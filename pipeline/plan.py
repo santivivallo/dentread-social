@@ -43,7 +43,11 @@ CICLO = ("data", "news", "evergreen", "paper", "data", "news")
 # fuente externa. Existe porque esas dos pueden caerse DESPUÉS de elegidas
 # —sin resumen, o con un resumen que no cruza los controles— y una sola
 # alternativa no alcanza cuando hay cientos de artículos disponibles.
-ALTERNATIVAS_EXTERNAS = 3
+#
+# Son 2 y no 3 desde que `next_posts` dejó de recortarlas (10-oct-2026): cada
+# candidato externo caído cuesta ~70 s de modelo, y tres por fuente más el
+# turno siguiente se acercaban al techo de tiempo del workflow.
+ALTERNATIVAS_EXTERNAS = 2
 
 # Ventana editorial: noticias y literatura, solo del año en curso. Un artículo
 # del año pasado se lee como archivo y contradice que la cobertura crezca
@@ -375,7 +379,15 @@ def next_posts(n: int = 2) -> list[Post]:
                         posts.append(otro)
                 break
 
-    return posts[:n]
+    # `n` son TURNOS, no posts: las alternativas van aparte.
+    #
+    # Antes se devolvía `posts[:n]`. Con `--slots 1` se piden 3, y si el turno
+    # era de papers la lista quedaba [paper, alt, alt]: el recorte se comía el
+    # turno siguiente del ciclo. Si los papers se caían todos, no había
+    # ninguna otra fuente que probar, nada se publicaba, `count` no avanzaba
+    # y la corrida siguiente volvía al mismo turno roto. Así pasó el 7 y el 9
+    # de octubre de 2026. Una fuente rota no puede frenar el feed.
+    return posts
 
 
 def mark_used_from_folder(folder) -> None:

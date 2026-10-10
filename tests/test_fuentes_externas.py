@@ -332,6 +332,10 @@ def probar_paper_sale_entero() -> list[str]:
     )
 
     post = post_from_signpost(sp)
+    # Sin esto, un 503 de OTRA llamada anterior quedaba en `ultimo_error` y
+    # hacía pasar por "falla de red" un rechazo real del pipeline.
+    from pipeline import llm
+    llm.ultimo_error = ""
     try:
         spec = generate(post)
     except SinMaterial as exc:
@@ -359,10 +363,78 @@ def probar_paper_sale_entero() -> list[str]:
     return []
 
 
+def probar_atribucion_paper() -> list[str]:
+    """
+    Que un paper atribuido a su revista cuente como atribuido.
+
+    **El bug.** `newsguard` solo reconocía "ADA News" como crédito. Un paper
+    sale con "Fuente: BMC Oral Health 2026." y se bloqueaba siempre por
+    `attribution.missing`. El 7 y el 9 de octubre de 2026 los tres candidatos
+    del turno murieron así. `probar_paper_sale_entero` lo habría visto, pero
+    en CI corre sin clave y se salta en silencio: por eso esto va sin red.
+    """
+    from publisher import newsguard
+
+    resumen = ("El estudio describe cuántos adultos con seguro público "
+               "volvieron a control preventivo en tres años, y cuántos "
+               "cambiaron de clínica entre una visita y otra.")
+    errs = []
+    con = newsguard.check_derived(f"{resumen}\n\nFuente: BMC Oral Health 2026.",
+                                  CUERPO, attribution="BMC Oral Health 2026")
+    if any(f.rule == "attribution.missing" for f in con.findings):
+        errs.append("un paper con 'Fuente: <revista>' se bloquea por falta "
+                    "de atribución: los papers nunca pueden publicar")
+    sin = newsguard.check_derived(resumen, CUERPO,
+                                  attribution="BMC Oral Health 2026")
+    if not any(f.rule == "attribution.missing" for f in sin.findings):
+        errs.append("un resumen sin línea de fuente ya no se bloquea: el "
+                    "control de atribución quedó abierto")
+    return errs
+
+
+def probar_turno_siguiente() -> list[str]:
+    """
+    Que una fuente rota no deje la tanda sin otra fuente que probar.
+
+    **El bug.** `next_posts(3)` en turno de papers devolvía
+    [paper, alt, alt]: las alternativas se comían el turno siguiente. Con los
+    papers caídos no se publicaba nada, `count` no avanzaba y la corrida
+    siguiente volvía al mismo turno. Se simula una fuente de papers infinita
+    y se exige que aparezca otra fuente en la tanda.
+    """
+    from types import SimpleNamespace
+
+    from pipeline import plan
+
+    contador = iter(range(10_000))
+
+    def falso_un_post(kind, state, usados, familias, saltar=None):
+        return SimpleNamespace(id=f"{kind}-{next(contador)}", kind=kind,
+                               family=f"fam-{kind}")
+
+    turno_paper = plan.CICLO.index("paper")
+    real_un_post, real_state = plan._un_post, plan._state
+    plan._un_post = falso_un_post
+    plan._state = lambda: {"count": turno_paper}
+    try:
+        tanda = plan.next_posts(3)
+    finally:
+        plan._un_post, plan._state = real_un_post, real_state
+
+    tipos = [p.kind for p in tanda]
+    if tipos[0] != "paper":
+        return [f"el turno de papers no empieza con un paper: {tipos}"]
+    if set(tipos) == {"paper"}:
+        return [f"en turno de papers la tanda es solo papers {tipos}: si se "
+                f"caen todos no hay otra fuente y el feed se detiene"]
+    return []
+
+
 def main() -> int:
     errores = (probar_noticia() + probar_paper()
                + probar_presupuesto_caption() + probar_alternativas()
                + probar_registro_de_publicados() + probar_opinion()
+               + probar_atribucion_paper() + probar_turno_siguiente()
                + probar_paper_sale_entero())
     if errores:
         print("✗ las fuentes externas no van a poder publicar:\n")

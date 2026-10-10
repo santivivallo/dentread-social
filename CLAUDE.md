@@ -188,6 +188,35 @@ una. Por eso existe la revisión quincenal.
 
 ---
 
+## 10 de octubre de 2026: el cron "caído" que no estaba caído
+
+Healthchecks marcó DOWN el 9-oct. El schedule y el token estaban bien: el 7 y
+el 9 la corrida terminó en rojo en `pipeline.run` (0/1 listos). Tres bugs en
+cadena, cada uno con su test sin red que falla contra el código viejo:
+
+1. **Los papers nunca podían pasar `newsguard`.** La atribución solo
+   reconocía "ADA News"; un paper sale con `Fuente: <revista> <año>`. Esa era
+   la causa del "0 papers publicados" pendiente desde septiembre.
+   `check_derived(..., attribution=)` ahora acepta la fuente declarada.
+2. **Las alternativas se comían el turno siguiente.** `next_posts(3)` en turno
+   de papers devolvía `[paper, alt, alt]`. Caídos los tres, no había otra
+   fuente, `count` no avanzaba y la corrida siguiente repetía el turno roto
+   **para siempre**. `n` ahora cuenta turnos; `ALTERNATIVAS_EXTERNAS` bajó a 2.
+3. **Reservas de modelo muertas.** `gemini-2.5-flash` y `gemini-2.0-flash`
+   daban 404 aunque `/models` los listara, y un 404 cortaba sin probar la
+   reserva siguiente. Ahora un 404 pasa al siguiente; un 401 sigue cortando.
+
+Por qué CI no lo vio: `probar_paper_sale_entero` corre **sin `LLM_API_KEY`**
+en el workflow y sale con `[]` en silencio. Si se le da la clave, que sea con
+`continue-on-error`: bloquear el publish por una fuente rota es justo lo que
+detuvo el feed.
+
+Ojo al probar local: el cliente lee la clave del `.env`, así que los tests
+llaman al modelo de verdad y gastan la cuota gratuita (se agotó así el
+10-oct). Para correrlos como en CI: `LLM_API_KEY="" python -m tests.<test>`.
+
+---
+
 ## Revisión quincenal
 
 ```bash
@@ -219,8 +248,9 @@ Santiago → créditos de modelo → minutos de CI** (repo público, gratis).
   necesaria.
 - **Desvíos de magnitud fuera de las familias conocidas** de `referentes.py`.
 - **Cifra desactualizada**: falta un campo `review_by` en los hechos.
-- **Los papers no publican.** Tienen 1 de 6 ranuras del ciclo y llevan 0
-  publicaciones. Desde el 20-sep hay instrumento: el archivo de PubMed guarda
+- **Los papers no publican** *(causa encontrada el 10-oct: atribución, ver
+  arriba; confirmar con el primer turno de paper tras el arreglo).* Tienen 1
+  de 6 ranuras del ciclo y llevan 0 publicaciones. Desde el 20-sep hay instrumento: el archivo de PubMed guarda
   el motivo de cada descarte, así que la primera corrida que toque un turno de
   paper deja el diagnóstico servido. Correr entonces
   `python -m pipeline.journals --archivo`.

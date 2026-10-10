@@ -184,7 +184,8 @@ def resumen_verificado(fuente: str, *, es_paper: bool, url: str = "",
     try:
         from publisher import newsguard
         res = newsguard.check_derived(publicable, fuente, url,
-                                      is_fresh=es_reciente, published=publicado)
+                                      is_fresh=es_reciente, published=publicado,
+                                      attribution=atribucion)
         if not getattr(res, "ok", True):
             motivos = "; ".join(str(f) for f in getattr(res, "findings", [])[:2])
             print(f"   [info] resumen descartado por newsguard: {motivos[:120]}")
