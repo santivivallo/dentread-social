@@ -233,20 +233,42 @@ def check_inventory() -> tuple[bool, list[str]]:
 
 
 def check_site() -> tuple[bool, list[str]]:
-    """Sin activo indexable, el esfuerzo no compone."""
+    """
+    Sin activo indexable, el esfuerzo no compone.
+
+    El sitio es bilingüe desde el 11-10-2026: inglés en la raíz y español en
+    docs/es/. Este control contaba `docs/es/` como si fuera una página de post
+    (es la portada en español, sin schema.org) y buscaba el índice de datos en
+    docs/datos/, que ahora es /es/datos/ y /data/. Además exige que cada post
+    exista en los dos idiomas: una página que se escribe en uno solo deja el
+    `hreflang` del otro apuntando a nada.
+    """
     if not DOCS.exists():
         return False, ["no existe docs/: el sistema no produce activos indexables"]
-    pages = [p for p in DOCS.glob("*/index.html")]
+    no_posts = {"data", "datos", "es"}
+    en = {p.parent.name: p for p in DOCS.glob("*/index.html")
+          if p.parent.name not in no_posts}
+    es = {p.parent.name: p for p in (DOCS / "es").glob("*/index.html")
+          if p.parent.name not in no_posts}
+    indices = {"en": DOCS / "data/index.html", "es": DOCS / "es/datos/index.html"}
     problems, notes = [], []
-    notes.append(f"{len(pages)} páginas · índice de datos: "
-                 f"{'sí' if (DOCS / 'datos/index.html').exists() else 'NO'} · "
+    notes.append(f"{len(en)} páginas en inglés · {len(es)} en español · índice de "
+                 f"datos: {'sí' if all(x.exists() for x in indices.values()) else 'NO'} · "
                  f"sitemap: {'sí' if (DOCS / 'sitemap.xml').exists() else 'NO'}")
-    for p in pages:
-        html = p.read_text()
-        if "application/ld+json" not in html:
-            problems.append(f"{p.parent.name}: sin schema.org")
-        if '<link rel="canonical"' not in html:
-            problems.append(f"{p.parent.name}: sin canonical")
+    for lang, x in indices.items():
+        if not x.exists():
+            problems.append(f"falta el índice de datos en {lang}")
+    for slug in sorted(set(en) ^ set(es)):
+        problems.append(f"{slug}: existe en un solo idioma")
+    for lang, pages in (("en", en), ("es", es)):
+        for slug, p in pages.items():
+            html = p.read_text()
+            if "application/ld+json" not in html:
+                problems.append(f"{lang}/{slug}: sin schema.org")
+            if '<link rel="canonical"' not in html:
+                problems.append(f"{lang}/{slug}: sin canonical")
+            if 'hreflang=' not in html:
+                problems.append(f"{lang}/{slug}: sin hreflang")
     if not (DOCS / "sitemap.xml").exists():
         problems.append("falta sitemap.xml")
     return (not problems), notes + [f"✗ {x}" for x in problems]
