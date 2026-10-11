@@ -271,6 +271,13 @@ jobs:
           npx --yes wrangler@4.40.0 pages deploy docs \
             --project-name dentread-social --branch main --commit-dirty=true
 
+      # Aviso a Bing (y por esa via al buscador de ChatGPT y Copilot) de que
+      # hay paginas nuevas. Sin esto las descubre cuando vuelva al sitemap.
+      - name: Notify search engines (IndexNow)
+        if: ${{ !inputs.dry_run }}
+        continue-on-error: true
+        run: python -m tools.indexnow
+
       - uses: actions/upload-artifact@v4   # TODO: pinear por SHA
         if: always()
         with:

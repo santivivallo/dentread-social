@@ -27,6 +27,9 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4          # TODO: pinear por SHA
+      - uses: actions/setup-python@v5      # TODO: pinear por SHA
+        with:
+          python-version: "3.12"
       - name: Deploy to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -34,3 +37,11 @@ jobs:
         run: |
           npx --yes wrangler@4.40.0 pages deploy docs \
             --project-name dentread-social --branch main --commit-dirty=true
+
+      # Despues del despliegue: el buscador baja la clave del sitio para
+      # validar el aviso, asi que el archivo tiene que estar publicado antes.
+      - name: Notify search engines (IndexNow)
+        continue-on-error: true
+        run: |
+          pip install --quiet requests
+          python -m tools.indexnow
