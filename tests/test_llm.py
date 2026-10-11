@@ -339,12 +339,30 @@ def probar_segundo_proveedor() -> list[str]:
     return errs
 
 
+def probar_solo_modelos_gratis() -> list[str]:
+    """En OpenRouter, un modelo pago en RESERVA_MODELOS no se llama nunca."""
+    antes = {k: llm.os.environ.get(k) for k in ("RESERVA_API_KEY", "RESERVA_MODELOS")}
+    llm.os.environ.update(RESERVA_API_KEY="x",
+                          RESERVA_MODELOS="openai/gpt-5,google/gemma-4-31b-it:free")
+    try:
+        reserva = [m for url, _, ms in llm.proveedores() if "openrouter" in url for m in ms]
+    finally:
+        for k, v in antes.items():
+            if v is None:
+                llm.os.environ.pop(k, None)
+            else:
+                llm.os.environ[k] = v
+    if reserva != ["google/gemma-4-31b-it:free"]:
+        return [f"OpenRouter llamaría a modelos pagos: {reserva}"]
+    return []
+
+
 def main() -> int:
     errores = (probar_503_transitorio() + probar_baja_de_modelo()
                + probar_error_permanente() + probar_404_cambia_de_modelo()
                + probar_reservas_por_proveedor() + probar_reasoning_effort()
                + probar_corte_tras_agotarse() + probar_sin_clave()
-               + probar_segundo_proveedor())
+               + probar_segundo_proveedor() + probar_solo_modelos_gratis())
     if errores:
         print("✗ el cliente del modelo no aguanta una saturación:\n")
         print("\n".join(f"  {e}" for e in errores))

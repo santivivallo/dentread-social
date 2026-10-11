@@ -172,9 +172,19 @@ def proveedores() -> list[tuple[str, str, list[str]]]:
         propios = os.environ.get("RESERVA_MODELOS", "")
         modelos = ([m.strip() for m in propios.split(",") if m.strip()]
                    or list(RESERVA_MODELOS_POR_DEFECTO))
-        out.append((os.environ.get("RESERVA_ENDPOINT")
-                    or RESERVA_ENDPOINT_POR_DEFECTO,
-                    os.environ["RESERVA_API_KEY"], modelos))
+        url = os.environ.get("RESERVA_ENDPOINT") or RESERVA_ENDPOINT_POR_DEFECTO
+        if "openrouter.ai" in url:
+            # El sistema tiene que costar cero. En OpenRouter solo los modelos
+            # con sufijo `:free` no cobran; cualquier otro descuenta saldo de
+            # la cuenta. Un modelo pago puesto por error en RESERVA_MODELOS se
+            # descarta acá y no llega a llamarse.
+            pagos = [m for m in modelos if not m.endswith(":free")]
+            if pagos:
+                print(f"   [aviso] RESERVA_MODELOS trae modelos pagos, se "
+                      f"ignoran: {', '.join(pagos)}")
+            modelos = [m for m in modelos if m.endswith(":free")]
+        if modelos:
+            out.append((url, os.environ["RESERVA_API_KEY"], modelos))
     return out
 
 

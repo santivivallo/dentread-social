@@ -329,3 +329,39 @@ son modelos del **mismo** proveedor y comparten esa cuota. El segundo
 proveedor es otra cuenta: `RESERVA_API_KEY` (secreto del environment
 `production`, OpenRouter por defecto), con modelos en la variable
 `RESERVA_MODELOS`. Sin ese secreto no hay segundo proveedor y nada falla.
+
+---
+
+## Sitio web y costos (11-10-2026)
+
+**Sitio:** https://dentread-social.pages.dev (Cloudflare Pages, proyecto
+`dentread-social`). Bilingüe: inglés en la raíz (`/<slug>/`, `/data/`),
+español en `/es/` (`/es/datos/`). Lo despliegan `publish.yml` después de
+cada publicación real y `site.yml` cuando cambia `docs/`. Cada despliegue
+avisa a Bing y otros por IndexNow (`tools/indexnow.py`; la clave es pública
+a propósito, vive en `docs/<clave>.txt`).
+
+- Cifras en inglés: `number_en` / `statement_en` de `facts.json`, curadas.
+  Nunca traducidas por un modelo.
+- Resúmenes de noticias: `site.traducir`, que descarta la traducción si
+  cambia una cifra.
+- **Fase 2 pendiente:** los textos de carrusel en inglés están propuestos en
+  `data/traducciones_en.json` y en `Textos_EN_para_revisar.xlsx` (no
+  versionada). Ninguno se usa hasta que Santiago los apruebe. Instagram
+  sigue en español hasta entonces.
+- Pendiente: Google Search Console y Bing Webmaster Tools (necesitan Chrome).
+- Subdominio propio (`insights.dentread.app`): **opcional**. El DNS de
+  dentread.app está en otra cuenta de Cloudflare; la web principal, en AWS.
+
+**Todo tiene que costar cero.** Repo público (Actions gratis), Cloudflare
+Pages gratis, Gemini en capa gratuita y OpenRouter solo con modelos
+`:free`: `llm.proveedores()` descarta cualquier modelo pago de
+`RESERVA_MODELOS`, y la clave tiene además un tope de 1 USD.
+
+**Credenciales y vencimientos:**
+- Token de Instagram: vence el 09-12-2026. Renovar antes desde el Explorador
+  de la API Graph → `tools.exchange_meta_token` → `gh secret set
+  META_ACCESS_TOKEN --env production`. Un secreto nuevo le gana a la copia
+  en caché (`publisher/tokens.py`).
+- `CLOUDFLARE_API_TOKEN` (solo Pages Write) y la clave de OpenRouter: vencen
+  el 10-10-2027.
