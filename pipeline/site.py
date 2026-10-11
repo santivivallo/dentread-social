@@ -10,7 +10,14 @@ Este módulo escribe, por cada post, una página HTML con `schema.org/Article`
 y sus citas. Más un índice de datos —cada hecho con su fuente— que es
 exactamente lo que un motor de IA busca citar.
 
-Sale a `docs/`, que GitHub Pages sirve gratis. Sin framework, sin build.
+Sale a `docs/`, que Cloudflare Pages sirve gratis. Sin framework, sin build.
+
+**Bilingüe (desde 2026-10-11).** El cliente objetivo es el mini-DSO de EE.UU.,
+que busca en inglés: el inglés va en la raíz (`/<slug>/`) y el español en
+`/es/<slug>/`, cada uno con `hreflang` hacia el otro. Las cifras en inglés
+son las curadas a mano en `facts.json` (`number_en`, `statement_en`), nunca
+una traducción del modelo. Los cierres aprobados no tienen versión en inglés
+revisada todavía, así que la página en inglés no los muestra.
 
     python -m pipeline.site --rebuild     # regenera índices y sitemap
 """
@@ -39,6 +46,8 @@ BASE_URL = "https://dentread-social.pages.dev"
 SITE_NAME = "DentRead Insights"
 TAGLINE = ("Datos verificados sobre el mercado dental de Estados Unidos, "
            "con su fuente.")
+TAGLINE_EN = "Verified data on the US dental market, with sources."
+ES_DIR = "es"
 
 CSS = """
 :root{--ink:#0d1b2a;--paper:#f7f6f3;--accent:#2e6ae0;--muted:#7a8492}
@@ -72,23 +81,89 @@ DISCLAIMER = (
     "cifras citadas provienen de las fuentes indicadas; no son resultados "
     "de DentRead."
 )
+DISCLAIMER_EN = (
+    "DentRead is clinical workflow support software. It is not a diagnostic "
+    "device and is not FDA cleared. Figures cited come from the sources "
+    "shown; they are not DentRead results."
+)
+
+# Textos fijos por idioma. Lo que dice qué es DentRead sale del bloque
+# evergreen `que-es-dentread` (mensaje aprobado), no de acá.
+TXT = {
+    "es": {"datos": "Índice de datos", "fuentes": "Fuentes",
+           "implica": "Qué implica", "otro": "Read in English",
+           "home_cta": "Ver el índice completo de datos →",
+           "pubs": "Publicaciones", "vacio": "Todavía no hay publicaciones.",
+           "sobre": "Sobre DentRead", "mas": "Conocer DentRead →",
+           "data_kicker": "Índice de datos",
+           "data_h1": "Datos del mercado dental de EE.UU., con su fuente",
+           "data_meta": "cifras verificadas · actualizado",
+           "data_intro": ("Cada cifra fue leída en su fuente primaria antes de "
+                          "publicarse. Se indica publicación, página y fecha. "
+                          "Ninguna es un resultado de DentRead."),
+           "data_title": "Datos del mercado dental de EE.UU."},
+    "en": {"datos": "Data index", "fuentes": "Sources",
+           "implica": "Why it matters", "otro": "Leer en español",
+           "home_cta": "See the full data index →",
+           "pubs": "Posts", "vacio": "No posts yet.",
+           "sobre": "About DentRead", "mas": "Learn about DentRead →",
+           "data_kicker": "Data index",
+           "data_h1": "US dental market data, with sources",
+           "data_meta": "verified figures · updated",
+           "data_intro": ("Every figure was read in its primary source before "
+                          "publication, with publication, page and date. None "
+                          "is a DentRead result."),
+           "data_title": "US dental market data"},
+}
 
 
 def _esc(s: str) -> str:
     return html.escape(s or "", quote=True)
 
 
+def _url(lang: str, ruta: str = "") -> str:
+    """URL pública de una ruta en un idioma. `ruta` sin barras: 'datos', 'slug'."""
+    pre = "" if lang == "en" else f"/{ES_DIR}"
+    return f"{BASE_URL}{pre}/{ruta + '/' if ruta else ''}"
+
+
+def _sobre(lang: str) -> str:
+    """
+    Qué es DentRead y a dónde ir. Antes ninguna página enlazaba a dentread.app:
+    quien llegaba desde un buscador no tenía un paso siguiente.
+    """
+    try:
+        from pipeline.plan import load_evergreen
+        b = next(x for x in load_evergreen() if x["id"] == "que-es-dentread")
+        clave = "approved_messages_en" if lang == "en" else "approved_messages"
+        texto = (b.get(clave) or b.get("approved_messages") or [""])[0]
+    except (StopIteration, OSError, ValueError):
+        return ""
+    t = TXT[lang]
+    return (f'<h2>{t["sobre"]}</h2><p>{_esc(texto)}</p>'
+            f'<p><a href="https://dentread.app">{t["mas"]}</a></p>')
+
+
 def _shell(title: str, description: str, body: str, canonical: str,
-           jsonld: dict | None = None) -> str:
+           jsonld: dict | None = None, *, lang: str = "es",
+           alternas: dict[str, str] | None = None, sobre: bool = True) -> str:
     ld = (f'<script type="application/ld+json">'
           f'{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else "")
+    t = TXT[lang]
+    alternas = alternas or {}
+    hreflang = "".join(f'\n<link rel="alternate" hreflang="{l}" href="{u}">'
+                       for l, u in alternas.items())
+    if "en" in alternas:
+        hreflang += f'\n<link rel="alternate" hreflang="x-default" href="{alternas["en"]}">'
+    otro = next((u for l, u in alternas.items() if l != lang), "")
+    enlace_otro = f' · <a href="{otro}" hreflang="{"es" if lang == "en" else "en"}">{t["otro"]}</a>' if otro else ""
     return f"""<!doctype html>
-<html lang="es">
+<html lang="{lang}">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{_esc(title)} · {SITE_NAME}</title>
 <meta name="description" content="{_esc(description)}">
-<link rel="canonical" href="{canonical}">
+<link rel="canonical" href="{canonical}">{hreflang}
 <meta property="og:type" content="article">
 <meta property="og:title" content="{_esc(title)}">
 <meta property="og:description" content="{_esc(description)}">
@@ -97,9 +172,10 @@ def _shell(title: str, description: str, body: str, canonical: str,
 {ld}
 <body><div class="wrap">
 {body}
+{_sobre(lang) if sobre else ""}
 <footer>
-<p class="note">{DISCLAIMER}</p>
-<p><a href="{BASE_URL}/">{SITE_NAME}</a> · <a href="{BASE_URL}/datos/">Índice de datos</a></p>
+<p class="note">{DISCLAIMER_EN if lang == "en" else DISCLAIMER}</p>
+<p><a href="{_url(lang)}">{SITE_NAME}</a> · <a href="{_url(lang, "data" if lang == "en" else "datos")}">{t["datos"]}</a>{enlace_otro}</p>
 </footer>
 </div></body></html>
 """
@@ -164,9 +240,11 @@ def _frame_html(s: Slide) -> str:
     return out
 
 
-def write_article(spec: PostSpec, post_date: str | None = None) -> Path:
+def write_article(spec: PostSpec, post_date: str | None = None,
+                  post=None) -> Path:
     """
-    La página indexable de un post.
+    Las páginas indexables de un post: español en /es/<slug>/ y, si llega el
+    `post`, inglés en /<slug>/. Devuelve la de español.
 
     Leía los frames por los roles `evidence`, `reading` y `thesis`, que eran
     los del renderer de Pillow. El motor HTML usa `hook`, `data` y `close`, así
@@ -176,7 +254,11 @@ def write_article(spec: PostSpec, post_date: str | None = None) -> Path:
     cuerpo en cada página.
     """
     post_date = post_date or date.today().isoformat()
-    url = f"{BASE_URL}/{spec.slug}/"
+    url = _url("es", spec.slug)
+    en = _articulo_en(spec, post, post_date) if post is not None else None
+    alternas = {"en": _url("en", spec.slug), "es": url} if en else {"es": url}
+    t = TXT["es"]
+
     por_rol = {s.role: s for s in spec.slides}
     hook_s, data_s, close_s = (por_rol.get(r) for r in ("hook", "data", "close"))
 
@@ -188,7 +270,7 @@ def write_article(spec: PostSpec, post_date: str | None = None) -> Path:
         partes.append(f"<h2>{_esc(data_s.headline)}</h2>\n{_frame_html(data_s)}")
     if close_s:
         cierre = " ".join(x for x in (close_s.headline, close_s.accent) if x)
-        partes.append(f"<h2>{_esc(close_s.kicker or 'Qué implica')}</h2>\n"
+        partes.append(f"<h2>{_esc(close_s.kicker or t['implica'])}</h2>\n"
                       f"<p><strong>{_esc(cierre)}</strong></p>\n"
                       + (f"<p>{_esc(close_s.body)}</p>\n" if close_s.body else ""))
     sources = "".join(_cita_html(c) for c in spec.citations)
@@ -197,27 +279,145 @@ def write_article(spec: PostSpec, post_date: str | None = None) -> Path:
 <h1>{_esc(hook)}</h1>
 <p class="meta">{post_date} · DentRead</p>
 {"".join(partes)}
-<h2>Fuentes</h2>
+<h2>{t["fuentes"]}</h2>
 <ul>{sources}</ul>
 """
-    jsonld = {
+    jsonld = _article_ld(hook, post_date, url, spec.citations, "es")
+    out = DOCS / ES_DIR / spec.slug / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(_shell(hook, _clip_meta(spec.caption_es), body, url, jsonld,
+                          lang="es", alternas=alternas,
+                          sobre=spec.slug != "que-es-dentread"))
+
+    if en:
+        titulo, descripcion, cuerpo_en = en
+        url_en = _url("en", spec.slug)
+        destino = DOCS / spec.slug / "index.html"
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        destino.write_text(_shell(
+            titulo, descripcion, cuerpo_en, url_en,
+            _article_ld(titulo, post_date, url_en, spec.citations, "en"),
+            lang="en", alternas=alternas,
+            sobre=getattr(post, "id", "") != "que-es-dentread"))
+    return out
+
+
+def _article_ld(headline: str, post_date: str, url: str, citas: list[str],
+                lang: str) -> dict:
+    return {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": hook[:110],
+        "headline": headline[:110],
         "datePublished": post_date,
         "dateModified": post_date,
-        "inLanguage": "es",
+        "inLanguage": lang,
         "author": {"@type": "Organization", "name": "DentRead"},
         "publisher": {"@type": "Organization", "name": "DentRead"},
         "mainEntityOfPage": url,
-        "citation": [_citation_ld(c) for c in spec.citations],
+        "citation": [_citation_ld(c) for c in citas],
         "isAccessibleForFree": True,
     }
 
-    out = DOCS / spec.slug / "index.html"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(_shell(hook, _clip_meta(spec.caption_es), body, url, jsonld))
-    return out
+
+_NUM = re.compile(r"\d+(?:[.,]\d+)*")
+
+
+def _numeros(texto: str) -> list[str]:
+    """Las cifras de un texto, sin separadores: '1.250' y '1,250' son la misma."""
+    return sorted(re.sub(r"[.,]", "", n) for n in _NUM.findall(texto))
+
+
+def traducir(lineas: list[str]) -> list[str] | None:
+    """
+    Traduce al inglés un resumen YA verificado. None si no se puede confiar.
+
+    El resumen en español pasó los controles de exactitud contra la fuente.
+    Una traducción puede romper justo eso, así que se acepta solo si trae
+    exactamente las mismas cifras y la misma cantidad de líneas. Ante la duda,
+    la página en inglés sale sin resumen: mejor corta que falsa.
+    """
+    from pipeline import llm
+    if not lineas:
+        return None
+    reglas = ("Translate each line from Spanish to plain US English. Keep every "
+              "number exactly as written. Do not add, remove or soften any "
+              "claim. Return only the translated lines, one per line, in the "
+              "same order. No numbering, no quotes, no em dashes.")
+    salida = llm.pedir(reglas, "\n".join(lineas))
+    if not salida:
+        return None
+    out = [l.strip() for l in salida.strip().split("\n") if l.strip()]
+    # Un resumen de una sola línea con varias oraciones vuelve partido en una
+    # oración por línea. No es un error de contenido: se vuelve a juntar.
+    if len(lineas) == 1 and len(out) > 1:
+        out = [" ".join(out)]
+    if len(out) != len(lineas) or _numeros(" ".join(out)) != _numeros(" ".join(lineas)):
+        return None
+    return [sin_em_dash(l) for l in out]
+
+
+def _articulo_en(spec: PostSpec, post, post_date: str):
+    """
+    (titulo, descripción, cuerpo) de la página en inglés, o None.
+
+    Sale de textos que ya existen en inglés y fueron aprobados o curados:
+    `angle_en` del tema, `statement_en` y `number_en` de cada cifra, los
+    mensajes `_en` del bloque evergreen, y el título original de la noticia o
+    el paper. Lo único que traduce un modelo es el resumen de una fuente
+    externa, y pasa por `traducir`.
+    """
+    t = TXT["en"]
+    citas = "".join(_cita_html(c) for c in spec.citations)
+    fuentes = f'<h2>{t["fuentes"]}</h2>\n<ul>{citas}</ul>\n'
+    meta = f'<p class="meta">{post_date} · DentRead</p>'
+
+    if post.kind == "data":
+        partes = [x.strip() for x in re.split(r"(?<=[.:])\s+", post.angle_en, 1)]
+        titulo = partes[0].rstrip(":.") or post.angle_en
+        resto = partes[1] if len(partes) > 1 else ""
+        cards = "".join(
+            f'<div class="stat"><span class="n">{_esc(f.get("number_en") or f["number"])}</span>'
+            f'{_esc(sin_em_dash(f.get("statement_en") or f["statement"]))}'
+            f'<div class="src">{_esc(f["cite"])}</div></div>\n'
+            for f in post.facts)
+        cuerpo = (f'<p class="kicker">US dental market</p>\n<h1>{_esc(titulo)}</h1>\n'
+                  f'{meta}\n{cards}'
+                  + (f'<h2>{t["implica"]}</h2>\n<p>{_esc(resto)}</p>\n' if resto else "")
+                  + fuentes)
+        return titulo, _clip_meta(post.angle_en), cuerpo
+
+    if post.kind == "evergreen":
+        from pipeline.plan import load_evergreen
+        b = next((x for x in load_evergreen() if x["id"] == post.id), {})
+        titulo = b.get("title_en") or post.angle_en
+        puntos = [m for m in [post.angle_en, *post.messages_en] if m]
+        cards = "".join(
+            f'<div class="stat"><span class="n">{_esc(f.get("number_en") or f["number"])}</span>'
+            f'{_esc(sin_em_dash(f.get("statement_en") or f["statement"]))}'
+            f'<div class="src">{_esc(f["cite"])}</div></div>\n'
+            for f in post.facts)
+        cuerpo = (f'<p class="kicker">DentRead</p>\n<h1>{_esc(titulo)}</h1>\n{meta}\n'
+                  + "".join(f"<p>{_esc(sin_em_dash(m))}</p>\n" for m in puntos)
+                  + (f"<p>{_esc(sin_em_dash(post.body_en))}</p>\n" if post.body_en else "")
+                  + cards + (fuentes if spec.citations else ""))
+        return titulo, _clip_meta(post.angle_en or titulo), cuerpo
+
+    if post.kind in ("news", "paper"):
+        data_s = next((s for s in spec.slides if s.role == "data"), None)
+        lineas = [b for b in (data_s.bullets if data_s else [])
+                  if not b.startswith("«")]
+        resumen = traducir(lineas)
+        titulo = post.title.rstrip(".")
+        kicker = "ADA News" if post.kind == "news" else (post.source_label or "Research")
+        nota = ("Summary by DentRead, translated from our Spanish edition. "
+                "Read the original for full context.")
+        cuerpo = (f'<p class="kicker">{_esc(kicker)}</p>\n<h1>{_esc(titulo)}</h1>\n{meta}\n'
+                  + ("<ul>" + "".join(f"<li>{_esc(l)}</li>" for l in resumen) + "</ul>\n"
+                     f'<p class="note">{nota}</p>\n' if resumen else
+                     "<p>Original article in English, linked below.</p>\n")
+                  + fuentes)
+        return titulo, _clip_meta(" ".join(resumen) if resumen else titulo), cuerpo
+    return None
 
 
 def _clip_meta(text: str, limit: int = 155) -> str:
@@ -225,84 +425,107 @@ def _clip_meta(text: str, limit: int = 155) -> str:
     return first if len(first) <= limit else first[:limit - 1] + "…"
 
 
-def write_data_index() -> Path:
+def _ruta_datos(lang: str) -> str:
+    return "data" if lang == "en" else "datos"
+
+
+def write_data_index(lang: str = "es") -> Path:
     """
     El activo de AEO. Hechos discretos, con cifra, fuente, página y fecha,
     sobre un nicho con poca cobertura autoritativa. Es lo que un motor de IA
-    quiere citar, y crece solo con la curación que ya se hace.
+    quiere citar, y crece solo con la curación que ya se hace. En inglés usa
+    `number_en` y `statement_en`, curados a mano igual que el español.
     """
+    t = TXT[lang]
     facts = load_facts()
     by_family: dict[str, list[dict]] = {}
-    theme_family = {t.id: t.family for t in CATALOG}
+    theme_family = {th.id: th.family for th in CATALOG}
     for f in facts:
-        fam = next((theme_family[t] for t in f.get("themes", [])
-                    if t in theme_family), "otros")
+        fam = next((theme_family[x] for x in f.get("themes", [])
+                    if x in theme_family), "otros" if lang == "es" else "other")
         by_family.setdefault(fam, []).append(f)
+
+    def num(f): return f.get("number_en") or f["number"] if lang == "en" else f["number"]
+    def txt(f): return f.get("statement_en") or f["statement"] if lang == "en" else f["statement"]
 
     sections = ""
     for fam in sorted(by_family):
         items = "".join(
-            f'<li><span class="n">{_esc(f["number"])}</span>'
-            f'{_esc(sin_em_dash(f["statement"]))}'
+            f'<li><span class="n">{_esc(num(f))}</span>'
+            f'{_esc(sin_em_dash(txt(f)))}'
             f'<span class="src">{_esc(f["cite"])}</span></li>'
             for f in by_family[fam]
         )
-        sections += f"<h2>{_esc(fam.title())}</h2><ul class=\"facts\">{items}</ul>"
+        sections += f"<h2>{_esc(fam.replace('_', ' ').title())}</h2><ul class=\"facts\">{items}</ul>"
 
-    body = f"""<p class="kicker">Índice de datos</p>
-<h1>Datos del mercado dental de EE.UU., con su fuente</h1>
-<p class="meta">{len(facts)} cifras verificadas · actualizado {date.today().isoformat()}</p>
-<p>Cada cifra fue leída en su fuente primaria antes de publicarse. Se indica
-publicación, página y fecha. Ninguna es un resultado de DentRead.</p>
+    body = f"""<p class="kicker">{t["data_kicker"]}</p>
+<h1>{t["data_h1"]}</h1>
+<p class="meta">{len(facts)} {t["data_meta"]} {date.today().isoformat()}</p>
+<p>{t["data_intro"]}</p>
 {sections}
 """
+    url = _url(lang, _ruta_datos(lang))
     jsonld = {
         "@context": "https://schema.org",
         "@type": "Dataset",
         "name": "US dental market data, with sources",
-        "description": TAGLINE,
+        "description": TAGLINE_EN if lang == "en" else TAGLINE,
+        "inLanguage": lang,
         "creator": {"@type": "Organization", "name": "DentRead"},
         "dateModified": date.today().isoformat(),
         "isAccessibleForFree": True,
         "citation": [_citation_ld(f["cite"]) for f in facts],
     }
-    out = DOCS / "datos" / "index.html"
+    alternas = {"en": _url("en", "data"), "es": _url("es", "datos")}
+    destino = (DOCS / "data") if lang == "en" else (DOCS / ES_DIR / "datos")
+    out = destino / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(_shell("Datos del mercado dental de EE.UU.", TAGLINE,
-                          body, f"{BASE_URL}/datos/", jsonld))
+    out.write_text(_shell(t["data_title"], TAGLINE_EN if lang == "en" else TAGLINE,
+                          body, url, jsonld, lang=lang, alternas=alternas))
     return out
 
 
-def write_home() -> Path:
-    articles = sorted(
-        (p for p in DOCS.glob("*/index.html")
-         if p.parent.name not in ("datos",)),
-        key=lambda p: p.stat().st_mtime, reverse=True,
-    )
+def _paginas(lang: str) -> list[Path]:
+    """Las páginas de post de un idioma, de la más nueva a la más vieja."""
+    base = DOCS if lang == "en" else DOCS / ES_DIR
+    fuera = {"data", "datos", ES_DIR}
+    out = [p for p in base.glob("*/index.html") if p.parent.name not in fuera]
+
+    def fecha(p: Path) -> str:
+        m = re.search(r'"datePublished": "([^"]+)"', p.read_text())
+        return m.group(1) if m else ""
+    return sorted(out, key=lambda p: (fecha(p), p.parent.name), reverse=True)
+
+
+def write_home(lang: str = "es") -> Path:
+    t = TXT[lang]
     items = ""
-    for a in articles:
+    for a in _paginas(lang):
         slug = a.parent.name
         m = re.search(r"<h1>(.*?)</h1>", a.read_text(), re.S)
-        title = re.sub(r"<[^>]+>", "", m.group(1)).strip() if m else slug
-        items += f'<li><a href="{BASE_URL}/{slug}/">{_esc(title)}</a></li>'
+        title = html.unescape(re.sub(r"<[^>]+>", "", m.group(1)).strip()) if m else slug
+        items += f'<li><a href="{_url(lang, slug)}">{_esc(title)}</a></li>'
 
+    tagline = TAGLINE_EN if lang == "en" else TAGLINE
     body = f"""<p class="kicker">DentRead</p>
 <h1>{SITE_NAME}</h1>
-<p>{TAGLINE}</p>
-<p><a href="{BASE_URL}/datos/">Ver el índice completo de datos →</a></p>
-<h2>Publicaciones</h2>
-<ul>{items or "<li>Todavía no hay publicaciones.</li>"}</ul>
+<p>{tagline}</p>
+<p><a href="{_url(lang, _ruta_datos(lang))}">{t["home_cta"]}</a></p>
+<h2>{t["pubs"]}</h2>
+<ul>{items or f"<li>{t['vacio']}</li>"}</ul>
 """
-    out = DOCS / "index.html"
+    alternas = {"en": _url("en"), "es": _url("es")}
+    out = (DOCS if lang == "en" else DOCS / ES_DIR) / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(_shell(SITE_NAME, TAGLINE, body, f"{BASE_URL}/"))
+    out.write_text(_shell(SITE_NAME, tagline, body, _url(lang), lang=lang,
+                          alternas=alternas))
     return out
 
 
 def write_sitemap() -> Path:
-    urls = [f"{BASE_URL}/", f"{BASE_URL}/datos/"]
-    urls += [f"{BASE_URL}/{p.parent.name}/" for p in DOCS.glob("*/index.html")
-             if p.parent.name != "datos"]
+    urls = [_url("en"), _url("en", "data"), _url("es"), _url("es", "datos")]
+    urls += [_url("en", p.parent.name) for p in _paginas("en")]
+    urls += [_url("es", p.parent.name) for p in _paginas("es")]
     body = "".join(
         f"<url><loc>{u}</loc><lastmod>{date.today().isoformat()}</lastmod></url>"
         for u in dict.fromkeys(urls)
@@ -315,12 +538,16 @@ def write_sitemap() -> Path:
     (DOCS / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml\n")
     (DOCS / ".nojekyll").write_text("")
+    # El índice de datos en español vivía en /datos/. Cloudflare Pages lee
+    # este archivo y responde 301, así no se pierde lo que ya esté indexado.
+    (DOCS / "_redirects").write_text(f"/datos/ /{ES_DIR}/datos/ 301\n")
     return out
 
 
 def rebuild_indexes() -> None:
-    write_data_index()
-    write_home()
+    for lang in ("en", "es"):
+        write_data_index(lang)
+        write_home(lang)
     write_sitemap()
 
 

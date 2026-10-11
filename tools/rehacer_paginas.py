@@ -37,7 +37,7 @@ from pipeline.generate import generate
 from pipeline.themes import CATALOG
 
 DOCS = Path("docs")
-NO_SON_POSTS = {"datos"}
+NO_SON_POSTS = {"datos", "data", "es"}
 
 
 def _vacia(html: str) -> bool:
@@ -107,8 +107,11 @@ def main() -> int:
     bloques = {b["id"] for b in plan.load_evergreen()}
 
     hechas, fallidas = 0, []
-    for pagina in sorted(DOCS.glob("*/index.html")):
-        slug = pagina.parent.name
+    # Las páginas en español viven en docs/es/ desde que el sitio es
+    # bilingüe; antes estaban en la raíz. Se miran las dos, y manda es/.
+    paginas = {p.parent.name: p for p in DOCS.glob("*/index.html")}
+    paginas.update({p.parent.name: p for p in (DOCS / "es").glob("*/index.html")})
+    for slug, pagina in sorted(paginas.items()):
         html = pagina.read_text()
         if slug in NO_SON_POSTS or not (args.todas or _vacia(html)):
             continue
@@ -119,14 +122,18 @@ def main() -> int:
         try:
             if slug in temas:
                 with llm.sin_modelo():
-                    spec = generate(_post_datos(slug, fecha, rot))
+                    post = _post_datos(slug, fecha, rot)
+                    spec = generate(post)
             elif slug in bloques:
                 with llm.sin_modelo():
-                    spec = generate(_post_evergreen(slug))
+                    post = _post_evergreen(slug)
+                    spec = generate(post)
             elif slug.startswith("news-"):
-                spec = generate(_post_noticia(html))
+                post = _post_noticia(html)
+                spec = generate(post)
             elif slug.startswith("paper-"):
-                spec = generate(_post_paper(slug))
+                post = _post_paper(slug)
+                spec = generate(post)
             else:
                 raise ValueError("no se reconoce el tipo de post")
         except Exception as exc:                       # una no frena las demás
@@ -134,7 +141,7 @@ def main() -> int:
             print(f"   ✗ {exc}")
             continue
         spec.slug = slug
-        site.write_article(spec, fecha)
+        pagina = site.write_article(spec, fecha, post)
         if _vacia(pagina.read_text()):
             fallidas.append(f"{slug}: sigue vacía")
             continue

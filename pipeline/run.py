@@ -97,7 +97,7 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
         "source_url": post.source_url or "",
         # El cierre con que sale, para que la próxima noticia no lo repita.
         "cierre": " ".join(x for x in (post.close, post.close_accent) if x),
-        "article_url": f"{site.BASE_URL}/{spec.slug}/",
+        "article_url": site._url("en", spec.slug),
     }, indent=2, ensure_ascii=False))
 
     # En preview tampoco se escribe la pagina: solo salen los PNG.
@@ -109,7 +109,7 @@ def build_one(post: Post, today: str, *, preview: bool = False) -> Path | None:
         print(f"   OK · {len(spec.slides)} slides → {folder}  (preview)")
         return folder
 
-    page = site.write_article(spec, today)
+    page = site.write_article(spec, today, post)
 
     # OJO: acá NO se marca el consumo. Lo hace `publish.py` cuando el post
     # sale de verdad. Generar y publicar son cosas distintas, y atarlas hizo

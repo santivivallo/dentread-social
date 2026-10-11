@@ -5785,6 +5785,14 @@
     "datos"
    ],
    "first_seen": "2026-W41"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/ada-governance-evaluation-town-hall-gathers-feedback-from-more-than-600-attendees/": {
+   "title": "ADA governance evaluation town hall gathers feedback from more than 600 attendees",
+   "published": "2026-10-10",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W41"
   }
  },
  "weeks": {
@@ -6551,6 +6559,7 @@
    "https://adanews.ada.org/ada-news/2026/october/ada-american-board-of-dental-examiners-collaborate-to-advance-dental-hygiene-licensure/",
    "https://adanews.ada.org/ada-news/2026/october/ada-cda-collaboration-helps-protect-proposition-56-dental-funding/",
    "https://adanews.ada.org/ada-news/2026/october/ada-governance-evaluation-reports-available-on-ada-website/",
+   "https://adanews.ada.org/ada-news/2026/october/ada-governance-evaluation-town-hall-gathers-feedback-from-more-than-600-attendees/",
    "https://adanews.ada.org/ada-news/2026/october/ada-scientific-session-kicks-off-with-fireside-chat-on-translating-science-into-practice/",
    "https://adanews.ada.org/ada-news/2026/october/manufacturers-report-flumazenil-injection-shortage/",
    "https://adanews.ada.org/ada-news/2026/october/more-than-41-million-health-workers-gain-safer-path-to-mental-healthcare/",
@@ -6560,6 +6569,6 @@
    "https://adanews.ada.org/ada-news/2026/september/american-certifying-board-of-oral-and-maxillofacial-radiology-applies-for-national-recognition/"
   ]
  },
- "runs": 239,
+ "runs": 243,
  "deepest_page": 12
 }

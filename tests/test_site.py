@@ -103,6 +103,63 @@ def probar_pagina_noticia() -> list[str]:
     return errs
 
 
+def probar_version_en_ingles() -> list[str]:
+    """
+    La página en inglés de un post de datos: cifras curadas en inglés, enlace
+    al español, y nada del texto aprobado en español que no tiene traducción
+    revisada (el cierre).
+    """
+    errs = []
+    facts = plan.load_facts()
+    tema = next(t for t in CATALOG
+                if len([f for f in facts if t.id in f.get("themes", [])]) >= 2)
+    fs = [f for f in facts if tema.id in f.get("themes", [])][:2]
+    post = plan.post_from_theme(tema, fs)
+    with llm.sin_modelo():
+        spec = generate(post)
+    real = site.DOCS
+    with tempfile.TemporaryDirectory() as tmp:
+        site.DOCS = Path(tmp)
+        try:
+            es = site.write_article(spec, "2026-10-11", post).read_text()
+            en_path = Path(tmp) / spec.slug / "index.html"
+            en = en_path.read_text() if en_path.exists() else ""
+        finally:
+            site.DOCS = real
+    if not en:
+        return ["el post de datos no generó página en inglés"]
+    if '<html lang="en">' not in en:
+        errs.append("la página en inglés no declara lang=en")
+    for f in fs:
+        if f["number_en"] not in en:
+            errs.append(f"la página en inglés no trae la cifra curada '{f['number_en']}'")
+    if tema.close and tema.close in en:
+        errs.append("la página en inglés publica el cierre en español sin traducción revisada")
+    for html_, otro in ((en, f"/es/{spec.slug}/"), (es, f"/{spec.slug}/")):
+        if f'hreflang' not in html_ or otro not in html_:
+            errs.append("falta el enlace hreflang entre idiomas")
+            break
+    if "dentread.app" not in en or "dentread.app" not in es:
+        errs.append("las páginas no enlazan a dentread.app")
+    return errs
+
+
+def probar_traduccion_cuida_cifras() -> list[str]:
+    """Una traducción que cambia una cifra se descarta."""
+    errs = []
+    real = llm.pedir
+    try:
+        llm.pedir = lambda *a, **k: "About 72 million adults lack coverage."
+        if site.traducir(["Cerca de 72 millones de adultos no tienen cobertura."]) is None:
+            errs.append("descartó una traducción correcta")
+        llm.pedir = lambda *a, **k: "About 27 million adults lack coverage."
+        if site.traducir(["Cerca de 72 millones de adultos no tienen cobertura."]) is not None:
+            errs.append("aceptó una traducción que cambió la cifra")
+    finally:
+        llm.pedir = real
+    return errs
+
+
 def probar_cierres_no_se_repiten() -> list[str]:
     errs = []
     ops = CIERRES_NOTICIA["ai"]
@@ -123,12 +180,13 @@ def probar_cierres_no_se_repiten() -> list[str]:
 
 def main() -> int:
     errores = (probar_paginas_con_cuerpo() + probar_pagina_noticia()
+               + probar_version_en_ingles() + probar_traduccion_cuida_cifras()
                + probar_cierres_no_se_repiten())
     if errores:
         print("✗ las páginas o los cierres no están bien:\n")
         print("\n".join(f"  {e}" for e in errores))
         return 1
-    print("✓ cada página trae cuerpo y las noticias no repiten cierre")
+    print("✓ cada página trae cuerpo, la versión en inglés usa cifras curadas, y las noticias no repiten cierre")
     return 0
 
 
