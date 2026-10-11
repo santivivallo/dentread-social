@@ -1,0 +1,74 @@
+{
+  "_README": "Propuestas en inglés de los textos editoriales de los carruseles (fase 2, 2026-10-11). NINGUNA está aprobada todavía: el código no las usa hasta que Santiago las marque VA en Cierres_EN_para_revisar.xlsx y se importen con `python -m tools.traducciones --importar`. Criterio: inglés de EE.UU. para operadores de clínicas y DSOs, frases cortas, sin em dash, sin competir en precisión diagnóstica.",
+  "estado": "propuesta",
+  "temas": {
+    "medicaid-adultos": {"kicker": "Adult Medicaid", "hook": "Covered is not the same as paid", "data_title": "Where the benefit exists, visits follow", "close": "Wider coverage fills the schedule.", "close_accent": "Finishing treatment is another problem."},
+    "medicaid-participacion": {"kicker": "Medicaid network", "hook": "Accepting Medicaid costs time, not chairs", "data_title": "The network has not grown in years", "close": "More practices won't fix the network.", "close_accent": "The bottleneck is administration."},
+    "sin-seguro": {"kicker": "No dental coverage", "hook": "Patients who pay out of pocket ask more", "data_title": "More people lack dental than medical", "close": "Without coverage, every plan gets negotiated.", "close_accent": "Explaining well beats discounting."},
+    "costo-barrera": {"kicker": "Cost and access", "hook": "The first barrier is not clinical", "data_title": "What holds patients back is not the diagnosis", "close": "Patients don't object to the price. They postpone.", "close_accent": "What isn't understood doesn't get paid for."},
+    "utilizacion": {"kicker": "Who sees a dentist", "hook": "Software only measures who already comes", "data_title": "Between intent and the chair", "close": "The patient who doesn't return already sat in your chair.", "close_accent": "Winning them back costs less than finding a new one."},
+    "ninos-chip": {"kicker": "Children's coverage", "hook": "Being covered is not enough", "data_title": "Almost all covered, fewer seen", "close": "The coverage is there. The visit isn't.", "close_accent": "The problem is conversion."},
+    "adultos-mayores": {"kicker": "Older adults", "hook": "Medicare doesn't cover the dentist", "data_title": "Where the backlog is largest", "close": "Accumulated need arrives as long plans.", "close_accent": "Long plans are the ones most often abandoned."},
+    "urgencias": {"kicker": "Pain in the ER", "hook": "To the hospital for a tooth", "data_title": "The weight of untreated pain", "close": "Patients reach the ER late.", "close_accent": "Almost always for something already seen."},
+    "economia-practica": {"kicker": "Practice economics", "hook": "Producing is not collecting", "data_title": "Two curves that don't match", "close": "A full schedule is not a full register.", "close_accent": "The margin lives in between."},
+    "gasto-nacional": {"kicker": "Dental spending", "hook": "No one controls this market", "data_title": "A large, fragmented sector", "close": "The sector doesn't grow by treating faster.", "close_accent": "It grows by finishing what it already diagnosed."},
+    "consolidacion-dso": {"kicker": "Consolidation and DSOs", "hook": "Fewer practices decide on their own", "data_title": "Where the decision is made today", "close": "The decision-maker is no longer in the chair.", "close_accent": "Selling to a group is a different business."},
+    "higienistas": {"kicker": "Staffing", "hook": "Every vacancy costs schedule time", "data_title": "The staff that doesn't show up", "close": "There is no one to hire.", "close_accent": "All that's left is giving hours back."},
+    "demografia-dentista": {"kicker": "Workforce", "hook": "There isn't a dentist shortage everywhere", "data_title": "How many there are and where", "close": "Adding a dentist takes months.", "close_accent": "Recovering an hour of schedule doesn't."},
+    "tecnologia-clinica": {"kicker": "Technology in the practice", "hook": "Administration signs the purchase", "data_title": "What gets adopted first", "close": "Technology comes in through operations.", "close_accent": "It's justified by time, not diagnosis."},
+    "imagen-radiologia": {"kicker": "Radiograph reading", "hook": "Reading a film is not an exact act", "data_title": "How much a diagnosis varies", "close": "Disagreement between readers is already documented.", "close_accent": "What isn't recorded is what happened next."},
+    "cbct-3d": {"kicker": "CBCT and 3D", "hook": "Nobody bought a CBCT for this", "data_title": "More imaging, same explanation", "close": "More data is not more clarity.", "close_accent": "Patients still see gray smudges."},
+    "cdt-sin-codigo-ia": {"kicker": "CDT 2026", "hook": "An expense, not a revenue line", "data_title": "What the ADA did add", "close": "No code pays for using AI.", "close_accent": "What gets paid is treatment that gets finished."},
+    "codigos-documentan": {"kicker": "CDT codes", "hook": "Nothing new in the chair", "data_title": "Codes that organize what was already done", "close": "A code doesn't create the procedure.", "close_accent": "It makes it billable."},
+    "ia-odontologia": {"kicker": "AI in dentistry", "hook": "Enthusiasm outside, caution inside", "data_title": "What the profession says, what the market says", "close": "The profession's caution is not resistance.", "close_accent": "It's asking for evidence before changing a workflow."},
+    "prevencion": {"kicker": "Prevention", "hook": "The cleaning that never gets booked", "data_title": "High coverage, low use", "close": "Preventive care is covered and not completed.", "close_accent": "The problem is getting the patient back."},
+    "salud-sistemica": {"kicker": "Oral and overall health", "hook": "What the gums say about the rest", "data_title": "The mouth in the bigger picture", "close": "Patients understand their mouth when they see it.", "close_accent": "Not when it's named to them."},
+    "periodontal": {"kicker": "Periodontal disease", "hook": "Nobody comes in for their gums", "data_title": "High diagnosis, low treatment", "close": "Much gets diagnosed, little gets finished.", "close_accent": "The accepted plan no one completes."}
+  },
+  "evergreen": {
+    "que-es-dentread": {"data_title": "Where DentRead fits", "close": "Reading the radiograph is the beginning.", "close_accent": "What follows is rarely measured."},
+    "ia-radiografias-dentales": {"data_title": "What the system does with the image", "close": "The image already holds the information.", "close_accent": "It needs to arrive in time."},
+    "apoyo-analisis-radiografico": {"data_title": "A second read, organized", "close": "A second look replaces no one.", "close_accent": "It organizes the first."},
+    "consistencia-evaluacion": {"data_title": "Same case, same criteria", "close": "Consistent criteria aren't requested.", "close_accent": "They're sustained by a record someone reviews."},
+    "comunicacion-visual-paciente": {"data_title": "From gray to something recognizable", "close": "Patients don't see what you see.", "close_accent": "Showing it changes the conversation."},
+    "comprension-y-confianza": {"data_title": "From understanding to accepting", "close": "No one accepts what they don't understand.", "close_accent": "Trust starts with the explanation."},
+    "aceptacion-tratamientos": {"data_title": "Where the path breaks", "close": "An accepted plan is not a finished plan.", "close_accent": "The patient gets lost in between."},
+    "seguimiento-continuidad": {"data_title": "What happens after the finding", "close": "A finding without follow-up gets filed away.", "close_accent": "Continuity is work, not luck."},
+    "eficiencia-flujo-clinico": {"data_title": "The hours that never get billed", "close": "Clinical time doesn't stretch.", "close_accent": "It's recovered from administration."},
+    "innovacion-radiologia-oral": {"data_title": "Buying is not changing", "close": "The equipment was upgraded. The process around it wasn't.", "close_accent": "That's the margin no one claims."},
+    "tecnologia-organizaciones": {"data_title": "Two different buyers", "close": "A practice and a group don't buy the same way.", "close_accent": "They don't measure the same way either."},
+    "educacion-dental": {"data_title": "The skill no one assesses", "close": "Explaining well is a technique.", "close_accent": "It's practiced as little as it's taught."},
+    "salud-publica-oral": {"data_title": "The mouth left out of the budget", "close": "What isn't measured never makes it into a budget.", "close_accent": "Start with what already happens on your schedule."},
+    "evolucion-ecosistema": {"data_title": "The question that reveals it", "close": "Ask any software for a number from last week.", "close_accent": "That's where the demo and the system part ways."},
+    "uso-responsable-ia": {"data_title": "Who decides, specifically", "close": "AI supports.", "close_accent": "The dentist decides."}
+  },
+  "cierres_noticia": {
+    "datos": [
+      ["One industry figure doesn't change a schedule.", "It changes what to ask at Monday's meeting."],
+      ["The national average is not your average.", "Measure yours before comparing."],
+      ["The number describes. It doesn't decide.", "The decision still belongs to the clinician."]
+    ],
+    "ai": [
+      ["The tool gets adopted fast.", "The workflow around it takes much longer."],
+      ["The debate is no longer whether AI works.", "It's what gets recorded when it's used."],
+      ["Automating a read is the easy part.", "The hard part is someone acting on it."]
+    ],
+    "workflow": [
+      ["A process is changed once.", "It's sustained every week."],
+      ["Nobody changes a workflow for a demo.", "They change it for their own numbers."]
+    ],
+    "clinica": [
+      ["A clinical finding is the start of the path.", "The end is a finished treatment."],
+      ["Clinical evidence moves slowly.", "The workflow that applies it, slower still."]
+    ]
+  },
+  "cierres_paper": {
+    "ensayo aleatorizado": ["A trial answers a narrow question.", "It tells you what to watch, not what to buy."],
+    "revisión sistemática": ["A review organizes what was already known.", "It shows what remains unstudied."],
+    "metaanálisis": ["Pooling studies reduces noise.", "It doesn't turn a weak signal into certainty."],
+    "estudio multicéntrico": ["Several sites, one protocol.", "It's the closest thing to real practice."],
+    "estudio observacional": ["Observing is not proving.", "It's enough to decide what to measure next."],
+    "estudio comparativo": ["Comparing two paths clarifies your own.", "Even if neither one is yours."],
+    "_fallback": ["The literature points the direction.", "The clinical decision still belongs to the clinician."]
+  }
+}
