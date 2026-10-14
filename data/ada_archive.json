@@ -5801,6 +5801,30 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W42"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/ada-house-of-delegates-approves-no-dues-increase-for-2027/": {
+   "title": "ADA House of Delegates approves no dues increase for 2027",
+   "published": "2026-10-13",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W42"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/ada-president-highlights-collaborative-achievements-over-past-year/": {
+   "title": "ADA president highlights collaborative achievements over past year",
+   "published": "2026-10-12",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W42"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/karin-irani-dds-jd-voted-ada-president-elect/": {
+   "title": "Karin Irani, D.D.S., J.D., voted ADA president-elect",
+   "published": "2026-10-12",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W42"
   }
  },
  "weeks": {
@@ -6577,9 +6601,12 @@
    "https://adanews.ada.org/ada-news/2026/september/american-certifying-board-of-oral-and-maxillofacial-radiology-applies-for-national-recognition/"
   ],
   "2026-W42": [
-   "https://adanews.ada.org/ada-news/2026/october/ada-applauds-award-winners-during-changemakers-celebration/"
+   "https://adanews.ada.org/ada-news/2026/october/ada-applauds-award-winners-during-changemakers-celebration/",
+   "https://adanews.ada.org/ada-news/2026/october/ada-house-of-delegates-approves-no-dues-increase-for-2027/",
+   "https://adanews.ada.org/ada-news/2026/october/ada-president-highlights-collaborative-achievements-over-past-year/",
+   "https://adanews.ada.org/ada-news/2026/october/karin-irani-dds-jd-voted-ada-president-elect/"
   ]
  },
- "runs": 253,
+ "runs": 269,
  "deepest_page": 12
 }

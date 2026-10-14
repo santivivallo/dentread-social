@@ -2365,7 +2365,8 @@
    "design": "Systematic Review",
    "preset": "aceptacion",
    "first_seen": "2026-W39",
-   "descartado": ""
+   "descartado": "",
+   "used": true
   },
   "40420396": {
    "title": "Craniofacial Manifestation and Oral Health Care Needs in Pediatric Population With Fetal Alcohol Syndrome: A Systematic Review.",
@@ -4013,6 +4014,195 @@
    "preset": "aceptacion",
    "first_seen": "2026-W41",
    "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "41161937": {
+   "title": "AI in Temporomandibular Joint Imaging.",
+   "journal": "Neuroimaging Clin N Am",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41907011": {
+   "title": "Artificial Intelligence in Periodontology: A Systematic Review.",
+   "journal": "J Periodontal Res",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41465141": {
+   "title": "Artificial Intelligence-Driven Design of Antisense Oligonucleotides for Precision Medicine in Neuromuscular Disorders.",
+   "journal": "Genes (Basel)",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42056972": {
+   "title": "Generative Artificial Intelligence-driven orthodontic education practices.",
+   "journal": "BMC Med Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41790300": {
+   "title": "Artificial Intelligence and Machine Learning Applications in Fibromuscular Dysplasia: Transforming Diagnosis, Risk Stratification, and Clinical Decision-Making.",
+   "journal": "J Cardiovasc Transl Res",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42442884": {
+   "title": "Artificial Intelligence Applications in Degenerative Musculoskeletal Diseases.",
+   "journal": "Magn Reson Imaging Clin N Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41691797": {
+   "title": "Artificial intelligence in biomaterials for oral oncology.",
+   "journal": "Biomaterials",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41350144": {
+   "title": "The Nuclear Nephrology Artificial Intelligence Ecosystem.",
+   "journal": "Semin Nucl Med",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41826005": {
+   "title": "Artificial Intelligence and Its Application in Endodontics.",
+   "journal": "Dent Clin North Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41238344": {
+   "title": "Artificial Intelligence: What Is Current in Dentistry?",
+   "journal": "Dent Clin North Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41466554": {
+   "title": "Diagnostic accuracy of artificial intelligence-based deep learning models in detecting furcation involvement: A systematic review and meta-analysis.",
+   "journal": "J Periodontol",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40962029": {
+   "title": "The Future of Allergy Management: How Artificial Intelligence Is Changing the Game.",
+   "journal": "J Allergy Clin Immunol Pract",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42749032": {
+   "title": "Dental caries associated with medications for opioid use disorder: drug effects, formulation factors, or both?",
+   "journal": "Int J Pharm",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40106831": {
+   "title": "Emerging Trends and Innovations in Radiologic Diagnosis of Thoracic Diseases.",
+   "journal": "Invest Radiol",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41866758": {
+   "title": "Expanding Oral Health Access and Equity: The Impact of Federally Qualified Health Centers.",
+   "journal": "J Public Health Dent",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W42",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "41240321": {
+   "title": "Patient and System Barriers to Early Diagnosis of Oral Cancer in the UK.",
+   "journal": "Oral Dis",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "acceso",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42808966": {
+   "title": "School-Based Access to and Delivery of Oral Health Care.",
+   "journal": "J Sch Health",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42464219": {
+   "title": "11-year analysis of inequalities in access to oral health care in Peru.",
+   "journal": "BMC Oral Health",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W42",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "41131749": {
+   "title": "[Artificial intelligence in stomatology: Innovations in clinical practice, research, education, and healthcare management].",
+   "journal": "Beijing Da Xue Xue Bao Yi Xue Ban",
+   "year": "2025",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42870642": {
+   "title": "Bioethical Implications of Emerging Technologies in Dentistry: A Literature Review.",
+   "journal": "J Long Term Eff Med Implants",
+   "year": "2026",
+   "design": "",
+   "preset": "economia",
+   "first_seen": "2026-W42",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42047648": {
+   "title": "Opioid prescribing for tooth extraction in the United States, 2021 through 2023.",
+   "journal": "J Am Dent Assoc",
+   "year": "2026",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W42",
+   "descartado": "diseno_no_señalizable:Journal Article"
   }
  },
  "weeks": {
@@ -4468,7 +4658,29 @@
    "42781998",
    "42829977"
   ],
-  "2026-W42": []
+  "2026-W42": [
+   "40106831",
+   "40962029",
+   "41131749",
+   "41161937",
+   "41238344",
+   "41240321",
+   "41350144",
+   "41465141",
+   "41466554",
+   "41691797",
+   "41790300",
+   "41826005",
+   "41866758",
+   "41907011",
+   "42047648",
+   "42056972",
+   "42442884",
+   "42464219",
+   "42749032",
+   "42808966",
+   "42870642"
+  ]
  },
- "runs": 85
+ "runs": 97
 }
