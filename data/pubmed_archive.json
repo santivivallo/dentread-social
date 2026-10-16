@@ -340,7 +340,8 @@
    "design": "Systematic Review",
    "preset": "workforce",
    "first_seen": "2026-W39",
-   "descartado": ""
+   "descartado": "",
+   "used": true
   },
   "42758428": {
    "title": "The Impact of Cancer Treatment On Oral Structures and the Facial Part of the Skull - Implications for Prosthetic Treatment and Oncological Risk.",
@@ -4203,6 +4204,24 @@
    "preset": "medicaid",
    "first_seen": "2026-W42",
    "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "42316141": {
+   "title": "Affirming Identity in Dental Care: Case-Based Insights on LGBTQ+ Oral Health.",
+   "journal": "BMC Oral Health",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W42",
+   "descartado": "diseno_no_señalizable:Journal Article, Case Reports, Review"
+  },
+  "42881374": {
+   "title": "Resin selection patterns and factors for primary anterior strip crown restorations: A cross-sectional study.",
+   "journal": "BMC Oral Health",
+   "year": "2026",
+   "design": "",
+   "preset": "workforce",
+   "first_seen": "2026-W42",
+   "descartado": "diseno_no_señalizable:Journal Article"
   }
  },
  "weeks": {
@@ -4675,12 +4694,14 @@
    "41907011",
    "42047648",
    "42056972",
+   "42316141",
    "42442884",
    "42464219",
    "42749032",
    "42808966",
-   "42870642"
+   "42870642",
+   "42881374"
   ]
  },
- "runs": 97
+ "runs": 110
 }
