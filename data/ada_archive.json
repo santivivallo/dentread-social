@@ -5668,7 +5668,10 @@
     "admin",
     "workflow"
    ],
-   "first_seen": "2026-W40"
+   "first_seen": "2026-W40",
+   "used": true,
+   "published_on": "2026-10-19",
+   "cierre": "Nadie cambia un flujo por una demo. Lo cambia por una cifra propia."
   },
   "https://adanews.ada.org/ada-news/2026/september/american-certifying-board-of-oral-and-maxillofacial-radiology-applies-for-national-certifying-board-recognition/": {
    "title": "American Certifying Board of Oral and Maxillofacial Radiology applies for national certifying board recognition",
@@ -5825,6 +5828,16 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W42"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/hhs-awards-51m-to-expand-dental-care-for-children-with-neurodevelopmental-disorders/": {
+   "title": "HHS awards $51M to expand dental care for children with neurodevelopmental disorders",
+   "published": "2026-10-16",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W43"
   }
  },
  "weeks": {
@@ -6605,8 +6618,11 @@
    "https://adanews.ada.org/ada-news/2026/october/ada-house-of-delegates-approves-no-dues-increase-for-2027/",
    "https://adanews.ada.org/ada-news/2026/october/ada-president-highlights-collaborative-achievements-over-past-year/",
    "https://adanews.ada.org/ada-news/2026/october/karin-irani-dds-jd-voted-ada-president-elect/"
+  ],
+  "2026-W43": [
+   "https://adanews.ada.org/ada-news/2026/october/hhs-awards-51m-to-expand-dental-care-for-children-with-neurodevelopmental-disorders/"
   ]
  },
- "runs": 279,
+ "runs": 295,
  "deepest_page": 12
 }
