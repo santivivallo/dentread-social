@@ -1,7 +1,7 @@
 {
  "themes": {
   "costo-barrera": "2026-08-10",
-  "utilizacion": "2026-08-19",
+  "utilizacion": "2026-10-21",
   "consolidacion-dso": "2026-08-21",
   "medicaid-adultos": "2026-08-24",
   "demografia-dentista": "2026-08-26",
@@ -34,7 +34,9 @@
   "caries-sin-tratar-65": "2026-09-25",
   "edentulismo-65-132": "2026-09-25",
   "ia-adopcion-433": "2026-09-30",
-  "ia-explicar-paciente-132": "2026-09-30"
+  "ia-explicar-paciente-132": "2026-09-30",
+  "utilizacion-ingreso": "2026-10-21",
+  "utilizacion-etnia": "2026-10-21"
  },
  "evergreen": {
   "que-es-dentread": "2026-08-10",
@@ -46,7 +48,7 @@
   "aceptacion-tratamientos": "2026-10-05",
   "seguimiento-continuidad": "2026-10-12"
  },
- "count": 25,
+ "count": 26,
  "externos": {
   "news-56913837": "2026-08-14",
   "paper-41204923": "2026-08-14",
