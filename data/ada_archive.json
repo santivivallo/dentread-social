@@ -5710,7 +5710,10 @@
    "buckets": [
     "clinica"
    ],
-   "first_seen": "2026-W41"
+   "first_seen": "2026-W41",
+   "used": true,
+   "published_on": "2026-10-23",
+   "cierre": "La evidencia clínica avanza despacio. El flujo que la aplica, más despacio todavía."
   },
   "https://adanews.ada.org/ada-news/2026/october/october-jada-examines-how-human-virome-research-could-impact-dentistry/": {
    "title": "October JADA examines how human virome research could impact dentistry",
@@ -5837,6 +5840,14 @@
    "buckets": [
     "clinica"
    ],
+   "first_seen": "2026-W43"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/ada-expands-cdhc-program-as-online-course-available-directly-to-hygienists-assistants/": {
+   "title": "ADA expands CDHC program as online course available directly to hygienists, assistants",
+   "published": "2026-10-22",
+   "category": "Practice",
+   "score": 0.0,
+   "buckets": [],
    "first_seen": "2026-W43"
   }
  },
@@ -6620,9 +6631,10 @@
    "https://adanews.ada.org/ada-news/2026/october/karin-irani-dds-jd-voted-ada-president-elect/"
   ],
   "2026-W43": [
+   "https://adanews.ada.org/ada-news/2026/october/ada-expands-cdhc-program-as-online-course-available-directly-to-hygienists-assistants/",
    "https://adanews.ada.org/ada-news/2026/october/hhs-awards-51m-to-expand-dental-care-for-children-with-neurodevelopmental-disorders/"
   ]
  },
- "runs": 305,
+ "runs": 321,
  "deepest_page": 12
 }
