@@ -915,7 +915,7 @@
    "journal": "Dent Clin North Am",
    "year": "2026",
    "design": "",
-   "preset": "economia",
+   "preset": "ia",
    "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
   },
@@ -2321,7 +2321,7 @@
    "design": "",
    "preset": "aceptacion",
    "first_seen": "2026-W39",
-   "descartado": "revista_fuera_de_allowlist"
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
   },
   "40428887": {
    "title": "Efficacy and Safety of Nitrous Oxide (N2O) Inhalation Sedation Compared to Other Sedative Agents in Dental Procedures: A Systematic Review with Meta-Analysis.",
@@ -4222,6 +4222,105 @@
    "preset": "workforce",
    "first_seen": "2026-W42",
    "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "41797608": {
+   "title": "Longevity and Success of Restorative Treatments: Knowledge of Dentists and Laypeople.",
+   "journal": "Eur J Dent Educ",
+   "year": "2026",
+   "design": "Observational Study",
+   "preset": "workforce",
+   "first_seen": "2026-W44",
+   "descartado": ""
+  },
+  "42394547": {
+   "title": "[Artificial intelligence-driven smart transformation of complete dentures: current status, challenges, and future prospects].",
+   "journal": "Zhonghua Kou Qiang Yi Xue Za Zhi",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40967790": {
+   "title": "AI-driven innovations for dental implant treatment planning: A systematic review.",
+   "journal": "J Prosthodont Res",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41826008": {
+   "title": "Artificial Intelligence and its Applications in Orthodontics and Dentofacial Orthopedics.",
+   "journal": "Dent Clin North Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41826004": {
+   "title": "Artificial Intelligence and Its Applications in Oral and Maxillofacial Pathology.",
+   "journal": "Dent Clin North Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41246300": {
+   "title": "Applications of artificial intelligence in cancer immunotherapy: a frontier review on enhancing treatment efficacy and safety.",
+   "journal": "Front Immunol",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41826011": {
+   "title": "Ethics in the World of Artificial Intelligence.",
+   "journal": "Dent Clin North Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42636518": {
+   "title": "Artificial intelligence learning objectives in radiography education: A document analysis.",
+   "journal": "Radiography (Lond)",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41825995": {
+   "title": "Dental Therapeutic Applications of Nanotechnology and Artificial Intelligence (AI).",
+   "journal": "Dent Clin North Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41105279": {
+   "title": "Artificial intelligence in diagnostic imaging: collaborative asset or looming replacement?",
+   "journal": "Oral Radiol",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42692930": {
+   "title": "World Federation of Orthodontists Global Guidance on patient instructions and emergency protocols: A consensus framework for safe, patient-centered orthodontic care.",
+   "journal": "J World Fed Orthod",
+   "year": "2026",
+   "design": "",
+   "preset": "aceptacion",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
   }
  },
  "weeks": {
@@ -4701,7 +4800,20 @@
    "42808966",
    "42870642",
    "42881374"
+  ],
+  "2026-W44": [
+   "40967790",
+   "41105279",
+   "41246300",
+   "41797608",
+   "41825995",
+   "41826004",
+   "41826008",
+   "41826011",
+   "42394547",
+   "42636518",
+   "42692930"
   ]
  },
- "runs": 110
+ "runs": 118
 }

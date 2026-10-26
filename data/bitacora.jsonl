@@ -161,3 +161,6 @@
 {"ts": "2026-10-23T17:52:57+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "39996887376", "kind": "news", "id": "news-22673583", "slug": "news-22673583", "modo": "news", "redaccion": "curada"}
 {"ts": "2026-10-23T17:52:57+00:00", "evento": "corrida", "origen": "schedule", "corrida": "39996887376", "pedidos": 1, "listos": 1, "descartados": 0, "preview": false}
 {"ts": "2026-10-23T17:53:37+00:00", "evento": "publicado", "origen": "schedule", "corrida": "39996887376", "carpeta": "out/2026-10-23-news-22673583", "plataformas": ["instagram"], "resultados": {"instagram": "17880897093545981"}}
+{"ts": "2026-10-26T19:03:56+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "40382645248", "kind": "evergreen", "id": "eficiencia-flujo-clinico", "slug": "eficiencia-flujo-clinico", "modo": "evergreen", "redaccion": "curada"}
+{"ts": "2026-10-26T19:03:56+00:00", "evento": "corrida", "origen": "schedule", "corrida": "40382645248", "pedidos": 1, "listos": 1, "descartados": 0, "preview": false}
+{"ts": "2026-10-26T19:04:33+00:00", "evento": "publicado", "origen": "schedule", "corrida": "40382645248", "carpeta": "out/2026-10-26-eficiencia-flujo-clinico", "plataformas": ["instagram"], "resultados": {"instagram": "18099048659396356"}}
