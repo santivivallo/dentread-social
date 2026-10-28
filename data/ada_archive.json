@@ -5762,7 +5762,10 @@
    "buckets": [
     "datos"
    ],
-   "first_seen": "2026-W41"
+   "first_seen": "2026-W41",
+   "used": true,
+   "published_on": "2026-10-28",
+   "cierre": "Un dato del sector no cambia una agenda. Cambia qué preguntar en la reunión del lunes."
   },
   "https://adanews.ada.org/ada-news/2026/october/ada-scientific-session-kicks-off-with-fireside-chat-on-translating-science-into-practice/": {
    "title": "ADA Scientific Session kicks off with fireside chat on translating science into practice",
@@ -5849,6 +5852,14 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W43"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/new-ada-president-highlights-power-of-organized-dentistry/": {
+   "title": "New ADA president highlights power of organized dentistry",
+   "published": "2026-10-28",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W44"
   }
  },
  "weeks": {
@@ -6634,8 +6645,10 @@
    "https://adanews.ada.org/ada-news/2026/october/ada-expands-cdhc-program-as-online-course-available-directly-to-hygienists-assistants/",
    "https://adanews.ada.org/ada-news/2026/october/hhs-awards-51m-to-expand-dental-care-for-children-with-neurodevelopmental-disorders/"
   ],
-  "2026-W44": []
+  "2026-W44": [
+   "https://adanews.ada.org/ada-news/2026/october/new-ada-president-highlights-power-of-organized-dentistry/"
+  ]
  },
- "runs": 331,
+ "runs": 347,
  "deepest_page": 12
 }

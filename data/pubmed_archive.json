@@ -4321,6 +4321,24 @@
    "preset": "aceptacion",
    "first_seen": "2026-W44",
    "descartado": "revista_fuera_de_allowlist"
+  },
+  "42947303": {
+   "title": "Outcomes of Pediatric Surgeries for Dental Caries by Site of Care and Race and Ethnicity in the United States.",
+   "journal": "Pediatr Dent",
+   "year": "2026",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42947292": {
+   "title": "Career Satisfaction Among Pediatric Dentists in the United States: A Cross-Sectional Survey Study.",
+   "journal": "Pediatr Dent",
+   "year": "2026",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
   }
  },
  "weeks": {
@@ -4812,8 +4830,10 @@
    "41826011",
    "42394547",
    "42636518",
-   "42692930"
+   "42692930",
+   "42947292",
+   "42947303"
   ]
  },
- "runs": 118
+ "runs": 126
 }
