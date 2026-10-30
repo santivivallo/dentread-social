@@ -4339,6 +4339,78 @@
    "preset": "medicaid",
    "first_seen": "2026-W44",
    "descartado": "revista_fuera_de_allowlist"
+  },
+  "42235032": {
+   "title": "Artificial intelligence in allergen immunotherapy: toward a proactive and personalized management of allergic diseases.",
+   "journal": "Curr Opin Allergy Clin Immunol",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42184717": {
+   "title": "Explainable Artificial Intelligence in Dentistry: A Systematic Review of Its Trust and Translation.",
+   "journal": "Int Dent J",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": ""
+  },
+  "41327142": {
+   "title": "Use of artificial intelligence for detection of MB2 canals in maxillary first molars on CBCT: a systematic review and meta-analysis.",
+   "journal": "BMC Oral Health",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": ""
+  },
+  "41687807": {
+   "title": "Leveraging artificial intelligence in tissue regenerative engineering via small-molecule libraries.",
+   "journal": "Drug Discov Today",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42203681": {
+   "title": "Artificial intelligence for reducing metal artifacts in dental CBCT images: a systematic review.",
+   "journal": "Dentomaxillofac Radiol",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41826007": {
+   "title": "Artificial Intelligence Applications in Periodontology: Enhancing Diagnosis, Monitoring, and Treatment in Clinical Practice.",
+   "journal": "Dent Clin North Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41934701": {
+   "title": "Deep learning for dentomaxillofacial cone-beam computed tomography enhancement: A systematic review and meta-analysis.",
+   "journal": "Phys Med",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41918045": {
+   "title": "Artificial Intelligence Awareness and Utilisation in Scientific Research Writing Among Dental Students in Saudi Arabia.",
+   "journal": "Eur J Dent Educ",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W44",
+   "descartado": "diseno_no_señalizable:Journal Article"
   }
  },
  "weeks": {
@@ -4823,11 +4895,19 @@
    "40967790",
    "41105279",
    "41246300",
+   "41327142",
+   "41687807",
    "41797608",
    "41825995",
    "41826004",
+   "41826007",
    "41826008",
    "41826011",
+   "41918045",
+   "41934701",
+   "42184717",
+   "42203681",
+   "42235032",
    "42394547",
    "42636518",
    "42692930",
@@ -4835,5 +4915,5 @@
    "42947303"
   ]
  },
- "runs": 126
+ "runs": 130
 }

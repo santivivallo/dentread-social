@@ -443,7 +443,10 @@
     "ai",
     "workflow"
    ],
-   "first_seen": "2026-W33"
+   "first_seen": "2026-W33",
+   "used": true,
+   "published_on": "2026-10-30",
+   "cierre": "Automatizar una lectura es lo fácil. Lo difícil es que alguien actúe sobre ella."
   },
   "https://adanews.ada.org/ada-news/2026/june/ada-standards-program-seeks-volunteers-for-new-work-projects/": {
    "title": "ADA Standards Program seeks volunteers for new work projects",
@@ -5860,6 +5863,24 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W44"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/": {
+   "title": "ADA urges House committee to address cybersecurity concerns for dental practices",
+   "published": "2026-10-28",
+   "category": "Government",
+   "score": 3.75,
+   "buckets": [
+    "ai"
+   ],
+   "first_seen": "2026-W44"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/indianapolis-high-schoolers-explore-dental-careers-at-planet-smilez-discovering-dentistry-symposium/": {
+   "title": "Indianapolis high schoolers explore dental careers at Planet Smilez Discovering Dentistry Symposium",
+   "published": "2026-10-22",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W44"
   }
  },
  "weeks": {
@@ -6646,9 +6667,11 @@
    "https://adanews.ada.org/ada-news/2026/october/hhs-awards-51m-to-expand-dental-care-for-children-with-neurodevelopmental-disorders/"
   ],
   "2026-W44": [
+   "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
+   "https://adanews.ada.org/ada-news/2026/october/indianapolis-high-schoolers-explore-dental-careers-at-planet-smilez-discovering-dentistry-symposium/",
    "https://adanews.ada.org/ada-news/2026/october/new-ada-president-highlights-power-of-organized-dentistry/"
   ]
  },
- "runs": 347,
+ "runs": 357,
  "deepest_page": 12
 }
