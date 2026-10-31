@@ -349,7 +349,14 @@ a propósito, vive en `docs/<clave>.txt`).
   `data/traducciones_en.json` y en `Textos_EN_para_revisar.xlsx` (no
   versionada). Ninguno se usa hasta que Santiago los apruebe. Instagram
   sigue en español hasta entonces.
-- Pendiente: Google Search Console y Bing Webmaster Tools (necesitan Chrome).
+- Autor: entidad Person de Santiago Vivallo, DDS, enlazada desde cada artículo.
+- `/about/` y `/es/sobre/` reúnen su perfil y publicaciones.
+- Santiago edita `data/preguntas.json`; las respuestas son los hechos verificados verbatim y su cita.
+- `docs/llms.txt` reúne autor, artículos y preguntas con enlaces a cada dato.
+- Search Console verificado mediante `docs/googlea28f7bbb72cb50a3.html`: nunca borrar.
+- Rebuild local sin modelo: `.venv/bin/python -m pipeline.site --rebuild`; actualiza metadatos sin regenerar prosa.
+- Tests siempre con claves vacías: `LLM_API_KEY= RESERVA_API_KEY= .venv/bin/python -m tests.test_<name>`.
+- Pendiente: Bing Webmaster Tools (necesita Chrome).
 - Subdominio propio (`insights.dentread.app`): **opcional**. El DNS de
   dentread.app está en otra cuenta de Cloudflare; la web principal, en AWS.
 

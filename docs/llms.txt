@@ -10,6 +10,44 @@
 
 - [Data index](https://dentread-social.pages.dev/data/)
 
+## Key questions
+
+- [How many US adults lack dental coverage?](https://dentread-social.pages.dev/data/#sin-seguro-72m)
+- [Are more US adults uninsured for dental care than for medical care?](https://dentread-social.pages.dev/data/#dental-vs-medico)
+- [How many US adults who plan to see a dentist actually go?](https://dentread-social.pages.dev/data/#intencion-vs-visita)
+- [Does dental insurance change how often people visit the dentist?](https://dentread-social.pages.dev/data/#utilizacion-seguro)
+- [How does income affect dental visits in the US?](https://dentread-social.pages.dev/data/#utilizacion-ingreso)
+- [Do children or working-age adults visit the dentist more in the US?](https://dentread-social.pages.dev/data/#utilizacion-edad)
+- [Are there ethnic gaps in dental visits in the US?](https://dentread-social.pages.dev/data/#utilizacion-etnia)
+- [How many US states offer extensive adult dental benefits in Medicaid?](https://dentread-social.pages.dev/data/#medicaid-38-estados)
+- [How does Medicaid dental reimbursement compare with dentist fees and private insurance?](https://dentread-social.pages.dev/data/#medicaid-reembolso)
+- [Do DSO-affiliated dentists still accept Medicaid?](https://dentread-social.pages.dev/data/#medicaid-dso-caida)
+- [Do female or male dentists participate more in Medicaid?](https://dentread-social.pages.dev/data/#medicaid-genero)
+- [Are fewer US dentists owning their practices?](https://dentread-social.pages.dev/data/#propietarios-caida)
+- [How many US dentists work in group practices?](https://dentread-social.pages.dev/data/#practica-grupal)
+- [How common is DSO affiliation among early-career dentists?](https://dentread-social.pages.dev/data/#dso-jovenes)
+- [How many US dentists are recruiting dental hygienists?](https://dentread-social.pages.dev/data/#higienistas-reclutamiento)
+- [Do Medicaid recipients also have private dental insurance?](https://dentread-social.pages.dev/data/#medicaid-privado)
+- [What changed in CDT 2026?](https://dentread-social.pages.dev/data/#cdt-2026-cambios)
+- [Is there a CDT code for artificial intelligence in dentistry?](https://dentread-social.pages.dev/data/#cdt-sin-ia)
+- [Do the new CDT 2026 codes create new dental procedures?](https://dentread-social.pages.dev/data/#codigos-documentan-existente)
+- [Do children on Medicaid or CHIP visit the dentist?](https://dentread-social.pages.dev/data/#medicaid-ninos-visita)
+- [How many US adults have lost their dental coverage?](https://dentread-social.pages.dev/data/#cobertura-perdida)
+- [How common are cavities in US children and adolescents?](https://dentread-social.pages.dev/data/#caries-ninos-46)
+- [How many young US adults have untreated cavities?](https://dentread-social.pages.dev/data/#caries-sin-tratar-2044)
+- [How many older US adults have untreated cavities?](https://dentread-social.pages.dev/data/#caries-sin-tratar-65)
+- [How many US adults see a dentist each year?](https://dentread-social.pages.dev/data/#visita-dental-anual-655)
+- [Do US children visit the dentist more than adults?](https://dentread-social.pages.dev/data/#visita-ninos-869)
+- [How many older US adults have lost all their teeth?](https://dentread-social.pages.dev/data/#edentulismo-65-132)
+- [How common is severe periodontal disease worldwide?](https://dentread-social.pages.dev/data/#periodontal-mil-millones)
+- [How common is complete tooth loss worldwide?](https://dentread-social.pages.dev/data/#edentulismo-60-mundo-23)
+- [How many people do oral diseases affect worldwide?](https://dentread-social.pages.dev/data/#enfermedad-bucal-3700m)
+- [How many dentists use artificial intelligence?](https://dentread-social.pages.dev/data/#ia-adopcion-433)
+- [How many dentists use AI for dental imaging and diagnostics?](https://dentread-social.pages.dev/data/#ia-imagen-228)
+- [Do dentists use AI to explain findings to patients?](https://dentread-social.pages.dev/data/#ia-explicar-paciente-132)
+- [Do dentists use AI for treatment recommendations?](https://dentread-social.pages.dev/data/#ia-tratamiento-826)
+- [How many dentists report being overworked?](https://dentread-social.pages.dev/data/#dentistas-sobrecargados-324)
+
 ## Articles
 
 - [ADA urges dental-specific approach in CMS interoperability, prior authorization proposal  · DentRead Insights](https://dentread-social.pages.dev/news-19567668/): The American Dental Association asked the US government to adapt the new data exchange and prior reporting rules to the particularities of dentistry. The …
@@ -47,6 +85,46 @@
 - [Cost is the number one reason people delay care · DentRead Insights](https://dentread-social.pages.dev/costo-barrera/): Cost is the number one reason people delay care. The money conversation is part of the clinical encounter, not an afterthought.
 
 ## Español
+
+### Preguntas clave
+
+- [¿Cuántos adultos en EE.UU. no tienen cobertura dental?](https://dentread-social.pages.dev/es/datos/#sin-seguro-72m)
+- [¿Hay más adultos sin seguro dental que sin seguro médico en EE.UU.?](https://dentread-social.pages.dev/es/datos/#dental-vs-medico)
+- [¿Cuántos adultos que piensan ir al dentista en EE.UU. van de verdad?](https://dentread-social.pages.dev/es/datos/#intencion-vs-visita)
+- [¿El seguro dental cambia cuánto va la gente al dentista?](https://dentread-social.pages.dev/es/datos/#utilizacion-seguro)
+- [¿Cómo influye el ingreso en las visitas al dentista en EE.UU.?](https://dentread-social.pages.dev/es/datos/#utilizacion-ingreso)
+- [¿Quién va más al dentista en EE.UU.: los niños o los adultos en edad laboral?](https://dentread-social.pages.dev/es/datos/#utilizacion-edad)
+- [¿Hay brechas por origen étnico en las visitas al dentista en EE.UU.?](https://dentread-social.pages.dev/es/datos/#utilizacion-etnia)
+- [¿Cuántos estados de EE.UU. dan beneficios dentales ampliados a adultos en Medicaid?](https://dentread-social.pages.dev/es/datos/#medicaid-38-estados)
+- [¿Cuánto paga Medicaid a los dentistas comparado con sus tarifas y con el seguro privado?](https://dentread-social.pages.dev/es/datos/#medicaid-reembolso)
+- [¿Los dentistas afiliados a un DSO siguen atendiendo Medicaid?](https://dentread-social.pages.dev/es/datos/#medicaid-dso-caida)
+- [¿Quién participa más en Medicaid: las dentistas mujeres o los dentistas hombres?](https://dentread-social.pages.dev/es/datos/#medicaid-genero)
+- [¿Hay menos dentistas dueños de su práctica en EE.UU.?](https://dentread-social.pages.dev/es/datos/#propietarios-caida)
+- [¿Cuántos dentistas en EE.UU. trabajan en práctica grupal?](https://dentread-social.pages.dev/es/datos/#practica-grupal)
+- [¿Qué tan común es que los dentistas recién egresados trabajen en un DSO?](https://dentread-social.pages.dev/es/datos/#dso-jovenes)
+- [¿Cuántos dentistas en EE.UU. están buscando higienistas?](https://dentread-social.pages.dev/es/datos/#higienistas-reclutamiento)
+- [¿Los beneficiarios de Medicaid tienen además seguro dental privado?](https://dentread-social.pages.dev/es/datos/#medicaid-privado)
+- [¿Qué cambió en el CDT 2026?](https://dentread-social.pages.dev/es/datos/#cdt-2026-cambios)
+- [¿Existe un código CDT para la inteligencia artificial en odontología?](https://dentread-social.pages.dev/es/datos/#cdt-sin-ia)
+- [¿Los códigos nuevos del CDT 2026 crean prestaciones dentales nuevas?](https://dentread-social.pages.dev/es/datos/#codigos-documentan-existente)
+- [¿Los niños en Medicaid o CHIP van al dentista?](https://dentread-social.pages.dev/es/datos/#medicaid-ninos-visita)
+- [¿Cuántos adultos en EE.UU. perdieron su cobertura dental?](https://dentread-social.pages.dev/es/datos/#cobertura-perdida)
+- [¿Qué tan común es la caries en niños y jóvenes de EE.UU.?](https://dentread-social.pages.dev/es/datos/#caries-ninos-46)
+- [¿Cuántos adultos jóvenes en EE.UU. tienen caries sin tratar?](https://dentread-social.pages.dev/es/datos/#caries-sin-tratar-2044)
+- [¿Cuántos adultos mayores en EE.UU. tienen caries sin tratar?](https://dentread-social.pages.dev/es/datos/#caries-sin-tratar-65)
+- [¿Cuántos adultos en EE.UU. van al dentista cada año?](https://dentread-social.pages.dev/es/datos/#visita-dental-anual-655)
+- [¿Los niños en EE.UU. van más al dentista que los adultos?](https://dentread-social.pages.dev/es/datos/#visita-ninos-869)
+- [¿Cuántos adultos mayores en EE.UU. perdieron todos sus dientes?](https://dentread-social.pages.dev/es/datos/#edentulismo-65-132)
+- [¿Qué tan común es la enfermedad periodontal grave en el mundo?](https://dentread-social.pages.dev/es/datos/#periodontal-mil-millones)
+- [¿Qué tan común es la pérdida total de dientes en el mundo?](https://dentread-social.pages.dev/es/datos/#edentulismo-60-mundo-23)
+- [¿A cuántas personas afectan las enfermedades bucodentales en el mundo?](https://dentread-social.pages.dev/es/datos/#enfermedad-bucal-3700m)
+- [¿Cuántos dentistas usan inteligencia artificial?](https://dentread-social.pages.dev/es/datos/#ia-adopcion-433)
+- [¿Cuántos dentistas usan IA para imagenología y diagnóstico?](https://dentread-social.pages.dev/es/datos/#ia-imagen-228)
+- [¿Los dentistas usan IA para explicar hallazgos a sus pacientes?](https://dentread-social.pages.dev/es/datos/#ia-explicar-paciente-132)
+- [¿Los dentistas usan IA para recomendar tratamientos?](https://dentread-social.pages.dev/es/datos/#ia-tratamiento-826)
+- [¿Cuántos dentistas dicen estar sobrecargados de trabajo?](https://dentread-social.pages.dev/es/datos/#dentistas-sobrecargados-324)
+
+### Artículos
 
 - [Pedir autorización al seguro va a cambiar · DentRead Insights](https://dentread-social.pages.dev/es/news-19567668/): Automatizar una lectura es lo fácil. Lo difícil es que alguien actúe sobre ella. 🦷
 - [Ahorrar impuestos al comprar hilo dental · DentRead Insights](https://dentread-social.pages.dev/es/news-95714058/): Un dato del sector no cambia una agenda. Cambia qué preguntar en la reunión del lunes. 🦷

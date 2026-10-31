@@ -27,6 +27,7 @@ import argparse
 import html
 import json
 import re
+import shutil
 from datetime import date
 from pathlib import Path
 
@@ -44,6 +45,7 @@ DOCS = Path("docs")
 # nuevo: tocar acá y correr `python -m tools.rehacer_paginas --todas`.
 BASE_URL = "https://dentread-social.pages.dev"
 SITE_NAME = "DentRead Insights"
+LOGO_URL = f"{BASE_URL}/logo.png"
 AUTHOR = {
     "@type": "Person", "@id": f"{BASE_URL}/about/#person",
     "name": "Santiago Vivallo", "honorificSuffix": "DDS", "jobTitle": "CEO",
@@ -51,6 +53,9 @@ AUTHOR = {
     "url": f"{BASE_URL}/about/",
     "sameAs": ["https://www.linkedin.com/in/santivivallo",
                "https://santiagovivallo.pages.dev"],
+    "knowsAbout": ["Dental radiography", "Artificial intelligence in dentistry",
+                   "Digital dentistry", "Dental practice management",
+                   "Dental public health", "Salivary biomarkers"],
     "description": "Dentist. Digital dentistry, healthcare management and research. CEO of DentRead.",
 }
 ORG = {
@@ -58,6 +63,7 @@ ORG = {
     "name": "DentRead", "url": "https://dentread.app",
     "sameAs": ["https://www.instagram.com/dentread_/"],
     "founder": {"@id": AUTHOR["@id"]},
+    "logo": {"@type": "ImageObject", "url": LOGO_URL},
 }
 LINKEDIN_ARTICLES = [
     "accuracy-robotic-computer-assisted-implant-surgery-santiago-vivallo--gmn9e",
@@ -178,11 +184,56 @@ def _sobre(lang: str) -> str:
             f'<p><a href="https://dentread.app">{t["mas"]}</a></p>')
 
 
+def _ld_script(value: dict) -> str:
+    return ('<script type="application/ld+json">'
+            + json.dumps(value, ensure_ascii=False).replace("<", "\\u003c") + '</script>')
+
+
+def _social_head(title: str, description: str, canonical: str, lang: str,
+                 article: dict | None = None) -> str:
+    tags = {"og:type": "article" if article else "website", "og:title": title,
+            "og:description": description, "og:url": canonical,
+            "og:image": LOGO_URL, "og:site_name": SITE_NAME,
+            "og:locale": "en_US" if lang == "en" else "es_ES"}
+    if article:
+        tags.update({"article:published_time": article["datePublished"],
+                     "article:author": AUTHOR["url"]})
+    out = [f'<meta property="{key}" content="{_esc(value)}">' for key, value in tags.items()]
+    out += [f'<meta name="twitter:{key}" content="{_esc(value)}">'
+            for key, value in {"card": "summary", "title": title,
+                               "description": description, "image": LOGO_URL}.items()]
+    return "\n".join(out) + '\n<link rel="icon" href="/logo.png">'
+
+
+def _breadcrumb_ld(title: str, url: str, lang: str) -> dict:
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1,
+                 "name": "Home" if lang == "en" else "Inicio", "item": _url(lang)},
+                {"@type": "ListItem", "position": 2, "name": title, "item": url}]}
+
+
+def _questions() -> dict:
+    return json.loads(Path("data/preguntas.json").read_text())["preguntas"]
+
+
+def _questions_section(facts: list[dict], lang: str) -> str:
+    questions = _questions()
+    links = "".join(
+        f'<li><a href="/{"" if lang == "en" else "es/"}{_ruta_datos(lang)}/#{_esc(f["id"])}">'
+        f'{_esc(questions[f["id"]][lang])}</a></li>'
+        for f in facts if questions.get(f["id"], {}).get(lang))
+    heading = "Questions this answers" if lang == "en" else "Preguntas que responde"
+    return f'<section id="questions"><h2>{heading}</h2><ul>{links}</ul></section>\n' if links else ""
+
+
 def _shell(title: str, description: str, body: str, canonical: str,
            jsonld: dict | None = None, *, lang: str = "es",
            alternas: dict[str, str] | None = None, sobre: bool = True) -> str:
-    ld = (f'<script type="application/ld+json">'
-          f'{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else "")
+    ld = _ld_script(jsonld) if jsonld else ""
+    article = jsonld if jsonld and jsonld.get("@type") == "Article" else None
+    if article:
+        ld += "\n" + _ld_script(_breadcrumb_ld(title, canonical, lang))
     t = TXT[lang]
     alternas = alternas or {}
     hreflang = "".join(f'\n<link rel="alternate" hreflang="{l}" href="{u}">'
@@ -198,10 +249,7 @@ def _shell(title: str, description: str, body: str, canonical: str,
 <title>{_esc(title)}{(" · " + SITE_NAME) if title != SITE_NAME else ""}</title>
 <meta name="description" content="{_esc(description)}">
 <link rel="canonical" href="{canonical}">{hreflang}
-<meta property="og:type" content="article">
-<meta property="og:title" content="{_esc(title)}">
-<meta property="og:description" content="{_esc(description)}">
-<meta property="og:url" content="{canonical}">
+{_social_head(title, description, canonical, lang, article)}
 <style>{CSS}</style>
 {ld}
 <body><div class="wrap">
@@ -317,6 +365,7 @@ def write_article(spec: PostSpec, post_date: str | None = None,
 <h2>{t["fuentes"]}</h2>
 <ul>{sources}</ul>
 """
+    body += _questions_section(getattr(post, "facts", []), "es")
     jsonld = _article_ld(hook, post_date, url, spec.citations, "es")
     out = DOCS / ES_DIR / spec.slug / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -326,6 +375,7 @@ def write_article(spec: PostSpec, post_date: str | None = None,
 
     if en:
         titulo, descripcion, cuerpo_en = en
+        cuerpo_en += _questions_section(post.facts, "en")
         url_en = _url("en", spec.slug)
         destino = DOCS / spec.slug / "index.html"
         destino.parent.mkdir(parents=True, exist_ok=True)
@@ -347,7 +397,9 @@ def _article_ld(headline: str, post_date: str, url: str, citas: list[str],
         "dateModified": post_date,
         "inLanguage": lang,
         "author": {k: AUTHOR[k] for k in ("@type", "@id", "name", "url")},
-        "publisher": {k: ORG[k] for k in ("@type", "@id", "name", "url")},
+        "publisher": {k: ORG[k] for k in ("@type", "@id", "name", "url", "logo")},
+        "image": LOGO_URL,
+        "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": _url(lang)},
         "mainEntityOfPage": url,
         "citation": [_citation_ld(c) for c in citas],
         "isAccessibleForFree": True,
@@ -484,12 +536,16 @@ def write_data_index(lang: str = "es") -> Path:
     def num(f): return f.get("number_en") or f["number"] if lang == "en" else f["number"]
     def txt(f): return f.get("statement_en") or f["statement"] if lang == "en" else f["statement"]
 
+    questions = _questions()
     sections = ""
     for fam in sorted(by_family):
         items = "".join(
+            (f'<li id="{_esc(f["id"])}"><h3>{_esc(questions[f["id"]][lang])}</h3>'
+             f'<p>{_esc(txt(f))}</p><span class="src">{_esc(f["cite"])}</span></li>'
+             if questions.get(f["id"], {}).get(lang) else
             f'<li><span class="n">{_esc(num(f))}</span>'
             f'{_esc(sin_em_dash(txt(f)))}'
-            f'<span class="src">{_esc(f["cite"])}</span></li>'
+            f'<span class="src">{_esc(f["cite"])}</span></li>')
             for f in by_family[fam]
         )
         sections += f"<h2>{_esc(fam.replace('_', ' ').title())}</h2><ul class=\"facts\">{items}</ul>"
@@ -512,6 +568,11 @@ def write_data_index(lang: str = "es") -> Path:
         "isAccessibleForFree": True,
         "citation": [_citation_ld(f["cite"]) for f in facts],
     }
+    faq = {"@type": "FAQPage", "inLanguage": lang, "mainEntity": [
+        {"@type": "Question", "name": questions[f["id"]][lang],
+         "acceptedAnswer": {"@type": "Answer", "text": txt(f) + " Source: " + f["cite"]}}
+        for f in facts if questions.get(f["id"], {}).get(lang)]}
+    jsonld = {"@context": "https://schema.org", "@graph": [jsonld, faq]}
     alternas = {"en": _url("en", "data"), "es": _url("es", "datos")}
     destino = (DOCS / "data") if lang == "en" else (DOCS / ES_DIR / "datos")
     out = destino / "index.html"
@@ -598,7 +659,11 @@ def write_sitemap() -> Path:
         for route in ("", _ruta_datos(lang), TXT[lang]["author_route"]):
             body += (f"<url><loc>{_esc(_url(lang, route))}</loc>"
                      f"<lastmod>{date.today().isoformat()}</lastmod></url>")
-        llms += "\n## " + ("Articles" if lang == "en" else "Español") + "\n\n"
+        llms += "\n" if lang == "en" else "\n## Español\n\n"
+        llms += ("## Key questions" if lang == "en" else "### Preguntas clave") + "\n\n"
+        llms += "".join(f'- [{q[lang]}]({_url(lang, _ruta_datos(lang))}#{fid})\n'
+                        for fid, q in _questions().items() if q.get(lang))
+        llms += "\n" + ("## Articles" if lang == "en" else "### Artículos") + "\n\n"
         for page in _paginas(lang):
             content = page.read_text()
             ld = json.loads(re.search(
@@ -618,7 +683,11 @@ def write_sitemap() -> Path:
         f'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>'
     )
     (DOCS / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml\n")
+        "User-agent: *\nAllow: /\n\n"
+        + "".join(f"User-agent: {bot}\nAllow: /\n\n" for bot in (
+            "GPTBot", "OAI-SearchBot", "ChatGPT-User", "PerplexityBot",
+            "ClaudeBot", "Claude-SearchBot", "Google-Extended", "Applebot-Extended"))
+        + f"Sitemap: {BASE_URL}/sitemap.xml\n")
     (DOCS / ".nojekyll").write_text("")
     # El índice de datos en español vivía en /datos/. Cloudflare Pages lee
     # este archivo y responde 301, así no se pierde lo que ya esté indexado.
@@ -626,7 +695,54 @@ def write_sitemap() -> Path:
     return out
 
 
+def upgrade_article(path: Path) -> None:
+    """Upgrade generated metadata; preserve existing prose byte for byte."""
+    original = path.read_text()
+    head, body = original.split("<body>", 1)
+    scripts = list(re.finditer(r'<script type="application/ld\+json">(.*?)</script>', head, re.S))
+    article_match = next((m for m in scripts if json.loads(m[1]).get("@type") == "Article"), None)
+    if article_match is None:
+        return
+    article = json.loads(article_match[1])
+    lang = article["inLanguage"]
+    title = html.unescape(re.sub(r"<[^>]+>", "", re.search(r"<h1>(.*?)</h1>", body, re.S)[1]))
+    url = _url(lang, path.parent.name)
+    description = html.unescape(re.search(r'<meta name="description" content="([^"]*)">', head)[1])
+    article.update({"image": LOGO_URL,
+                    "isPartOf": {"@type": "WebSite", "name": SITE_NAME, "url": _url(lang)}})
+    article["publisher"] = {k: ORG[k] for k in ("@type", "@id", "name", "url", "logo")}
+    article.pop("about", None)
+    head = head[:article_match.start()] + _ld_script(article) + head[article_match.end():]
+    head = re.sub(r'<script type="application/ld\+json">(.*?)</script>\n?',
+                  lambda m: "" if json.loads(m[1]).get("@type") == "BreadcrumbList" else m[0], head, flags=re.S)
+    head = re.sub(r'<meta (?:property|name)="(?:og:|twitter:|article:)[^"]*"[^>]*>\n?', "", head)
+    head = re.sub(r'<link rel="icon"[^>]*>\n?', "", head)
+    # Keep insertion points stable across repeated upgrades.
+    head = head.replace("<style>", _social_head(title, description, url, lang, article) + "\n<style>", 1)
+    head = head.rstrip() + "\n" + _ld_script(_breadcrumb_ld(title, url, lang)) + "\n"
+    if '<section id="questions">' not in body:
+        # Historical theme pages lack Post.facts; only link facts visible on the page.
+        plain = html.unescape(re.sub(r"<[^>]+>", " ", body))
+        normalize = lambda text: " ".join(sin_em_dash(text).split())
+        visible = normalize(plain)
+        facts = [f for f in load_facts() if path.parent.name in f.get("themes", [])
+                 and any(normalize(f[key]) in visible
+                         for key in (("statement_en",) if lang == "en" else ("statement", "card"))
+                         if f.get(key))]
+        section = _questions_section(facts, lang)
+        body = body.replace(f'<h2>{TXT[lang]["fuentes"]}</h2>',
+                            section + f'<h2>{TXT[lang]["fuentes"]}</h2>', 1)
+    updated = head + "<body>" + body
+    if updated != original:
+        path.write_text(updated)
+
+
 def rebuild_indexes() -> None:
+    DOCS.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile("brand/logo-ink.png", DOCS / "logo.png")
+    for lang in ("en", "es"):
+        for page in _paginas(lang):
+            upgrade_article(page)
     for lang in ("en", "es"):
         write_data_index(lang)
         write_home(lang)

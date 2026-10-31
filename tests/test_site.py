@@ -18,6 +18,7 @@ Sin red y sin modelo.
 from __future__ import annotations
 
 import re
+from unittest.mock import patch
 import json
 import xml.etree.ElementTree as ET
 import sys
@@ -231,10 +232,89 @@ def probar_entidades() -> list[str]:
     return errs
 
 
+def probar_seo_aeo() -> list[str]:
+    def schemas(content):
+        return [json.loads(raw) for raw in re.findall(
+            r'<script type="application/ld\+json">(.*?)</script>', content, re.S)]
+
+    facts = {f["id"]: f for f in plan.load_facts()}
+    questions = site._questions()
+    assert set(questions) <= set(facts), "pregunta sin hecho verificado"
+    with tempfile.TemporaryDirectory() as tmp, patch.object(site, "DOCS", Path(tmp)):
+        site.rebuild_indexes()
+        assert (site.DOCS / "logo.png").read_bytes() == Path("brand/logo-ink.png").read_bytes()
+        robots = (site.DOCS / "robots.txt").read_text()
+        for bot in ("*", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "PerplexityBot",
+                    "ClaudeBot", "Claude-SearchBot", "Google-Extended", "Applebot-Extended"):
+            assert f"User-agent: {bot}\nAllow: /" in robots
+        assert f"Sitemap: {site.BASE_URL}/sitemap.xml" in robots
+        llms_text = (site.DOCS / "llms.txt").read_text()
+        for lang in ("en", "es"):
+            content = site.write_data_index(lang).read_text()
+            graph = schemas(content)[0]["@graph"]
+            faq = next(node for node in graph if node["@type"] == "FAQPage")
+            answers = {q["name"]: q["acceptedAnswer"]["text"] for q in faq["mainEntity"]}
+            assert len(answers) == len(questions)
+            for fid, question in questions.items():
+                statement = facts[fid]["statement_en" if lang == "en" else "statement"]
+                assert answers[question[lang]] == statement + " Source: " + facts[fid]["cite"]
+                assert f'<li id="{fid}"><h3>{site._esc(question[lang])}</h3><p>{site._esc(statement)}</p>' in content
+                assert f'[{question[lang]}]({site._url(lang, site._ruta_datos(lang))}#{fid})' in llms_text
+            assert 'property="og:type" content="website"' in content
+            assert f'property="og:locale" content="{"en_US" if lang == "en" else "es_ES"}"' in content
+            for tag in ('property="og:image"', 'property="og:site_name"', 'name="twitter:card"',
+                        'name="twitter:title"', 'name="twitter:description"', 'name="twitter:image"'):
+                assert tag in content
+            assert '<link rel="icon" href="/logo.png">' in content
+            # No question: retain the old rendering and omit it from FAQPage.
+            fid = next(iter(questions))
+            with patch.object(site, "_questions", return_value={k: v for k, v in questions.items() if k != fid}):
+                fallback = site.write_data_index(lang).read_text()
+                assert f'<li id="{fid}">' not in fallback
+                assert site._esc(site.sin_em_dash(facts[fid]["statement_en" if lang == "en" else "statement"])) in fallback
+
+        theme = next(t for t in CATALOG if sum(t.id in f["themes"] for f in facts.values()) >= 2)
+        used = [f for f in facts.values() if theme.id in f["themes"]][:2]
+        post = plan.post_from_theme(theme, used)
+        with llm.sin_modelo():
+            spec = generate(post)
+            site.write_article(spec, "2026-10-01", post)
+        for lang in ("en", "es"):
+            page = (site.DOCS if lang == "en" else site.DOCS / "es") / spec.slug / "index.html"
+            content = page.read_text()
+            for f in used:
+                assert f'/#{f["id"]}' in content
+            article, breadcrumb = schemas(content)
+            assert article["image"] == site.LOGO_URL
+            assert article["publisher"]["logo"] == site.ORG["logo"]
+            assert article["isPartOf"]["@type"] == "WebSite" and "about" not in article
+            assert breadcrumb["itemListElement"][1]["item"] == site._url(lang, spec.slug)
+            assert 'property="article:published_time" content="2026-10-01"' in content
+            assert f'property="article:author" content="{site.AUTHOR["url"]}"' in content
+            # Simulate a hand-patched historical page with no questions or new metadata.
+            legacy = re.sub(r'<section id="questions">.*?</section>\n', '', content, flags=re.S)
+            legacy = legacy.replace(site._ld_script(breadcrumb) + "\n", "")
+            legacy_body = legacy.split("<body>", 1)[1]
+            page.write_text(legacy)
+            site.upgrade_article(page)
+            once = page.read_bytes()
+            site.upgrade_article(page)
+            assert page.read_bytes() == once, "upgrade no es idempotente"
+            body = page.read_text().split("<body>", 1)[1]
+            assert re.sub(r'<section id="questions">.*?</section>\n', '', body, flags=re.S) == legacy_body
+            assert '<section id="questions">' in body
+            assert len(schemas(page.read_text())) == 2
+        assert "image" not in site.AUTHOR
+        assert len(site.AUTHOR["knowsAbout"]) == 6
+        escaped = site._ld_script({"text": '</script><p> & "'})
+        assert schemas(escaped)[0]["text"] == '</script><p> & "'
+    return []
+
+
 def main() -> int:
     errores = (probar_paginas_con_cuerpo() + probar_pagina_noticia()
                + probar_version_en_ingles() + probar_traduccion_cuida_cifras()
-               + probar_cierres_no_se_repiten() + probar_entidades())
+               + probar_cierres_no_se_repiten() + probar_entidades() + probar_seo_aeo())
     if errores:
         print("✗ las páginas o los cierres no están bien:\n")
         print("\n".join(f"  {e}" for e in errores))
