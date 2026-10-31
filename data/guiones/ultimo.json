@@ -1,0 +1,52 @@
+{
+  "fecha": "2026-10-31",
+  "generado": "2026-10-31T19:45:25Z",
+  "guiones": [
+    {
+      "titulo": "IA en la clínica: ¿Apoyo o reemplazo?",
+      "formato": "No vayas de listo (corrige un mito)",
+      "gancho": "La IA no viene a reemplazar al dentista",
+      "escenas": [
+        "Hay quienes piensan que la tecnología tomará las decisiones clínicas en el box, pero la realidad es totalmente distinta.",
+        "DentRead analiza tus radiografías como un segundo par de ojos ultra rápido, detectando posibles hallazgos en segundos.",
+        "El 82,6% de los dentistas no piensa usar IA para planificar tratamientos, porque la decisión final y el criterio clínico siempre son tuyos.",
+        "La herramienta procesa la imagen, pero el ojo experto del odontólogo es el que diagnostica y decide."
+      ],
+      "cierre": "Prueba DentRead hoy y optimiza la lectura de tus radiografías con respaldo tecnológico.",
+      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/42184717/",
+      "hechos": [
+        "ia-tratamiento-826"
+      ]
+    },
+    {
+      "titulo": "Alerta de ciberseguridad en odontología",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "Ciberseguridad en la clínica: la nueva prioridad",
+      "escenas": [
+        "La ADA instó al Comité de la Cámara de Representantes a abordar con urgencia los riesgos de ciberseguridad en las prácticas dentales.",
+        "Con la digitalización de fichas y radiografías, resguardar la información de tus pacientes es tan relevante como una buena atención.",
+        "Utilizar plataformas en la nube con altos estándares de protección es vital para mantener tu consulta segura y al día."
+      ],
+      "cierre": "Mantén tu consulta al día y segura. Conoce más sobre DentRead en nuestro perfil.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
+      "hechos": []
+    },
+    {
+      "titulo": "Adopción de IA en imagenología dental",
+      "formato": "Titular con dato (cifra verificada + fuente)",
+      "gancho": "El 22,8% de dentistas usa IA diagnóstica",
+      "escenas": [
+        "Un informe del Health Policy Institute de la ADA reveló que el 22,8% de los dentistas ya ocupa IA en imagenología.",
+        "Además, un 25,4% que aún no la implementa tiene planeado sumarla a su flujo de trabajo muy pronto.",
+        "DentRead apoya la lectura radiográfica para que revises hallazgos más rápido, sin perder jamás el control de la consulta."
+      ],
+      "cierre": "Súmate a la evolución digital. Pide tu demo de DentRead hoy.",
+      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/41061312/",
+      "hechos": [
+        "ia-imagen-228"
+      ]
+    }
+  ],
+  "descartados": [],
+  "fuentes": 15
+}

@@ -1,0 +1,36 @@
+name: guiones
+# Agente de contenido: 3 guiones de reel por día (no publica nada).
+# Corre 11:00 UTC; wa-agent avisa por WhatsApp a las 12:00 UTC.
+on:
+  schedule:
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  guiones:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: LLM_API_KEY= RESERVA_API_KEY= python -m tests.test_guiones
+      - name: Generar
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_ENDPOINT: ${{ vars.LLM_ENDPOINT }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_RESERVAS: ${{ vars.LLM_RESERVAS }}
+          RESERVA_API_KEY: ${{ secrets.RESERVA_API_KEY }}
+          RESERVA_MODELOS: ${{ vars.RESERVA_MODELOS }}
+        run: python -m tools.guiones
+      - name: Guardar
+        run: |
+          git config user.name "dentread-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/guiones data/bitacora.jsonl
+          git commit -m "guiones $(date -u +%F)" || exit 0
+          git pull --rebase && git push
