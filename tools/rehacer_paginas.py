@@ -37,7 +37,7 @@ from pipeline.generate import generate
 from pipeline.themes import CATALOG
 
 DOCS = Path("docs")
-NO_SON_POSTS = {"datos", "data", "es"}
+NO_SON_POSTS = {"datos", "data", "es", "about", "sobre"}
 
 
 def _vacia(html: str) -> bool:

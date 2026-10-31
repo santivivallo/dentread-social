@@ -44,6 +44,32 @@ DOCS = Path("docs")
 # nuevo: tocar acá y correr `python -m tools.rehacer_paginas --todas`.
 BASE_URL = "https://dentread-social.pages.dev"
 SITE_NAME = "DentRead Insights"
+AUTHOR = {
+    "@type": "Person", "@id": f"{BASE_URL}/about/#person",
+    "name": "Santiago Vivallo", "honorificSuffix": "DDS", "jobTitle": "CEO",
+    "worksFor": {"@id": "https://dentread.app/#org"},
+    "url": f"{BASE_URL}/about/",
+    "sameAs": ["https://www.linkedin.com/in/santivivallo",
+               "https://santiagovivallo.pages.dev"],
+    "description": "Dentist. Digital dentistry, healthcare management and research. CEO of DentRead.",
+}
+ORG = {
+    "@type": "Organization", "@id": "https://dentread.app/#org",
+    "name": "DentRead", "url": "https://dentread.app",
+    "sameAs": ["https://www.instagram.com/dentread_/"],
+    "founder": {"@id": AUTHOR["@id"]},
+}
+LINKEDIN_ARTICLES = [
+    "accuracy-robotic-computer-assisted-implant-surgery-santiago-vivallo--gmn9e",
+    "ai-dentistry-update-santiago-vivallo--qbnte",
+    "dental-education-practice-past-present-future-trends-vivallo--eyk6e",
+    "future-dentistry-brief-santiago-vivallo--nkzoe",
+    "haptic-virtual-reality-dental-education-santiago-vivallo--ovnue",
+    "nanotech-dentistry-santiago-vivallo--ghqfe",
+    "next-generation-regenerative-dentistry-santiago-vivallo--hnhze",
+    "public-dental-imaging-datasets-ai-development-santiago-vivallo--pwsre",
+    "salivary-biomarkers-caries-santiago-vivallo--zda3e",
+]
 TAGLINE = ("Datos verificados sobre el mercado dental de Estados Unidos, "
            "con su fuente.")
 TAGLINE_EN = "Verified data on the US dental market, with sources."
@@ -90,7 +116,11 @@ DISCLAIMER_EN = (
 # Textos fijos por idioma. Lo que dice qué es DentRead sale del bloque
 # evergreen `que-es-dentread` (mensaje aprobado), no de acá.
 TXT = {
-    "es": {"datos": "Índice de datos", "fuentes": "Fuentes",
+    "es": {"author_route": "sobre", "author_link": "Sobre el autor",
+           "byline": 'Por <a href="/es/sobre/">Santiago Vivallo, DDS</a> · CEO de DentRead',
+           "author_description": "Odontólogo. Odontología digital, gestión en salud e investigación. CEO de DentRead.",
+           "linkedin_articles": "Artículos en LinkedIn", "personal_site": "Sitio personal",
+           "datos": "Índice de datos", "fuentes": "Fuentes",
            "implica": "Qué implica", "otro": "Read in English",
            "home_cta": "Ver el índice completo de datos →",
            "pubs": "Publicaciones", "vacio": "Todavía no hay publicaciones.",
@@ -102,7 +132,11 @@ TXT = {
                           "publicarse. Se indica publicación, página y fecha. "
                           "Ninguna es un resultado de DentRead."),
            "data_title": "Datos del mercado dental de EE.UU."},
-    "en": {"datos": "Data index", "fuentes": "Sources",
+    "en": {"author_route": "about", "author_link": "About the author",
+           "byline": 'By <a href="/about/">Santiago Vivallo, DDS</a> · CEO, DentRead',
+           "author_description": AUTHOR["description"],
+           "linkedin_articles": "Articles on LinkedIn", "personal_site": "Personal site",
+           "datos": "Data index", "fuentes": "Sources",
            "implica": "Why it matters", "otro": "Leer en español",
            "home_cta": "See the full data index →",
            "pubs": "Posts", "vacio": "No posts yet.",
@@ -161,7 +195,7 @@ def _shell(title: str, description: str, body: str, canonical: str,
 <html lang="{lang}">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{_esc(title)} · {SITE_NAME}</title>
+<title>{_esc(title)}{(" · " + SITE_NAME) if title != SITE_NAME else ""}</title>
 <meta name="description" content="{_esc(description)}">
 <link rel="canonical" href="{canonical}">{hreflang}
 <meta property="og:type" content="article">
@@ -175,7 +209,7 @@ def _shell(title: str, description: str, body: str, canonical: str,
 {_sobre(lang) if sobre else ""}
 <footer>
 <p class="note">{DISCLAIMER_EN if lang == "en" else DISCLAIMER}</p>
-<p><a href="{_url(lang)}">{SITE_NAME}</a> · <a href="{_url(lang, "data" if lang == "en" else "datos")}">{t["datos"]}</a>{enlace_otro}</p>
+<p><a href="{_url(lang)}">{SITE_NAME}</a> · <a href="{_url(lang, "data" if lang == "en" else "datos")}">{t["datos"]}</a> · <a href="{_url(lang, t["author_route"])}">{t["author_link"]}</a>{enlace_otro}</p>
 </footer>
 </div></body></html>
 """
@@ -277,6 +311,7 @@ def write_article(spec: PostSpec, post_date: str | None = None,
 
     body = f"""<p class="kicker">{_esc(hook_s.kicker if hook_s and hook_s.kicker else spec.mode)}</p>
 <h1>{_esc(hook)}</h1>
+<p class="byline">{t["byline"]}</p>
 <p class="meta">{post_date} · DentRead</p>
 {"".join(partes)}
 <h2>{t["fuentes"]}</h2>
@@ -311,8 +346,8 @@ def _article_ld(headline: str, post_date: str, url: str, citas: list[str],
         "datePublished": post_date,
         "dateModified": post_date,
         "inLanguage": lang,
-        "author": {"@type": "Organization", "name": "DentRead"},
-        "publisher": {"@type": "Organization", "name": "DentRead"},
+        "author": {k: AUTHOR[k] for k in ("@type", "@id", "name", "url")},
+        "publisher": {k: ORG[k] for k in ("@type", "@id", "name", "url")},
         "mainEntityOfPage": url,
         "citation": [_citation_ld(c) for c in citas],
         "isAccessibleForFree": True,
@@ -369,7 +404,8 @@ def _articulo_en(spec: PostSpec, post, post_date: str):
     t = TXT["en"]
     citas = "".join(_cita_html(c) for c in spec.citations)
     fuentes = f'<h2>{t["fuentes"]}</h2>\n<ul>{citas}</ul>\n'
-    meta = f'<p class="meta">{post_date} · DentRead</p>'
+    meta = (f'<p class="byline">{t["byline"]}</p>\n'
+            f'<p class="meta">{post_date} · DentRead</p>')
 
     if post.kind == "data":
         partes = [x.strip() for x in re.split(r"(?<=[.:])\s+", post.angle_en, 1)]
@@ -488,7 +524,7 @@ def write_data_index(lang: str = "es") -> Path:
 def _paginas(lang: str) -> list[Path]:
     """Las páginas de post de un idioma, de la más nueva a la más vieja."""
     base = DOCS if lang == "en" else DOCS / ES_DIR
-    fuera = {"data", "datos", ES_DIR}
+    fuera = {"data", "datos", "about", "sobre", ES_DIR}
     out = [p for p in base.glob("*/index.html") if p.parent.name not in fuera]
 
     def fecha(p: Path) -> str:
@@ -517,19 +553,65 @@ def write_home(lang: str = "es") -> Path:
     alternas = {"en": _url("en"), "es": _url("es")}
     out = (DOCS if lang == "en" else DOCS / ES_DIR) / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(_shell(SITE_NAME, tagline, body, _url(lang), lang=lang,
+    jsonld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "name": SITE_NAME, "url": _url(lang),
+         "inLanguage": lang, "publisher": {"@id": ORG["@id"]}}, ORG]}
+    out.write_text(_shell(SITE_NAME, tagline, body, _url(lang), jsonld, lang=lang,
                           alternas=alternas))
     return out
 
 
+def write_about(lang: str) -> Path:
+    t = TXT[lang]
+    links = "".join(
+        f'<li><a href="https://www.linkedin.com/pulse/{slug}/">'
+        f'{_esc(re.sub(r"\bai\b", "AI", re.split(r"-(?:santiago-)?vivallo--", slug)[0].replace("-", " ").capitalize(), flags=re.I))}</a></li>'
+        for slug in LINKEDIN_ARTICLES)
+    articles = ""
+    for page in _paginas(lang):
+        title = re.search(r"<h1>(.*?)</h1>", page.read_text(), re.S)
+        articles += (f'<li><a href="{_url(lang, page.parent.name)}">'
+                     f'{title.group(1) if title else _esc(page.parent.name)}</a></li>')
+    body = (f'<h1>{AUTHOR["name"]}</h1><p>{t["author_description"]}</p>'
+            f'<p><a href="{AUTHOR["sameAs"][0]}">LinkedIn</a> · '
+            f'<a href="{AUTHOR["sameAs"][1]}">{t["personal_site"]}</a> · '
+            f'<a href="{ORG["url"]}">DentRead</a></p>'
+            f'<h2>{t["linkedin_articles"]}</h2><ul>{links}</ul>'
+            f'<h2>{t["pubs"]}</h2><ul>{articles}</ul>')
+    alternas = {l: _url(l, TXT[l]["author_route"]) for l in ("en", "es")}
+    jsonld = {"@context": "https://schema.org", "@type": "ProfilePage",
+              "mainEntity": AUTHOR}
+    out = (DOCS if lang == "en" else DOCS / ES_DIR) / t["author_route"] / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(_shell(AUTHOR["name"], t["author_description"], body,
+                          alternas[lang], jsonld, lang=lang, alternas=alternas))
+    return out
+
+
 def write_sitemap() -> Path:
-    urls = [_url("en"), _url("en", "data"), _url("es"), _url("es", "datos")]
-    urls += [_url("en", p.parent.name) for p in _paginas("en")]
-    urls += [_url("es", p.parent.name) for p in _paginas("es")]
-    body = "".join(
-        f"<url><loc>{u}</loc><lastmod>{date.today().isoformat()}</lastmod></url>"
-        for u in dict.fromkeys(urls)
-    )
+    body = ""
+    llms = (f"# {SITE_NAME}\n\n"
+            "> US dental market data with sources, by Santiago Vivallo, DDS, CEO of DentRead\n\n"
+            f"## Author\n\n- [Santiago Vivallo, DDS]({_url('en', 'about')})\n\n"
+            f"## Data\n\n- [Data index]({_url('en', 'data')})\n")
+    for lang in ("en", "es"):
+        for route in ("", _ruta_datos(lang), TXT[lang]["author_route"]):
+            body += (f"<url><loc>{_esc(_url(lang, route))}</loc>"
+                     f"<lastmod>{date.today().isoformat()}</lastmod></url>")
+        llms += "\n## " + ("Articles" if lang == "en" else "Español") + "\n\n"
+        for page in _paginas(lang):
+            content = page.read_text()
+            ld = json.loads(re.search(
+                r'<script type="application/ld\+json">(.*?)</script>', content, re.S).group(1))
+            published = ld.get("datePublished")
+            lastmod = f"<lastmod>{_esc(published)}</lastmod>" if published else ""
+            url = _url(lang, page.parent.name)
+            body += f"<url><loc>{_esc(url)}</loc>{lastmod}</url>"
+            title = html.unescape(re.search(r"<title>(.*?)</title>", content, re.S).group(1))
+            description = html.unescape(re.search(
+                r'<meta name="description" content="([^"]*)">', content).group(1))
+            llms += f"- [{title}]({url}): {description}\n"
+    (DOCS / "llms.txt").write_text(llms)
     out = DOCS / "sitemap.xml"
     out.write_text(
         '<?xml version="1.0" encoding="UTF-8"?>'
@@ -548,6 +630,7 @@ def rebuild_indexes() -> None:
     for lang in ("en", "es"):
         write_data_index(lang)
         write_home(lang)
+        write_about(lang)
     write_sitemap()
 
 

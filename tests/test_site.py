@@ -18,6 +18,8 @@ Sin red y sin modelo.
 from __future__ import annotations
 
 import re
+import json
+import xml.etree.ElementTree as ET
 import sys
 import tempfile
 from pathlib import Path
@@ -178,10 +180,61 @@ def probar_cierres_no_se_repiten() -> list[str]:
     return errs
 
 
+def probar_entidades() -> list[str]:
+    errs = []
+    real = site.DOCS
+    post = plan.post_from_block(plan.load_evergreen()[0])
+    with llm.sin_modelo(), tempfile.TemporaryDirectory() as tmp:
+        site.DOCS = Path(tmp)
+        try:
+            spec = generate(post)
+            site.write_article(spec, "2026-01-02", post)
+            site.rebuild_indexes()
+            site.rebuild_indexes()  # author pages must never become articles
+            def ld(content):
+                return json.loads(re.search(
+                    r'<script type="application/ld\+json">(.*?)</script>', content, re.S).group(1))
+            llms = (site.DOCS / "llms.txt").read_text()
+            for lang in ("en", "es"):
+                pages = site._paginas(lang)
+                if len(pages) != 1:
+                    errs.append(f"{lang}: el índice incluye páginas que no son artículos")
+                for page in pages:
+                    content = page.read_text()
+                    author = ld(content)["author"]
+                    if author != {k: site.AUTHOR[k] for k in ("@type", "@id", "name", "url")}:
+                        errs.append(f"{lang}: autor Person incorrecto")
+                    if ld(content)["publisher"]["@id"] != site.ORG["@id"]:
+                        errs.append(f"{lang}: publisher incorrecto")
+                    if f'</h1>\n<p class="byline">{site.TXT[lang]["byline"]}</p>' not in content:
+                        errs.append(f"{lang}: falta firma bajo el título")
+                    if site._url(lang, page.parent.name) not in llms:
+                        errs.append(f"{lang}: artículo ausente en llms.txt")
+                base = site.DOCS if lang == "en" else site.DOCS / "es"
+                about = base / site.TXT[lang]["author_route"] / "index.html"
+                if not about.exists() or ld(about.read_text()) != {
+                    "@context": "https://schema.org", "@type": "ProfilePage", "mainEntity": site.AUTHOR}:
+                    errs.append(f"{lang}: falta ProfilePage del autor")
+                graph = ld((base / "index.html").read_text())["@graph"]
+                if graph[0]["@type"] != "WebSite" or graph[1] != site.ORG:
+                    errs.append(f"{lang}: falta WebSite/Organization")
+            ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+            entries = ET.parse(site.DOCS / "sitemap.xml").findall("s:url", ns)
+            dates = {e.findtext("s:loc", namespaces=ns): e.findtext("s:lastmod", namespaces=ns) for e in entries}
+            for lang in ("en", "es"):
+                if dates.get(site._url(lang, spec.slug)) != "2026-01-02":
+                    errs.append(f"{lang}: sitemap perdió datePublished")
+                if site._url(lang, site.TXT[lang]["author_route"]) not in dates:
+                    errs.append(f"{lang}: autor ausente en sitemap")
+        finally:
+            site.DOCS = real
+    return errs
+
+
 def main() -> int:
     errores = (probar_paginas_con_cuerpo() + probar_pagina_noticia()
                + probar_version_en_ingles() + probar_traduccion_cuida_cifras()
-               + probar_cierres_no_se_repiten())
+               + probar_cierres_no_se_repiten() + probar_entidades())
     if errores:
         print("✗ las páginas o los cierres no están bien:\n")
         print("\n".join(f"  {e}" for e in errores))

@@ -1,0 +1,83 @@
+# DentRead Insights
+
+> US dental market data with sources, by Santiago Vivallo, DDS, CEO of DentRead
+
+## Author
+
+- [Santiago Vivallo, DDS](https://dentread-social.pages.dev/about/)
+
+## Data
+
+- [Data index](https://dentread-social.pages.dev/data/)
+
+## Articles
+
+- [ADA urges dental-specific approach in CMS interoperability, prior authorization proposal  · DentRead Insights](https://dentread-social.pages.dev/news-19567668/): The American Dental Association asked the US government to adapt the new data exchange and prior reporting rules to the particularities of dentistry. The …
+- [Survey finds strong interest in using HSA, FSA funds for oral care products · DentRead Insights](https://dentread-social.pages.dev/news-95714058/): A survey by the Consumer Healthcare Products Association revealed that most health savings account users would buy toothpaste, toothbrushes, and dental fl…
+- [Clinical workflow efficiency · DentRead Insights](https://dentread-social.pages.dev/eficiencia-flujo-clinico/): A large share of a practice's time goes to tasks that are not clinical.
+- [ADA, American Board of Dental Examiners collaborate to advance dental hygiene licensure · DentRead Insights](https://dentread-social.pages.dev/news-22673583/): The American Dental Association and the American Board of Dental Examiners began talks to unify the evaluation in dental hygiene licensing. This measure s…
+- [Dental software is built on the people who already come in · DentRead Insights](https://dentread-social.pages.dev/utilizacion/): Dental software is built on the people who already come in. The other half is an access and coverage problem no category addresses.
+- [ADA urges Senate Finance Committee to include dental in insurance reforms · DentRead Insights](https://dentread-social.pages.dev/news-52378782/): The American Dental Association asked the United States Senate Committee on Finance to incorporate dental coverage into the projected health insurance ref…
+- [Satisfaction and quality of life of patients rehabilitated with digital complete dentures: A systematic review and meta-analysis · DentRead Insights](https://dentread-social.pages.dev/paper-41295945/): A systematic review and meta-analysis evaluated satisfaction and quality of life comparing digital and conventional dentures in twelve studies with edentu…
+- [Photobiomodulation as a preventive strategy for oral mucositis in pediatric oncology: a systematic review and meta-analysis · DentRead Insights](https://dentread-social.pages.dev/paper-40889543/): Photobiomodulation as a preventive strategy for oral mucositis in pediatric oncology: a systematic review and meta-analysis
+- [Follow-up and continuity of care · DentRead Insights](https://dentread-social.pages.dev/seguimiento-continuidad/): Continuity of care depends on someone knowing what is pending and for whom.
+- [Treatment acceptance · DentRead Insights](https://dentread-social.pages.dev/aceptacion-tratamientos/): An accepted treatment plan and a completed treatment are not the same thing.
+- [ADA to launch CBCT training for dentists, teams · DentRead Insights](https://dentread-social.pages.dev/news-95725951/): The American Dental Association presented a new training on cone beam computed tomography that starts on November 6. The program offers two modalities wit…
+- [Technology enters through operations, not through the clinic · DentRead Insights](https://dentread-social.pages.dev/tecnologia-clinica/): Technology enters through operations, not through the clinic. It is an expense justified by time recovered.
+- [ADA urges CMS to account for dental data in Medicaid IT standards · DentRead Insights](https://dentread-social.pages.dev/news-95424708/): The American Dental Association asked the US government to include dental data formats in the new computer rules for the Medicaid system. This measure see…
+- [The segment with the most accumulated need has the weakest coverage · DentRead Insights](https://dentread-social.pages.dev/adultos-mayores/): The segment with the most accumulated need has the weakest coverage.
+- [Preventive care is the most covered and the least completed · DentRead Insights](https://dentread-social.pages.dev/prevencion/): Preventive care is the most covered and the least completed. The problem is getting the patient back.
+- [Patient understanding and trust · DentRead Insights](https://dentread-social.pages.dev/comprension-y-confianza/): Trust in dentistry is built on understanding what is being proposed and why.
+- [ADA calls for greater oversight of dental insurance markets · DentRead Insights](https://dentread-social.pages.dev/news-38178813/): The American Dental Association asked the United States Congress to increase control over dental insurance companies and curb market concentration. The de…
+- [Far more adults lack dental coverage than medical coverage · DentRead Insights](https://dentread-social.pages.dev/sin-seguro/): Far more adults lack dental coverage than medical coverage. A patient paying out of pocket decides differently, and that changes how treatment has to be e…
+- [Pediatric coverage is the most robust in the system and utilization still does not follow · DentRead Insights](https://dentread-social.pages.dev/ninos-chip/): Pediatric coverage is the most robust in the system and utilization still does not follow. The problem is conversion, not the benefit.
+- [My View: The future of dentistry isn't more technology. It's more humanity · DentRead Insights](https://dentread-social.pages.dev/news-6621490/): Increased work stress and anxiety affects a large number of dentists due to administrative and economic pressure. Given this situation, it is proposed to …
+- [CDT 2026 added 31 codes and none of the highlighted ones covers AI · DentRead Insights](https://dentread-social.pages.dev/cdt-sin-codigo-ia/): CDT 2026 added 31 codes and none of the highlighted ones covers AI. That is why the whole category sells treatment acceptance instead of model performance…
+- [Visual communication with the patient · DentRead Insights](https://dentread-social.pages.dev/comunicacion-visual-paciente/): A radiograph is evidence for the professional and an unreadable image for most patients.
+- [Consistency in clinical assessment · DentRead Insights](https://dentread-social.pages.dev/consistencia-evaluacion/): Inter-observer variability in radiographic interpretation is documented in the dental literature.
+- [Who practices and where · DentRead Insights](https://dentread-social.pages.dev/demografia-dentista/): Who practices and where. Distribution explains access better than headcount does.
+- [Coverage sets volume · DentRead Insights](https://dentread-social.pages.dev/medicaid-adultos/): Coverage sets volume. Where the benefit is broad, utilization rises: the bottleneck is coverage, not clinical capacity.
+- [Purchasing decisions are centralizing · DentRead Insights](https://dentread-social.pages.dev/consolidacion-dso/): Purchasing decisions are centralizing. Selling to a practice and selling to a group are two different businesses.
+- [Support for radiographic analysis · DentRead Insights](https://dentread-social.pages.dev/apoyo-analisis-radiografico/): Radiographic analysis is a cognitively demanding task repeated dozens of times a day.
+- [Efficacy of supportive peri-implant therapy in the management of peri-implant mucositis and peri-implantitis: A systematic review · DentRead Insights](https://dentread-social.pages.dev/paper-41204923/): This systematic review of 25 studies (9 randomized controlled trials, 13 cohort, and 3 case-control) evaluated the effectiveness of supportive peri-implan…
+- [ADA calls out UnitedHealthcare credentialing portal for doubling dentists’ paperwork · DentRead Insights](https://dentread-social.pages.dev/news-60814929/): The American Dental Association requested that UnitedHealthcare accept credentialing data directly from the CAQH platform instead of requiring duplicate p…
+- [Proposed ADA standard specifies requirements for comprehensive, consistent dental EOBs · DentRead Insights](https://dentread-social.pages.dev/news-56913837/): The American Dental Association presented a proposal to standardize explanation of benefits reports across clinics and insurers, with a deadline to submit…
+- [AI applied to dental radiographs · DentRead Insights](https://dentread-social.pages.dev/ia-radiografias-dentales/): DentRead applies artificial intelligence to the analysis of dental radiographic images.
+- [What DentRead is · DentRead Insights](https://dentread-social.pages.dev/que-es-dentread/): DentRead builds artificial intelligence tools for dental radiographs and clinical workflows.
+- [Cost is the number one reason people delay care · DentRead Insights](https://dentread-social.pages.dev/costo-barrera/): Cost is the number one reason people delay care. The money conversation is part of the clinical encounter, not an afterthought.
+
+## Español
+
+- [Pedir autorización al seguro va a cambiar · DentRead Insights](https://dentread-social.pages.dev/es/news-19567668/): Automatizar una lectura es lo fácil. Lo difícil es que alguien actúe sobre ella. 🦷
+- [Ahorrar impuestos al comprar hilo dental · DentRead Insights](https://dentread-social.pages.dev/es/news-95714058/): Un dato del sector no cambia una agenda. Cambia qué preguntar en la reunión del lunes. 🦷
+- [Buena parte del tiempo de una clínica se va en tareas que no son clínicas · DentRead Insights](https://dentread-social.pages.dev/es/eficiencia-flujo-clinico/): El tiempo clínico no se estira. Se recupera de lo administrativo. 🦷
+- [Buscan unificar cómo evalúan a los higienistas · DentRead Insights](https://dentread-social.pages.dev/es/news-22673583/): La evidencia clínica avanza despacio. El flujo que la aplica, más despacio todavía. 🦷
+- [Estar cubierto no alcanza · DentRead Insights](https://dentread-social.pages.dev/es/utilizacion/): El que no vuelve ya estuvo sentado en tu sillón. Recuperarlo cuesta menos que conseguir uno nuevo. 🦷
+- [La burocracia de los seguros puede cambiar · DentRead Insights](https://dentread-social.pages.dev/es/news-52378782/): Nadie cambia un flujo por una demo. Lo cambia por una cifra propia. 🦷
+- [El mito de la prótesis digital superior · DentRead Insights](https://dentread-social.pages.dev/es/paper-41295945/): Una revisión ordena lo que ya se sabía. Ahí se ve qué sigue sin estudiarse. 🦷
+- [La quimio infantil y el dolor en la boca · DentRead Insights](https://dentread-social.pages.dev/es/paper-40889543/): Una revisión ordena lo que ya se sabía. Ahí se ve qué sigue sin estudiarse. 🦷
+- [La continuidad de la atención depende de que alguien sepa qué quedó pendiente y con quién · DentRead Insights](https://dentread-social.pages.dev/es/seguimiento-continuidad/): El hallazgo sin seguimiento se archiva. La continuidad es trabajo, no suerte. 🦷
+- [Un plan de tratamiento aceptado y un tratamiento completado no son lo mismo · DentRead Insights](https://dentread-social.pages.dev/es/aceptacion-tratamientos/): El plan aceptado no es el plan terminado. Entre los dos se pierde el paciente. 🦷
+- [La ADA cambia cómo enseñará las tomografías · DentRead Insights](https://dentread-social.pages.dev/es/news-95725951/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
+- [La compra la firma la administración · DentRead Insights](https://dentread-social.pages.dev/es/tecnologia-clinica/): La tecnología entra por la operación. Se justifica en tiempo, no en diagnóstico. 🦷
+- [Medicaid puede cambiar la historia clínica · DentRead Insights](https://dentread-social.pages.dev/es/news-95424708/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
+- [Medicare no cubre al dentista · DentRead Insights](https://dentread-social.pages.dev/es/adultos-mayores/): La necesidad acumulada llega en planes largos. Los planes largos son los que más se abandonan. 🦷
+- [La limpieza que nunca se agenda · DentRead Insights](https://dentread-social.pages.dev/es/prevencion/): Lo preventivo se cubre y no se completa. El problema es que el paciente vuelva. 🦷
+- [La confianza en odontología se construye sobre entender qué se está proponiendo y por qué · DentRead Insights](https://dentread-social.pages.dev/es/comprension-y-confianza/): Nadie acepta lo que no entiende. La confianza empieza por la explicación. 🦷
+- [La IA de tu seguro te rechaza el plan · DentRead Insights](https://dentread-social.pages.dev/es/news-38178813/): La cifra describe. No decide. La decisión sigue siendo de quien atiende. 🦷
+- [El que paga de su bolsillo pregunta más · DentRead Insights](https://dentread-social.pages.dev/es/sin-seguro/): Sin seguro, cada plan se discute. Explicar bien vale más que descontar. 🦷
+- [Estar cubierto no alcanza · DentRead Insights](https://dentread-social.pages.dev/es/ninos-chip/): La cobertura está. La visita no. El problema es la conversión. 🦷
+- [La tecnología no calma el agotamiento dental · DentRead Insights](https://dentread-social.pages.dev/es/news-6621490/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
+- [Un gasto, no una línea de ingreso · DentRead Insights](https://dentread-social.pages.dev/es/cdt-sin-codigo-ia/): Ningún código paga por usar IA. Se paga el tratamiento que sí se termina. 🦷
+- [Una radiografía es evidencia para el profesional y una imagen ilegible para la mayoría de los pacientes · DentRead Insights](https://dentread-social.pages.dev/es/comunicacion-visual-paciente/): El paciente no ve lo que vos ves. Mostrarlo cambia la conversación. 🦷
+- [La variabilidad entre observadores en la interpretación radiográfica está documentada en la literatura odontológica · DentRead Insights](https://dentread-social.pages.dev/es/consistencia-evaluacion/): Un criterio parejo no se pide. Se sostiene con un registro que alguien mire. 🦷
+- [No faltan dentistas en todas partes · DentRead Insights](https://dentread-social.pages.dev/es/demografia-dentista/): Sumar un dentista lleva meses. Recuperar una hora de agenda, no. 🦷
+- [Cubrir no es lo mismo que pagar · DentRead Insights](https://dentread-social.pages.dev/es/medicaid-adultos/): Ampliar cobertura llena la agenda. Terminar el tratamiento es otro problema. 🦷
+- [Cada vez menos clínicas deciden solas · DentRead Insights](https://dentread-social.pages.dev/es/consolidacion-dso/): Quien decide ya no está en el sillón. Vender a un grupo es otro negocio. 🦷
+- [El análisis radiográfico es una tarea de alta carga cognitiva que se repite decenas de veces por jornada · DentRead Insights](https://dentread-social.pages.dev/es/apoyo-analisis-radiografico/): Una segunda mirada no reemplaza a nadie. Ordena la primera. 🦷
+- [25 estudios sobre implantes y un resultado borroso · DentRead Insights](https://dentread-social.pages.dev/es/paper-41204923/): Una revisión ordena lo que ya se sabía. Ahí se ve qué sigue sin estudiarse. 🦷
+- [Cargar dos veces lo mismo para atender · DentRead Insights](https://dentread-social.pages.dev/es/news-60814929/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
+- [Cobrarle a los seguros podría ser más fácil · DentRead Insights](https://dentread-social.pages.dev/es/news-56913837/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
+- [DentRead aplica inteligencia artificial al análisis de imágenes radiográficas dentales · DentRead Insights](https://dentread-social.pages.dev/es/ia-radiografias-dentales/): La imagen ya tiene la información. Falta que llegue a tiempo. 🦷
+- [DentRead desarrolla herramientas de inteligencia artificial para radiografías dentales y flujos clínicos · DentRead Insights](https://dentread-social.pages.dev/es/que-es-dentread/): Leer la radiografía es el principio. Lo que sigue casi nunca se mide. 🦷
+- [La primera barrera no es clínica · DentRead Insights](https://dentread-social.pages.dev/es/costo-barrera/): El precio no se objeta: se posterga. Lo que no se entiende, no se paga. 🦷
