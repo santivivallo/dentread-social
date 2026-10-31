@@ -1,8 +1,8 @@
 """
-Agente de contenido: 3 guiones de reel por día para @dentread_.
+Agente de contenido: 4 guiones de reel por día (3 dentales + 1 tendencia o herramienta de IA) para @dentread_.
 
 Junta lo que pasó (noticias ADA ya archivadas, papers de IA dental en PubMed y
-novedades de competidores vía Google News RSS) y le pide al modelo 3 guiones
+novedades de competidores, tendencias y herramientas nuevas de IA vía Google News, Hacker News y Product Hunt) y le pide al modelo 3 guiones
 con los formatos de anuncio aprobados. Regla 1 del repo: las cifras no las
 inventa el modelo. Un guion con un número que no esté en un hecho verificado
 (data/facts.json) ni en el titular de su fuente se descarta.
@@ -45,7 +45,7 @@ Escribe en español de Chile, tono cercano y profesional. Reglas que no se negoc
 - Sin testimonios, clientes ni sellos inventados. Si hablas de un competidor, solo lo que dice su titular, sin atacarlo.
 - fuente_url debe ser la fuente del tema del guion; si la cifra viene de HECHOS, cita su id en "hechos".
 - Cada guion: gancho de máximo 8 palabras (primeros 2 segundos), 3 a 5 escenas cortas, cierre con llamada a la acción.
-Devuelve SOLO JSON: {"guiones":[{"titulo":"","formato":"","gancho":"","escenas":["",""],"cierre":"","fuente_url":"","hechos":["id"]}]} con exactamente 3 guiones de formatos distintos."""
+Devuelve SOLO JSON: {"guiones":[{"titulo":"","formato":"","gancho":"","escenas":["",""],"cierre":"","fuente_url":"","hechos":["id"]}]} con exactamente 4 guiones de formatos distintos: 3 sobre odontología/IA dental y competidores, y el 4.º SIEMPRE sobre una tendencia o herramienta nueva de IA (fuentes «tendencia IA», «IA en salud» o «herramienta»), explicando qué significa para un dentista o una clínica. Si la herramienta no tiene relación posible con salud o clínicas, elige otra."""
 
 
 def _get(url: str, timeout: int = 20) -> bytes:
@@ -54,22 +54,47 @@ def _get(url: str, timeout: int = 20) -> bytes:
         return r.read()
 
 
-def competidores(dias: int = 7) -> list[dict]:
-    q = "(" + " OR ".join(f'"{c}"' for c in COMPETIDORES) + f") dental AI when:{dias}d"
-    url = "https://news.google.com/rss/search?" + urllib.parse.urlencode({"q": q, "hl": "en-US", "gl": "US", "ceid": "US:en"})
+def _gnews(q: str, dias: int) -> str:
+    return "https://news.google.com/rss/search?" + urllib.parse.urlencode({"q": f"{q} when:{dias}d", "hl": "en-US", "gl": "US", "ceid": "US:en"})
+
+
+# (tipo, url, máximo). Todas gratis y sin clave. Si una cae, las demás siguen.
+FEEDS = [
+    ("competidor", _gnews("(" + " OR ".join(f'"{c}"' for c in COMPETIDORES) + ") dental AI", 7), 6),
+    ("tendencia IA", _gnews('("AI" OR "artificial intelligence") (launch OR "new model" OR "new tool" OR agent)', 3), 6),
+    ("IA en salud", _gnews('("AI" healthcare OR "AI" dentistry OR "AI" radiology) (study OR launch OR FDA)', 7), 5),
+    ("herramienta", "https://hnrss.org/newest?points=100&q=AI", 5),
+    ("herramienta", "https://www.producthunt.com/feed?category=artificial-intelligence", 5),
+]
+ATOM = "{http://www.w3.org/2005/Atom}"
+
+
+def feed(tipo: str, url: str, maximo: int) -> list[dict]:
     try:
         root = ET.fromstring(_get(url))
-    except Exception as e:  # sin red o RSS caído: el guion sale con lo demás
-        print(f"[guiones] competidores no disponibles: {e}", file=sys.stderr)
+    except Exception as e:  # sin red o feed caído: el guion sale con lo demás
+        print(f"[guiones] {tipo} no disponible: {str(e)[:80]}", file=sys.stderr)
         return []
     out = []
-    for it in root.iter("item"):
+    for it in list(root.iter("item")) + list(root.iter(ATOM + "entry")):
+        titulo = it.findtext("title") or it.findtext(ATOM + "title") or ""
+        link = it.findtext("link") or (it.find(ATOM + "link").get("href") if it.find(ATOM + "link") is not None else "")
+        bruto = it.findtext("pubDate") or it.findtext(ATOM + "published") or it.findtext(ATOM + "updated") or ""
         try:
-            fecha = parsedate_to_datetime(it.findtext("pubDate") or "").date().isoformat()
+            fecha = parsedate_to_datetime(bruto).date().isoformat()
         except (TypeError, ValueError):
-            fecha = ""
-        out.append({"tipo": "competidor", "titulo": it.findtext("title") or "", "url": it.findtext("link") or "", "fecha": fecha})
-    return out[:8]
+            fecha = bruto[:10]
+        out.append({"tipo": tipo, "titulo": titulo.strip(), "url": link, "fecha": fecha})
+    return out[:maximo]
+
+
+def externas() -> list[dict]:
+    vistos, out = set(), []
+    for tipo, url, maximo in FEEDS:
+        for f in feed(tipo, url, maximo):
+            if f["url"] and f["url"] not in vistos:
+                vistos.add(f["url"]); out.append(f)
+    return out
 
 
 def noticias(dias: int = 21) -> list[dict]:
@@ -123,7 +148,7 @@ def valido(g: dict, fuentes: list[dict], hs: list[dict]) -> tuple[bool, str]:
 
 
 def generar(con_red: bool = True) -> dict:
-    fuentes = noticias() + (competidores() if con_red else [])
+    fuentes = noticias() + (externas() if con_red else [])
     hs = hechos()
     contenido = json.dumps({"FORMATOS": FORMATOS, "FUENTES": fuentes, "HECHOS": hs}, ensure_ascii=False)
     texto = llm.pedir(REGLAS, contenido) or ""
@@ -137,7 +162,7 @@ def generar(con_red: bool = True) -> dict:
         bien, motivo = valido(g, fuentes, hs)
         (ok if bien else descartes).append(g if bien else {"titulo": g.get("titulo", ""), "motivo": motivo})
     return {"fecha": date.today().isoformat(), "generado": datetime.utcnow().isoformat(timespec="seconds") + "Z",
-            "guiones": ok[:3], "descartados": descartes, "fuentes": len(fuentes)}
+            "guiones": ok[:4], "descartados": descartes, "fuentes": len(fuentes)}
 
 
 def markdown(r: dict) -> str:
