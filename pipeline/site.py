@@ -53,7 +53,8 @@ AUTHOR = {
     "url": f"{BASE_URL}/about/",
     "sameAs": ["https://www.linkedin.com/in/santivivallo",
                "https://santiagovivallo.pages.dev",
-               "https://orcid.org/0009-0002-2718-3356"],
+               "https://orcid.org/0009-0002-2718-3356",
+               "https://scholar.google.com/citations?user=TpNjgMIAAAAJ"],
     "knowsAbout": ["Dental radiography", "Artificial intelligence in dentistry",
                    "Digital dentistry", "Dental practice management",
                    "Dental public health", "Salivary biomarkers"],
@@ -638,6 +639,7 @@ def write_about(lang: str) -> Path:
             f'<p><a href="{AUTHOR["sameAs"][0]}">LinkedIn</a> · '
             f'<a href="{AUTHOR["sameAs"][1]}">{t["personal_site"]}</a> · '
             f'<a href="{AUTHOR["sameAs"][2]}">ORCID</a> · '
+            f'<a href="{AUTHOR["sameAs"][3]}">Google Scholar</a> · '
             f'<a href="{ORG["url"]}">DentRead</a></p>'
             f'<h2>{t["linkedin_articles"]}</h2><ul>{links}</ul>'
             f'<h2>{t["pubs"]}</h2><ul>{articles}</ul>')
