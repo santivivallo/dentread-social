@@ -1,63 +1,62 @@
 {
-  "fecha": "2026-10-31",
-  "generado": "2026-10-31T20:02:33Z",
+  "fecha": "2026-11-01",
+  "generado": "2026-11-01T17:07:02Z",
   "guiones": [
     {
-      "titulo": "Protección de datos en la clínica dental",
+      "titulo": "Ciberseguridad en la clínica",
       "formato": "Última hora (noticia real con fuente)",
-      "gancho": "¿Tu clínica está lista para la ciberseguridad?",
+      "gancho": "Alerta de ciberseguridad para tu clínica dental",
       "escenas": [
-        "La Asociación Dental Americana instó al Congreso de EE.UU. a abordar los ciberataques en las prácticas dentales.",
-        "Las fichas clínicas y las radiografías contienen datos sensibles de tus pacientes que requieren resguardo constante.",
-        "DentRead apoya el análisis de tus imágenes radiográficas con Inteligencia Artificial, mientras tú mantienes el control clínico y la decisión final del diagnóstico."
+        "La ADA exigió al Congreso estadounidense abordar con urgencia la ciberseguridad en las consultas dentales.",
+        "Las fichas y radiografías de tus pacientes son datos súper sensibles que requieren máxima protección.",
+        "DentRead te ayuda a detectar hallazgos en radiografías con IA de forma segura, apoyando tu trabajo diario."
       ],
-      "cierre": "Prueba DentRead y fortalece la revisión de tus imágenes radiográficas.",
+      "cierre": "Prueba DentRead hoy y optimiza la lectura de tus radiografías.",
       "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
       "hechos": []
     },
     {
-      "titulo": "Uso de la IA en la radiología dental",
-      "formato": "Problema → solución",
-      "gancho": "¿Mucho tiempo revisando cada radiografía dental?",
+      "titulo": "El mito de la IA sola",
+      "formato": "No vayas de listo (corrige un mito)",
+      "gancho": "Pensar que la IA diagnostica sola es falso",
       "escenas": [
-        "Revisar decenas de radiografías al día genera cansancio visual y consume valiosos minutos entre paciente y paciente.",
-        "Investigaciones recientes analizan la aceptabilidad de la IA entre profesionales dentales y estudiantes para optimizar el flujo de trabajo.",
-        "Con DentRead obtienes un soporte de Inteligencia Artificial que detecta posibles hallazgos radiográficos en segundos. Tú siempre mantienes el juicio y la decisión clínica final."
+        "Existe el mito de que el software de IA reemplazará el criterio del dentista en la clínica.",
+        "Un estudio sistemático sobre IA explicable en odontología resalta la importancia de la confianza y el criterio profesional.",
+        "DentRead no da diagnósticos automáticos: es una herramienta que apoya la lectura radiográfica, pero tú siempre decides."
       ],
-      "cierre": "Optimiza tu flujo radiológico probando DentRead hoy mismo.",
-      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/41061312/",
+      "cierre": "Súmate al diagnóstico asistido por IA visitando DentRead.com.",
+      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/42184717/",
       "hechos": []
     },
     {
-      "titulo": "Adopción real de la IA dental",
+      "titulo": "Adopción de IA en imagenología",
       "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "El 43,3% ya usa Inteligencia Artificial",
+      "gancho": "El 22,8% ya usa IA en imágenes",
       "escenas": [
-        "Un estudio de la ADA reveló que el 43,3% de los dentistas usa IA para al menos una tarea en su clínica.",
-        "Además, un 22,8% la utiliza específicamente para apoyar la lectura de imágenes dentales.",
-        "DentRead se integra a tu consulta como un segundo par de ojos radiográfico para que evalúes más rápido, manteniendo la decisión final en tus manos."
+        "Según datos de la ADA, un 22,8% de los dentistas ya usa IA para imagenología.",
+        "Además, un 25,4% de los profesionales planea integrarla muy pronto en sus consultas.",
+        "DentRead te acompaña en esta transición, marcando posibles hallazgos en tus radiografías para que evalúes con calma."
       ],
-      "cierre": "Únete a la modernización de la radiología con DentRead.",
+      "cierre": "Descubre cómo DentRead apoya tu flujo de trabajo.",
       "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
       "hechos": [
-        "ia-adopcion-433",
         "ia-imagen-228"
       ]
     },
     {
-      "titulo": "Transparencia al usar IA en salud",
-      "formato": "X razones por las que…",
-      "gancho": "Nuevas leyes exigirán transparentar la IA",
+      "titulo": "IA en salud y prevención",
+      "formato": "Problema → solución",
+      "gancho": "La IA detecta signos invisibles en salud",
       "escenas": [
-        "La Cámara de Pennsylvania aprobó un proyecto que exige informar el uso de IA en la atención de salud.",
-        "Esto reafirma que la Inteligencia Artificial debe actuar como un complemento de asistencia y no como un sustituto del profesional.",
-        "En la práctica dental, herramientas como DentRead analizan imágenes para asistirte, asegurando que el cirujano dentista sea siempre quien toma la decisión diagnóstica final."
+        "Un avance científico demostró que la IA puede detectar signos invisibles de cáncer pancreático años antes del diagnóstico.",
+        "Este tipo de tecnología demuestra el verdadero rol de la IA: visibilizar detalles sutiles para que el especialista actúe.",
+        "En odontología pasa lo mismo: DentRead analiza tus radiografías buscando sombras o patologías para que tú no pases nada por alto."
       ],
-      "cierre": "Conoce cómo DentRead apoya tu labor radiológica con total transparencia.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPNldOMU1fVnBUR2h1NENOUUtDUHFtQnVHaVRub0cwX3pxZnpUd0N5ZGI1ZkZROGJtUi1vNGNEUUdoRUt3WlJWZkNodHdqckw5c0ZiTmRyME1jYzdxZnFpNEFsdk1zSEluUkxjaWFsYlRaUlZRTE5JUmVNTjkyU0FCSk9sSTBhRzkzelhmUFZxQ0p0OWQ2OGZIc0N1MVdGdFJZM1dINFBvd1lMSWpCbnQtZzJ0OFRmRUlzT3hmWU5HRGpTU3RW?oc=5",
+      "cierre": "Potencia tu revisión radiográfica con DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5iT1h4YWVpam5oZE9WWGVkSjFuN1JiVGU3b0xnWE1IdXJwVkdBV0Rrb2FIY1U0N29FaU4yR2ZKT24zVTFxTWkzaHk4Ym5qeGxqU2stdTFMeEZnazhrMVNCVUVoT2FNSDhoU3ZUZGtHaw?oc=5",
       "hechos": []
     }
   ],
   "descartados": [],
-  "fuentes": 36
+  "fuentes": 31
 }

@@ -186,3 +186,4 @@
 {"ts": "2026-10-30T18:43:29+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "41106338591", "kind": "news", "id": "news-19567668", "slug": "news-19567668", "modo": "news", "redaccion": "curada"}
 {"ts": "2026-10-30T18:43:29+00:00", "evento": "corrida", "origen": "schedule", "corrida": "41106338591", "pedidos": 1, "listos": 1, "descartados": 5, "preview": false}
 {"ts": "2026-10-30T18:44:21+00:00", "evento": "publicado", "origen": "schedule", "corrida": "41106338591", "carpeta": "out/2026-10-30-news-19567668", "plataformas": ["instagram"], "resultados": {"instagram": "17966064630197962"}}
+{"ts": "2026-11-01T17:07:02+00:00", "evento": "llamada_modelo", "origen": "schedule", "corrida": "41329480855", "ok": true, "modelo": "gemini-flash-latest", "motivo": "ReadTimeout: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=40)"}
