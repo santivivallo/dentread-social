@@ -1,62 +1,55 @@
 {
-  "fecha": "2026-11-01",
-  "generado": "2026-11-01T17:07:02Z",
+  "fecha": "2026-11-02",
+  "generado": "2026-11-02T20:44:37Z",
   "guiones": [
     {
-      "titulo": "Ciberseguridad en la clínica",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "Alerta de ciberseguridad para tu clínica dental",
-      "escenas": [
-        "La ADA exigió al Congreso estadounidense abordar con urgencia la ciberseguridad en las consultas dentales.",
-        "Las fichas y radiografías de tus pacientes son datos súper sensibles que requieren máxima protección.",
-        "DentRead te ayuda a detectar hallazgos en radiografías con IA de forma segura, apoyando tu trabajo diario."
-      ],
-      "cierre": "Prueba DentRead hoy y optimiza la lectura de tus radiografías.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
-      "hechos": []
-    },
-    {
-      "titulo": "El mito de la IA sola",
-      "formato": "No vayas de listo (corrige un mito)",
-      "gancho": "Pensar que la IA diagnostica sola es falso",
-      "escenas": [
-        "Existe el mito de que el software de IA reemplazará el criterio del dentista en la clínica.",
-        "Un estudio sistemático sobre IA explicable en odontología resalta la importancia de la confianza y el criterio profesional.",
-        "DentRead no da diagnósticos automáticos: es una herramienta que apoya la lectura radiográfica, pero tú siempre decides."
-      ],
-      "cierre": "Súmate al diagnóstico asistido por IA visitando DentRead.com.",
-      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/42184717/",
-      "hechos": []
-    },
-    {
-      "titulo": "Adopción de IA en imagenología",
+      "titulo": "El mercado de detección de caries con IA al 2030",
       "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "El 22,8% ya usa IA en imágenes",
+      "gancho": "¿El mercado de IA dental crecerá tanto?",
       "escenas": [
-        "Según datos de la ADA, un 22,8% de los dentistas ya usa IA para imagenología.",
-        "Además, un 25,4% de los profesionales planea integrarla muy pronto en sus consultas.",
-        "DentRead te acompaña en esta transición, marcando posibles hallazgos en tus radiografías para que evalúes con calma."
+        "Un titular proyecta que el mercado de detección de caries con IA llegará a 1.29 mil millones de dólares al 2030.",
+        "Esto no significa que un software reemplace tu criterio clínico ni que diagnostique solo.",
+        "Significa que cada vez más clínicas suman un segundo par de ojos digital para leer radiografías más rápido.",
+        "La tecnología marca hallazgos sospechosos, pero la decisión de tratamiento siempre queda en tus manos."
       ],
-      "cierre": "Descubre cómo DentRead apoya tu flujo de trabajo.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
-      "hechos": [
-        "ia-imagen-228"
-      ]
+      "cierre": "Conoce cómo DentRead asiste tu revisión radiográfica en el link de la bio.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQQmdqdXFHa3Yzby1PZUpaeURhUjdiSHJueUJEQm5mNWN4NTBMU1FpZzlQaEZpTjcwU2h0MFZqME00VGc1YUhOWVlWVmhDSXN3WUxqLXl4dkJIOVVlT1E5SkdsQ3NVN05TS3pzd2d2aTc0UUh1d2s0cEhCV0RGSTRsSFl2WENwYkxWSDNiSm4xR0VxbDhoWTEzMklR?oc=5",
+      "hechos": []
     },
     {
-      "titulo": "IA en salud y prevención",
-      "formato": "Problema → solución",
-      "gancho": "La IA detecta signos invisibles en salud",
+      "titulo": "Ciberseguridad y datos de pacientes en la clínica",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "Alerta de ciberseguridad en clínicas dentales",
       "escenas": [
-        "Un avance científico demostró que la IA puede detectar signos invisibles de cáncer pancreático años antes del diagnóstico.",
-        "Este tipo de tecnología demuestra el verdadero rol de la IA: visibilizar detalles sutiles para que el especialista actúe.",
-        "En odontología pasa lo mismo: DentRead analiza tus radiografías buscando sombras o patologías para que tú no pases nada por alto."
+        "La ADA acaba de solicitar al Congreso estadounidense abordar con urgencia la ciberseguridad en las prácticas odontológicas.",
+        "Las fichas clínicas y las radiografías digitales contienen datos sensibles que exigen plataformas seguras y confiables.",
+        "Incorporar herramientas de software en el box no puede poner en riesgo la privacidad de tus pacientes.",
+        "Trabajar con soluciones diseñadas para el flujo dental profesional protege tanto tu criterio como tu información."
       ],
-      "cierre": "Potencia tu revisión radiográfica con DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5iT1h4YWVpam5oZE9WWGVkSjFuN1JiVGU3b0xnWE1IdXJwVkdBV0Rrb2FIY1U0N29FaU4yR2ZKT24zVTFxTWkzaHk4Ym5qeGxqU2stdTFMeEZnazhrMVNCVUVoT2FNSDhoU3ZUZGtHaw?oc=5",
+      "cierre": "Revisa cómo DentRead protege tus imágenes clínicas en el enlace del perfil.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
+      "hechos": []
+    },
+    {
+      "titulo": "Agentes de IA: ponlos a prueba antes de usarlos",
+      "formato": "Problema → solución",
+      "gancho": "¿Vas a sumar agentes de IA?",
+      "escenas": [
+        "La revista Inc. destaca una regla de oro para cualquier negocio: antes de desplegar un agente de IA, intenta ponerlo a prueba en sus límites.",
+        "Si piensas usar IA para responder mensajes de pacientes o clasificar consultas en recepción, no confíes a ciegas.",
+        "El problema surge cuando automatizas la atención sin supervisar cómo reacciona ante preguntas complejas o emergencias.",
+        "La solución en salud siempre es la misma: la tecnología asiste en tareas operativas, pero el equipo humano revisa y decide."
+      ],
+      "cierre": "Comenta cómo usas la tecnología en tu clínica y conversemos.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORFdZTTVkbzA1d24wazA4Nkp2akh0QXg5RjJZSHZxYUpRbkNVS3o5SFZyNG1mOTJzUXdlbE9tbnBwakFqdjRNTUl5NFJaQlRYWmhSZ2dEUXpfZEdINzFkTTEzNVNwX193S210dnhaeElnS01pcjdkbU1MakZoQjlGMG1vckVWRE96eDBHSDR1Qm5BYkhUQ1d2d19mUlkzSXhTZHdFZWRDZWRSX09Bd3daUkVYRi1zQ2E1YTZYMQ?oc=5",
       "hechos": []
     }
   ],
-  "descartados": [],
-  "fuentes": 31
+  "descartados": [
+    {
+      "titulo": "La IA en radiografías dentales no decide sola",
+      "motivo": "cifras sin respaldo: 100"
+    }
+  ],
+  "fuentes": 33
 }
