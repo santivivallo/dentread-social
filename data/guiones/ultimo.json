@@ -1,59 +1,57 @@
 {
-  "fecha": "2026-11-03",
-  "generado": "2026-11-03T18:20:56Z",
+  "fecha": "2026-11-04",
+  "generado": "2026-11-04T18:34:16Z",
   "guiones": [
     {
-      "titulo": "Ciberseguridad en la clínica",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "¿Tu clínica dental está protegida contra ciberataques?",
-      "escenas": [
-        "La ADA exigió al Congreso estadounidense abordar urgentemente la ciberseguridad en las prácticas dentales.",
-        "Las fichas clínicas y las radiografías digitales son presas fáciles si no usas software actualizado y seguro.",
-        "DentRead no solo acelera la lectura de radiografías con IA, sino que protege la información de tus pacientes con estándares de máxima seguridad.",
-        "Recuerda que la IA apoya tu trabajo y te respalda, pero la decisión final siempre es tuya."
-      ],
-      "cierre": "Prueba DentRead hoy y asegura tu consulta.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
-      "hechos": []
-    },
-    {
-      "titulo": "El mito de la IA sola",
-      "formato": "Reseña cero estrellas (ironía)",
-      "gancho": "Le pongo cero estrellas a la IA dental.",
-      "escenas": [
-        "Esperaba que el software atendiera solo, hiciera la anamnesis y operara sin que yo moviera un dedo. ¡Qué mala racha!",
-        "La realidad es que el 82,6% de los dentistas no piensa usar IA para planificar tratamientos a ciegas.",
-        "DentRead no reemplaza tu criterio clínico. Es la herramienta que detecta sombras dudosas en las radiografías para que tú decidas con precisión.",
-        "El diagnóstico definitivo lo haces tú, la IA te ahorra tiempo de revisión."
-      ],
-      "cierre": "Potencia tu criterio con DentRead.",
-      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/42184717/",
-      "hechos": [
-        "ia-tratamiento-826"
-      ]
-    },
-    {
-      "titulo": "Adopción de imagenología",
+      "titulo": "Adopción de IA en el sillón dental",
       "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "El 22,8% de los dentistas ya usa IA.",
+      "gancho": "¿Usas IA para ver radiografías?",
       "escenas": [
-        "Un 22,8% de los odontólogos usa IA en imagenología y un 25,4% adicional planea sumarse muy pronto.",
-        "Artículos de revistas como Dentistry Today destacan el impacto de escanear y analizar radiografías asistidas por IA para modernizar la atención.",
-        "Con DentRead, subes la radiografía y obtienes un análisis de apoyo visual en segundos, evitando pasar horas buscando lesiones incipientes.",
-        "Menos fatiga visual para ti y una segunda opinión rápida durante el examen."
+        "Un dato clave: según el ADA Health Policy Institute, el 22,8% de los dentistas ya usa inteligencia artificial en imagenología y diagnóstico.",
+        "Además, un 25,4% que aún no la prueba planea sumarla a su consulta pronto.",
+        "Esto demuestra cómo la tecnología apoya la rutina clínica diaria sin complicaciones.",
+        "DentRead analiza tus radiografías con IA en segundos para hacer tu revisión más eficiente. Tú siempre mantienes el control."
       ],
-      "cierre": "Súmate a la innovación dental con DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNRHR3ODNfamg5a3AyZE9hd0FROWNCYXAzSjRKNFVmZkFiVm9IeEUzTmp4bHVDTGtzcnQ2aFU0Y25kUTNzYmZkV0ljbGRVdnRLTFJBbUZrUjVUOV9mRnVnN1FFcGRzLVJNTVlrZlo2NGJLa0N0dFYzTmVkbEFyTFlMRmFIWkhZLXl3Q3k2bzlwbDF6U0Q4RGhF?oc=5",
+      "cierre": "Prueba DentRead hoy y optimiza tu flujo clínico.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
       "hechos": [
         "ia-imagen-228"
       ]
+    },
+    {
+      "titulo": "Integrando IA paso a paso",
+      "formato": "Antiguo vs nuevo",
+      "gancho": "¿Te abruma la tecnología en clínica?",
+      "escenas": [
+        "El portal DrBicuspid destaca la idea: 'Start where you are: A practical first step for AI in dental practices'.",
+        "Antes se pensaba que adoptar IA exigía cambiar todo el equipamiento del centro dental.",
+        "Hoy el primer paso es simple: integrar software que asista en la lectura radiográfica existente.",
+        "DentRead se suma a tu trabajo diario para complementar tu criterio profesional, sin prometértelo todo ni reemplazar tu decisión."
+      ],
+      "cierre": "Simplifica tu consulta dental registrándote en DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSUkxaHRLVlBmc1R2czFmV0FpZWM5VkNzaGdBNGFodWNzaXRyazdNLTZ0d1hRQ2JvamlUXzk2b1hzZ1Fwem11VnBjaFltTzBuRlkxR1Z5cVd6azRiN0NMYnU4NHA2TzRPY0ZCeHgxY0QwMFM5Mm93QUp1NmN2aGwwZWp6RUFWOHlnUGhZR2VJRUg5UllseW84R19OYkIwVmdYenJ4bA?oc=5",
+      "hechos": []
+    },
+    {
+      "titulo": "Avances de IA en imágenes médicas",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "IA en ecografías: nuevo hito médico.",
+      "escenas": [
+        "Medical Xpress reporta: 'Vision-language AI agent could help radiologists interpret ultrasounds faster and more accurately'.",
+        "Esta tendencia de modelos visuales que apoyan el análisis de imágenes está transformando toda la salud.",
+        "Para los dentistas, significa que el software de asistencia radiográfica es cada vez más refinado y preciso.",
+        "DentRead aplica estos avances al área dental: analiza radiografías para apoyarte a ti, que tomas la decisión final."
+      ],
+      "cierre": "Súmate a la IA en odontología con DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOcUVYNHhDczR6M0ljS2Y4Y2YyUTNiZ3huaTlyeWhaY3dwUjBnQm82c0VROXBsa0xYdm1LRi1NRXl2WDAzTHlzZlIyOTI2Mnl5T1Q4YzNwVXdYZm9NN21lODlFNjIxalpFSXo5Vk9CVnlvc2tOdU45ajV5RE95RFFjbzRfTUU3bHZh?oc=5",
+      "hechos": []
     }
   ],
   "descartados": [
     {
-      "titulo": "IA en imágenes de ultrasonido",
+      "titulo": "Prevalencia de caries en la consulta",
       "motivo": "cifras sin respaldo: 100"
     }
   ],
-  "fuentes": 39
+  "fuentes": 34
 }
