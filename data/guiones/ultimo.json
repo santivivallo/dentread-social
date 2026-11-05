@@ -1,57 +1,68 @@
 {
-  "fecha": "2026-11-04",
-  "generado": "2026-11-04T18:34:16Z",
+  "fecha": "2026-11-05",
+  "generado": "2026-11-05T18:39:01Z",
   "guiones": [
     {
-      "titulo": "Adopción de IA en el sillón dental",
-      "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "¿Usas IA para ver radiografías?",
+      "titulo": "Ciberseguridad en la clínica",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "¿Tu clínica dental está protegida contra ciberataques?",
       "escenas": [
-        "Un dato clave: según el ADA Health Policy Institute, el 22,8% de los dentistas ya usa inteligencia artificial en imagenología y diagnóstico.",
-        "Además, un 25,4% que aún no la prueba planea sumarla a su consulta pronto.",
-        "Esto demuestra cómo la tecnología apoya la rutina clínica diaria sin complicaciones.",
-        "DentRead analiza tus radiografías con IA en segundos para hacer tu revisión más eficiente. Tú siempre mantienes el control."
+        "La ADA exigió al Congreso estadounidense abordar urgentemente la ciberseguridad en la atención dental.",
+        "Las fichas y radiografías digitales de tus pacientes son información sensible que requiere máxima protección.",
+        "Por eso, al sumar tecnología en tu consulta, la seguridad de los datos debe ser tu prioridad.",
+        "DentRead procesa imágenes radiológicas apoyando la lectura del odontólogo bajo altos estándares de protección digital."
       ],
-      "cierre": "Prueba DentRead hoy y optimiza tu flujo clínico.",
+      "cierre": "Descubre cómo DentRead resguarda tus datos. Pide tu demo hoy.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
+      "hechos": []
+    },
+    {
+      "titulo": "Adopción de IA en la consulta",
+      "formato": "Titular con dato (cifra verificada + fuente)",
+      "gancho": "El 22,8% de dentistas ya usa IA.",
+      "escenas": [
+        "Un estudio de la ADA reveló que el 22,8% de los dentistas usa IA para imagenología.",
+        "Además, otro 25,4% que aún no la ocupa, planea sumarla a su consulta muy pronto.",
+        "La razón es clara: la IA apoya el análisis de imágenes para optimizar los tiempos en box.",
+        "Recuerda que la tecnología entrega una segunda mirada, pero la decisión final siempre es tuya."
+      ],
+      "cierre": "Súmate a la innovación dental. Prueba DentRead en tu clínica.",
       "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
       "hechos": [
         "ia-imagen-228"
       ]
     },
     {
-      "titulo": "Integrando IA paso a paso",
-      "formato": "Antiguo vs nuevo",
-      "gancho": "¿Te abruma la tecnología en clínica?",
+      "titulo": "Detectando la caries sin tratar",
+      "formato": "Problema → solución",
+      "gancho": "¿Sabías que muchos adultos tienen caries no diagnosticadas?",
       "escenas": [
-        "El portal DrBicuspid destaca la idea: 'Start where you are: A practical first step for AI in dental practices'.",
-        "Antes se pensaba que adoptar IA exigía cambiar todo el equipamiento del centro dental.",
-        "Hoy el primer paso es simple: integrar software que asista en la lectura radiográfica existente.",
-        "DentRead se suma a tu trabajo diario para complementar tu criterio profesional, sin prometértelo todo ni reemplazar tu decisión."
+        "El 25,9% de los adultos de 20 a 44 años en EE.UU. tiene al menos una caries sin tratar.",
+        "Revisar cada radiografía a fondo entre paciente y paciente requiere mucho tiempo y concentración.",
+        "DentRead te ayuda a detectar posibles hallazgos radiográficos de forma rápida y objetiva.",
+        "Así aseguras una revisión exhaustiva sin sobrecargar tu agenda ni perder el foco clínico."
       ],
-      "cierre": "Simplifica tu consulta dental registrándote en DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSUkxaHRLVlBmc1R2czFmV0FpZWM5VkNzaGdBNGFodWNzaXRyazdNLTZ0d1hRQ2JvamlUXzk2b1hzZ1Fwem11VnBjaFltTzBuRlkxR1Z5cVd6azRiN0NMYnU4NHA2TzRPY0ZCeHgxY0QwMFM5Mm93QUp1NmN2aGwwZWp6RUFWOHlnUGhZR2VJRUg5UllseW84R19OYkIwVmdYenJ4bA?oc=5",
-      "hechos": []
+      "cierre": "Optimiza tu lectura radiográfica con DentRead. Escríbenos para saber más.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
+      "hechos": [
+        "caries-sin-tratar-2044"
+      ]
     },
     {
-      "titulo": "Avances de IA en imágenes médicas",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "IA en ecografías: nuevo hito médico.",
+      "titulo": "Gestión de agentes de IA en salud",
+      "formato": "Antiguo vs nuevo",
+      "gancho": "Agentes de IA: ¿cómo gestionarlos con éxito?",
       "escenas": [
-        "Medical Xpress reporta: 'Vision-language AI agent could help radiologists interpret ultrasounds faster and more accurately'.",
-        "Esta tendencia de modelos visuales que apoyan el análisis de imágenes está transformando toda la salud.",
-        "Para los dentistas, significa que el software de asistencia radiográfica es cada vez más refinado y preciso.",
-        "DentRead aplica estos avances al área dental: analiza radiografías para apoyarte a ti, que tomas la decisión final."
+        "Antes la IA solo ejecutaba tareas simples; hoy los agentes autónomos toman decisiones operativas.",
+        "Fast Company destaca 4 claves para gestionar estos agentes de IA de forma segura y eficiente.",
+        "En una clínica, integrar herramientas automáticas requiere supervisión humana constante y límites claros.",
+        "Al igual que con los agentes de IA, en DentRead la IA apoya el trabajo, pero el dentista siempre decide."
       ],
-      "cierre": "Súmate a la IA en odontología con DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOcUVYNHhDczR6M0ljS2Y4Y2YyUTNiZ3huaTlyeWhaY3dwUjBnQm82c0VROXBsa0xYdm1LRi1NRXl2WDAzTHlzZlIyOTI2Mnl5T1Q4YzNwVXdYZm9NN21lODlFNjIxalpFSXo5Vk9CVnlvc2tOdU45ajV5RE95RFFjbzRfTUU3bHZh?oc=5",
+      "cierre": "Conoce la integración ética de la IA con DentRead. Agenda tu prueba.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaGlYc0lhcVd2UktjYnMwQ2hKdGVrNEpoOFNHU3NFZnZ2dklkbkJ4TTMyOUlxV3VEeXVPcDBGVHlURHFZVUJOQ3Ezd2ZoUTFFNEV0WkRkd1Q2TzJfcEl1OXNMU0hKRXMxMjlkckN3U1pMclJ4U2Vqa0ZKLV83NGFHLWZqd3ltVFpF?oc=5",
       "hechos": []
     }
   ],
-  "descartados": [
-    {
-      "titulo": "Prevalencia de caries en la consulta",
-      "motivo": "cifras sin respaldo: 100"
-    }
-  ],
+  "descartados": [],
   "fuentes": 34
 }
