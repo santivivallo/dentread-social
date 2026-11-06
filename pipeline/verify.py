@@ -248,7 +248,8 @@ def check_site() -> tuple[bool, list[str]]:
     no_posts = {"data", "datos", "es"}
     en = {p.parent.name: p for p in DOCS.glob("*/index.html")
           if p.parent.name not in no_posts}
-    es = {p.parent.name: p for p in (DOCS / "es").glob("*/index.html")
+    traducidas = {"sobre": "about"}  # páginas cuyo slug cambia según el idioma
+    es = {traducidas.get(p.parent.name, p.parent.name): p for p in (DOCS / "es").glob("*/index.html")
           if p.parent.name not in no_posts}
     indices = {"en": DOCS / "data/index.html", "es": DOCS / "es/datos/index.html"}
     problems, notes = [], []
