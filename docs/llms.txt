@@ -50,6 +50,7 @@
 
 ## Articles
 
+- [ADA Member Advantage endorses Weave as patient engagement platform · DentRead Insights](https://dentread-social.pages.dev/news-88206201/): ADA Member Advantage endorsed Weave's artificial intelligence patient management platform for associated professionals. The tool integrates with practice …
 - [ADA urges House committee to address cybersecurity concerns for dental practices · DentRead Insights](https://dentread-social.pages.dev/news-10135935/): The American Dental Association asked the U.S. Congress to adjust a cybersecurity bill to the reality of small offices. The association seeks to have the …
 - [Revenue and chair occupancy move differently · DentRead Insights](https://dentread-social.pages.dev/economia-practica/): Revenue and chair occupancy move differently. The gap between a full schedule and actual collections is where the operational problem lives.
 - [ADA urges dental-specific approach in CMS interoperability, prior authorization proposal  · DentRead Insights](https://dentread-social.pages.dev/news-19567668/): The American Dental Association asked the US government to adapt the new data exchange and prior reporting rules to the particularities of dentistry. The …
@@ -128,6 +129,7 @@
 
 ### Artículos
 
+- [La ADA le dio el visto bueno a una IA · DentRead Insights](https://dentread-social.pages.dev/es/news-88206201/): La discusión ya no es si la IA sirve. Es qué queda registrado cuando se usa. 🦷
 - [Plazos y multas: la ley que desvela a la ADA · DentRead Insights](https://dentread-social.pages.dev/es/news-10135935/): La herramienta se adopta rápido. El flujo alrededor tarda mucho más. 🦷
 - [Buscando personal con el equipo agotado · DentRead Insights](https://dentread-social.pages.dev/es/economia-practica/): Agenda llena no es caja llena. Entre una cosa y la otra vive el margen. 🦷
 - [Pedir autorización al seguro va a cambiar · DentRead Insights](https://dentread-social.pages.dev/es/news-19567668/): Automatizar una lectura es lo fácil. Lo difícil es que alguien actúe sobre ella. 🦷

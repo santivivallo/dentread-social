@@ -1126,7 +1126,10 @@
     "ai",
     "workflow"
    ],
-   "first_seen": "2026-W33"
+   "first_seen": "2026-W33",
+   "used": true,
+   "published_on": "2026-11-06",
+   "cierre": "La discusión ya no es si la IA sirve. Es qué queda registrado cuando se usa."
   },
   "https://adanews.ada.org/ada-news/2026/march/ada-names-next-executive-director/": {
    "title": "ADA names next executive director",
@@ -6715,6 +6718,6 @@
    "https://adanews.ada.org/ada-news/2026/october/ada-seeks-treasurer-candidates/"
   ]
  },
- "runs": 383,
+ "runs": 399,
  "deepest_page": 12
 }
