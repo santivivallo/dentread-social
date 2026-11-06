@@ -10,7 +10,8 @@
   "ninos-chip": "2026-09-16",
   "prevencion": "2026-09-23",
   "adultos-mayores": "2026-09-25",
-  "tecnologia-clinica": "2026-09-30"
+  "tecnologia-clinica": "2026-09-30",
+  "economia-practica": "2026-11-06"
  },
  "facts": {
   "sin-seguro-72m": "2026-08-10",
@@ -36,7 +37,9 @@
   "ia-adopcion-433": "2026-09-30",
   "ia-explicar-paciente-132": "2026-09-30",
   "utilizacion-ingreso": "2026-10-21",
-  "utilizacion-etnia": "2026-10-21"
+  "utilizacion-etnia": "2026-10-21",
+  "higienistas-reclutamiento": "2026-11-06",
+  "dentistas-sobrecargados-324": "2026-11-06"
  },
  "evergreen": {
   "que-es-dentread": "2026-08-10",
@@ -49,7 +52,7 @@
   "seguimiento-continuidad": "2026-10-12",
   "eficiencia-flujo-clinico": "2026-10-26"
  },
- "count": 31,
+ "count": 32,
  "externos": {
   "news-56913837": "2026-08-14",
   "paper-41204923": "2026-08-14",
