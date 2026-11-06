@@ -1,68 +1,62 @@
 {
-  "fecha": "2026-11-05",
-  "generado": "2026-11-05T18:39:01Z",
+  "fecha": "2026-11-06",
+  "generado": "2026-11-06T17:53:37Z",
   "guiones": [
     {
-      "titulo": "Ciberseguridad en la clínica",
+      "titulo": "ADA pide ciberseguridad en clínicas dentales",
       "formato": "Última hora (noticia real con fuente)",
-      "gancho": "¿Tu clínica dental está protegida contra ciberataques?",
+      "gancho": "¿Tus fichas dentales están realmente a salvo?",
       "escenas": [
-        "La ADA exigió al Congreso estadounidense abordar urgentemente la ciberseguridad en la atención dental.",
-        "Las fichas y radiografías digitales de tus pacientes son información sensible que requiere máxima protección.",
-        "Por eso, al sumar tecnología en tu consulta, la seguridad de los datos debe ser tu prioridad.",
-        "DentRead procesa imágenes radiológicas apoyando la lectura del odontólogo bajo altos estándares de protección digital."
+        "La ADA exigió al Congreso de EE.UU. priorizar la ciberseguridad en las clínicas dentales.",
+        "Las fichas y radiografías de tus pacientes son datos súper sensibles que requieren protección real.",
+        "Al integrar herramientas digitales o IA para revisar radiografías, la seguridad de la información es clave."
       ],
-      "cierre": "Descubre cómo DentRead resguarda tus datos. Pide tu demo hoy.",
+      "cierre": "Prueba DentRead y analiza tus radiografías con el respaldo que tu clínica necesita.",
       "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
       "hechos": []
     },
     {
-      "titulo": "Adopción de IA en la consulta",
-      "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "El 22,8% de dentistas ya usa IA.",
-      "escenas": [
-        "Un estudio de la ADA reveló que el 22,8% de los dentistas usa IA para imagenología.",
-        "Además, otro 25,4% que aún no la ocupa, planea sumarla a su consulta muy pronto.",
-        "La razón es clara: la IA apoya el análisis de imágenes para optimizar los tiempos en box.",
-        "Recuerda que la tecnología entrega una segunda mirada, pero la decisión final siempre es tuya."
-      ],
-      "cierre": "Súmate a la innovación dental. Prueba DentRead en tu clínica.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
-      "hechos": [
-        "ia-imagen-228"
-      ]
-    },
-    {
-      "titulo": "Detectando la caries sin tratar",
-      "formato": "Problema → solución",
-      "gancho": "¿Sabías que muchos adultos tienen caries no diagnosticadas?",
-      "escenas": [
-        "El 25,9% de los adultos de 20 a 44 años en EE.UU. tiene al menos una caries sin tratar.",
-        "Revisar cada radiografía a fondo entre paciente y paciente requiere mucho tiempo y concentración.",
-        "DentRead te ayuda a detectar posibles hallazgos radiográficos de forma rápida y objetiva.",
-        "Así aseguras una revisión exhaustiva sin sobrecargar tu agenda ni perder el foco clínico."
-      ],
-      "cierre": "Optimiza tu lectura radiográfica con DentRead. Escríbenos para saber más.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
-      "hechos": [
-        "caries-sin-tratar-2044"
-      ]
-    },
-    {
-      "titulo": "Gestión de agentes de IA en salud",
+      "titulo": "Videa lanza herramienta de presentación",
       "formato": "Antiguo vs nuevo",
-      "gancho": "Agentes de IA: ¿cómo gestionarlos con éxito?",
+      "gancho": "Explicar radiografías a los pacientes ya cambió.",
       "escenas": [
-        "Antes la IA solo ejecutaba tareas simples; hoy los agentes autónomos toman decisiones operativas.",
-        "Fast Company destaca 4 claves para gestionar estos agentes de IA de forma segura y eficiente.",
-        "En una clínica, integrar herramientas automáticas requiere supervisión humana constante y límites claros.",
-        "Al igual que con los agentes de IA, en DentRead la IA apoya el trabajo, pero el dentista siempre decide."
+        "Antes pasabas minutos intentando que el paciente viera esa pequeña sombra en la radiografía.",
+        "Hoy, softwares como Videa buscan mejorar la presentación visual de los tratamientos.",
+        "DentRead se suma a este cambio apoyando la lectura de tus hallazgos visuales de forma clara."
       ],
-      "cierre": "Conoce la integración ética de la IA con DentRead. Agenda tu prueba.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaGlYc0lhcVd2UktjYnMwQ2hKdGVrNEpoOFNHU3NFZnZ2dklkbkJ4TTMyOUlxV3VEeXVPcDBGVHlURHFZVUJOQ3Ezd2ZoUTFFNEV0WkRkd1Q2TzJfcEl1OXNMU0hKRXMxMjlkckN3U1pMclJ4U2Vqa0ZKLV83NGFHLWZqd3ltVFpF?oc=5",
+      "cierre": "Potencia la comunicación con tus pacientes usando DentRead hoy mismo.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOSzlMT293RWZmTWRyOHJmbjZUOVhraVZaUHJwTmhIdnFma1VFZmcyYmk5STRKckt5TVRtaXlSZFlnYmFDUWNwMjVyWDU3dzZpQ3BiT1h2TXpweEtEZnNxLXQxelFoUjFNNlNXeXMtamdCN0dJM1pCVzhNMlRUaVhWbUxWLUZTSDFWb2hoSU5VMVpaUmNsR0xUa2V6UDE2SURDOU43anJWSjBTYmRzWmt3cmRaUkVRSG1lS0RmWng4ZUJfYTZzaGV2MUhjZzdIQTF3YmVGck1fbHNObEk?oc=5",
       "hechos": []
+    },
+    {
+      "titulo": "SoftSmile presenta Vision Forecast",
+      "formato": "Problema → solución",
+      "gancho": "Evaluar casos ortodóncicos complejos toma tiempo.",
+      "escenas": [
+        "Revisar cada detalle antes de definir un plan ortodóncico consume minutos valiosos de tu agenda.",
+        "SoftSmile lanzó Vision Forecast, un módulo de IA para la evaluación temprana de casos.",
+        "La IA acelera el procesamiento de datos, pero la decisión diagnóstica final siempre es tuya."
+      ],
+      "cierre": "Optimiza tu tiempo clínico apoyándote en DentRead para leer tus radiografías.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNUjN3ajBRRmtYT202dTg2OVZQSTRkdWJSekhwakVqZ1dGOU5DSHZQM0NjV1lNeXE4aHowbGdkVEk4dC14a2ZWdjlXN2wtRlc5MFlZaml0ZUlQalotU1NzdDQ5VWY5clg0UXFweFhEY3d1YjlnRmhvNnlZTjg1akJJNHlUeF_Hd1Q4MVdrTHl4eUFxOFc0STVUaHFlWWZLdFdpcVRMQndlN05kWDdKNFE?oc=5",
+      "hechos": []
+    },
+    {
+      "titulo": "Agentes de IA y seguridad de datos",
+      "formato": "Titular con dato (cifra verificada + fuente)",
+      "gancho": "La IA avanza pero exige responsabilidad clara.",
+      "escenas": [
+        "Expertos en ciberseguridad señalan que los agentes de IA requieren una clara rendición de cuentas.",
+        "Esto es crucial en salud, donde el 32,4% de los dentistas declara estar sobrecargado de trabajo.",
+        "Usar IA para apoyar la lectura radiográfica ahorra tiempo, manteniendo siempre tu criterio al mando."
+      ],
+      "cierre": "Descubre cómo DentRead apoya tu trabajo diario de forma segura.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNWFl4RHlPQzlTZ2hwdnl3OXpmbE9WRjJ2NzVjbWdYdzB0cFc1bERvbGF2NWprVHVaZHdON1BzTXU6clAxb1J3OUtrQmxsVmpYUVpaWEJrWXVuYl8xcGJOTXU2a0cyRXV2cjZ5QzRqWEo3QkNPYi10Y1dYUHluSXhiTGhMSGstZWh3ZTBiUUNLeEFRUQ?oc=5",
+      "hechos": [
+        "dentistas-sobrecargados-324"
+      ]
     }
   ],
   "descartados": [],
-  "fuentes": 34
+  "fuentes": 39
 }
