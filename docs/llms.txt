@@ -50,6 +50,7 @@
 
 ## Articles
 
+- [ADA urges House committee to address cybersecurity concerns for dental practices · DentRead Insights](https://dentread-social.pages.dev/news-10135935/): The American Dental Association asked the U.S. Congress to adjust a cybersecurity bill to the reality of small offices. The association seeks to have the …
 - [ADA urges dental-specific approach in CMS interoperability, prior authorization proposal  · DentRead Insights](https://dentread-social.pages.dev/news-19567668/): The American Dental Association asked the US government to adapt the new data exchange and prior reporting rules to the particularities of dentistry. The …
 - [Survey finds strong interest in using HSA, FSA funds for oral care products · DentRead Insights](https://dentread-social.pages.dev/news-95714058/): A survey by the Consumer Healthcare Products Association revealed that most health savings account users would buy toothpaste, toothbrushes, and dental fl…
 - [Clinical workflow efficiency · DentRead Insights](https://dentread-social.pages.dev/eficiencia-flujo-clinico/): A large share of a practice's time goes to tasks that are not clinical.
@@ -126,6 +127,7 @@
 
 ### Artículos
 
+- [Plazos y multas: la ley que desvela a la ADA · DentRead Insights](https://dentread-social.pages.dev/es/news-10135935/): La herramienta se adopta rápido. El flujo alrededor tarda mucho más. 🦷
 - [Pedir autorización al seguro va a cambiar · DentRead Insights](https://dentread-social.pages.dev/es/news-19567668/): Automatizar una lectura es lo fácil. Lo difícil es que alguien actúe sobre ella. 🦷
 - [Ahorrar impuestos al comprar hilo dental · DentRead Insights](https://dentread-social.pages.dev/es/news-95714058/): Un dato del sector no cambia una agenda. Cambia qué preguntar en la reunión del lunes. 🦷
 - [Buena parte del tiempo de una clínica se va en tareas que no son clínicas · DentRead Insights](https://dentread-social.pages.dev/es/eficiencia-flujo-clinico/): El tiempo clínico no se estira. Se recupera de lo administrativo. 🦷

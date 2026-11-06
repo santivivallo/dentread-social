@@ -5872,7 +5872,10 @@
    "buckets": [
     "ai"
    ],
-   "first_seen": "2026-W44"
+   "first_seen": "2026-W44",
+   "used": true,
+   "published_on": "2026-11-06",
+   "cierre": "La herramienta se adopta rápido. El flujo alrededor tarda mucho más."
   },
   "https://adanews.ada.org/ada-news/2026/october/indianapolis-high-schoolers-explore-dental-careers-at-planet-smilez-discovering-dentistry-symposium/": {
    "title": "Indianapolis high schoolers explore dental careers at Planet Smilez Discovering Dentistry Symposium",
@@ -5881,6 +5884,40 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W44"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/ada-member-advantage-endorses-small-ship-luxury-cruise-provider/": {
+   "title": "ADA Member Advantage endorses small-ship luxury cruise provider",
+   "published": "2026-11-05",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W45"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/ada-webinar-to-cover-infection-control-requirements/": {
+   "title": "ADA webinar to cover infection control requirements",
+   "published": "2026-11-04",
+   "category": "Practice",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W45"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/": {
+   "title": "November JADA examines clinical, economic burdens caused by orofacial infection complications",
+   "published": "2026-11-02",
+   "category": "Science",
+   "score": 3.0,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W45"
+  },
+  "https://adanews.ada.org/ada-news/2026/october/ada-seeks-treasurer-candidates/": {
+   "title": "ADA seeks treasurer candidates",
+   "published": "2026-10-30",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W45"
   }
  },
  "weeks": {
@@ -6670,8 +6707,14 @@
    "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
    "https://adanews.ada.org/ada-news/2026/october/indianapolis-high-schoolers-explore-dental-careers-at-planet-smilez-discovering-dentistry-symposium/",
    "https://adanews.ada.org/ada-news/2026/october/new-ada-president-highlights-power-of-organized-dentistry/"
+  ],
+  "2026-W45": [
+   "https://adanews.ada.org/ada-news/2026/november/ada-member-advantage-endorses-small-ship-luxury-cruise-provider/",
+   "https://adanews.ada.org/ada-news/2026/november/ada-webinar-to-cover-infection-control-requirements/",
+   "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/",
+   "https://adanews.ada.org/ada-news/2026/october/ada-seeks-treasurer-candidates/"
   ]
  },
- "runs": 357,
+ "runs": 373,
  "deepest_page": 12
 }
