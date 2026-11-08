@@ -1,64 +1,45 @@
 {
-  "fecha": "2026-11-07",
-  "generado": "2026-11-07T16:48:39Z",
+  "fecha": "2026-11-08",
+  "generado": "2026-11-08T17:00:35Z",
   "guiones": [
     {
-      "titulo": "Integración de IA en la rutina clínica",
-      "formato": "No compres esto (anti-venta)",
-      "gancho": "No uses IA en tu clínica dental si...",
-      "escenas": [
-        "Esperas que un software tome las decisiones clínicas o haga los diagnósticos por ti.",
-        "El 82,6% de los dentistas tiene claro que la IA no debe usarse para recomendaciones de tratamiento.",
-        "DentRead no reemplaza tu criterio: analiza radiografías para darte un segundo par de ojos rápido y objetivo."
-      ],
-      "cierre": "Prueba DentRead y mantén el control total de tus diagnósticos.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNSUkxaHRLVlBmc1R2czFmV0FpZWM5VkNzaGdBNGFodWNzaXRyazdNLTZ0d1hRQ2JvamlUXzk2b1hzZ1Fwem11VnBjaFltTzBuRlkxR1Z5cVd6azRiN0NMYnU4NHA2TzRPY0ZCeHgxY0QwMFM5Mm93QUp1NmN2aGwwZWp6RUFWOHlnUGhZR2VJRUg5UllseW84R19OYkIwVmdYenJ4bA?oc=5",
-      "hechos": [
-        "ia-tratamiento-826"
-      ]
-    },
-    {
-      "titulo": "Presentación de casos y tecnología",
+      "titulo": "SoftSmile y la evaluación ortodóncica",
       "formato": "Última hora (noticia real con fuente)",
-      "gancho": "Nuevas herramientas buscan mejorar presentaciones clínicas.",
+      "gancho": "Nuevas herramientas de IA llegan a ortodoncia",
       "escenas": [
-        "Salió la noticia: New Videa tool aims to help dental teams improve treatment presentations.",
-        "El sector busca que los pacientes entiendan mejor su salud bucal sin complicaciones.",
-        "Con DentRead sumas una lectura de imágenes rápida como apoyo visual, reforzando tu explicación experta."
+        "SoftSmile acaba de lanzar Vision Forecast, un módulo de inteligencia artificial para la evaluación temprana de casos ortodóncicos.",
+        "Esta tecnología busca facilitar la planificación inicial del tratamiento para los especialistas.",
+        "Al igual que SoftSmile en su área, DentRead apoya el análisis radiográfico general en tu clínica.",
+        "El software resalta hallazgos clave en segundos, entregándote información clara para respaldar tu diagnóstico."
       ],
-      "cierre": "Descubre cómo apoya DentRead a tu clínica escribiéndonos hoy.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOSzlMT293RWZmTWRyOHJmbjZUOVhraVZaUHJwTmhIdnFma1VFZmcyYmk5STRKckt5TVRtaXlSZFlnYmFDUWNwMjVyWDU3dzZpQ3BiT1h2TXpweEtEZnNxLXQxelFoUjFNNlNXeXMtamdCN0dJM1pCVzhNMlRUaVhWbUxWLUZTSDFWb2hoSU5VMVpaUmNsR0xUa2V6UDE2SURDOU43anJWSjBTYmRzWmt3cmRaUkVRSG1lS0RmWng4ZUJfYTZzaGV2MUhjZzdIQTF3YmVGck1fbHNObEk?oc=5",
+      "cierre": "Descubre cómo DentRead apoya tu trabajo clínico diario.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNUjN3ajBRRmtYT202dTg2OVZQSTRkdWJSekhwakVqZ1dGOU5DSHZQM0NjV1lNeXE4aHowbGdkVEk4dC14a2ZWdjlXN2wtRlc5MFlZaml0ZUlQalotU1NzdDQ5VWY5clg0UXFweFhEY3d1YjlnRmhvNnlZTjg1akJJNHlUeF_Hd1Q4MVdrTHl4eUFxOFc0STVUaHFlWWZLdFdpcVRMQndlN05kWDdKNFE?oc=5",
       "hechos": []
     },
     {
-      "titulo": "Adopción de IA radiológica",
-      "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "El 22,8% de dentistas usa IA radiológica.",
+      "titulo": "No compres software que reemplace al dentista",
+      "formato": "No compres esto (anti-venta)",
+      "gancho": "No compres IA que prometa diagnosticar por ti",
       "escenas": [
-        "Ese 22,8% de odontólogos ya analiza sus imágenes radiográficas apoyándose en tecnología.",
-        "No es para que la máquina decida, sino para agilizar la detección de hallazgos y optimizar tiempos.",
-        "DentRead te entrega esa lectura asistida de radiografías en segundos para respaldar tu evaluación."
+        "Si buscas un software que reemplace tu criterio profesional o entregue diagnósticos automáticos, no uses DentRead.",
+        "La inteligencia artificial no es un dentista y jamás debería tomar decisiones clínicas por su cuenta.",
+        "DentRead está diseñado como un asistente de lectura radiográfica para odontólogos.",
+        "Detecta patrones en la imagen de forma objetiva, pero el diagnóstico definitivo siempre lo das tú."
       ],
-      "cierre": "Súmate al cambio clínico. Prueba DentRead ahora.",
-      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/41061312/",
-      "hechos": [
-        "ia-imagen-228"
-      ]
-    },
-    {
-      "titulo": "Agentes de IA y seguridad de datos",
-      "formato": "Problema → solución",
-      "gancho": "Un agente de IA se descontroló recientemente.",
-      "escenas": [
-        "Titulares globales reportan: 'Rogue' AI agent went haywire at tech company.",
-        "Las clínicas temen integrar herramientas automáticas que actúen solas sin supervisión.",
-        "Por eso DentRead no toma decisiones ni actúa solo: es una IA de lectura complementaria donde el profesional siempre decide."
-      ],
-      "cierre": "Usa una IA segura y asistencial. Conoce DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOZFFmb1kzMDlmOVBhcXh6aWJtd3c0WDdxaDFfQ05tdVJBZHJNRlFLSG1RYTRnb0N1a1d2SlQxbFJjYkRkQWJMUGhDYktmemhTVGFCSzQ3bHZURmZwMmpCbHI1MkhhQ3AwS3BKcE9mblhBVnNfWDRnVVBIX0tmMkJ6MVVOcnR1cXJmZWJJWThwSElKZUI4SmpLUnJLSdIBoAFBVV95cUxPMXFLMjFFOWJkUzlyTmJILWZ3UjhfdEZ2OXlzbGJEZVJwaklnc3dRZzQ4SV9lUDJBc0YxdjY0Z2xTaXNCV1VEcE85Q3BMVVY4Y2lFXzU5Wks0ZXB4c19rVG9TaTZNLUxqSkF2a002akx6ejFHbXVVOGRzc1c0UDZraXNaTzgtWmRzamFldi1zYU02ay1zRUN2X19qS005enZm?oc=5",
+      "cierre": "Potencia tu criterio con DentRead sin perder el control.",
+      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/42184717/",
       "hechos": []
     }
   ],
-  "descartados": [],
-  "fuentes": 38
+  "descartados": [
+    {
+      "titulo": "Adopción de IA en clínicas dentales",
+      "motivo": "cifras sin respaldo: 100"
+    },
+    {
+      "titulo": "Responsabilidad y seguridad en la IA",
+      "motivo": "cifras sin respaldo: 100"
+    }
+  ],
+  "fuentes": 34
 }
