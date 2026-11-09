@@ -915,7 +915,7 @@
    "journal": "Dent Clin North Am",
    "year": "2026",
    "design": "",
-   "preset": "ia",
+   "preset": "economia",
    "first_seen": "2026-W39",
    "descartado": "revista_fuera_de_allowlist"
   },
@@ -4411,6 +4411,24 @@
    "preset": "ia",
    "first_seen": "2026-W44",
    "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "41797221": {
+   "title": "Pathways Mediating Immigration and Utilization of Dental Care in Children.",
+   "journal": "J Dent Res",
+   "year": "2026",
+   "design": "",
+   "preset": "acceso",
+   "first_seen": "2026-W46",
+   "descartado": "diseno_no_señalizable:Journal Article"
+  },
+  "42950820": {
+   "title": "Organoids and organs-on-a-chip as new approach methodologies at the convergence of cell biology and bioengineering.",
+   "journal": "Cell Stem Cell",
+   "year": "2026",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W46",
+   "descartado": "revista_fuera_de_allowlist"
   }
  },
  "weeks": {
@@ -4913,7 +4931,11 @@
    "42692930",
    "42947292",
    "42947303"
+  ],
+  "2026-W46": [
+   "41797221",
+   "42950820"
   ]
  },
- "runs": 130
+ "runs": 140
 }

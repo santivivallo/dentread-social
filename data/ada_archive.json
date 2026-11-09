@@ -5921,6 +5921,22 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W45"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/register-give-kids-a-smile-events-by-nov-15/": {
+   "title": "Register Give Kids A Smile events by Nov. 15",
+   "published": "2026-11-09",
+   "category": "Access To Care",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W46"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/ada-seeks-stem-visa-designation-for-dentistry/": {
+   "title": "ADA seeks STEM visa designation for dentistry",
+   "published": "2026-11-09",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W46"
   }
  },
  "weeks": {
@@ -6716,8 +6732,12 @@
    "https://adanews.ada.org/ada-news/2026/november/ada-webinar-to-cover-infection-control-requirements/",
    "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/",
    "https://adanews.ada.org/ada-news/2026/october/ada-seeks-treasurer-candidates/"
+  ],
+  "2026-W46": [
+   "https://adanews.ada.org/ada-news/2026/november/ada-seeks-stem-visa-designation-for-dentistry/",
+   "https://adanews.ada.org/ada-news/2026/november/register-give-kids-a-smile-events-by-nov-15/"
   ]
  },
- "runs": 399,
+ "runs": 409,
  "deepest_page": 12
 }

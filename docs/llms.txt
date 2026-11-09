@@ -50,6 +50,7 @@
 
 ## Articles
 
+- [What DentRead is · DentRead Insights](https://dentread-social.pages.dev/que-es-dentread/): DentRead builds artificial intelligence tools for dental radiographs and clinical workflows.
 - [ADA Member Advantage endorses Weave as patient engagement platform · DentRead Insights](https://dentread-social.pages.dev/news-88206201/): ADA Member Advantage endorsed Weave's artificial intelligence patient management platform for associated professionals. The tool integrates with practice …
 - [ADA urges House committee to address cybersecurity concerns for dental practices · DentRead Insights](https://dentread-social.pages.dev/news-10135935/): The American Dental Association asked the U.S. Congress to adjust a cybersecurity bill to the reality of small offices. The association seeks to have the …
 - [Revenue and chair occupancy move differently · DentRead Insights](https://dentread-social.pages.dev/economia-practica/): Revenue and chair occupancy move differently. The gap between a full schedule and actual collections is where the operational problem lives.
@@ -84,7 +85,6 @@
 - [ADA calls out UnitedHealthcare credentialing portal for doubling dentists’ paperwork · DentRead Insights](https://dentread-social.pages.dev/news-60814929/): The American Dental Association requested that UnitedHealthcare accept credentialing data directly from the CAQH platform instead of requiring duplicate p…
 - [Proposed ADA standard specifies requirements for comprehensive, consistent dental EOBs · DentRead Insights](https://dentread-social.pages.dev/news-56913837/): The American Dental Association presented a proposal to standardize explanation of benefits reports across clinics and insurers, with a deadline to submit…
 - [AI applied to dental radiographs · DentRead Insights](https://dentread-social.pages.dev/ia-radiografias-dentales/): DentRead applies artificial intelligence to the analysis of dental radiographic images.
-- [What DentRead is · DentRead Insights](https://dentread-social.pages.dev/que-es-dentread/): DentRead builds artificial intelligence tools for dental radiographs and clinical workflows.
 - [Cost is the number one reason people delay care · DentRead Insights](https://dentread-social.pages.dev/costo-barrera/): Cost is the number one reason people delay care. The money conversation is part of the clinical encounter, not an afterthought.
 
 ## Español
@@ -129,6 +129,7 @@
 
 ### Artículos
 
+- [DentRead desarrolla herramientas de inteligencia artificial para radiografías dentales y flujos clínicos · DentRead Insights](https://dentread-social.pages.dev/es/que-es-dentread/): Leer la radiografía es el principio. Lo que sigue casi nunca se mide. 🦷
 - [La ADA le dio el visto bueno a una IA · DentRead Insights](https://dentread-social.pages.dev/es/news-88206201/): La discusión ya no es si la IA sirve. Es qué queda registrado cuando se usa. 🦷
 - [Plazos y multas: la ley que desvela a la ADA · DentRead Insights](https://dentread-social.pages.dev/es/news-10135935/): La herramienta se adopta rápido. El flujo alrededor tarda mucho más. 🦷
 - [Buscando personal con el equipo agotado · DentRead Insights](https://dentread-social.pages.dev/es/economia-practica/): Agenda llena no es caja llena. Entre una cosa y la otra vive el margen. 🦷
@@ -163,5 +164,4 @@
 - [Cargar dos veces lo mismo para atender · DentRead Insights](https://dentread-social.pages.dev/es/news-60814929/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
 - [Cobrarle a los seguros podría ser más fácil · DentRead Insights](https://dentread-social.pages.dev/es/news-56913837/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
 - [DentRead aplica inteligencia artificial al análisis de imágenes radiográficas dentales · DentRead Insights](https://dentread-social.pages.dev/es/ia-radiografias-dentales/): La imagen ya tiene la información. Falta que llegue a tiempo. 🦷
-- [DentRead desarrolla herramientas de inteligencia artificial para radiografías dentales y flujos clínicos · DentRead Insights](https://dentread-social.pages.dev/es/que-es-dentread/): Leer la radiografía es el principio. Lo que sigue casi nunca se mide. 🦷
 - [La primera barrera no es clínica · DentRead Insights](https://dentread-social.pages.dev/es/costo-barrera/): El precio no se objeta: se posterga. Lo que no se entiende, no se paga. 🦷
