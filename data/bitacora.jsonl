@@ -216,3 +216,4 @@
 {"ts": "2026-11-09T22:54:40+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "42715390625", "kind": "evergreen", "id": "que-es-dentread", "slug": "que-es-dentread", "modo": "evergreen", "redaccion": "curada"}
 {"ts": "2026-11-09T22:54:40+00:00", "evento": "corrida", "origen": "schedule", "corrida": "42715390625", "pedidos": 1, "listos": 1, "descartados": 0, "preview": false}
 {"ts": "2026-11-09T22:55:22+00:00", "evento": "publicado", "origen": "schedule", "corrida": "42715390625", "carpeta": "out/2026-11-09-que-es-dentread", "plataformas": ["instagram"], "resultados": {"instagram": "18147799084587652"}}
+{"ts": "2026-11-10T18:34:35+00:00", "evento": "llamada_modelo", "origen": "schedule", "corrida": "42876236450", "ok": true, "modelo": "gemini-flash-latest", "motivo": "HTTP 503: [{   \"error\": {     \"code\": 503,     \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try "}
