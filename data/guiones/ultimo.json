@@ -1,69 +1,65 @@
 {
-  "fecha": "2026-11-10",
-  "generado": "2026-11-10T18:34:35Z",
+  "fecha": "2026-11-11",
+  "generado": "2026-11-11T18:31:24Z",
   "guiones": [
     {
-      "titulo": "Adopción de IA en clínicas dentales",
-      "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "¿La IA reemplazará al dentista en Chile?",
+      "titulo": "Reseña cero estrellas: el software que lo hace todo",
+      "formato": "Reseña cero estrellas (ironía)",
+      "gancho": "¿Un software que reemplaza tu criterio?",
       "escenas": [
-        "Un estudio de la ADA reveló que el 43,3% de los dentistas ya usa IA para alguna tarea en su clínica.",
-        "Además, un 22,8% la utiliza específicamente en imagenología para apoyar la lectura de radiografías.",
-        "Pero ojo: el software solo detecta patrones gráficos y el diagnóstico final siempre es tuyo.",
-        "Con DentRead optimizas tu tiempo en el box y aseguras que nada se te pase."
+        "Pésimo servicio. Compré un sistema esperando que me diera el diagnóstico listo y se hiciera cargo de todo.",
+        "Resulta que el 82,6% de los dentistas no piensa usar IA para recomendaciones de tratamiento.",
+        "DentRead te ayuda a detectar hallazgos en radiografías al instante, pero el diagnóstico definitivo siempre es tuyo."
       ],
-      "cierre": "Prueba DentRead hoy y fortalece tu criterio profesional.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/",
-      "hechos": [
-        "ia-adopcion-433",
-        "ia-imagen-228"
-      ]
-    },
-    {
-      "titulo": "Nuevas herramientas para la comunicación con el paciente",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "Videa lanza herramienta para mejorar presentaciones clínicas",
-      "escenas": [
-        "Salió la noticia de que Videa lanzó una herramienta para ayudar a equipos dentales a presentar tratamientos.",
-        "Esto confirma la clara tendencia: la IA llegó para mejorar la comunicación visual con el paciente.",
-        "En DentRead te ayudamos a mostrar cada hallazgo radiográfico de forma clara y transparente.",
-        "Al final, la tecnología apoya tu explicación, pero el plan de tratamiento lo defines tú."
-      ],
-      "cierre": "Súmate a la odontología digital con DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOSzlMT293RWZmTWRyOHJmbjZUOVhraVZaUHJwTmhIdnFma1VFZmcyYmk5STRKckt5TVRtaXlSZFlnYmFDUWNwMjVyWDU3dzZpQ3BiT1h2TXpweEtEZnNxLXQxelFoUjFNNlNXeXMtamdCN0dJM1pCVzhNMlRUaVhWbUxWLUZTSDFWb2hoSU5VMVpaUmNsR0xUa2V6UDE2SURDOU43anJWSjBTYmRzWmt3cmRaUkVRSG1lS0RmWng4ZUJfYTZzaGV2MUhjZzdIQTF3YmVGck1fbHNObEk?oc=5",
-      "hechos": []
-    },
-    {
-      "titulo": "Mitos sobre la autonomía de la IA dental",
-      "formato": "No vayas de listo (corrige un mito)",
-      "gancho": "La IA no diagnostica en tu consulta",
-      "escenas": [
-        "Existe el mito de que la inteligencia artificial viene a reemplazar el ojo del odontólogo.",
-        "La realidad es que el 82,6% de los dentistas encuestados por la ADA no piensa usar IA para definir tratamientos.",
-        "DentRead no da diagnósticos ni compite con tu experiencia; es un segundo par de ojos para tus radiografías.",
-        "Tú mantienes el control total y la decisión clínica de cada caso."
-      ],
-      "cierre": "Descubre el respaldo de DentRead en tu práctica diaria.",
+      "cierre": "Prueba DentRead hoy y mantén el control de tu consulta.",
       "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/42184717/",
       "hechos": [
         "ia-tratamiento-826"
       ]
     },
     {
-      "titulo": "Agentes de IA en el sector salud",
-      "formato": "Problema → solución",
-      "gancho": "Google lanza Gemini para operaciones de salud",
+      "titulo": "El mito de la radiología con IA",
+      "formato": "No vayas de listo (corrige un mito)",
+      "gancho": "La IA no reemplaza al dentista",
       "escenas": [
-        "Google presentó su agente Gemini especializado en la gestión de operaciones de salud.",
-        "Esto demuestra cómo la IA general avanza para resolver tareas administrativas complejas en centros médicos.",
-        "Para una clínica dental, integrar estas tecnologías significa reducir la carga operativa y evitar errores manuales.",
-        "Mientras las grandes herramientas ordenan la gestión, DentRead te apoya en el análisis de tus radiografías."
+        "Crees que poner IA en tu clínica significa que una máquina va a decidir por ti.",
+        "Falso. El 22,8% de los dentistas usa IA como apoyo visual e imagenología, no para sustituir su ojo clínico.",
+        "DentRead analiza tus radiografías en segundos para que tú expliques el caso con total certeza."
       ],
-      "cierre": "Moderniza tu clínica junto a DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQYm92cWJnemR2VEFTUWMtNE9JV1JjZ0hjT2xHeGpPb3ZaTWZ0M0NVczVJakY2c29kUnJLNHZOWk5ncXFPM2diWWs4d05wUlMzN21sWXdpNnRWT08tRVB6eENzc192dWRLcTZoQTkwNklmbXFCb3pib25YY2FGd0VYNUk0MHlJY0lsNWtZQkphcU4zTnhFZGlxeEVpM2RlMmxGOWVhRG5fYWNNbTlUbmc?oc=5",
+      "cierre": "Prueba DentRead y potencia tu criterio profesional.",
+      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/41061312/",
+      "hechos": [
+        "ia-imagen-228"
+      ]
+    },
+    {
+      "titulo": "Videa lanza herramienta de presentaciones",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "Nuevas herramientas de IA para clínicas",
+      "escenas": [
+        "Último minuto: Videa lanzó una herramienta para ayudar a los equipos dentales a mejorar sus presentaciones de tratamiento.",
+        "La tecnología avanza rápido para mostrar de forma clara lo que pasa en la boca del paciente.",
+        "En DentRead te ayudamos a leer y destacar hallazgos en radiografías al instante, haciendo más simple cada explicación."
+      ],
+      "cierre": "Sumate a la tecnología dental probando DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOSzlMT293RWZmTWRyOHJmbjZUOVhraVZaUHJwTmhIdnFma1VFZmcyYmk5STRKckt5TVRtaXlSZFlnYmFDUWNwMjVyWDU3dzZpQ3BiT1h2TXpweEtEZnNxLXQxelFoUjFNNlNXeXMtamdCN0dJM1pCVzhNMlRUaVhWbUxWLUZTSDFWb2hoSU5VMVpaUmNsR0xUa2V6UDE2SURDOU43anJWSjBTYmRzWmt3cmRaUkVRSG1lS0RmWng4ZUJfYTZzaGV2MUhjZzdIQTF3YmVGck1fbHNObEk?oc=5",
+      "hechos": []
+    },
+    {
+      "titulo": "Apple simplifica la IA local en Mac",
+      "formato": "Problema → solución",
+      "gancho": "Apple facilitará correr IA en Mac",
+      "escenas": [
+        "¿Te preocupa la privacidad al usar herramientas de inteligencia artificial en la computadora de tu consulta?",
+        "Apple prepara una app para ejecutar modelos de IA de forma local en computadores Mac, sin subir datos a servidores externos.",
+        "Esto demuestra cómo la tecnología avanza hacia proteger la información mientras agilizas el trabajo diario.",
+        "En DentRead nos enfocamos en ayudarte a analizar radiografías rápido para que optimices tu tiempo en sillón."
+      ],
+      "cierre": "Descubre DentRead y moderniza tu diagnóstico hoy.",
+      "fuente_url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
       "hechos": []
     }
   ],
   "descartados": [],
-  "fuentes": 39
+  "fuentes": 36
 }
