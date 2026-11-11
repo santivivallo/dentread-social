@@ -1247,7 +1247,10 @@
     "ai",
     "workflow"
    ],
-   "first_seen": "2026-W33"
+   "first_seen": "2026-W33",
+   "used": true,
+   "published_on": "2026-11-11",
+   "cierre": "Automatizar una lectura es lo fácil. Lo difícil es que alguien actúe sobre ella."
   },
   "https://adanews.ada.org/ada-news/2026/february/ada-offers-scholarships-for-teaching-and-leadership-training-program/": {
    "title": "ADA offers scholarships for teaching and leadership training program",
@@ -5937,6 +5940,24 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W46"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/ada-supports-major-expansion-of-va-dental-benefits-for-veterans/": {
+   "title": "ADA supports major expansion of VA dental benefits for veterans",
+   "published": "2026-11-10",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "workflow"
+   ],
+   "first_seen": "2026-W46"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/ada-thanks-dental-community-following-2026-scientific-session/": {
+   "title": "ADA thanks dental community following 2026 Scientific Session",
+   "published": "2026-11-09",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W46"
   }
  },
  "weeks": {
@@ -6735,9 +6756,11 @@
   ],
   "2026-W46": [
    "https://adanews.ada.org/ada-news/2026/november/ada-seeks-stem-visa-designation-for-dentistry/",
+   "https://adanews.ada.org/ada-news/2026/november/ada-supports-major-expansion-of-va-dental-benefits-for-veterans/",
+   "https://adanews.ada.org/ada-news/2026/november/ada-thanks-dental-community-following-2026-scientific-session/",
    "https://adanews.ada.org/ada-news/2026/november/register-give-kids-a-smile-events-by-nov-15/"
   ]
  },
- "runs": 409,
+ "runs": 425,
  "deepest_page": 12
 }
