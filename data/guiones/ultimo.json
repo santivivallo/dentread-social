@@ -1,62 +1,63 @@
 {
-  "fecha": "2026-11-11",
-  "generado": "2026-11-11T18:31:24Z",
+  "fecha": "2026-11-12",
+  "generado": "2026-11-12T18:47:08Z",
   "guiones": [
     {
-      "titulo": "Reseña cero estrellas: el software que lo hace todo",
-      "formato": "Reseña cero estrellas (ironía)",
-      "gancho": "¿Un software que reemplaza tu criterio?",
+      "titulo": "IA en radiología diagnóstica",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "¿Qué aporta la IA en la radiología?",
       "escenas": [
-        "Pésimo servicio. Compré un sistema esperando que me diera el diagnóstico listo y se hiciera cargo de todo.",
-        "Resulta que el 82,6% de los dentistas no piensa usar IA para recomendaciones de tratamiento.",
-        "DentRead te ayuda a detectar hallazgos en radiografías al instante, pero el diagnóstico definitivo siempre es tuyo."
+        "Un estudio premiado por Stanford Medicine analizó el impacto real de la inteligencia artificial en la radiología clínica.",
+        "La tecnología demuestra ser un apoyo clave al organizar datos complejos y optimizar la revisión de imágenes.",
+        "DentRead aplica estos avances analizando radiografías dentales para destacar hallazgos que el profesional revisa.",
+        "Recuerda que la tecnología entrega una segunda mirada, pero la decisión final siempre es tuya."
       ],
-      "cierre": "Prueba DentRead hoy y mantén el control de tu consulta.",
-      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/42184717/",
-      "hechos": [
-        "ia-tratamiento-826"
-      ]
+      "cierre": "Prueba DentRead hoy y fortalece tu criterio clínico.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOamZvY19OaEVBUVljU2p3X0R0dkF3bWc3UTVGeTBUd2dHQ3dZNEhWYi02UkF0Y0pFMmdNMEdoN05keGY4Y3lXTUlvMGZhUzhEQjk2QUZhWUpyRGN5OFVEX3hYWGMzUjFKd3dDdkhHVS1QRWFQZU1jYTN6c01mbmZoNEVtS0FkOFBBcTFGcS1DTVVlczgxRFVYRU9IUmk5OWM2dUROWlBVQjQ2S0hTU2VNandzWlZnYkpjeHBV?oc=5",
+      "hechos": []
     },
     {
-      "titulo": "El mito de la radiología con IA",
-      "formato": "No vayas de listo (corrige un mito)",
-      "gancho": "La IA no reemplaza al dentista",
+      "titulo": "Adopción de IA en imagenología",
+      "formato": "Titular con dato (cifra verificada + fuente)",
+      "gancho": "El 22,8% ya usa IA diagnóstica",
       "escenas": [
-        "Crees que poner IA en tu clínica significa que una máquina va a decidir por ti.",
-        "Falso. El 22,8% de los dentistas usa IA como apoyo visual e imagenología, no para sustituir su ojo clínico.",
-        "DentRead analiza tus radiografías en segundos para que tú expliques el caso con total certeza."
+        "Según la ADA, el 22,8% de los dentistas ya usa IA en imagenología y otro 25,4% planea sumarla.",
+        "Analizar cada radiografía requiere tiempo y una concentración absoluta durante toda la jornada.",
+        "DentRead procesa las imágenes al instante para apoyarte en la detección de posibles patologías.",
+        "Tú mantienes el control total, apoyado por una herramienta precisa y rápida."
       ],
-      "cierre": "Prueba DentRead y potencia tu criterio profesional.",
-      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/41061312/",
+      "cierre": "Súmate al cambio con DentRead. ¡Pruébalo ahora!",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/",
       "hechos": [
         "ia-imagen-228"
       ]
     },
     {
-      "titulo": "Videa lanza herramienta de presentaciones",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "Nuevas herramientas de IA para clínicas",
+      "titulo": "Planes de tratamiento y Videa",
+      "formato": "Problema → solución",
+      "gancho": "Explicar tratamientos a los pacientes cuesta",
       "escenas": [
-        "Último minuto: Videa lanzó una herramienta para ayudar a los equipos dentales a mejorar sus presentaciones de tratamiento.",
-        "La tecnología avanza rápido para mostrar de forma clara lo que pasa en la boca del paciente.",
-        "En DentRead te ayudamos a leer y destacar hallazgos en radiografías al instante, haciendo más simple cada explicación."
+        "Plataformas como Videa lanzan herramientas enfocadas en mejorar la presentación de tratamientos en clínicas.",
+        "La verdadera clave para que el paciente entienda es mostrarle los hallazgos radiográficos de forma clara.",
+        "DentRead analiza tus radiografías dentales y resalta visualmente los puntos que requieren tu atención.",
+        "Tú diagnosticas y al paciente le queda todo súper claro en la consulta."
       ],
-      "cierre": "Sumate a la tecnología dental probando DentRead.",
+      "cierre": "Mejora tu comunicación clínica con DentRead.",
       "fuente_url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOSzlMT293RWZmTWRyOHJmbjZUOVhraVZaUHJwTmhIdnFma1VFZmcyYmk5STRKckt5TVRtaXlSZFlnYmFDUWNwMjVyWDU3dzZpQ3BiT1h2TXpweEtEZnNxLXQxelFoUjFNNlNXeXMtamdCN0dJM1pCVzhNMlRUaVhWbUxWLUZTSDFWb2hoSU5VMVpaUmNsR0xUa2V6UDE2SURDOU43anJWSjBTYmRzWmt3cmRaUkVRSG1lS0RmWng4ZUJfYTZzaGV2MUhjZzdIQTF3YmVGck1fbHNObEk?oc=5",
       "hechos": []
     },
     {
-      "titulo": "Apple simplifica la IA local en Mac",
-      "formato": "Problema → solución",
-      "gancho": "Apple facilitará correr IA en Mac",
+      "titulo": "Biometría y consentimiento en la era IA",
+      "formato": "Antiguo vs nuevo",
+      "gancho": "¿Verificas la identidad de tu paciente?",
       "escenas": [
-        "¿Te preocupa la privacidad al usar herramientas de inteligencia artificial en la computadora de tu consulta?",
-        "Apple prepara una app para ejecutar modelos de IA de forma local en computadores Mac, sin subir datos a servidores externos.",
-        "Esto demuestra cómo la tecnología avanza hacia proteger la información mientras agilizas el trabajo diario.",
-        "En DentRead nos enfocamos en ayudarte a analizar radiografías rápido para que optimices tu tiempo en sillón."
+        "Trust Stamp añadió verificaciones biométricas de consentimiento para transacciones realizadas por agentes de IA.",
+        "En las clínicas dentales, la seguridad de la ficha clínica y la validación del paciente también están evolucionando.",
+        "El uso de software inteligente exige máxima transparencia sobre quién autoriza cada procedimiento.",
+        "La IA procesa los datos de radiografías, pero el dentista siempre valida y firma la decisión clínica."
       ],
-      "cierre": "Descubre DentRead y moderniza tu diagnóstico hoy.",
-      "fuente_url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+      "cierre": "Moderniza tu clínica con la tecnología segura de DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNeGR4NXdvTTZlWGRtY1gzNUZsUXExOVU4REpSbUZ3eXZxalVFSXpfNVJuMWFwdncyd0JqeTdwNXN0Q2pzVUFHeUF5OU1jNUdsSWlTakdsbk5yaXJxMzFiSXB1TE02MHNFdDlUX2RjblpUNlVlc21vOHlDdzhRenFDc1A0WHkwRzdoTHF1M216R3VwbGlOVll4Q21SUDdtZzI2dS0zT1dwQWJRdw?oc=5",
       "hechos": []
     }
   ],
