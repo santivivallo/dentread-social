@@ -5958,6 +5958,33 @@
    "score": 0.0,
    "buckets": [],
    "first_seen": "2026-W46"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/ada-receives-cdc-grant-to-advance-antibiotic-stewardship-tissue-graft-safety-in-dentistry/": {
+   "title": "ADA receives CDC grant to advance antibiotic stewardship, tissue graft safety in dentistry",
+   "published": "2026-11-12",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W46"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/ada-aadej-present-distinguished-dental-editor-award-to-retired-michigan-dental-association-editor/": {
+   "title": "ADA, AADEJ present Distinguished Dental Editor Award to retired Michigan Dental Association editor",
+   "published": "2026-11-12",
+   "category": "Around The ADA",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W46"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/alliance-of-the-ada-gifts-185000-to-ada-foundation/": {
+   "title": "Alliance of the ADA gifts $185,000 to ADA Foundation",
+   "published": "2026-11-12",
+   "category": "Access To Care",
+   "score": 5.5,
+   "buckets": [
+    "clinica",
+    "datos"
+   ],
+   "first_seen": "2026-W46"
   }
  },
  "weeks": {
@@ -6755,12 +6782,15 @@
    "https://adanews.ada.org/ada-news/2026/october/ada-seeks-treasurer-candidates/"
   ],
   "2026-W46": [
+   "https://adanews.ada.org/ada-news/2026/november/ada-aadej-present-distinguished-dental-editor-award-to-retired-michigan-dental-association-editor/",
+   "https://adanews.ada.org/ada-news/2026/november/ada-receives-cdc-grant-to-advance-antibiotic-stewardship-tissue-graft-safety-in-dentistry/",
    "https://adanews.ada.org/ada-news/2026/november/ada-seeks-stem-visa-designation-for-dentistry/",
    "https://adanews.ada.org/ada-news/2026/november/ada-supports-major-expansion-of-va-dental-benefits-for-veterans/",
    "https://adanews.ada.org/ada-news/2026/november/ada-thanks-dental-community-following-2026-scientific-session/",
+   "https://adanews.ada.org/ada-news/2026/november/alliance-of-the-ada-gifts-185000-to-ada-foundation/",
    "https://adanews.ada.org/ada-news/2026/november/register-give-kids-a-smile-events-by-nov-15/"
   ]
  },
- "runs": 425,
+ "runs": 435,
  "deepest_page": 12
 }

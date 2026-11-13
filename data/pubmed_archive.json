@@ -908,7 +908,8 @@
    "design": "Systematic Review",
    "preset": "economia",
    "first_seen": "2026-W39",
-   "descartado": ""
+   "descartado": "",
+   "used": true
   },
   "41826010": {
    "title": "Artificial Intelligence and Augmented Intelligence as Tools for Dental Practice Management.",
@@ -4429,6 +4430,15 @@
    "preset": "medicaid",
    "first_seen": "2026-W46",
    "descartado": "revista_fuera_de_allowlist"
+  },
+  "42628726": {
+   "title": "Strategies to Microengineer Vascularized, Mineralized, and Immunomodulatory Niches for Dental Regeneration.",
+   "journal": "J Endod",
+   "year": "2026",
+   "design": "",
+   "preset": "medicaid",
+   "first_seen": "2026-W46",
+   "descartado": "revista_fuera_de_allowlist"
   }
  },
  "weeks": {
@@ -4934,8 +4944,9 @@
   ],
   "2026-W46": [
    "41797221",
+   "42628726",
    "42950820"
   ]
  },
- "runs": 150
+ "runs": 157
 }

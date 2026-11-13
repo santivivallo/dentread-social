@@ -50,6 +50,7 @@
 
 ## Articles
 
+- [Robot-Assisted Oral Examination: Challenges and Innovations · DentRead Insights](https://dentread-social.pages.dev/paper-42296618/): This paper analyzes the clinical possibilities of robots in oral examinations and identifies how artificial intelligence and robotics optimize diagnostic …
 - [ADA seeks dental imaging experts to inform response to federal interoperability request · DentRead Insights](https://dentread-social.pages.dev/news-54751669/): The American Dental Association calls dental informatics and imaging specialists to a virtual meeting on February 23. The meeting seeks to gather input to…
 - [What DentRead is · DentRead Insights](https://dentread-social.pages.dev/que-es-dentread/): DentRead builds artificial intelligence tools for dental radiographs and clinical workflows.
 - [ADA Member Advantage endorses Weave as patient engagement platform · DentRead Insights](https://dentread-social.pages.dev/news-88206201/): ADA Member Advantage endorsed Weave's artificial intelligence patient management platform for associated professionals. The tool integrates with practice …
@@ -130,6 +131,7 @@
 
 ### Artículos
 
+- [Ciento treinta y cuatro estudios bajo la lupa · DentRead Insights](https://dentread-social.pages.dev/es/paper-42296618/): Una revisión ordena lo que ya se sabía. Ahí se ve qué sigue sin estudiarse. 🦷
 - [EE.UU. quiere regular cómo compartís las placas · DentRead Insights](https://dentread-social.pages.dev/es/news-54751669/): Automatizar una lectura es lo fácil. Lo difícil es que alguien actúe sobre ella. 🦷
 - [DentRead desarrolla herramientas de inteligencia artificial para radiografías dentales y flujos clínicos · DentRead Insights](https://dentread-social.pages.dev/es/que-es-dentread/): Leer la radiografía es el principio. Lo que sigue casi nunca se mide. 🦷
 - [La ADA le dio el visto bueno a una IA · DentRead Insights](https://dentread-social.pages.dev/es/news-88206201/): La discusión ya no es si la IA sirve. Es qué queda registrado cuando se usa. 🦷
