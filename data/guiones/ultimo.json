@@ -1,55 +1,56 @@
 {
-  "fecha": "2026-11-13",
-  "generado": "2026-11-13T18:28:52Z",
+  "fecha": "2026-11-14",
+  "generado": "2026-11-14T16:56:49Z",
   "guiones": [
     {
-      "titulo": "Pearl se expande a Canadá",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "¡Atención! La IA dental sigue creciendo fuerte",
+      "titulo": "Adopción de IA en la clínica dental",
+      "formato": "Titular con dato (cifra verificada + fuente)",
+      "gancho": "¿Usas IA en tu consulta dental?",
       "escenas": [
-        "Salió la noticia: Pearl lanzó su plataforma Practice Intelligence® en Canadá.",
-        "Esto demuestra cómo la inteligencia artificial se está volviendo un estándar global en la odontología.",
-        "DentRead también impulsa esta transformación, ayudando al odontólogo a detectar hallazgos en radiografías con mayor agilidad.",
-        "Recuerda: la IA apoya y optimiza el flujo, pero el diagnóstico final siempre es tuyo."
+        "El 43,3% de los dentistas ya usa IA para al menos una tarea en su clínica.",
+        "Además, un 22,8% la utiliza específicamente para apoyo en imagenología.",
+        "Plataformas como DentRead ayudan a analizar radiografías en segundos, agilizando tu flujo de trabajo.",
+        "Recuerda que la IA apoya el análisis visual, pero la decisión final siempre es tuya."
       ],
-      "cierre": "Prueba DentRead hoy y lleva tu clínica al siguiente nivel.",
+      "cierre": "Prueba DentRead hoy y optimiza la lectura de tus radiografías.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/alliance-of-the-ada-gifts-185000-to-ada-foundation/",
+      "hechos": [
+        "ia-adopcion-433",
+        "ia-imagen-228"
+      ]
+    },
+    {
+      "titulo": "DentRead frente a la llegada de Pearl a Canadá",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "Pearl llega a Canadá con Practice Intelligence",
+      "escenas": [
+        "El mercado de software dental con IA sigue creciendo a nivel global.",
+        "Tener herramientas que asistan en la revisión de exámenes es cada vez más común.",
+        "DentRead te entrega un análisis radiográfico rápido para que revises tus casos con mayor tranquilidad.",
+        "La tecnología te acompaña en la detección, pero el diagnóstico definitivo lo haces tú."
+      ],
+      "cierre": "Descubre cómo DentRead apoya a tu clínica dental.",
       "fuente_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQWdlZUJVNk5XZHhRbHIteTVKaWZEelhfY2JkdllyVm53VC1WaWtXMThVR3ZoUm5zelU2ajZaV0hIdEhfWTlscVlnQkVLWG1DamFFcS1DR0N2bURYaXptRTNaM010M0U3NTVoVW1pWlpYeUo3Z2Vrb3VXbGdSUmd5Qi1ReTMzRlBMYmpScjFkT3Uzb3ZycXZfYTZBWVlZY1lLa2pkYWhaT09sT1lyS1ZyX0RtSnl4eFVGVVJjVg?oc=5",
       "hechos": []
     },
     {
-      "titulo": "Sobrecarga laboral en la consulta",
-      "formato": "Problema → solución",
-      "gancho": "¿Te agotas revisando decenas de radiografías diarias?",
+      "titulo": "Robótica e IA en la revisión dental",
+      "formato": "Antiguo vs nuevo",
+      "gancho": "Gemini Robotics 2.5 y la odontología",
       "escenas": [
-        "El 32,4% de los dentistas declara estar sobrecargado de trabajo actualmente.",
-        "Analizar cada rx al detalle al final de una larga jornada aumenta el cansancio visual y la fatiga.",
-        "DentRead analiza tus radiografías en segundos y resalta zonas de interés para tu revisión.",
-        "Ahorras tiempo en la interpretación y te enfocas en lo más importante: la atención de tu paciente."
+        "Se presentó Gemini Robotics 2.5, mostrando avances en robótica e inteligencia artificial.",
+        "Esto confirma cómo los sistemas automatizados están entrando en el área de la salud.",
+        "Para una clínica, automatizar tareas repetitivas libera tiempo valioso para la atención directa.",
+        "En radiología, DentRead aplica IA para señalar hallazgos mientras tú mantienes el control del diagnóstico."
       ],
-      "cierre": "Optimiza tu tiempo clínico probando DentRead ahora.",
-      "fuente_url": "https://adanews.ada.org/",
-      "hechos": [
-        "dentistas-sobrecargados-324"
-      ]
-    },
-    {
-      "titulo": "Monitoreo de agentes de IA con AQuA",
-      "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "Google libera AQuA para corregir fallas en IA",
-      "escenas": [
-        "Google lanzó en código abierto Ambient Quality Agent (AQuA) para diagnosticar fallas en agentes de IA en producción.",
-        "¿Qué significa esto para tu clínica o consulta dental?",
-        "A medida que integramos herramientas de IA en gestión o salud, la confiabilidad de los sistemas se vuelve prioritaria.",
-        "Sistemas más estables garantizan que el apoyo tecnológico a los profesionales sea siempre seguro y preciso."
-      ],
-      "cierre": "Sigue a DentRead para estar al día en tecnología e IA dental.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5Rb1laVmZFcHp1T0R2a0YyRjJ0R2ctUjJKUFNvTHp1SDVMNkxTZlctX3Z4VDlSNlhCVEh5V2wzeVhoUDRrWWNKaGswckYtV28wX1ZqNHpYMHM4QmxnSE1KOXM1eFdZdFlOZHJhaHd3?oc=5",
+      "cierre": "Prueba DentRead y lleva la tecnología a tu diagnóstico radiográfico.",
+      "fuente_url": "https://www.producthunt.com/products/gemini-robotics-2-5",
       "hechos": []
     }
   ],
   "descartados": [
     {
-      "titulo": "La realidad del uso de IA en radiografías",
+      "titulo": "Uso responsable de herramientas clínicas",
       "motivo": "cifras sin respaldo: 100"
     }
   ],
