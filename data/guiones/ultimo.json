@@ -1,58 +1,68 @@
 {
-  "fecha": "2026-11-14",
-  "generado": "2026-11-14T16:56:49Z",
+  "fecha": "2026-11-15",
+  "generado": "2026-11-15T17:40:15Z",
   "guiones": [
     {
-      "titulo": "Adopción de IA en la clínica dental",
+      "titulo": "Adopción real de la IA dental",
       "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "¿Usas IA en tu consulta dental?",
+      "gancho": "¿Cuántos dentistas usan IA hoy?",
       "escenas": [
-        "El 43,3% de los dentistas ya usa IA para al menos una tarea en su clínica.",
-        "Además, un 22,8% la utiliza específicamente para apoyo en imagenología.",
-        "Plataformas como DentRead ayudan a analizar radiografías en segundos, agilizando tu flujo de trabajo.",
-        "Recuerda que la IA apoya el análisis visual, pero la decisión final siempre es tuya."
+        "Un 22,8% de los dentistas encuestados ya usa IA para imagenología, según el ADA Health Policy Institute.",
+        "La tecnología no viene a reemplazar tu criterio ni a dar diagnósticos automáticos.",
+        "DentRead te ayuda como un segundo par de ojos en tus radiografías, dándote un soporte visual claro.",
+        "Tú sigues manteniendo el control total de las decisiones clínicas."
       ],
-      "cierre": "Prueba DentRead hoy y optimiza la lectura de tus radiografías.",
+      "cierre": "Prueba DentRead en tu clínica hoy mismo.",
       "fuente_url": "https://adanews.ada.org/ada-news/2026/november/alliance-of-the-ada-gifts-185000-to-ada-foundation/",
       "hechos": [
-        "ia-adopcion-433",
         "ia-imagen-228"
       ]
     },
     {
-      "titulo": "DentRead frente a la llegada de Pearl a Canadá",
+      "titulo": "Pearl llega a Canadá con Practice Intelligence",
       "formato": "Última hora (noticia real con fuente)",
-      "gancho": "Pearl llega a Canadá con Practice Intelligence",
+      "gancho": "La IA en odontología sigue sumando terreno.",
       "escenas": [
-        "El mercado de software dental con IA sigue creciendo a nivel global.",
-        "Tener herramientas que asistan en la revisión de exámenes es cada vez más común.",
-        "DentRead te entrega un análisis radiográfico rápido para que revises tus casos con mayor tranquilidad.",
-        "La tecnología te acompaña en la detección, pero el diagnóstico definitivo lo haces tú."
+        "Se anunció que Pearl lanzó Practice Intelligence en Canadá.",
+        "La industria avanza rápido hacia herramientas digitales que apoyan la gestión e imagenología.",
+        "En DentRead nos alegra ver cómo crece este ecosistema de asistencia tecnológica.",
+        "Nuestra plataforma apoya el análisis radiográfico para que evalúes cada caso con mayor tranquilidad."
       ],
-      "cierre": "Descubre cómo DentRead apoya a tu clínica dental.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQWdlZUJVNk5XZHhRbHIteTVKaWZEelhfY2JkdllyVm53VC1WaWtXMThVR3ZoUm5zelU2ajZaV0hIdEhfWTlscVlnQkVLWG1DamFFcS1DR0N2bURYaXptRTNaM010M0U3NTVoVW1pWlpYeUo3Z2Vrb3VXbGdSUmd5Qi1ReTMzRlBMYmpScjFkT3Uzb3ZycXZfYTZBWVlZY1lLa2pkYWhaT09sT1lyS1ZyX0RtSnl4eFVGVVJjVg?oc=5",
+      "cierre": "Conoce cómo DentRead apoya a tu consulta.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOR2RVQWJSV2xnUTBaVEF0VGVWbGhDUVZWbGV0X3gwMjNqb01SaWFHYUkyMXVOb2FETy0tdndPRXhTN2FCMTNNOTZrQzQ3OXRlb2tKWGVHWFhNcUFCbmhGQ1ptcHJPbEo3bER1WlVmRDc3ek9JcFkzWUt5c3lvamJmV1NndDEwUVUyV0hXUHZPV0Myd2poSFZxdHgxdEpKMFV6Q2hvU01GS2R3cTV3RVRJSUo3WnZhTWF5dS1IV21hcEdBQdIBwgFBVV95cUxOR2RVQWJSV2xnUTBaVEF0VGVWbGhDUVZWbGV0X3gwMjNqb01SaWFHYUkyMXVOb2FETy0tdndPRXhTN2FCMTNNOTZrQzQ3OXRlb2tKWGVHWFhNcUFCbmhGQ1ptcHJPbEo3bER1WlVmRDc3ek9JcFkzWUt5c3lvamJmV1NndDEwUVUyV0hXUHZPV0Myd2poSFZxdHgxdEpKMFV6Q2hvU01GS2R3cTV3RVRJSUo3WnZhTWF5dS1IV21hcEdBQQ?oc=5",
       "hechos": []
     },
     {
-      "titulo": "Robótica e IA en la revisión dental",
-      "formato": "Antiguo vs nuevo",
-      "gancho": "Gemini Robotics 2.5 y la odontología",
+      "titulo": "Evitando la sobrecarga laboral",
+      "formato": "Problema → solución",
+      "gancho": "¿Te sientes cansado al revisar radiografías?",
       "escenas": [
-        "Se presentó Gemini Robotics 2.5, mostrando avances en robótica e inteligencia artificial.",
-        "Esto confirma cómo los sistemas automatizados están entrando en el área de la salud.",
-        "Para una clínica, automatizar tareas repetitivas libera tiempo valioso para la atención directa.",
-        "En radiología, DentRead aplica IA para señalar hallazgos mientras tú mantienes el control del diagnóstico."
+        "El 32,4% de los dentistas encuestados declara estar sobrecargado de trabajo en su día a día.",
+        "Analizar decenas de imágenes al final de la jornada aumenta la fatiga visual.",
+        "DentRead sirve como un asistente que apoya la lectura radiográfica, marcando hallazgos para tu revisión.",
+        "Ganas agilidad en la consulta sin perder tu rigor profesional."
       ],
-      "cierre": "Prueba DentRead y lleva la tecnología a tu diagnóstico radiográfico.",
-      "fuente_url": "https://www.producthunt.com/products/gemini-robotics-2-5",
+      "cierre": "Simplifica tu trabajo radiológico con DentRead.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/alliance-of-the-ada-gifts-185000-to-ada-foundation/",
+      "hechos": [
+        "dentistas-sobrecargados-324"
+      ]
+    },
+    {
+      "titulo": "Seguridad de datos en salud e IA",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "Cuidado con la IA que usas.",
+      "escenas": [
+        "Healthcare IT News advirtió sobre incidentes de datos de pacientes por uso inadecuado de herramientas de IA.",
+        "Para cualquier clínica o consulta dental, proteger la privacidad del paciente es prioritario.",
+        "Las herramientas tecnológicas en salud deben usarse con protocolos seguros y como apoyo al profesional.",
+        "DentRead apoya tu lectura de radiografías manteniendo siempre la supervisión y decisión en manos del odontólogo."
+      ],
+      "cierre": "Elegir herramientas seguras resguarda tu clínica y a tus pacientes.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOUVpTWkdvMVVDMkdNVFU4dFh0THJTRDkzYXJSR3VNVFlmd1pFMldxdkUxTU8zM1ZfWjAzaXExbGNxZzFVRDJ6LU5XZmJ5OUtibzRNWlpMamtDVk54SE1hMU4tbHVDNDBiTlBLbTNzLW1PdEk4YUVqZDZoYkRVT0xNNVJMOU05M01DZEp6UWp1cmZWdmd1Tkh1NTJ0MG53WHhudnZnWE96Nnl0TVNQ?oc=5",
       "hechos": []
     }
   ],
-  "descartados": [
-    {
-      "titulo": "Uso responsable de herramientas clínicas",
-      "motivo": "cifras sin respaldo: 100"
-    }
-  ],
-  "fuentes": 30
+  "descartados": [],
+  "fuentes": 35
 }
