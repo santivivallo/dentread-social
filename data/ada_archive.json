@@ -5984,7 +5984,30 @@
     "clinica",
     "datos"
    ],
-   "first_seen": "2026-W46"
+   "first_seen": "2026-W46",
+   "used": true,
+   "published_on": "2026-11-16",
+   "cierre": "El hallazgo clínico es el principio del recorrido. El final es un tratamiento terminado."
+  },
+  "https://adanews.ada.org/ada-news/2026/november/ada-joins-coalition-urging-congress-to-maintain-federal-tobacco-control-funding/": {
+   "title": "ADA joins coalition urging Congress to maintain federal tobacco control funding",
+   "published": "2026-11-16",
+   "category": "Government",
+   "score": 2.5,
+   "buckets": [
+    "clinica"
+   ],
+   "first_seen": "2026-W47"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/ada-responds-to-continued-reports-of-metlife-offsetting-payments-owed-to-dentists/": {
+   "title": "ADA responds to continued reports of MetLife offsetting payments owed to dentists",
+   "published": "2026-11-16",
+   "category": "Practice",
+   "score": 3.5,
+   "buckets": [
+    "datos"
+   ],
+   "first_seen": "2026-W47"
   }
  },
  "weeks": {
@@ -6789,8 +6812,12 @@
    "https://adanews.ada.org/ada-news/2026/november/ada-thanks-dental-community-following-2026-scientific-session/",
    "https://adanews.ada.org/ada-news/2026/november/alliance-of-the-ada-gifts-185000-to-ada-foundation/",
    "https://adanews.ada.org/ada-news/2026/november/register-give-kids-a-smile-events-by-nov-15/"
+  ],
+  "2026-W47": [
+   "https://adanews.ada.org/ada-news/2026/november/ada-joins-coalition-urging-congress-to-maintain-federal-tobacco-control-funding/",
+   "https://adanews.ada.org/ada-news/2026/november/ada-responds-to-continued-reports-of-metlife-offsetting-payments-owed-to-dentists/"
   ]
  },
- "runs": 435,
+ "runs": 451,
  "deepest_page": 12
 }
