@@ -1,68 +1,57 @@
 {
-  "fecha": "2026-11-16",
-  "generado": "2026-11-16T20:54:10Z",
+  "fecha": "2026-11-17",
+  "generado": "2026-11-17T19:44:13Z",
   "guiones": [
     {
-      "titulo": "Adopción de IA en radiografías",
-      "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "¿Usas IA para revisar tus radiografías?",
+      "titulo": "IA en el diagnóstico dental",
+      "formato": "X razones por las que…",
+      "gancho": "¿Por qué usar IA en tu clínica?",
       "escenas": [
-        "En Estados Unidos, el 22,8% de los dentistas ya usa IA para imagenología.",
-        "Además, un 25,4% piensa sumarla pronto a su consulta.",
-        "No es para que la máquina reemplace tu criterio profesional.",
-        "DentRead te ayuda a detectar hallazgos en segundos como un segundo par de ojos."
+        "El 22,8% de los dentistas ya usa IA para imagenología y diagnóstico.",
+        "No es para reemplazar tu ojo clínico, es para apoyarte en la lectura de radiografías.",
+        "Tú siempre tienes la última palabra, la IA solo te da una segunda opinión rápida.",
+        "La tecnología está para potenciar tu criterio, no para sustituirlo."
       ],
-      "cierre": "Prueba DentRead hoy y optimiza tu tiempo de lectura radiográfica.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
+      "cierre": "¿Quieres probar DentRead? Agenda una demo hoy.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/july/",
       "hechos": [
         "ia-imagen-228"
       ]
     },
     {
-      "titulo": "Reseña de Pearl Practice Intelligence",
-      "formato": "Problema → solución",
-      "gancho": "¿Te cuesta explicar la radiografía al paciente?",
+      "titulo": "¿Qué pasa con la competencia?",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "La IA sigue expandiéndose en odontología.",
       "escenas": [
-        "Ves una imagen compleja y el paciente duda del tratamiento.",
-        "Mientras otras plataformas como Pearl avanzan en la industria dental, la IA sigue siendo un apoyo visual excelente.",
-        "DentRead analiza tus radiografías e ilumina las zonas de atención.",
-        "La máquina sugiere y tú, como profesional, confirmas el diagnóstico."
+        "Titular reciente: La IA está transformando la práctica de higiene dental.",
+        "Mientras otros se actualizan, tú puedes optimizar tu flujo de trabajo con DentRead.",
+        "Recuerda: la IA ayuda, pero el odontólogo es quien decide el tratamiento.",
+        "Mantente a la vanguardia sin perder tu esencia clínica."
       ],
-      "cierre": "Agenda una demostración de DentRead para tu clínica.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOR2RVQWJSV2xnUTBaVEF0VGVWbGhDUVZWbGV0X3gwMjNqb01SaWFHYUkyMXVOb2FETy0tdndPRXhTN2FCMTNNOTZrQzQ3OXRlb2tKWGVHWFhNcUFCbmhGQ1ptcHJPbEo3bER1WlVmRDc3ek9JcFkzWUt5c3lvamJmV1NndDEwUVUyV0hXUHZPV0Myd2poSFZxdHgxdEpKMFV6Q2hvU01GS2R3cTV3RVRJSUo3WnZhTWF5dS1IV21hcEdBQdIBwgFBVV95cUxOR2RVQWJSV2xnUTBaVEF0VGVWbGhDUVZWbGV0X3gwMjNqb01SaWFHYUkyMXVOb2FETy0tdndPRXhTN2FCMTNNOTZrQzQ3OXRlb2tKWGVHWFhNcUFCbmhGQ1ptcHJPbEo3bER1WlVmRDc3ek9JcFkzWUt5c3lvamJmV1NndDEwUVUyV0hXUHZPV0Myd2poSFZxdHgxdEpKMFV6Q2hvU01GS2R3cTV3RVRJSUo3WnZhTWF5dS1IV21hcEdBQQ?oc=5",
+      "cierre": "Súmate a la nueva era dental con DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNZWQ2OE9OMmYwa29WX1h6cVhvMEtkSmR0bWV2M1lIR01GQ1pqNmQ0anpvY1NxVk1UV293WDZpLVZSZlNwRlFKOE5WTW9SN3R1SVYxQjVEQWk2dWJIcmFId1B4NVU1bzdFaVNUUEJhYTg4UnRHY0kwel9OV2R2czU3ZGJTMFJRcW9oTlplaGhHaXd2S3JoV01meF9BOFpYMEJpOXJfT291UzBjT0thZ2ZzcWF2N3FyYVB5bXlIU0xzeC1HNTBad3hHYnMzNVY0X19KT2Myc0pnTmZNakRpMnA0?oc=5",
       "hechos": []
     },
     {
-      "titulo": "Sobrecarga de trabajo en odontología",
-      "formato": "No compres esto (anti-venta)",
-      "gancho": "No uses IA si buscas diagnósticos automáticos.",
+      "titulo": "¿Qué es un agente de IA?",
+      "formato": "Problema → solución",
+      "gancho": "¿Escuchas hablar de 'agentes de IA'?",
       "escenas": [
-        "El 32,4% de los dentistas se siente sobrecargado en su día a día.",
-        "DentRead no se compró para reemplazar la evaluación clínica del odontólogo.",
-        "Sirve para agilizar la lectura de radiografías y dar respaldo visual a tu decisión.",
-        "El diagnóstico definitivo siempre lo firmas tú."
+        "Hoy vemos agentes de IA en todas partes, desde compras hasta seguridad.",
+        "En salud, estos sistemas ayudan a procesar datos complejos en segundos.",
+        "Para ti, esto significa menos tiempo analizando radiografías y más tiempo con el paciente.",
+        "La IA es el copiloto que te ayuda a ser más eficiente en tu clínica."
       ],
-      "cierre": "Descubre cómo DentRead alivia tu carga de trabajo diaria.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/october/ada-urges-house-committee-to-address-cybersecurity-concerns-for-dental-practices/",
-      "hechos": [
-        "dentistas-sobrecargados-324"
-      ]
-    },
-    {
-      "titulo": "Revisión de contratos con IA estilo Uber",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "Uber bajó tiempo de contratos con IA.",
-      "escenas": [
-        "La empresa Uber implementó una IA que redujo un 20% el tiempo de revisión de contratos.",
-        "¿Qué significa esto para una clínica u odontólogo?",
-        "Las herramientas de IA están hechas para optimizar tareas administrativas y de análisis pesado.",
-        "Así como en el área legal reducen tiempos, en odontología DentRead te apoya leyendo radiografías más rápido."
-      ],
-      "cierre": "Súmate a la eficiencia y prueba DentRead en tu consulta.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9XTXh5Q0MxTmNKUU9Yd1dlVURtZkNkT21CeGhoUDlTaG5xc25PMlN2cWgwSW9ILXlrc2J2UjhONUYtT2hyam53TXNkNGVWWjhfbUVmSGg5Zm5PZDNNX1lYcjNiVE5TVFRZMU02U2VQTQ?oc=5",
+      "cierre": "Descubre cómo DentRead aplica esto en tu consulta.",
+      "fuente_url": "https://techcrunch.com/2026/11/17/daydreams-new-ai-agent-acts-as-your-personal-stylist-and-can-shop-for-you-too/",
       "hechos": []
     }
   ],
-  "descartados": [],
-  "fuentes": 35
+  "descartados": [
+    {
+      "titulo": "La realidad de la IA en odontología",
+      "motivo": "cifras sin respaldo: 100"
+    }
+  ],
+  "fuentes": 34
 }
