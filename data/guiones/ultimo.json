@@ -1,57 +1,61 @@
 {
-  "fecha": "2026-11-17",
-  "generado": "2026-11-17T19:44:13Z",
+  "fecha": "2026-11-18",
+  "generado": "2026-11-18T19:20:11Z",
   "guiones": [
     {
-      "titulo": "IA en el diagnóstico dental",
-      "formato": "X razones por las que…",
-      "gancho": "¿Por qué usar IA en tu clínica?",
+      "titulo": "¿La IA reemplaza al dentista?",
+      "formato": "No vayas de listo (corrige un mito)",
+      "gancho": "¿La IA va a reemplazar tu diagnóstico?",
       "escenas": [
-        "El 22,8% de los dentistas ya usa IA para imagenología y diagnóstico.",
-        "No es para reemplazar tu ojo clínico, es para apoyarte en la lectura de radiografías.",
-        "Tú siempre tienes la última palabra, la IA solo te da una segunda opinión rápida.",
-        "La tecnología está para potenciar tu criterio, no para sustituirlo."
+        "Mito: La IA toma decisiones clínicas por ti.",
+        "Realidad: La IA es una herramienta de apoyo, no un reemplazo.",
+        "El 82,6% de los dentistas no piensa usar IA para recomendaciones de tratamiento.",
+        "Tú eres quien decide, la IA solo te ayuda a leer radiografías con más claridad."
       ],
-      "cierre": "¿Quieres probar DentRead? Agenda una demo hoy.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/july/",
+      "cierre": "Usa DentRead para potenciar tu ojo clínico, no para reemplazarlo.",
+      "fuente_url": "https://adanews.ada.org/",
       "hechos": [
-        "ia-imagen-228"
+        "ia-tratamiento-826"
       ]
     },
     {
-      "titulo": "¿Qué pasa con la competencia?",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "La IA sigue expandiéndose en odontología.",
+      "titulo": "El dato que no puedes ignorar",
+      "formato": "Titular con dato (cifra verificada + fuente)",
+      "gancho": "¿Sabías que casi la mitad usa IA?",
       "escenas": [
-        "Titular reciente: La IA está transformando la práctica de higiene dental.",
-        "Mientras otros se actualizan, tú puedes optimizar tu flujo de trabajo con DentRead.",
-        "Recuerda: la IA ayuda, pero el odontólogo es quien decide el tratamiento.",
-        "Mantente a la vanguardia sin perder tu esencia clínica."
+        "El 43,3% de los dentistas ya usa IA en su clínica.",
+        "Es una tendencia que llegó para quedarse en la odontología moderna.",
+        "No se trata de cambiar tu forma de trabajar, sino de optimizarla.",
+        "DentRead te ayuda a procesar imágenes de forma más eficiente."
       ],
-      "cierre": "Súmate a la nueva era dental con DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNZWQ2OE9OMmYwa29WX1h6cVhvMEtkSmR0bWV2M1lIR01GQ1pqNmQ0anpvY1NxVk1UV293WDZpLVZSZlNwRlFKOE5WTW9SN3R1SVYxQjVEQWk2dWJIcmFId1B4NVU1bzdFaVNUUEJhYTg4UnRHY0kwel9OV2R2czU3ZGJTMFJRcW9oTlplaGhHaXd2S3JoV01meF9BOFpYMEJpOXJfT291UzBjT0thZ2ZzcWF2N3FyYVB5bXlIU0xzeC1HNTBad3hHYnMzNVY0X19KT2Myc0pnTmZNakRpMnA0?oc=5",
-      "hechos": []
+      "cierre": "Súmate a la tecnología que ya están usando tus colegas.",
+      "fuente_url": "https://adanews.ada.org/",
+      "hechos": [
+        "ia-adopcion-433"
+      ]
     },
     {
-      "titulo": "¿Qué es un agente de IA?",
-      "formato": "Problema → solución",
-      "gancho": "¿Escuchas hablar de 'agentes de IA'?",
+      "titulo": "¿Qué es un Agente de IA?",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "¿Qué son los nuevos agentes de IA?",
       "escenas": [
-        "Hoy vemos agentes de IA en todas partes, desde compras hasta seguridad.",
-        "En salud, estos sistemas ayudan a procesar datos complejos en segundos.",
-        "Para ti, esto significa menos tiempo analizando radiografías y más tiempo con el paciente.",
-        "La IA es el copiloto que te ayuda a ser más eficiente en tu clínica."
+        "Los agentes de IA son sistemas que ejecutan tareas de forma autónoma.",
+        "En salud, esto significa automatizar procesos administrativos o de gestión.",
+        "No es solo un chatbot, es una herramienta que ayuda a reducir la carga operativa.",
+        "Para tu clínica, esto se traduce en menos tiempo en papeleo y más en pacientes."
       ],
-      "cierre": "Descubre cómo DentRead aplica esto en tu consulta.",
-      "fuente_url": "https://techcrunch.com/2026/11/17/daydreams-new-ai-agent-acts-as-your-personal-stylist-and-can-shop-for-you-too/",
-      "hechos": []
+      "cierre": "Mantente al tanto de la tecnología que simplifica tu gestión.",
+      "fuente_url": "https://news.google.com/",
+      "hechos": [
+        "dentistas-sobrecargados-324"
+      ]
     }
   ],
   "descartados": [
     {
-      "titulo": "La realidad de la IA en odontología",
-      "motivo": "cifras sin respaldo: 100"
+      "titulo": "IA en el diagnóstico dental",
+      "motivo": "cifras sin respaldo: 1, 2, 3"
     }
   ],
-  "fuentes": 34
+  "fuentes": 39
 }
