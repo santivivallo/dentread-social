@@ -6008,6 +6008,17 @@
     "datos"
    ],
    "first_seen": "2026-W47"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/state-dental-associations-work-to-expand-veterans-access-to-care/": {
+   "title": "State dental associations work to expand veterans’ access to care",
+   "published": "2026-11-16",
+   "category": "Government",
+   "score": 6.0,
+   "buckets": [
+    "clinica",
+    "datos"
+   ],
+   "first_seen": "2026-W47"
   }
  },
  "weeks": {
@@ -6815,9 +6826,10 @@
   ],
   "2026-W47": [
    "https://adanews.ada.org/ada-news/2026/november/ada-joins-coalition-urging-congress-to-maintain-federal-tobacco-control-funding/",
-   "https://adanews.ada.org/ada-news/2026/november/ada-responds-to-continued-reports-of-metlife-offsetting-payments-owed-to-dentists/"
+   "https://adanews.ada.org/ada-news/2026/november/ada-responds-to-continued-reports-of-metlife-offsetting-payments-owed-to-dentists/",
+   "https://adanews.ada.org/ada-news/2026/november/state-dental-associations-work-to-expand-veterans-access-to-care/"
   ]
  },
- "runs": 451,
+ "runs": 461,
  "deepest_page": 12
 }

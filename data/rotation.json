@@ -1,6 +1,6 @@
 {
  "themes": {
-  "costo-barrera": "2026-08-10",
+  "costo-barrera": "2026-11-18",
   "utilizacion": "2026-10-21",
   "consolidacion-dso": "2026-08-21",
   "medicaid-adultos": "2026-08-24",
@@ -14,8 +14,8 @@
   "economia-practica": "2026-11-06"
  },
  "facts": {
-  "sin-seguro-72m": "2026-08-10",
-  "dental-vs-medico": "2026-08-10",
+  "sin-seguro-72m": "2026-11-18",
+  "dental-vs-medico": "2026-11-18",
   "intencion-vs-visita": "2026-08-19",
   "utilizacion-seguro": "2026-08-19",
   "medicaid-dso-caida": "2026-08-21",
@@ -52,7 +52,7 @@
   "seguimiento-continuidad": "2026-10-12",
   "eficiencia-flujo-clinico": "2026-10-26"
  },
- "count": 37,
+ "count": 38,
  "externos": {
   "news-56913837": "2026-08-14",
   "paper-41204923": "2026-08-14",
