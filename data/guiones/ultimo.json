@@ -1,61 +1,57 @@
 {
-  "fecha": "2026-11-18",
-  "generado": "2026-11-18T19:20:11Z",
+  "fecha": "2026-11-19",
+  "generado": "2026-11-19T19:27:42Z",
   "guiones": [
     {
-      "titulo": "¿La IA reemplaza al dentista?",
-      "formato": "No vayas de listo (corrige un mito)",
-      "gancho": "¿La IA va a reemplazar tu diagnóstico?",
-      "escenas": [
-        "Mito: La IA toma decisiones clínicas por ti.",
-        "Realidad: La IA es una herramienta de apoyo, no un reemplazo.",
-        "El 82,6% de los dentistas no piensa usar IA para recomendaciones de tratamiento.",
-        "Tú eres quien decide, la IA solo te ayuda a leer radiografías con más claridad."
-      ],
-      "cierre": "Usa DentRead para potenciar tu ojo clínico, no para reemplazarlo.",
-      "fuente_url": "https://adanews.ada.org/",
-      "hechos": [
-        "ia-tratamiento-826"
-      ]
-    },
-    {
-      "titulo": "El dato que no puedes ignorar",
-      "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "¿Sabías que casi la mitad usa IA?",
-      "escenas": [
-        "El 43,3% de los dentistas ya usa IA en su clínica.",
-        "Es una tendencia que llegó para quedarse en la odontología moderna.",
-        "No se trata de cambiar tu forma de trabajar, sino de optimizarla.",
-        "DentRead te ayuda a procesar imágenes de forma más eficiente."
-      ],
-      "cierre": "Súmate a la tecnología que ya están usando tus colegas.",
-      "fuente_url": "https://adanews.ada.org/",
-      "hechos": [
-        "ia-adopcion-433"
-      ]
-    },
-    {
-      "titulo": "¿Qué es un Agente de IA?",
+      "titulo": "Soporte de seguros con IA",
       "formato": "Última hora (noticia real con fuente)",
-      "gancho": "¿Qué son los nuevos agentes de IA?",
+      "gancho": "¿Verificar seguros sin llamar al asegurador?",
       "escenas": [
-        "Los agentes de IA son sistemas que ejecutan tareas de forma autónoma.",
-        "En salud, esto significa automatizar procesos administrativos o de gestión.",
-        "No es solo un chatbot, es una herramienta que ayuda a reducir la carga operativa.",
-        "Para tu clínica, esto se traduce en menos tiempo en papeleo y más en pacientes."
+        "Salió la noticia de que Pearl lanzó Precheck Complete para verificar seguros sin llamadas telefónicas.",
+        "Esto demuestra cómo la tecnología optimiza la gestión en la clínica.",
+        "Pero en la radiografía, el ojo clínico sigue siendo irremplazable.",
+        "DentRead analiza tus radiografías con IA para apoyarte en segundos, entregándote un reporte que tú revisas y validas."
       ],
-      "cierre": "Mantente al tanto de la tecnología que simplifica tu gestión.",
-      "fuente_url": "https://news.google.com/",
+      "cierre": "Descubre cómo apoyamos tu consulta en el link.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxNazctMWV2dzFxak9YZWpPYVA0YUJHcnlONFNFSVpHVnJHWXR2NDZsTDBHRy1xcERzQWVXZDNvMy1Vd0haZk42ZTFCRGpPZUV0UGs0T1MtQU4wUkxsUUJWTy1laVZSaEE5cjZReXdPRXNKZktOdVF4NnBzQWJVaGpmejlWT3JCN1VWM2NhNUtiV3NsX2VraVRNMDNETW5EZDZRV3phaHUzWXV3RkEzS2ZqSnJQZ3NNYktDSWM3ei1Cd0dCSmRTZ0RGT2luMVowcllONE93Ri00cW95UmpZY2NRMlh6VEVqMW85OGpENHBXYzNzcnI0MklyWHltX2RlZW9MTXFEdlZ3cXZCbE9LS29BU0pndG9YU1VyQm9OZ2tCTWlBZw?oc=5",
+      "hechos": []
+    },
+    {
+      "titulo": "Sobrecarga en la clínica",
+      "formato": "Problema → solución",
+      "gancho": "¿Mucho trabajo acumulado en consulta?",
+      "escenas": [
+        "El 32,4% de los dentistas declara estar sobrecargado de trabajo actualmente.",
+        "Revisar radiografías exhaustivamente al final del día aumenta el cansancio.",
+        "DentRead analiza las imágenes radiológicas y destaca zonas de interés en segundos.",
+        "Tú recibes un apoyo visual preciso, mantienes el control total y ahorras tiempo valioso."
+      ],
+      "cierre": "Optimiza tu tiempo hoy con DentRead.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/",
       "hechos": [
         "dentistas-sobrecargados-324"
       ]
+    },
+    {
+      "titulo": "Aneurismas e IA médica",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "FDA aprueba IA para aneurismas cerebrales",
+      "escenas": [
+        "La FDA aprobó un nuevo software de IA para detectar aneurismas cerebrales en imágenes médicas.",
+        "Esto confirma la tendencia: la IA en salud ayuda al especialista a no pasar nada por alto.",
+        "En la consulta dental ocurre lo mismo con las radiografías.",
+        "DentRead actúa como tus segundos ojos, analizando la radiografía para que tú definas el diagnóstico con tranquilidad."
+      ],
+      "cierre": "Lleva la última tecnología a tu clínica.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmtxUEFyYnR1VHpWSEVTNk1UdkR1RTV0a282VnhWQTlGMkdzdjZlbHhqWUVTZnVSVTFRQnlZU0ZqOUdTS1FjYlJ5bTBRazM2LTQ1dDZNU01kVFlVWDh3MlYzZUVEWXdIOXdQR0JuMDA4QnNaMXpBZGF0Vk9TT1oxeHg2cXYxdVlOOFUxSWhVY01KMEF6OGUzLVFYblBJZWxiLXZRTmwtV3BZang2b3ZGN0Jn?oc=5",
+      "hechos": []
     }
   ],
   "descartados": [
     {
-      "titulo": "IA en el diagnóstico dental",
-      "motivo": "cifras sin respaldo: 1, 2, 3"
+      "titulo": "El mito del diagnóstico automático",
+      "motivo": "cifras sin respaldo: 100"
     }
   ],
-  "fuentes": 39
+  "fuentes": 34
 }

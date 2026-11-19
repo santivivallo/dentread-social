@@ -250,3 +250,4 @@
 {"ts": "2026-11-18T21:16:44+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "44397436701", "kind": "data", "id": "costo-barrera", "slug": "costo-barrera", "modo": "data", "redaccion": "modelo"}
 {"ts": "2026-11-18T21:16:44+00:00", "evento": "corrida", "origen": "schedule", "corrida": "44397436701", "pedidos": 1, "listos": 1, "descartados": 0, "preview": false}
 {"ts": "2026-11-18T21:17:28+00:00", "evento": "publicado", "origen": "schedule", "corrida": "44397436701", "carpeta": "out/2026-11-18-costo-barrera", "plataformas": ["instagram"], "resultados": {"instagram": "17993944922861751"}}
+{"ts": "2026-11-19T19:27:42+00:00", "evento": "llamada_modelo", "origen": "schedule", "corrida": "44598215095", "ok": true, "modelo": "gemini-flash-latest", "motivo": "HTTP 503: [{   \"error\": {     \"code\": 503,     \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try "}
