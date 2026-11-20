@@ -6018,6 +6018,51 @@
     "clinica",
     "datos"
    ],
+   "first_seen": "2026-W47",
+   "used": true,
+   "published_on": "2026-11-20",
+   "cierre": "La evidencia clínica avanza despacio. El flujo que la aplica, más despacio todavía."
+  },
+  "https://adanews.ada.org/ada-news/2026/november/organized-dentistry-committee-urges-senate-to-advance-action-for-dental-health-act/": {
+   "title": "Organized Dentistry Committee urges Senate to advance Action for Dental Health Act",
+   "published": "2026-11-20",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W47"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/adabacked-legislation-would-expand-fsa-hsa-eligibility-for-dental-service-arrangements/": {
+   "title": "ADA-backed legislation would expand FSA, HSA eligibility for dental service arrangements",
+   "published": "2026-11-20",
+   "category": "Government",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W47"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/final-hipaa-privacy-rule-affects-dental-practices-records-access-requirements/": {
+   "title": "Final HIPAA Privacy Rule affects dental practices’ records access requirements",
+   "published": "2026-11-20",
+   "category": "",
+   "score": 3.75,
+   "buckets": [
+    "ai"
+   ],
+   "first_seen": "2026-W47"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/new-ada-standards-on-medical-devices-endodontic-materials-available-for-review/": {
+   "title": "New ADA standards on medical devices, endodontic materials available for review",
+   "published": "2026-11-19",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
+   "first_seen": "2026-W47"
+  },
+  "https://adanews.ada.org/ada-news/2026/november/5-resources-to-help-dentists-prescribe-antibiotics-responsibly/": {
+   "title": "5 resources to help dentists prescribe antibiotics responsibly",
+   "published": "2026-11-18",
+   "category": "Science",
+   "score": 0.0,
+   "buckets": [],
    "first_seen": "2026-W47"
   }
  },
@@ -6825,11 +6870,16 @@
    "https://adanews.ada.org/ada-news/2026/november/register-give-kids-a-smile-events-by-nov-15/"
   ],
   "2026-W47": [
+   "https://adanews.ada.org/ada-news/2026/november/5-resources-to-help-dentists-prescribe-antibiotics-responsibly/",
    "https://adanews.ada.org/ada-news/2026/november/ada-joins-coalition-urging-congress-to-maintain-federal-tobacco-control-funding/",
    "https://adanews.ada.org/ada-news/2026/november/ada-responds-to-continued-reports-of-metlife-offsetting-payments-owed-to-dentists/",
+   "https://adanews.ada.org/ada-news/2026/november/adabacked-legislation-would-expand-fsa-hsa-eligibility-for-dental-service-arrangements/",
+   "https://adanews.ada.org/ada-news/2026/november/final-hipaa-privacy-rule-affects-dental-practices-records-access-requirements/",
+   "https://adanews.ada.org/ada-news/2026/november/new-ada-standards-on-medical-devices-endodontic-materials-available-for-review/",
+   "https://adanews.ada.org/ada-news/2026/november/organized-dentistry-committee-urges-senate-to-advance-action-for-dental-health-act/",
    "https://adanews.ada.org/ada-news/2026/november/state-dental-associations-work-to-expand-veterans-access-to-care/"
   ]
  },
- "runs": 461,
+ "runs": 477,
  "deepest_page": 12
 }
