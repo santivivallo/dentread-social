@@ -1,67 +1,59 @@
 {
-  "fecha": "2026-11-20",
-  "generado": "2026-11-20T19:03:32Z",
+  "fecha": "2026-11-21",
+  "generado": "2026-11-21T17:56:25Z",
   "guiones": [
     {
-      "titulo": "Noticias sobre cobros a dentistas",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "¿Qué está pasando con MetLife y los dentistas?",
-      "escenas": [
-        "Ojo a esta noticia del sector dental que encendió las alarmas.",
-        "La ADA respondió a reportes de que MetLife estaría compensando o descontando pagos adeudados a los dentistas.",
-        "Mientras las aseguradoras complican las finanzas, tú necesitas optimizar el tiempo en la clínica para no perder dinero.",
-        "DentRead te ayuda a procesar radiografías en segundos para que mantengas tu flujo de atención impecable.",
-        "Recuerda: la IA apoya tu trabajo diario, pero la decisión clínica final siempre es tuya."
-      ],
-      "cierre": "Prueba DentRead hoy y optimiza la lectura de tus radiografías.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/ada-responds-to-continued-reports-of-metlife-offsetting-payments-owed-to-dentists/",
-      "hechos": []
-    },
-    {
-      "titulo": "La realidad del 25,9% de caries no tratadas",
+      "titulo": "Auditorías de seguros sin llamadas",
       "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "¿Sabías que el 25,9% tiene caries sin tratar?",
+      "gancho": "¿Llamar al seguro? Nunca más.",
       "escenas": [
-        "Un 25,9% de los adultos entre 20 y 44 años en EE.UU. tiene al menos una caries sin tratar.",
-        "Detectar estas lesiones a tiempo en una radiografía interproximal requiere máxima atención, pero la carga laboral te agota.",
-        "Con DentRead, obtienes una segunda mirada asistida por IA para analizar tus imágenes sin perder detalles.",
-        "Tú analizas la clínica, evalúas al paciente y tomas la decisión diagnóstica definitiva."
+        "Revisas el titular: Pearl lanzó Precheck Complete para verificar seguros sin llamar por teléfono.",
+        "A la par, el 43,3% de los dentistas ya usa IA para automatizar tareas en su consulta.",
+        "DentRead se enfoca en el área clínica: apoya la lectura radiográfica para que analices cada caso más rápido.",
+        "Optimizas la gestión administrativa y el flujo diagnóstico, manteniendo tú la decisión final."
       ],
-      "cierre": "Sumate a la odontología del futuro probando DentRead.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/",
+      "cierre": "Prueba DentRead hoy y moderniza tu clínica.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxNazctMWV2dzFxak9YZWpPYVA0YUJHcnlONFNFSVpHVnJHWXR2NDZsTDBHRy1xcERzQWVXZDNvMy1Vd0haZk42ZTFCRGpPZUV0UGs0T1MtQU4wUkxsUUJWTy1laVZSaEE5cjZReXdPRXNKZktOdVF4NnBzQWJVaGpmejlWT3JCN1VWM2NhNUtiV3NsX2VraVRNMDNETW5EZDZRV3phaHUzWXV3RkEzS2ZqSnJQZ3NNYktDSWM3ei1Cd0dCSmRTZ0RGT2luMVowcllONE93Ri00cW95UmpZY2NRMlh6VEVqMW85OGpENHBXYzNzcnI0MklyWHltX2RlZW9MTXFEdlZ3cXZCbE9LS29BU0pndG9YU1VyQm9OZ2tCTWlBZw?oc=5",
       "hechos": [
-        "caries-sin-tratar-2044"
+        "ia-adopcion-433"
       ]
     },
     {
-      "titulo": "Cómo la IA apoya el examen oral robotizado",
+      "titulo": "Combatiendo el estrés en la consulta",
       "formato": "Problema → solución",
-      "gancho": "¿Exámenes orales asistidos por robots en la clínica?",
+      "gancho": "¿Sobrecargado de trabajo en el sillón?",
       "escenas": [
-        "Nuevas investigaciones abordan los desafíos del examen oral asistido por robots para hacer revisiones más fluidas.",
-        "La tecnología avanza rápido, pero revisar cada detalle radiológico sigue tomando valiosos minutos de tu jornada.",
-        "DentRead integra IA para asistirte en la lectura de imágenes radiográficas al instante.",
-        "El software resalta hallazgos clave como soporte, asegurando que el odontólogo mantenga siempre el control total del diagnóstico."
+        "El 32,4% de los dentistas declara estar sobrecargado de trabajo en su día a día.",
+        "Revisar radiografía tras radiografía al final de la jornada aumenta el cansancio visual.",
+        "DentRead analiza las imágenes como un apoyo para detectar hallazgos en segundos.",
+        "Delegas el filtrado inicial en la IA, mantienes el control del diagnóstico y cierras tu día a tiempo."
       ],
-      "cierre": "Agiliza la lectura de radiografías en tu consulta con DentRead.",
-      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/42296618/",
-      "hechos": []
+      "cierre": "Agenda una demo de DentRead y alivia tu carga.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/",
+      "hechos": [
+        "dentistas-sobrecargados-324"
+      ]
     },
     {
-      "titulo": "Agentes de IA en el navegador Chrome",
-      "formato": "X razones por las que…",
-      "gancho": "La IA en Chrome consume demasiado ancho de banda",
+      "titulo": "Gestión de contactos con IA en la clínica",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "Nueva IA para gestionar tus pacientes.",
       "escenas": [
-        "Recientes análisis muestran que las nuevas funciones de IA en Chrome están gastando un gran ancho de banda.",
-        "Si usas herramientas de IA generalistas en la web de tu consulta, la red se puede ralentizar innecesariamente.",
-        "Para la clínica necesitas soluciones enfocadas y livianas que no colapsen tu conexión a internet.",
-        "DentRead está diseñado específicamente para interpretar radiografías dentales de forma rápida, apoyando tu labor experta sin entorpecer el trabajo diario."
+        "Se lanzó AlterContacts, una herramienta de IA diseñada para hacer seguimiento de relaciones con clientes.",
+        "Para una clínica dental, esto significa organizar el historial de comunicación sin perder tiempo manual.",
+        "Mientras AlterContacts apoya el contacto, DentRead te apoya en el sillón analizando radiografías.",
+        "Sumar herramientas inteligentes en gestión y clínica eleva el nivel de tu atención."
       ],
-      "cierre": "Optimiza tu clínica con la IA especializada de DentRead.",
-      "fuente_url": "https://perishablepress.com/chrome-ai-wasting-much-bandwidth/",
+      "cierre": "Prueba DentRead y potencia tu consulta.",
+      "fuente_url": "https://www.producthunt.com/products/alter-contacts-ai-client-relationships",
       "hechos": []
     }
   ],
-  "descartados": [],
-  "fuentes": 39
+  "descartados": [
+    {
+      "titulo": "Mito sobre el diagnóstico por IA",
+      "motivo": "cifras sin respaldo: 100"
+    }
+  ],
+  "fuentes": 34
 }
