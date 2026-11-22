@@ -1,59 +1,68 @@
 {
-  "fecha": "2026-11-21",
-  "generado": "2026-11-21T17:56:25Z",
+  "fecha": "2026-11-22",
+  "generado": "2026-11-22T18:25:06Z",
   "guiones": [
     {
-      "titulo": "Auditorías de seguros sin llamadas",
+      "titulo": "Adopción de IA en radiografías dentales",
       "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "¿Llamar al seguro? Nunca más.",
+      "gancho": "¿Usas IA en tus radiografías?",
       "escenas": [
-        "Revisas el titular: Pearl lanzó Precheck Complete para verificar seguros sin llamar por teléfono.",
-        "A la par, el 43,3% de los dentistas ya usa IA para automatizar tareas en su consulta.",
-        "DentRead se enfoca en el área clínica: apoya la lectura radiográfica para que analices cada caso más rápido.",
-        "Optimizas la gestión administrativa y el flujo diagnóstico, manteniendo tú la decisión final."
+        "El 22,8% de los dentistas ya usa IA para imagenología.",
+        "Analizar radiografías consume minutos clave de tu consulta.",
+        "DentRead procesa las imágenes para que detectes hallazgos rápido.",
+        "La IA te apoya en la revisión, pero tú mantienes el control."
       ],
-      "cierre": "Prueba DentRead hoy y moderniza tu clínica.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxNazctMWV2dzFxak9YZWpPYVA0YUJHcnlONFNFSVpHVnJHWXR2NDZsTDBHRy1xcERzQWVXZDNvMy1Vd0haZk42ZTFCRGpPZUV0UGs0T1MtQU4wUkxsUUJWTy1laVZSaEE5cjZReXdPRXNKZktOdVF4NnBzQWJVaGpmejlWT3JCN1VWM2NhNUtiV3NsX2VraVRNMDNETW5EZDZRV3phaHUzWXV3RkEzS2ZqSnJQZ3NNYktDSWM3ei1Cd0dCSmRTZ0RGT2luMVowcllONE93Ri00cW95UmpZY2NRMlh6VEVqMW85OGpENHBXYzNzcnI0MklyWHltX2RlZW9MTXFEdlZ3cXZCbE9LS29BU0pndG9YU1VyQm9OZ2tCTWlBZw?oc=5",
+      "cierre": "Prueba DentRead y optimiza tu tiempo hoy.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/final-hipaa-privacy-rule-affects-dental-practices-records-access-requirements/",
       "hechos": [
-        "ia-adopcion-433"
+        "ia-imagen-228"
       ]
     },
     {
-      "titulo": "Combatiendo el estrés en la consulta",
-      "formato": "Problema → solución",
-      "gancho": "¿Sobrecargado de trabajo en el sillón?",
+      "titulo": "El mito de la IA reemplazando al diagnóstico",
+      "formato": "No vayas de listo (corrige un mito)",
+      "gancho": "La IA no reemplaza tu criterio.",
       "escenas": [
-        "El 32,4% de los dentistas declara estar sobrecargado de trabajo en su día a día.",
-        "Revisar radiografía tras radiografía al final de la jornada aumenta el cansancio visual.",
-        "DentRead analiza las imágenes como un apoyo para detectar hallazgos en segundos.",
-        "Delegas el filtrado inicial en la IA, mantienes el control del diagnóstico y cierras tu día a tiempo."
+        "Existe la idea de que la IA dará diagnósticos sola.",
+        "La realidad es que el 82,6% de los dentistas no la usa para tratamientos.",
+        "DentRead no diagnostica por ti ni toma decisiones clínicas.",
+        "Es un segundo par de ojos en tus radiografías para apoyar tu lectura."
       ],
-      "cierre": "Agenda una demo de DentRead y alivia tu carga.",
+      "cierre": "Descubre el apoyo de DentRead para tu clínica.",
       "fuente_url": "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/",
       "hechos": [
-        "dentistas-sobrecargados-324"
+        "ia-tratamiento-826"
       ]
     },
     {
-      "titulo": "Gestión de contactos con IA en la clínica",
-      "formato": "Última hora (noticia real con fuente)",
-      "gancho": "Nueva IA para gestionar tus pacientes.",
+      "titulo": "Más allá de la recepción con IA",
+      "formato": "Antiguo vs nuevo",
+      "gancho": "La IA va más allá del teléfono.",
       "escenas": [
-        "Se lanzó AlterContacts, una herramienta de IA diseñada para hacer seguimiento de relaciones con clientes.",
-        "Para una clínica dental, esto significa organizar el historial de comunicación sin perder tiempo manual.",
-        "Mientras AlterContacts apoya el contacto, DentRead te apoya en el sillón analizando radiografías.",
-        "Sumar herramientas inteligentes en gestión y clínica eleva el nivel de tu atención."
+        "Noticia reciente habla de agentes de IA en la recepción dental.",
+        "Antes la tecnología solo ayudaba a contestar llamadas o agendar horas.",
+        "Hoy herramientas como DentRead analizan imágenes radiográficas al instante.",
+        "Llevas la innovación directo a la consulta clínica, apoyando tu trabajo."
       ],
-      "cierre": "Prueba DentRead y potencia tu consulta.",
-      "fuente_url": "https://www.producthunt.com/products/alter-contacts-ai-client-relationships",
+      "cierre": "Prueba DentRead y moderniza tu lectura radiográfica.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPdWZYNk5KVGpqLUw3S2g1SW5NNUtkM0tSaEVLWl9DWVlBVHBScGctUHUwNTZ4SDhxMVA5el9PakVrNDdvYXFWMjl0d2NOaVVTUGhwanhkVU9vYnF5MXlGbm8yS09acWNvU0p0SFVfdTdXOGlGczlidUwyZE5oYS1lUmpONERjS3JSLXlhLTE4YlNwYTVLbFN4aWxpZ0xTdjZHMkJUVmkxZkREQQ?oc=5",
+      "hechos": []
+    },
+    {
+      "titulo": "FDA aprueba IA en Rayos X móviles",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "La FDA aprobó nueva IA médica.",
+      "escenas": [
+        "GE HealthCare recibió luz verde para usar IA en Rayos X móviles.",
+        "Esta tecnología ayuda a evaluar la posición de tubos de alimentación.",
+        "Demuestra cómo la IA apoya la revisión rápida de imágenes médicas.",
+        "En odontología, DentRead hace lo mismo apoyando la lectura de tus radiografías."
+      ],
+      "cierre": "Súmate a la IA médica con DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbW1oTWsxdTJ4ODRyanItMV83czhITFNmOS05VzY1V0VBMXpjNW5LUUpRQmNSNEVFUEFVaEdjc3d4NmxpMkpPU3FVVkM1dXNvcDZUV1poS3J2YnZGOXJLbUdELWVSdm80LTNUUVJwV0tVaUlFNDJrbGU1dERlUzlEWnhtQU56OU9UOVZHTTN6WC1NNkFyT0VreVMya08xUDg?oc=5",
       "hechos": []
     }
   ],
-  "descartados": [
-    {
-      "titulo": "Mito sobre el diagnóstico por IA",
-      "motivo": "cifras sin respaldo: 100"
-    }
-  ],
-  "fuentes": 34
+  "descartados": [],
+  "fuentes": 39
 }
