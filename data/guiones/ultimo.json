@@ -1,68 +1,68 @@
 {
-  "fecha": "2026-11-22",
-  "generado": "2026-11-22T18:25:06Z",
+  "fecha": "2026-11-23",
+  "generado": "2026-11-23T22:32:23Z",
   "guiones": [
     {
-      "titulo": "Adopción de IA en radiografías dentales",
+      "titulo": "Uso de IA en odontología",
       "formato": "Titular con dato (cifra verificada + fuente)",
-      "gancho": "¿Usas IA en tus radiografías?",
+      "gancho": "¿El 43,3% de los dentistas usa IA?",
       "escenas": [
-        "El 22,8% de los dentistas ya usa IA para imagenología.",
-        "Analizar radiografías consume minutos clave de tu consulta.",
-        "DentRead procesa las imágenes para que detectes hallazgos rápido.",
-        "La IA te apoya en la revisión, pero tú mantienes el control."
+        "Según datos del ADA Health Policy Institute, el 43,3% de los dentistas encuestados ya usa inteligencia artificial en su clínica.",
+        "Pero ojo: la IA apoya en la revisión de radiografías, y el odontólogo siempre decide el diagnóstico final.",
+        "DentRead te ayuda a optimizar tus tiempos de lectura sin reemplazar tu criterio clínico profesional."
       ],
-      "cierre": "Prueba DentRead y optimiza tu tiempo hoy.",
+      "cierre": "Suma DentRead a tu clínica y potencia tus diagnósticos con respaldo.",
       "fuente_url": "https://adanews.ada.org/ada-news/2026/november/final-hipaa-privacy-rule-affects-dental-practices-records-access-requirements/",
+      "hechos": [
+        "ia-adopcion-433"
+      ]
+    },
+    {
+      "titulo": "Ironía sobre herramientas de diagnóstico",
+      "formato": "Reseña cero estrellas (ironía)",
+      "gancho": "Cero estrellas porque la IA decidió por mí.",
+      "escenas": [
+        "Menos mal que eso nunca pasa. Ninguna IA decente reemplaza el ojo clínico del odontólogo.",
+        "En DentRead tenemos claro que la última palabra siempre la tiene el profesional de la salud.",
+        "La tecnología asiste en la lectura de imágenes, pero el plan de tratamiento lo diseñas tú."
+      ],
+      "cierre": "Usa herramientas inteligentes que respeten tu rol. Conoce DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPZzQxRWVqVG42bVVmRThsT05tZjVZeF9PLTlpYXFIeHg2dlVoNktiT3h1R1JacWhmQVpjVEFqdDlvcy0zVjh3M0VZajl4VHNRT0d3SFF4S3hRSWZ3dkZDVWlfTy1yWXNzajRmSkVzcVhpZXRhTGt3MW13Q3FVMlZHN1pURnRqTXM2dEp3LVdlMXdveEpfSXFxWW1iOGNaM3p5T3V0MW1QRm1xbkU4bTZyVzlaWU9zN0Z0NFg0aXFIaUQ2eHN1dGloOU45dkJ1dmk0Zncxek91UjN1TkhMX21lOW1IUQ?oc=5",
       "hechos": [
         "ia-imagen-228"
       ]
     },
     {
-      "titulo": "El mito de la IA reemplazando al diagnóstico",
-      "formato": "No vayas de listo (corrige un mito)",
-      "gancho": "La IA no reemplaza tu criterio.",
+      "titulo": "Manejo de registros dentales",
+      "formato": "Problema → solución",
+      "gancho": "Radiografías amontonadas y poco tiempo libre.",
       "escenas": [
-        "Existe la idea de que la IA dará diagnósticos sola.",
-        "La realidad es que el 82,6% de los dentistas no la usa para tratamientos.",
-        "DentRead no diagnostica por ti ni toma decisiones clínicas.",
-        "Es un segundo par de ojos en tus radiografías para apoyar tu lectura."
+        "Revisar cada detalle en las placas toma minutos valiosos en una clínica colapsada.",
+        "DentRead analiza las radiografías para entregarte una segunda opinión inmediata.",
+        "El sistema apoya la detección, pero el odontólogo decide cada paso del tratamiento."
       ],
-      "cierre": "Descubre el apoyo de DentRead para tu clínica.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/november-jada-examines-clinical-economic-burdens-caused-by-orofacial-infection-complications/",
+      "cierre": "Haz más eficiente tu consulta hoy mismo con DentRead.",
+      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/final-hipaa-privacy-rule-affects-dental-practices-records-access-requirements/",
       "hechos": [
-        "ia-tratamiento-826"
+        "dentistas-sobrecargados-324"
       ]
     },
     {
-      "titulo": "Más allá de la recepción con IA",
-      "formato": "Antiguo vs nuevo",
-      "gancho": "La IA va más allá del teléfono.",
-      "escenas": [
-        "Noticia reciente habla de agentes de IA en la recepción dental.",
-        "Antes la tecnología solo ayudaba a contestar llamadas o agendar horas.",
-        "Hoy herramientas como DentRead analizan imágenes radiográficas al instante.",
-        "Llevas la innovación directo a la consulta clínica, apoyando tu trabajo."
-      ],
-      "cierre": "Prueba DentRead y moderniza tu lectura radiográfica.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPdWZYNk5KVGpqLUw3S2g1SW5NNUtkM0tSaEVLWl9DWVlBVHBScGctUHUwNTZ4SDhxMVA5el9PakVrNDdvYXFWMjl0d2NOaVVTUGhwanhkVU9vYnF5MXlGbm8yS09acWNvU0p0SFVfdTdXOGlGczlidUwyZE5oYS1lUmpONERjS3JSLXlhLTE4YlNwYTVLbFN4aWxpZ0xTdjZHMkJUVmkxZkREQQ?oc=5",
-      "hechos": []
-    },
-    {
-      "titulo": "FDA aprueba IA en Rayos X móviles",
+      "titulo": "Nueva IA para imágenes médicas",
       "formato": "Última hora (noticia real con fuente)",
-      "gancho": "La FDA aprobó nueva IA médica.",
+      "gancho": "Nueva IA médica aprobada por la FDA.",
       "escenas": [
-        "GE HealthCare recibió luz verde para usar IA en Rayos X móviles.",
-        "Esta tecnología ayuda a evaluar la posición de tubos de alimentación.",
-        "Demuestra cómo la IA apoya la revisión rápida de imágenes médicas.",
-        "En odontología, DentRead hace lo mismo apoyando la lectura de tus radiografías."
+        "La FDA aprobó nueva tecnología de inteligencia artificial para análisis de imagenología en salud.",
+        "Esto demuestra que la asistencia por IA en imágenes médicas es el presente y futuro.",
+        "En odontología, herramientas como DentRead aplican este estándar para apoyar la lectura de tus radiografías."
       ],
-      "cierre": "Súmate a la IA médica con DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbW1oTWsxdTJ4ODRyanItMV83czhITFNmOS05VzY1V0VBMXpjNW5LUUpRQmNSNEVFUEFVaEdjc3d4NmxpMkpPU3FVVkM1dXNvcDZUV1poS3J2YnZGOXJLbUdELWVSdm80LTNUUVJwV0tVaUlFNDJrbGU1dERlUzlEWnhtQU56OU9UOVZHTTN6WC1NNkFyT0VreVMya08xUDg?oc=5",
-      "hechos": []
+      "cierre": "Súmate a la innovación en imagenología dental con DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPZkVkRkxaMHZmTkszYnc4bFJNX3VybUhOV01LaDIzQXo0WDc3VFlkTXFtMnVGc3B2cjJoMzlITTh4NkNuWFZGTGZZWW5Td1FnQTFoUEcwTjhpSk9SYzhITERydkxWb1NpQmdiNnNfRnd0YmQ2RFowVFlwNDg5WHJUV0pKZFNRWTlMZ200Ym9xUDYwYzRhLUIxdFI1c0N4cXlVaWd2RmtFaU9Oa29VZ0lHdW9CbmZSNl8tcVQ0SWlyZ2R0QUpSWmxDdkFNQ29kTDc3RS1wVDZiUVk2UUVESWc?oc=5",
+      "hechos": [
+        "ia-imagen-228"
+      ]
     }
   ],
   "descartados": [],
-  "fuentes": 39
+  "fuentes": 34
 }
