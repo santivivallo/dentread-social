@@ -169,5 +169,48 @@
   "hechos_disponibles": 11,
   "hechos_totales": 35,
   "bitacora_vacia": false
+ },
+ {
+  "generado": "2026-11-24",
+  "dias": 14,
+  "publicados": 6,
+  "esperados": 6,
+  "por_fuente": {
+   "news": 3,
+   "paper": 1,
+   "data/evergreen": 2
+  },
+  "descartes": 1,
+  "descartes_por_motivo": {
+   "sin_material": 1
+  },
+  "descartes_por_fuente": {
+   "news": 1
+  },
+  "llamadas_modelo": 30,
+  "llamadas_fallidas": 0,
+  "corridas": 6,
+  "corridas_a_mano": 0,
+  "corridas_por_cron": 6,
+  "auditoria_promedio": 91.6,
+  "auditoria_bajo_piso": 0,
+  "stock_noticias": 73,
+  "stock_noticias_en_30_dias": 64,
+  "papers_en_archivo": {
+   "vistos": 504,
+   "motivos": {
+    "revista_fuera_de_allowlist": 342,
+    "publicable": 22,
+    "diseno_no_señalizable": 137,
+    "titulo_concluyente": 3
+   },
+   "publicados": 3
+  },
+  "semanas_con_posts_de_datos": 14.0,
+  "mezcla_esperada": "news 3/6 · data 1/6 · evergreen 1/6 · paper 1/6",
+  "temas_publicables": 8,
+  "hechos_disponibles": 17,
+  "hechos_totales": 35,
+  "bitacora_vacia": false
  }
 ]
