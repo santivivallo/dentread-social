@@ -4439,6 +4439,105 @@
    "preset": "medicaid",
    "first_seen": "2026-W46",
    "descartado": "revista_fuera_de_allowlist"
+  },
+  "41366014": {
+   "title": "Artificial Intelligence in dentistry: an overview of systematic reviews and meta-analysis.",
+   "journal": "Evid Based Dent",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41597313": {
+   "title": "Artificial Intelligence and Machine Learning in the Diagnosis and Management of Osteoporosis: A Comprehensive Review.",
+   "journal": "Medicina (Kaunas)",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41006084": {
+   "title": "Artificial Intelligence for Ischemic Stroke Detection in Non-contrast CT: A Systematic Review and Meta-analysis.",
+   "journal": "Acad Radiol",
+   "year": "2025",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41656050": {
+   "title": "Artificial Intelligence and Machine Learning for Osteoarthritis and Cartilage Assessment.",
+   "journal": "Radiol Clin North Am",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "42330730": {
+   "title": "Artificial Intelligence and Machine Learning solutions-based oral cancer screening and detection: A scoping review.",
+   "journal": "Artif Intell Med",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40125695": {
+   "title": "How AI-Driven Root and Bone Predictions Can Assist Clear Aligner Treatment Planning.",
+   "journal": "Orthod Craniofac Res",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41259905": {
+   "title": "Generative Artificial Intelligence: Applications and Future Prospects in Dentistry.",
+   "journal": "Int Dent J",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "42537896": {
+   "title": "Artificial intelligence for dental caries detection: An umbrella review.",
+   "journal": "J Dent",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": ""
+  },
+  "42319635": {
+   "title": "Deep Learning in Dental Imaging: Advances, Challenges, and Future.",
+   "journal": "Oral Radiol",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "41401467": {
+   "title": "Deep learning for imaging diagnosis of jaw cystic lesions and maxillofacial tumors: A narrative review.",
+   "journal": "J Int Med Res",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
+  },
+  "40785133": {
+   "title": "Artificial Intelligence in Australian Dental and General Healthcare: A Scoping Review.",
+   "journal": "Aust Dent J",
+   "year": "2025",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
   }
  },
  "weeks": {
@@ -4946,7 +5045,20 @@
    "41797221",
    "42628726",
    "42950820"
+  ],
+  "2026-W48": [
+   "40125695",
+   "40785133",
+   "41006084",
+   "41259905",
+   "41366014",
+   "41401467",
+   "41597313",
+   "41656050",
+   "42319635",
+   "42330730",
+   "42537896"
   ]
  },
- "runs": 157
+ "runs": 161
 }

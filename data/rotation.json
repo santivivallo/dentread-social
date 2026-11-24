@@ -43,7 +43,7 @@
  },
  "evergreen": {
   "que-es-dentread": "2026-11-09",
-  "ia-radiografias-dentales": "2026-08-12",
+  "ia-radiografias-dentales": "2026-11-24",
   "apoyo-analisis-radiografico": "2026-08-18",
   "consistencia-evaluacion": "2026-08-28",
   "comunicacion-visual-paciente": "2026-08-31",
@@ -52,7 +52,7 @@
   "seguimiento-continuidad": "2026-10-12",
   "eficiencia-flujo-clinico": "2026-10-26"
  },
- "count": 39,
+ "count": 40,
  "externos": {
   "news-56913837": "2026-08-14",
   "paper-41204923": "2026-08-14",

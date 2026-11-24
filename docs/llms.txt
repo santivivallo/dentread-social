@@ -50,6 +50,7 @@
 
 ## Articles
 
+- [AI applied to dental radiographs · DentRead Insights](https://dentread-social.pages.dev/ia-radiografias-dentales/): DentRead applies artificial intelligence to the analysis of dental radiographic images.
 - [State dental associations work to expand veterans’ access to care · DentRead Insights](https://dentread-social.pages.dev/news-57366925/): Several dental associations in the United States promoted laws, volunteer programs, and free care to facilitate access to oral health for war veterans. Th…
 - [Cost is the number one reason people delay care · DentRead Insights](https://dentread-social.pages.dev/costo-barrera/): Cost is the number one reason people delay care. The money conversation is part of the clinical encounter, not an afterthought.
 - [Alliance of the ADA gifts $185,000 to ADA Foundation · DentRead Insights](https://dentread-social.pages.dev/news-34574568/): The ADA Alliance and its foundation gave 185,000 dollars to the ADA Foundation before dissolving at the end of the year. The donation will fund the Give V…
@@ -89,7 +90,6 @@
 - [Efficacy of supportive peri-implant therapy in the management of peri-implant mucositis and peri-implantitis: A systematic review · DentRead Insights](https://dentread-social.pages.dev/paper-41204923/): This systematic review of 25 studies (9 randomized controlled trials, 13 cohort, and 3 case-control) evaluated the effectiveness of supportive peri-implan…
 - [ADA calls out UnitedHealthcare credentialing portal for doubling dentists’ paperwork · DentRead Insights](https://dentread-social.pages.dev/news-60814929/): The American Dental Association requested that UnitedHealthcare accept credentialing data directly from the CAQH platform instead of requiring duplicate p…
 - [Proposed ADA standard specifies requirements for comprehensive, consistent dental EOBs · DentRead Insights](https://dentread-social.pages.dev/news-56913837/): The American Dental Association presented a proposal to standardize explanation of benefits reports across clinics and insurers, with a deadline to submit…
-- [AI applied to dental radiographs · DentRead Insights](https://dentread-social.pages.dev/ia-radiografias-dentales/): DentRead applies artificial intelligence to the analysis of dental radiographic images.
 
 ## Español
 
@@ -133,6 +133,7 @@
 
 ### Artículos
 
+- [DentRead aplica inteligencia artificial al análisis de imágenes radiográficas dentales · DentRead Insights](https://dentread-social.pages.dev/es/ia-radiografias-dentales/): La imagen ya tiene la información. Falta que llegue a tiempo. 🦷
 - [Casi todos sirvieron, pocos tienen dentista · DentRead Insights](https://dentread-social.pages.dev/es/news-57366925/): La evidencia clínica avanza despacio. El flujo que la aplica, más despacio todavía. 🦷
 - [La cobertura médica no predice la dental · DentRead Insights](https://dentread-social.pages.dev/es/costo-barrera/): El precio no se objeta: se posterga. Lo que no se entiende, no se paga. 🦷
 - [Una entidad donó todo su patrimonio antes de cerrar · DentRead Insights](https://dentread-social.pages.dev/es/news-34574568/): El hallazgo clínico es el principio del recorrido. El final es un tratamiento terminado. 🦷
@@ -172,4 +173,3 @@
 - [25 estudios sobre implantes y un resultado borroso · DentRead Insights](https://dentread-social.pages.dev/es/paper-41204923/): Una revisión ordena lo que ya se sabía. Ahí se ve qué sigue sin estudiarse. 🦷
 - [Cargar dos veces lo mismo para atender · DentRead Insights](https://dentread-social.pages.dev/es/news-60814929/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
 - [Cobrarle a los seguros podría ser más fácil · DentRead Insights](https://dentread-social.pages.dev/es/news-56913837/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
-- [DentRead aplica inteligencia artificial al análisis de imágenes radiográficas dentales · DentRead Insights](https://dentread-social.pages.dev/es/ia-radiografias-dentales/): La imagen ya tiene la información. Falta que llegue a tiempo. 🦷
