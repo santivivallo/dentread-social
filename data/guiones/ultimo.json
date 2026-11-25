@@ -1,55 +1,53 @@
 {
-  "fecha": "2026-11-24",
-  "generado": "2026-11-24T21:06:00Z",
+  "fecha": "2026-11-25",
+  "generado": "2026-11-25T20:27:17Z",
   "guiones": [
     {
-      "titulo": "El mito de la IA reemplazando al diagnóstico",
+      "titulo": "Percepción sobre longevidad en tratamientos",
       "formato": "No vayas de listo (corrige un mito)",
-      "gancho": "No te creas el cuento de la IA.",
+      "gancho": "¿Un tratamiento restaurador dura para siempre?",
       "escenas": [
-        "Muchos creen que una IA le va a decir al dentista qué tratamiento hacer.",
-        "La realidad es otra: el 82,6% de los dentistas rechaza usar IA para decidir tratamientos.",
-        "El diagnóstico es una facultad exclusiva del profesional, no de una máquina.",
-        "Por eso DentRead apoya la lectura radiográfica para agilizar, pero la última palabra es tuya."
+        "Existe el mito de que una restauración dura toda la vida sin mantenimiento.",
+        "Un estudio reciente evalúa el conocimiento de dentistas y pacientes sobre la longevidad de tratamientos.",
+        "Para fundamentar tus diagnósticos, apóyate en radiografías claras y precisas.",
+        "DentRead te ayuda a detectar detalles en radiografías para que planifiques con respaldo profesional."
       ],
-      "cierre": "Suma DentRead como apoyo a tu criterio profesional.",
-      "fuente_url": "https://adanews.ada.org/ada-news/2026/november/final-hipaa-privacy-rule-affects-dental-practices-records-access-requirements/",
-      "hechos": [
-        "ia-tratamiento-826"
-      ]
-    },
-    {
-      "titulo": "La IA en el análisis de imágenes de salud",
-      "formato": "Antiguo vs nuevo",
-      "gancho": "Pasar horas revisando imágenes quedó atrás.",
-      "escenas": [
-        "El sector médico debate cómo la IA analiza radiografías y TACs para redactar borradores.",
-        "En odontología pasa lo mismo: revisar cada placa a mano resta tiempo de atención.",
-        "Lo nuevo es usar herramientas de apoyo visual para detectar detalles al instante.",
-        "DentRead lee tus radiografías con IA en segundos, sirviendo de respaldo a tu evaluación."
-      ],
-      "cierre": "Moderniza tu clínica con DentRead.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPOThFMWFOaHRJcm5Ed00zSDFMbjExNXYzSUVWRVFsdWxjTzh0c1htOFhCM3BQMWpITjVEc0FQQUNVSnVyYWdMcmctcVlLRVBqWkx2c1QzOVNnTEcxUFBzQVE2MFU5ZEl4bFFoWWo0WnF2Slh4b2pldGNL...",
+      "cierre": "Descubre cómo DentRead apoya tu criterio clínico.",
+      "fuente_url": "https://pubmed.ncbi.nlm.nih.gov/41797608/",
       "hechos": []
     },
     {
-      "titulo": "Uso de ChatGPT para gestionar la clínica",
-      "formato": "Problema → solución",
-      "gancho": "Cero tiempo para administrar la clínica.",
+      "titulo": "Verificación automatizada y gestión clínica",
+      "formato": "Última hora (noticia real con fuente)",
+      "gancho": "Nuevas herramientas buscan automatizar procesos dentales",
       "escenas": [
-        "Entre pacientes y papeleo, a los dentistas no les queda tiempo libre.",
-        "La nueva tendencia es usar los agentes de IA de ChatGPT para dictar correos y tareas administrativas.",
-        "Delegar la gestión te libera horas, pero el análisis clínico sigue necesitando tecnología especializada.",
-        "DentRead complementa tu día analizando radiografías con IA, mientras tú mantienes el control diagnóstico."
+        "Pearl lanzó Precheck Complete para verificar la elegibilidad de seguros sin hacer llamadas.",
+        "La automatización sigue tomándose las tareas administrativas en las clínicas.",
+        "Mientras el área administrativa se agiliza, la zona clínica exige precisión médica.",
+        "DentRead apoya la visualización de radiografías para que el odontólogo tome la decisión final."
       ],
-      "cierre": "Prueba DentRead y recupera el tiempo en tu consulta.",
-      "fuente_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxORzNGS2M0bDF3SUx3UEY1NEotNEhOU2hrSkZuVzYxZ191dHJrb1JaaWMydGFjZ042UUdmNXUxQzh2VXFLcTlndHpfaDVtdFZDS1FsODdVZ2ZWMUo3V3RxbmRvLXVaaWEyS1BTNDc2aG1sQWdXUmFzbm5IMXdkTEt0a0VSSUM2RjY5WVFfcV9BRTdzYVBHRG5Fc3k2R1NkcEhpOXEyMThmN0hLWEFuRkg6MXdSd2dhYVRHTTFj?oc=5",
+      "cierre": "Suma tecnología de apoyo a tu clínica con DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxNazctMWV2dzFxak9YZWpPYVA0YUJHcnlONFNFSVpHVnJHWXR2NDZsTDBHRy1xcERzQWVXZDNvMy1Vd0haZk42ZTFCRGpPZUV0UGs0T1MtQU4wUkxsUUJWTy1laVZSaEE5cjZReXdPRXNKZktOdVF4NnBzQWJVaGpmejlWT3JCN1VWM2NhNUtiV3NsX2VraVRNMDNETW5EZDZRV3phaHUzWXV3RkEzS2ZqSnJQZ3NNYktDSWM3ei1Cd0dCSmRTZ0RGT2luMVowcllONE93Ri00cW95UmpZYcQ2lhWzVEjMW85OGpENHBXYzNzcnI0MklyWHltX2RlZW9MTXFEdlZ3cXZCbE9LS29BU0pndG9YU1VyQm9OZ2tCTWlBZw?oc=5",
+      "hechos": []
+    },
+    {
+      "titulo": "La radiología lidera el uso de IA",
+      "formato": "Problema → solución",
+      "gancho": "¿Sobrecargado con la lectura de imágenes?",
+      "escenas": [
+        "La especialidad de radiología lidera la adopción de inteligencia artificial en el área de la salud.",
+        "Integrar asistentes visuales ayuda a procesar volúmenes de exámenes sin perder precisión.",
+        "DentRead analiza radiografías dentales para destacar hallazgos de forma rápida.",
+        "Tú mantienes el control absoluto del diagnóstico, la IA solo agiliza tu trabajo."
+      ],
+      "cierre": "Moderniza el análisis de imágenes en tu clínica con DentRead.",
+      "fuente_url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRzVmaWJXb204S2FRN0Q5ZEpqZW5Ba09HN09aM3BRM3RTX0dVemc1aHBLMWpSSFdwbmt0aUJsdVY4R2pYLVhvemJGMEllZzdwc1dLZk91bDRuZ2ZzUS0tV2lpOU5FUm56Vk5KY2U4NUQzSWJmNUxpSnI2OVA4UE95QkR3?oc=5",
       "hechos": []
     }
   ],
   "descartados": [
     {
-      "titulo": "Actualización HIPAA y la IA en radiografías",
+      "titulo": "Adopción de IA en clínicas dentales",
       "motivo": "cifras sin respaldo: 100"
     }
   ],
