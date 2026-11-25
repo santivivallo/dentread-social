@@ -50,6 +50,7 @@
 
 ## Articles
 
+- [ADA, other groups offer resources to help dentists support patients with disabilities, caregivers · DentRead Insights](https://dentread-social.pages.dev/news-44972005/): The University of Pennsylvania launched a digital resource center with guides and videos to assist caregivers of patients with disabilities. This initiati…
 - [AI applied to dental radiographs · DentRead Insights](https://dentread-social.pages.dev/ia-radiografias-dentales/): DentRead applies artificial intelligence to the analysis of dental radiographic images.
 - [State dental associations work to expand veterans’ access to care · DentRead Insights](https://dentread-social.pages.dev/news-57366925/): Several dental associations in the United States promoted laws, volunteer programs, and free care to facilitate access to oral health for war veterans. Th…
 - [Cost is the number one reason people delay care · DentRead Insights](https://dentread-social.pages.dev/costo-barrera/): Cost is the number one reason people delay care. The money conversation is part of the clinical encounter, not an afterthought.
@@ -133,6 +134,7 @@
 
 ### Artículos
 
+- [Atender pacientes con discapacidad es un desafío · DentRead Insights](https://dentread-social.pages.dev/es/news-44972005/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
 - [DentRead aplica inteligencia artificial al análisis de imágenes radiográficas dentales · DentRead Insights](https://dentread-social.pages.dev/es/ia-radiografias-dentales/): La imagen ya tiene la información. Falta que llegue a tiempo. 🦷
 - [Casi todos sirvieron, pocos tienen dentista · DentRead Insights](https://dentread-social.pages.dev/es/news-57366925/): La evidencia clínica avanza despacio. El flujo que la aplica, más despacio todavía. 🦷
 - [La cobertura médica no predice la dental · DentRead Insights](https://dentread-social.pages.dev/es/costo-barrera/): El precio no se objeta: se posterga. Lo que no se entiende, no se paga. 🦷

@@ -4538,6 +4538,15 @@
    "preset": "ia",
    "first_seen": "2026-W48",
    "descartado": "revista_fuera_de_allowlist"
+  },
+  "41380485": {
+   "title": "Artificial Intelligence in Dentistry: A Concise Review of Reporting Checklists and Guidelines.",
+   "journal": "Int Dent J",
+   "year": "2026",
+   "design": "",
+   "preset": "ia",
+   "first_seen": "2026-W48",
+   "descartado": "diseno_no_señalizable:Journal Article, Review"
   }
  },
  "weeks": {
@@ -5052,6 +5061,7 @@
    "41006084",
    "41259905",
    "41366014",
+   "41380485",
    "41401467",
    "41597313",
    "41656050",
@@ -5060,5 +5070,5 @@
    "42537896"
   ]
  },
- "runs": 161
+ "runs": 165
 }
