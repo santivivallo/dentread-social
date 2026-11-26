@@ -275,3 +275,4 @@
 {"ts": "2026-11-25T22:24:23+00:00", "evento": "post_generado", "origen": "schedule", "corrida": "45710263381", "kind": "news", "id": "news-44972005", "slug": "news-44972005", "modo": "news", "redaccion": "curada"}
 {"ts": "2026-11-25T22:24:23+00:00", "evento": "corrida", "origen": "schedule", "corrida": "45710263381", "pedidos": 1, "listos": 1, "descartados": 1, "preview": false}
 {"ts": "2026-11-25T22:25:02+00:00", "evento": "publicado", "origen": "schedule", "corrida": "45710263381", "carpeta": "out/2026-11-25-news-44972005", "plataformas": ["instagram"], "resultados": {"instagram": "17915237847576412"}}
+{"ts": "2026-11-26T20:06:20+00:00", "evento": "llamada_modelo", "origen": "schedule", "corrida": "45888047838", "ok": true, "modelo": "gemini-flash-latest", "motivo": "HTTP 503: [{   \"error\": {     \"code\": 503,     \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try "}
