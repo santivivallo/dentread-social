@@ -50,6 +50,7 @@
 
 ## Articles
 
+- [Oral Health in Early and Advanced Stages (1-4) of Chronic Kidney Disease: A Systematic Review and Meta-Analysis · DentRead Insights](https://dentread-social.pages.dev/paper-42150341/): This work sought to evaluate oral health parameters in patients with chronic kidney disease in stages 1 to 4, through a systematic review and meta-analysi…
 - [ADA, other groups offer resources to help dentists support patients with disabilities, caregivers · DentRead Insights](https://dentread-social.pages.dev/news-44972005/): The University of Pennsylvania launched a digital resource center with guides and videos to assist caregivers of patients with disabilities. This initiati…
 - [AI applied to dental radiographs · DentRead Insights](https://dentread-social.pages.dev/ia-radiografias-dentales/): DentRead applies artificial intelligence to the analysis of dental radiographic images.
 - [State dental associations work to expand veterans’ access to care · DentRead Insights](https://dentread-social.pages.dev/news-57366925/): Several dental associations in the United States promoted laws, volunteer programs, and free care to facilitate access to oral health for war veterans. Th…
@@ -134,6 +135,7 @@
 
 ### Artículos
 
+- [24 estudios sobre riñones miraron la boca · DentRead Insights](https://dentread-social.pages.dev/es/paper-42150341/): Una revisión ordena lo que ya se sabía. Ahí se ve qué sigue sin estudiarse. 🦷
 - [Atender pacientes con discapacidad es un desafío · DentRead Insights](https://dentread-social.pages.dev/es/news-44972005/): El promedio del país no es tu promedio. Medí el tuyo antes de compararte. 🦷
 - [DentRead aplica inteligencia artificial al análisis de imágenes radiográficas dentales · DentRead Insights](https://dentread-social.pages.dev/es/ia-radiografias-dentales/): La imagen ya tiene la información. Falta que llegue a tiempo. 🦷
 - [Casi todos sirvieron, pocos tienen dentista · DentRead Insights](https://dentread-social.pages.dev/es/news-57366925/): La evidencia clínica avanza despacio. El flujo que la aplica, más despacio todavía. 🦷

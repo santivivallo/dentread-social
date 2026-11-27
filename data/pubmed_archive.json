@@ -2196,7 +2196,8 @@
    "design": "Systematic Review",
    "preset": "aceptacion",
    "first_seen": "2026-W39",
-   "descartado": ""
+   "descartado": "",
+   "used": true
   },
   "42467298": {
    "title": "Clinical performance of Class II resin composite restorations in primary molars with or without pulpotomy: a prospective 24-month clinical study.",
@@ -4547,6 +4548,15 @@
    "preset": "ia",
    "first_seen": "2026-W48",
    "descartado": "diseno_no_señalizable:Journal Article, Review"
+  },
+  "43091630": {
+   "title": "Hidden Allergens in Dental Biomaterials and Related Products: An Allergist-Dentist Perspective on Hypersensitivity and Clinical Risk Assessment.",
+   "journal": "Medicina (Kaunas)",
+   "year": "2026",
+   "design": "Systematic Review",
+   "preset": "economia",
+   "first_seen": "2026-W48",
+   "descartado": "revista_fuera_de_allowlist"
   }
  },
  "weeks": {
@@ -5067,8 +5077,9 @@
    "41656050",
    "42319635",
    "42330730",
-   "42537896"
+   "42537896",
+   "43091630"
   ]
  },
- "runs": 165
+ "runs": 172
 }
